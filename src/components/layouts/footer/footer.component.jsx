@@ -40,6 +40,7 @@ export default function Footer() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              marginBottom: '20px',
             }}
           >
             <Typography variant="h4" sx={{ color: 'white' }}>
@@ -55,6 +56,7 @@ export default function Footer() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              marginBottom: '20px',
             }}
           >
             <Typography variant="body2" sx={{ color: 'white' }}>
@@ -71,6 +73,7 @@ export default function Footer() {
               alignItems: 'center',
               justifyContent: 'center',
               flexDirection: 'column',
+              marginBottom: '20px',
             }}
           >
             <Typography variant="body2" sx={{ color: 'white' }}>
@@ -93,13 +96,13 @@ export default function Footer() {
           >
             <Link
               to="/https://www.facebook.com/Crit1008/"
-              style={{ textDecoration: 'none', paddingLeft: '30px' }}
+              style={{ textDecoration: 'none', paddingRight: '15px' }}
             >
               <FaFacebookF style={{ color: 'white', fontSize: '25px' }} />
             </Link>
             <Link
               to="/https://www.facebook.com/Crit1008/"
-              style={{ textDecoration: 'none', paddingLeft: '30px' }}
+              style={{ textDecoration: 'none', paddingLeft: '15px' }}
             >
               <FaInstagram style={{ color: 'white', fontSize: '25px' }} />
             </Link>

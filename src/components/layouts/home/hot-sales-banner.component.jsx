@@ -1,13 +1,13 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import React, { useRef, useState } from 'react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 // import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper';
 
 // import './styles.css';
 import Container from '@mui/material/Container';
@@ -24,11 +24,15 @@ export default function HotSalesBanner() {
         <div className="swiper-container">
           <Swiper
             cssMode={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
             navigation={true}
             pagination={true}
             mousewheel={true}
             keyboard={true}
-            modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+            modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
             className="mySwiper"

@@ -13,8 +13,6 @@ import {
 } from '@mui/material';
 import { Container } from '@mui/system';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import PersonIcon from '@mui/icons-material/Person';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
@@ -22,6 +20,7 @@ import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { FaFacebookF } from 'react-icons/fa';
+import PersonIcon from '@mui/icons-material/Person';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 export default function HeaderHome() {
@@ -297,8 +296,8 @@ export default function HeaderHome() {
                 </Link> */}
             </div>
             <Link to="/checkout">
-              <IconButton aria-label={notificationsLabel(100)}>
-                <StyledBadge color="success">
+              <IconButton aria-label={notificationsLabel(4)}>
+                <StyledBadge badgeContent={4} color="success">
                   <ShoppingCartIcon
                     cursor="pointer"
                     sx={{
@@ -309,6 +308,22 @@ export default function HeaderHome() {
                   >
                     Cart
                   </ShoppingCartIcon>
+                </StyledBadge>
+              </IconButton>
+            </Link>
+            <Link to="/checkout">
+              <IconButton aria-label={notificationsLabel(3)}>
+                <StyledBadge color="success">
+                  <PersonIcon
+                    cursor="pointer"
+                    sx={{
+                      color: 'white',
+                      stroke: 'black',
+                      verticalAlign: 'bottom',
+                    }}
+                  >
+                    Cart
+                  </PersonIcon>
                 </StyledBadge>
               </IconButton>
             </Link>
