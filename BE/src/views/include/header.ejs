@@ -1,0 +1,85 @@
+<!--================Header Area =================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<header class="header_area">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="/"><img src="/image/Logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                <ul class="nav navbar-nav menu_nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/" id="home"><%=  __('HOME') %></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/room" id="room"><%=  __('ROOM') %></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cart" id="cart"><%=  __('CART') %></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/order" id="order"><%=  __('ORDER') %></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=   __('INFORMATION') %></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" id="information" href="/information"><%=  __('PROFILE') %></a>
+                            <a class="dropdown-item" href="/control/logout"><%=  __('LOGOUT') %></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=  __('LANGUAGE') %></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item vi" id='vi' href="#" onclick = "clickVi()">Tiếng Việt</a>
+                            <a class="dropdown-item en" id='en' href="#" onclick = "clickEn()">English</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+        <% if(!locals.homepage) { %>
+        <!--================Breadcrumb Area =================-->
+        <section class="breadcrumb_area">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0"
+                data-background=""></div>
+            <div class="container">
+                <div class="page-cover text-center">
+                    <h2 class="page-cover-tittle" id="sss"></h2>
+                    <ol class="breadcrumb">
+                        <li><a href="index.html"><%=  __('HOME') %></a></li>
+                        <li class="active" id="ssss"></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!--================Breadcrumb Area =================-->
+        <% } %>
+<script>
+  
+    $(document).ready(function(){
+            var originURL = window.location.pathname;
+            var page;
+
+            if(originURL.length === 1)
+                page = "#room"
+            else
+                page = "#"+originURL.substring(1,originURL.length)
+
+
+            if(page.startsWith("#order/")){
+                page = "<%=  __('ORDERDETAIL') %>";
+            }
+            else
+                page = $(page).html().toUpperCase();
+
+
+            $('#sss').text(page);
+            $('#ssss').text(page);
+            $("#vi").attr("href", ('/control/lang/vi?url=' + originURL))
+            $("#en").attr("href", ('/control/lang/en?url=' + originURL))
+           
+    });
+
+</script>
+<!--================Header Area =================-->

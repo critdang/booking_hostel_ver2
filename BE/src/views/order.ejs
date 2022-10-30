@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="image/favicon.png" type="image/png">
+  <title>Claudion hotel</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/order.css">
+  <link rel="stylesheet" href="vendors/linericon/style.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+  <!-- main css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+ 
+</head>
+
+<body>
+  <%- include('./include/header.ejs') %>
+
+    <!--------------------------break-scrum------------------------------->
+    <div class="container">
+      <h2><%=  __('Your Order') %></h2>
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-1"><%=  __('Order') %></div>
+          <div class="col col-2"><%=  __('Code') %></div>
+          <div class="col col-3"><%=  __('Date') %></div>
+          <div class="col col-4"><%=  __('Status') %></div>
+          <div class="col col-5"><%=  __('Action') %></div>
+        </li>
+        <% for(let i=0;i< orders.length ; i++){ %>
+          <li class="table-row">
+            <div class="col col-1" data-label="Job Id"><%= i+1 %></div>
+            <div class="col col-2" data-label="Customer Name"><%= orders[i].code %></div>
+            <div class="col col-3" data-label="Amount"><%= orders[i].date.toLocaleString() %></div>
+            <div class="col col-4" data-label="Payment Status"><%= orders[i].status %></div>
+            <div class="col col-5" data-label="Payment Status"><a href="/order/<%= orders[i].id %>"><%=  __('Show') %></a></div>
+          </li>
+          <% }%>
+      </ul>
+    </div>
+    <%- include('./include/footer.ejs') %>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="js/popper.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+      <script src="js/jquery.ajaxchimp.min.js"></script>
+      <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+      <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+      <script src="js/mail-script.js"></script>
+      <script src="js/stellar.js"></script>
+      <script src="vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+      <script src="vendors/isotope/isotope-min.js"></script>
+      <script src="js/stellar.js"></script>
+      <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+      <!--gmaps Js-->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+      <script src="js/gmaps.min.js"></script>
+      <!-- contact js -->
+      <script src="js/jquery.form.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
+      <script src="js/contact.js"></script>
+      <script src="js/custom.js"></script>
+</body>
+
+</html>

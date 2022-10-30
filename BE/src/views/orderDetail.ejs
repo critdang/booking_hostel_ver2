@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/image/favicon.png" type="image/png">
+    <title>Claudion hotel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/order_detail.css">
+    <link rel="stylesheet" href="/vendors/linericon/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+    <%- include('./include/header.ejs') %>
+
+
+        <!--================ Cart  =================-->
+            <header id="site-header">
+                <div class="container">
+                    <h1><%=  __('Order Detail') %></h1>
+                </div>
+            </header>
+
+            <div class="container">
+
+                <section id="cart">
+                    <% for(d of data){ %>
+                        <article class="product">
+                            <header>
+                                    <img src="/image/<%= d.Room.image %>" alt="">
+                            </header>
+                            <div class="content">
+                                <h1>
+                                    <%= d.Room.roomName %>
+                                </h1>
+                                <%= d.Room.detail %>
+                            </div>
+                            <footer class="content">
+                                <span class="quantity" >Quantity: </span>
+                                <span class="qt" style="font-size: 200%">
+                                    <%= d.quantity %>
+                                </span>
+                                <h2 class="full-price">
+                                    <%= d.Room.price * d.quantity%>$
+                                </h2>
+                                <h2 class="price">
+                                    <%= d.Room.price%>$
+                                </h2>
+                            </footer>
+                        </article>
+                        <% }%>
+                </section>
+
+            </div>
+
+            <footer id="site-footer">
+                <div class="container clearfix">
+
+                    <div class="left">
+                        <h2 class="subtotal"><%=  __('Subtotal') %>: <span></span>$</h2>
+                        <h3 class="tax"><%=  __('Taxes') %> (5%): <span></span>$</h3>
+                    </div>
+
+                    <div class="right">
+                        <h1 class="total"><%=  __('Total') %>: <span></span>$</h1>
+                        <a class="btn-od" href="/order"><%=  __('Return') %></a>
+                    </div>
+
+                </div>
+            </footer>
+        <!--================ Cart  =================-->
+
+        <%- include('./include/footer.ejs') %>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="/js/jquery-3.2.1.min.js"></script>
+            <script src="/js/popper.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
+            <script src="/js/jquery.ajaxchimp.min.js"></script>
+            <script src="/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+            <script src="/vendors/nice-select/js/jquery.nice-select.js"></script>
+            <script src="/js/mail-script.js"></script>
+            <script src="/js/stellar.js"></script>
+            <script src="/vendors/lightbox/simpleLightbox.min.js"></script>
+            <script src="/js/custom.js"></script>
+            <script src="/js/cart.js"></script>
+</body>
+
+</html>
