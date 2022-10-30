@@ -73,7 +73,7 @@ export default function HeaderHome() {
   return (
     <AppBar position="sticky">
       <Container maxWidth="xl">
-        <Box sx={{ position: 'fixed', bottom: 16, right: 16, mr: 1 }}>
+        <Box sx={{ position: 'fixed', bottom: 80, right: 16, mr: 1 }}>
           <Fab>
             <Link to="/checkout">
               <IconButton aria-label={notificationsLabel(3)}>

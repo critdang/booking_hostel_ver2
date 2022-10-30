@@ -11,6 +11,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper';
 
 // import './styles.css';
 import Container from '@mui/material/Container';
+
 const imageSources = [
   'https://media-cdn.tripadvisor.com/media/photo-s/17/61/79/7f/pub-area.jpg',
   'https://media-cdn.tripadvisor.com/media/photo-m/1280/15/06/b9/7c/overview.jpg',

@@ -59,7 +59,10 @@ export default function Footer() {
               marginBottom: '20px',
             }}
           >
-            <Typography variant="body2" sx={{ color: 'white' }}>
+            <Typography
+              variant="body2"
+              sx={{ color: 'white', textAlign: 'center' }}
+            >
               500 Terry Francois Street San Francisco, CA 94158 info@mysite.com
             </Typography>
           </Grid>

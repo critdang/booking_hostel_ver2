@@ -21,9 +21,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { FaFacebookF } from 'react-icons/fa';
 import PersonIcon from '@mui/icons-material/Person';
+import { useCount } from '../../../context/cart.provider';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 export default function HeaderHome() {
+  // [START - useContext]
+  const { state } = useCount();
+
+  // [END - useContext]
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -80,7 +86,7 @@ export default function HeaderHome() {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar>
+        <Toolbar id="back-to-top-anchor">
           {/* START - LOGO on laptop */}
           <Typography
             variant="h3"
@@ -97,7 +103,7 @@ export default function HeaderHome() {
               textDecoration: 'none',
             }}
           >
-            CASA 2
+            CASA 3
           </Typography>
           {/* END - LOGO on laptop */}
 
@@ -231,22 +237,25 @@ export default function HeaderHome() {
                 Home
               </Button>
             </Link>
-            <Button
-              id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClick}
-              sx={{
-                color: 'black',
-                '&:hover': {
-                  opacity: '50%',
-                },
-              }}
-            >
-              Dorm & Rooms
-            </Button>
-            <Menu
+            <Link to="/room" style={{ textDecoration: 'none' }}>
+              <Button
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                sx={{
+                  color: 'black',
+                  '&:hover': {
+                    opacity: '50%',
+                  },
+                }}
+              >
+                Dorm & Rooms
+              </Button>
+              {/* Start - Dropdown list menu */}
+
+              {/* <Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
@@ -263,7 +272,10 @@ export default function HeaderHome() {
                   All
                 </MenuItem>
               </Link>
-            </Menu>
+            </Menu> */}
+
+              {/* END - Dropdown list menu */}
+            </Link>
             <div>
               <Link
                 to="/activities"
@@ -295,9 +307,9 @@ export default function HeaderHome() {
                   </Button>
                 </Link> */}
             </div>
-            <Link to="/checkout">
+            <Link to="/cart">
               <IconButton aria-label={notificationsLabel(4)}>
-                <StyledBadge badgeContent={4} color="success">
+                <StyledBadge badgeContent={state.count} color="success">
                   <ShoppingCartIcon
                     cursor="pointer"
                     sx={{

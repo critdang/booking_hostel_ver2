@@ -1,23 +1,36 @@
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
+  Switch
 } from "react-router-dom";
+import { createContext, useMemo, useState } from 'react';
+
 import HomePage from './pages/home.page';
 import ActivitiesPage from './pages/activities.page';
 import About from './pages/about.page';
 import Location from './pages/location.page';
+import Cart from './pages/cart.page';
+import Room from './pages/room.page'
+import  CartContext  from './context/cart.context';
+import CartProvider from './context/cart.provider';
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/activities" element={<ActivitiesPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/location" element={<Location />} />
-      </Routes>
-    </BrowserRouter>
+        <CartProvider>
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/activities" element={<ActivitiesPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/location" element={<Location />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/room" element={<Room />} />
+          </Routes>
+        </Router>
+      </CartProvider>
   );
 }
 

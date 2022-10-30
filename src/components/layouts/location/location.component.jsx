@@ -10,6 +10,28 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Activities from './index';
 
 const cards = [1];
+const ParkingData = {
+  'Self parking': 'Complimentary',
+  'Valet parking': 'Not available',
+  Secured: 'Available',
+  Covered: 'Available',
+  'In/Out privileges': 'Available',
+};
+
+const Transportation = {
+  'Airport shuttle': 'Not available',
+  'Da Nang, Vietnam': '4 kilometers',
+  'Hue, Vietnam': '82 kilometers',
+};
+
+const WhatIsNearby = {
+  'Asia Park': '7 kilometers',
+  'BRG Da Nang Golf Resort': '15.07 kilometers',
+  'Bana Hills': '27 kilometers',
+  'Cham Museum': '2.30 kilometers',
+  'City Center': '0.20 kilometers',
+  'Da Nang Beach': '3.20 kilometers',
+};
 
 const theme = createTheme();
 export default function Location() {
@@ -104,66 +126,76 @@ export default function Location() {
             </Typography>
           </Container>
         </Box>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ py: 0 }}>
           <Grid container>
-            <Grid xs={12} sm={6} md={6}>
-              <img
-                src="https://static.wixstatic.com/media/3d0bad396e2041388553c427d5bd26fe.jpeg/v1/fill/w_613,h_538,al_c,q_80,usm_0.66_1.00_0.01/3d0bad396e2041388553c427d5bd26fe.webp"
-                alt=""
-                width="100%"
-              />
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              md={4}
+              sx={{ backgroundColor: '#f1f1f1', padding: '20px' }}
+            >
+              <Typography variant="h4" textAlign="center">
+                Parking
+              </Typography>
+              {Object.keys(ParkingData).map((key, index) => (
+                <Grid container>
+                  <Grid item xs={6} sm={6} md={6}>
+                    <Typography fontWeight="bold" variant="body1" gutterBottom>
+                      {key}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} sm={6} md={6}>
+                    <Typography variant="body1" gutterBottom>
+                      {ParkingData[key]}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              ))}
             </Grid>
-            <Grid xs={12} sm={6} md={5} ml={3}>
-              <Typography variant="h3" gutterBottom>
-                By Train
+            <Grid item xs={12} sm={4} md={4} padding="24px">
+              <Typography variant="h4" textAlign="center">
+                Transportation
               </Typography>
-              <Typography variant="body1">
-                I'm a paragraph. Click here to add your own text and edit me.
-                It’s easy. Just click “Edit Text” or double click me to add your
-                own content and make changes to the font.
-              </Typography>
+              {Object.keys(Transportation).map((key, index) => (
+                <Grid container>
+                  <Grid item xs={6} sm={6} md={6}>
+                    <Typography fontWeight="bold" variant="body1" gutterBottom>
+                      {key}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} sm={6} md={6}>
+                    <Typography variant="body1" gutterBottom>
+                      {Transportation[key]}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              ))}
             </Grid>
-          </Grid>
-        </Container>
-        <Container maxWidth="lg">
-          <Grid container>
-            <Grid xs={12} sm={6} md={6}>
-              <img
-                src="https://static.wixstatic.com/media/3d0bad396e2041388553c427d5bd26fe.jpeg/v1/fill/w_613,h_538,al_c,q_80,usm_0.66_1.00_0.01/3d0bad396e2041388553c427d5bd26fe.webp"
-                alt=""
-                width="100%"
-              />
-            </Grid>
-            <Grid xs={12} sm={6} md={5} ml={3}>
-              <Typography variant="h3" gutterBottom>
-                By Taxi
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              md={4}
+              sx={{ backgroundColor: '#f1f1f1', padding: '24px' }}
+            >
+              <Typography variant="h4" textAlign="center">
+                What's nearby
               </Typography>
-              <Typography variant="body1">
-                I'm a paragraph. Click here to add your own text and edit me.
-                It’s easy. Just click “Edit Text” or double click me to add your
-                own content and make changes to the font.
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
-        <Container maxWidth="lg">
-          <Grid container>
-            <Grid xs={12} sm={6} md={6}>
-              <img
-                src="https://static.wixstatic.com/media/3d0bad396e2041388553c427d5bd26fe.jpeg/v1/fill/w_613,h_538,al_c,q_80,usm_0.66_1.00_0.01/3d0bad396e2041388553c427d5bd26fe.webp"
-                alt=""
-                width="100%"
-              />
-            </Grid>
-            <Grid xs={12} sm={6} md={5} ml={3}>
-              <Typography variant="h3" gutterBottom>
-                By Bicycle
-              </Typography>
-              <Typography variant="body1">
-                I'm a paragraph. Click here to add your own text and edit me.
-                It’s easy. Just click “Edit Text” or double click me to add your
-                own content and make changes to the font.
-              </Typography>
+              {Object.keys(WhatIsNearby).map((key, index) => (
+                <Grid container>
+                  <Grid item xs={6} sm={6} md={6}>
+                    <Typography fontWeight="bold" variant="body1" gutterBottom>
+                      {key}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} sm={6} md={6}>
+                    <Typography variant="body1" gutterBottom>
+                      {WhatIsNearby[key]}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              ))}
             </Grid>
           </Grid>
         </Container>
