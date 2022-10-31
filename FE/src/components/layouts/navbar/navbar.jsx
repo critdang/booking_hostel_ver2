@@ -18,18 +18,15 @@ import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
 import { FaFacebookF } from 'react-icons/fa';
 import PersonIcon from '@mui/icons-material/Person';
-import { useCount } from '../../../context/cart.provider';
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { useCart } from '../../../context/cart/cart.provider';
 
 export default function HeaderHome() {
   // [START - useContext]
-  const { state } = useCount();
-
+  const { state } = useCart();
   // [END - useContext]
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -88,23 +85,24 @@ export default function HeaderHome() {
       <Container maxWidth="xl">
         <Toolbar id="back-to-top-anchor">
           {/* START - LOGO on laptop */}
-          <Typography
-            variant="h3"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'roboto',
-              fontWeight: 500,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            CASA 3
-          </Typography>
+          <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
+            <Typography
+              variant="h3"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'roboto',
+                fontWeight: 500,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              CASA 3
+            </Typography>
+          </Link>
           {/* END - LOGO on laptop */}
 
           {/* START - MENU on responsive */}
@@ -219,7 +217,7 @@ export default function HeaderHome() {
               textDecoration: 'none',
             }}
           >
-            CASA 2
+            CASA 3
           </Typography>
           {/* END - LOGO on responsive */}
 

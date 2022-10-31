@@ -2,17 +2,13 @@ import { useContext, useReducer } from 'react';
 import CartContext from './cart.context';
 
 const initialState = {
-  count: 1,
+  count: 0,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case 'increase':
       state = { ...state, count: state.count + 1 };
-      console.log(
-        '🚀 ~ file: cart.provider.jsx ~ line 12 ~ reducer ~ state',
-        state
-      );
       break;
     case 'decrease':
       state = { ...state, count: state.count - 1 };
@@ -34,7 +30,7 @@ function CartProvider({ children }, ...props) {
   );
 }
 
-function useCount() {
+function useCart() {
   const context = useContext(CartContext);
 
   if (context === undefined)
@@ -44,4 +40,4 @@ function useCount() {
 }
 
 export default CartProvider;
-export { useCount };
+export { useCart };

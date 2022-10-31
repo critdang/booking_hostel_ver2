@@ -22,9 +22,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { FaFacebookF } from 'react-icons/fa';
 import PersonIcon from '@mui/icons-material/Person';
+import { useCart } from '../../../context/cart/cart.provider';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 export default function HeaderHome() {
+  // [START - useContext]
+  const { state } = useCart();
+  // [END - useContext]
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -77,7 +81,7 @@ export default function HeaderHome() {
           <Fab>
             <Link to="/checkout">
               <IconButton aria-label={notificationsLabel(3)}>
-                <StyledBadge badgeContent={4} color="success">
+                <StyledBadge badgeContent={state.count} color="success">
                   <ShoppingCartIcon
                     cursor="pointer"
                     sx={{

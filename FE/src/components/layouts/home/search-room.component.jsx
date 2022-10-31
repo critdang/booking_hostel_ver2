@@ -13,114 +13,136 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import moment from 'moment';
+import { KeyboardDatePicker } from '@material-ui/pickers';
+
+import { useSearch } from '../../../context/search/search.provider';
 const theme = createTheme();
 
 export default function SearchRoom() {
   const [value, setValue] = React.useState(null);
   const [people, setPeople] = React.useState('1 Adult');
   const [room, setRoom] = React.useState('1 Room');
-
+  const { state } = useSearch();
+  console.log(
+    '🚀 ~ file: search-room.component.jsx ~ line 24 ~ SearchRoom ~ state',
+    state
+  );
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <main>
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="md">
-            <Grid
-              container
-              spacing={4}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
+    <>
+      <h1>{state.from}</h1>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <main>
+          <Box
+            sx={{
+              bgcolor: 'background.paper',
+              pt: 8,
+              pb: 6,
+            }}
+          >
+            <Container maxWidth="md">
               <Grid
-                xs={12}
-                sm={12}
-                md={4}
-                display="flex"
-                justifyContent="spacebetween"
-                alignItems="center"
-              >
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
-                    label="From"
-                    value={value}
-                    onChange={(newValue) => {
-                      setValue(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </LocalizationProvider>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
-                    label="To"
-                    value={value}
-                    onChange={(newValue) => {
-                      setValue(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </LocalizationProvider>
-              </Grid>
-              <Grid
-                xs={12}
-                sm={6}
-                md={4}
+                container
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
               >
-                {/* <InputLabel id="demo-simple-select-autowidth-label">
+                <Grid
+                  xs={12}
+                  sm={12}
+                  md={4}
+                  display="flex"
+                  justifyContent="spacebetween"
+                  alignItems="center"
+                >
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <KeyboardDatePicker
+                      clearable
+                      value={state.from}
+                      onChange={(newValue) => {
+                        setValue(newValue);
+                      }}
+                      format="DD/MM/YYYY"
+                    />
+                    <DatePicker
+                      label="Basic example"
+                      value={state.from}
+                      format="DD/MM/YYYY"
+                      onChange={(newValue) => {
+                        setValue(newValue);
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                  <Box sx={{ mx: 2 }}> to </Box>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                      label="To"
+                      format="DD/MM/YYYY"
+                      value={state.to}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </Grid>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  {/* <InputLabel id="demo-simple-select-autowidth-label">
                     Age
                   </InputLabel> */}
-                <Select
-                  value={room}
-                  defaultValue={room}
-                  onChange={(event) => setRoom(event.target.value)}
-                >
-                  <MenuItem value={'1 Room'}>1 Room</MenuItem>
-                  <MenuItem value={'2 Room'}>2 Room</MenuItem>
-                  <MenuItem value={'3 Room'}>3 Room</MenuItem>
-                  <MenuItem value={'1 Adult 2 Child'}>2 Adult 1 Child</MenuItem>
-                </Select>
-                <Select
-                  value={people}
-                  defaultValue={people}
-                  onChange={(event) => setPeople(event.target.value)}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={'1 Adult'}>1 Adult</MenuItem>
-                  <MenuItem value={'2 Adult'}>2 Adult</MenuItem>
-                  <MenuItem value={'1 Adult 1 Child'}>1 Adult 1 Child</MenuItem>
-                  <MenuItem value={'1 Adult 2 Child'}>2 Adult 1 Child</MenuItem>
-                </Select>
-              </Grid>
+                  <Select
+                    value={room}
+                    defaultValue={room}
+                    onChange={(event) => setRoom(event.target.value)}
+                  >
+                    <MenuItem value={'1 Room'}>1 Room</MenuItem>
+                    <MenuItem value={'2 Room'}>2 Room</MenuItem>
+                    <MenuItem value={'3 Room'}>3 Room</MenuItem>
+                    <MenuItem value={'1 Adult 2 Child'}>
+                      2 Adult 1 Child
+                    </MenuItem>
+                  </Select>
+                  <Select
+                    value={people}
+                    defaultValue={people}
+                    onChange={(event) => setPeople(event.target.value)}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={'1 Adult'}>1 Adult</MenuItem>
+                    <MenuItem value={'2 Adult'}>2 Adult</MenuItem>
+                    <MenuItem value={'1 Adult 1 Child'}>
+                      1 Adult 1 Child
+                    </MenuItem>
+                    <MenuItem value={'1 Adult 2 Child'}>
+                      2 Adult 1 Child
+                    </MenuItem>
+                  </Select>
+                </Grid>
 
-              <Grid
-                xs={12}
-                sm={12}
-                md={4}
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Button variant="contained" style={{ height: '35px' }}>
-                  Search
-                </Button>
+                <Grid
+                  xs={12}
+                  sm={12}
+                  md={4}
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Button variant="contained" style={{ height: '35px' }}>
+                    Search
+                  </Button>
+                </Grid>
               </Grid>
-            </Grid>
-          </Container>
-        </Box>
-      </main>
-    </ThemeProvider>
+            </Container>
+          </Box>
+        </main>
+      </ThemeProvider>
+    </>
   );
 }

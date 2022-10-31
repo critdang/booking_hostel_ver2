@@ -25,6 +25,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper';
+import { useCart } from '../../../context/cart/cart.provider';
 
 const imageSources = [
   'https://media-cdn.tripadvisor.com/media/photo-s/17/61/79/7f/pub-area.jpg',
@@ -59,6 +60,10 @@ const raw = `Top premium floors, exclusive Executive Lounge access, ocean and Ha
 const descriptions = raw.split('\n');
 
 export default function RoomBody() {
+  // [START - useContext]
+  const { dispatch } = useCart();
+
+  // [END - useContext]
   const [openModal, setOpenModal] = React.useState(false);
   const handleCloseModal = () => setOpenModal(false);
 
@@ -70,6 +75,8 @@ export default function RoomBody() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const onClick = (type) => () => dispatch({ type: type });
 
   return (
     <ThemeProvider theme={theme}>
@@ -148,6 +155,7 @@ export default function RoomBody() {
                           variant="contained"
                           size="small"
                           sx={{ width: 200 }}
+                          onClick={onClick('increase')}
                         >
                           Book
                         </Button>
@@ -407,6 +415,7 @@ export default function RoomBody() {
                           variant="contained"
                           size="small"
                           sx={{ width: 200 }}
+                          onClick={onClick('increase')}
                         >
                           Book
                         </Button>
@@ -471,6 +480,7 @@ export default function RoomBody() {
                           variant="contained"
                           size="small"
                           sx={{ width: 200 }}
+                          onClick={onClick('increase')}
                         >
                           Book
                         </Button>

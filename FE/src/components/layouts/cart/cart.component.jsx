@@ -181,7 +181,15 @@ export default function Album() {
                   Please fill in your private information
                 </Typography>
                 <Box>
-                  <Grid container>
+                  <Grid
+                    container
+                    sx={{
+                      borderBottom: 0.1,
+                      marginBottom: 2,
+                      paddingBottom: 2,
+                      borderColor: 'rgba(0,0,0,0.5)',
+                    }}
+                  >
                     <Grid item xs={6}>
                       <Typography variant="body1">Dulux Room</Typography>
                     </Grid>
@@ -273,24 +281,24 @@ export default function Album() {
                         </Accordion>
                       </div>
                     </Grid>
-                    <Container sx={{ border: 1 }}>
-                      <Grid container>
-                        <Grid item xs={12}>
-                          <Typography variant="body1">
-                            TOTAL(fees and taxes included)
-                          </Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                          <Typography variant="body1">6 ROOMS</Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                          <Typography variant="body1" textAlign="right">
-                            43,120,000 $
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Container>
                   </Grid>
+                  <Container disableGutters>
+                    <Grid container>
+                      <Grid item xs={12}>
+                        <Typography variant="body1">
+                          TOTAL(fees and taxes included)
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Typography variant="body1">6 ROOMS</Typography>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Typography variant="body1" textAlign="right">
+                          43,120,000 $
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Container>
                 </Box>
               </Box>
             </Grid>
