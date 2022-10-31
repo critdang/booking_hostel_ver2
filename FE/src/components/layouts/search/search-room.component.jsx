@@ -13,23 +13,28 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { KeyboardDatePicker } from '@material-ui/pickers';
-
 import { useSearch } from '../../../context/search/search.provider';
+import moment from 'moment';
+
 const theme = createTheme();
 
 export default function SearchRoom() {
-  const [value, setValue] = React.useState(null);
-  const [people, setPeople] = React.useState('1 Adult');
-  const [room, setRoom] = React.useState('1 Room');
   const { state } = useSearch();
   console.log(
-    '🚀 ~ file: search-room.component.jsx ~ line 24 ~ SearchRoom ~ state',
+    '🚀 ~ file: search-room.component.jsx ~ line 23 ~ SearchRoom ~ state',
     state
   );
+
+  const [inputSearch, setInputSearch] = React.useState(state);
+  // [START - useContext]
+  const { dispatch } = useSearch();
+
+  // [END - useContext]
+  const handleUpdateSearch = async () => {
+    const data = () => dispatch(inputSearch);
+  };
   return (
     <>
-      <h1>{state.from}</h1>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <main>
@@ -40,36 +45,26 @@ export default function SearchRoom() {
               pb: 6,
             }}
           >
-            <Container maxWidth="md">
-              <Grid
-                container
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              >
+            <Container maxWidth="lg">
+              <Grid container>
                 <Grid
+                  item
                   xs={12}
                   sm={12}
-                  md={4}
+                  md={7}
                   display="flex"
-                  justifyContent="spacebetween"
+                  justifyContent="center"
                   alignItems="center"
                 >
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <KeyboardDatePicker
-                      clearable
-                      value={state.from}
-                      onChange={(newValue) => {
-                        setValue(newValue);
-                      }}
-                      format="DD/MM/YYYY"
-                    />
                     <DatePicker
-                      label="Basic example"
-                      value={state.from}
-                      format="DD/MM/YYYY"
-                      onChange={(newValue) => {
-                        setValue(newValue);
+                      label="From"
+                      value={inputSearch.From}
+                      onChange={(e) => {
+                        setInputSearch({
+                          ...inputSearch,
+                          From: moment(e.$d).format('MM/DD/YYYY'),
+                        });
                       }}
                       renderInput={(params) => <TextField {...params} />}
                     />
@@ -78,16 +73,22 @@ export default function SearchRoom() {
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                       label="To"
-                      format="DD/MM/YYYY"
-                      value={state.to}
+                      value={inputSearch.To}
                       renderInput={(params) => <TextField {...params} />}
+                      onChange={(e) => {
+                        setInputSearch({
+                          ...inputSearch,
+                          To: moment(e.$d).format('MM/DD/YYYY'),
+                        });
+                      }}
                     />
                   </LocalizationProvider>
                 </Grid>
                 <Grid
+                  item
                   xs={12}
-                  sm={6}
-                  md={4}
+                  sm={12}
+                  md={3}
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
@@ -96,21 +97,30 @@ export default function SearchRoom() {
                     Age
                   </InputLabel> */}
                   <Select
-                    value={room}
-                    defaultValue={room}
-                    onChange={(event) => setRoom(event.target.value)}
+                    value={inputSearch.room}
+                    name="room"
+                    onChange={(e) => {
+                      setInputSearch({
+                        ...inputSearch,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
+                    style={{ marginRight: '20px' }}
                   >
                     <MenuItem value={'1 Room'}>1 Room</MenuItem>
                     <MenuItem value={'2 Room'}>2 Room</MenuItem>
                     <MenuItem value={'3 Room'}>3 Room</MenuItem>
-                    <MenuItem value={'1 Adult 2 Child'}>
-                      2 Adult 1 Child
-                    </MenuItem>
                   </Select>
                   <Select
-                    value={people}
-                    defaultValue={people}
-                    onChange={(event) => setPeople(event.target.value)}
+                    value={inputSearch.numberOfGuests}
+                    name="numberOfGuests"
+                    onChange={(e) => {
+                      setInputSearch({
+                        ...inputSearch,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
+                    style={{ marginLeft: '20px' }}
                   >
                     <MenuItem value="">
                       <em>None</em>
@@ -129,12 +139,17 @@ export default function SearchRoom() {
                 <Grid
                   xs={12}
                   sm={12}
-                  md={4}
+                  md={2}
+                  item
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <Button variant="contained" style={{ height: '35px' }}>
+                  <Button
+                    variant="contained"
+                    style={{ height: '35px' }}
+                    onClick={handleUpdateSearch}
+                  >
                     Search
                   </Button>
                 </Grid>

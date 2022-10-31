@@ -62,8 +62,8 @@ const descriptions = raw.split('\n');
 export default function RoomBody() {
   // [START - useContext]
   const { dispatch } = useCart();
-
   // [END - useContext]
+
   const [openModal, setOpenModal] = React.useState(false);
   const handleCloseModal = () => setOpenModal(false);
 

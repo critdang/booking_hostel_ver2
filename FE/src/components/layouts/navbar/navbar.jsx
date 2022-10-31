@@ -321,22 +321,16 @@ export default function HeaderHome() {
                 </StyledBadge>
               </IconButton>
             </Link>
-            <Link to="/checkout">
-              <IconButton aria-label={notificationsLabel(3)}>
-                <StyledBadge color="success">
-                  <PersonIcon
-                    cursor="pointer"
-                    sx={{
-                      color: 'white',
-                      stroke: 'black',
-                      verticalAlign: 'bottom',
-                    }}
-                  >
-                    Cart
-                  </PersonIcon>
-                </StyledBadge>
-              </IconButton>
-            </Link>
+            {/* <Link to="/profile">
+              <PersonIcon
+                cursor="pointer"
+                sx={{
+                  color: 'white',
+                  stroke: 'black',
+                  verticalAlign: 'bottom',
+                }}
+              ></PersonIcon>
+            </Link> */}
           </Box>
           {/* END - MENU on laptop */}
 
