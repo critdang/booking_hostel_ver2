@@ -6,15 +6,14 @@ const generateJWT = (userId) => {
     id: userId,
   };
   const key = process.env.JWT_SECRET;
-  let token;
   try {
-    token = jwt.sign(payload, key, {
+    const token = jwt.sign(payload, key, {
       expiresIn: '15m',
     });
+    return token;
   } catch (e) {
-    console.log(e);
+    return e;
   }
-  return token;
 };
 
 const authenticateToken = (req, res, next) => {

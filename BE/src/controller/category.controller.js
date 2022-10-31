@@ -1,7 +1,18 @@
+const format = require("string-format");
 const categoryService = require("../service/categoryService");
+const { returnSuccess, returnFail } = require("../utils/helperFn");
+const { CODE } = require("../constants/code");
+const AppError = require("../utils/errorHandle/appError");
+const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
 const create = async (req, res) => {
   try {
+    if (!req.body) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.body),
+        CODE.INVALID
+      );
+    }
     categoryService.create(req, res);
   } catch (e) {
     console.log(e);

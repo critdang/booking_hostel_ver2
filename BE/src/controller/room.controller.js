@@ -1,4 +1,9 @@
+const format = require("string-format");
 const roomService = require("../service/roomService");
+const { returnSuccess, returnFail } = require("../utils/helperFn");
+const { CODE } = require("../constants/code");
+const AppError = require("../utils/errorHandle/appError");
+const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
 const create = async (req, res) => {
   try {
@@ -25,6 +30,12 @@ const getOne = async (req, res) => {
 
 const update = async (req, res) => {
   try {
+    if (!req.body) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.body),
+        CODE.INVALID
+      );
+    }
     roomService.update(req, res);
   } catch (e) {
     console.log(e);

@@ -5,6 +5,7 @@ module.exports = {
     INVALID: "{} is invalid input",
     EXISTED: "{} is already exist",
     ERROR: "an error has occurred: {}",
+    INCORRECT: "{} is incorrect",
     KEYWORD: "please pass a name"
   },
 };

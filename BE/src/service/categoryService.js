@@ -82,25 +82,23 @@ const getAll = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const { fieldname, value } = req.params;
+    const { id } = req.params;
     const updateContents = convertValue(req.body);
-    if (!fieldname || !value) {
+    if (!id) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, value),
+        format(COMMON_MESSAGES.INVALID, id),
         CODE.INVALID
       );
     }
-    const condition = {};
-    condition[fieldname] = value;
     await db.Category.update(
       updateContents,
       {
-        where: condition,
+        where: { id },
       }
     ).then((result) => {
       if (result[0] === 0) {
         throw new AppError(
-          format(COMMON_MESSAGES.NOT_FOUND, value),
+          format(COMMON_MESSAGES.NOT_FOUND, id),
           CODE.NOT_FOUND
         );
       }

@@ -87,20 +87,18 @@ const update = async (req, res) => {
     }
     const condition = {};
     condition[fieldname] = value;
-    await db.Room.update(
+    const result = await db.Room.update(
       updateContents,
       {
         where: condition,
       }
-    ).then((result) => {
-      if (result[0] === 0) {
-        throw new AppError(
-          format(COMMON_MESSAGES.NOT_FOUND, value),
-          CODE.NOT_FOUND
-        );
-      }
-    });
-
+    );
+    if (result[0] === 0) {
+      throw new AppError(
+        format(COMMON_MESSAGES.NOT_FOUND, value),
+        CODE.NOT_FOUND
+      );
+    }
     return returnSuccess(req, res, CODE.SUCCESS, "update success");
   } catch (error) {
     return returnFail(req, res, error);

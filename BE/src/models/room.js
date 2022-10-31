@@ -12,8 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Category, {
         foreignKey: 'categoryId',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       });
       this.hasMany(models.Cart, {
         foreignKey: 'roomId',
@@ -38,8 +36,6 @@ module.exports = (sequelize, DataTypes) => {
     categoryId: {
       allowNull: true,
       type: DataTypes.INTEGER,
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
       references: {
         model: 'Category',
         key: 'id',

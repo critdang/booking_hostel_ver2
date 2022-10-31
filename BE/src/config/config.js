@@ -7,7 +7,7 @@ module.exports = {
     database: process.env.databaseHotel,
     host: process.env.hostHotel,
     dialect: process.env.dialectHotel,
-    logging: false,
+    logging: true,
     query: { raw: true },
     timezone: '+07:00',
   },
