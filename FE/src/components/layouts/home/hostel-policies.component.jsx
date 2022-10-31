@@ -72,110 +72,117 @@ export default function HostelPolicies() {
               Hotel Policies
             </Typography>
           </Container>
-        </Box>
-        <Container maxWidth="lg">
-          <TabContext value={value}>
-            <Box
+          <Container maxWidth="lg">
+            <TabContext value={value}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                width="100%"
+                sx={{ borderBottom: 1, borderColor: 'divider' }}
+              >
+                <TabList
+                  onChange={handleChange}
+                  aria-label="lab API tabs example"
+                  variant="scrollable"
+                  scrollButtons
+                  allowScrollButtonsMobile
+                >
+                  <Tab
+                    icon={<DirectionsCarFilledOutlinedIcon />}
+                    label="Parking"
+                    value="1"
+                  />
+                  <Tab icon={<PetsIcon />} label="Pets" value="2" />
+                  <Tab icon={<SmokeFreeIcon />} label="No smoking" value="3" />
+                  <Tab icon={<WifiIcon />} label="wifi" value="4" />
+                </TabList>
+              </Box>
+              <TabPanel
+                value="1"
+                sx={{
+                  padding: '24px',
+                  marginTop: '0',
+                }}
+              >
+                {/* START - Tabs  unit */}
+                <Grid container spacing={4}>
+                  {Object.keys(ParkingData).map((key, index) => (
+                    <>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography sx={{ fontWeight: 'bold' }}>
+                          {key}
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography>{ParkingData[key]}</Typography>
+                      </Grid>
+                    </>
+                  ))}
+                </Grid>
+                {/* END - Tabs  unit*/}
+              </TabPanel>
+              <TabPanel value="2" sx={{ padding: '0', marginTop: '20px' }}>
+                {/* START - Tabs  unit */}
+                <Grid container spacing={4}>
+                  {Object.keys(PetsData).map((key, index) => (
+                    <>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography sx={{ fontWeight: 'bold' }}>
+                          {key}
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography>{PetsData[key]}</Typography>
+                      </Grid>
+                    </>
+                  ))}
+                </Grid>
+                {/* END - Tabs  unit*/}
+              </TabPanel>
+              <TabPanel value="3" sx={{ padding: '0', marginTop: '20px' }}>
+                {/* START - Tabs  unit */}
+                <Grid container spacing={4}>
+                  {Object.keys(SmokingData).map((key, index) => (
+                    <>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography sx={{ fontWeight: 'bold' }}>
+                          {key}
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography>{SmokingData[key]}</Typography>
+                      </Grid>
+                    </>
+                  ))}
+                </Grid>
+                {/* END - Tabs  unit*/}
+              </TabPanel>
+              <TabPanel value="4" sx={{ padding: '0', marginTop: '20px' }}>
+                {/* START - Tabs  unit */}
+                <Grid container spacing={4}>
+                  {Object.keys(WifiData).map((key, index) => (
+                    <>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography sx={{ fontWeight: 'bold' }}>
+                          {key}
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={6} sm={6} md={6}>
+                        <Typography>{WifiData[key]}</Typography>
+                      </Grid>
+                    </>
+                  ))}
+                </Grid>
+                {/* END - Tabs  unit*/}
+              </TabPanel>
+            </TabContext>
+            <Grid
+              container
               display="flex"
               justifyContent="center"
-              width="100%"
-              sx={{ borderBottom: 1, borderColor: 'divider' }}
+              alignItem="center"
             >
-              <TabList
-                onChange={handleChange}
-                aria-label="lab API tabs example"
-                variant="scrollable"
-                scrollButtons
-                allowScrollButtonsMobile
-              >
-                <Tab
-                  icon={<DirectionsCarFilledOutlinedIcon />}
-                  label="Parking"
-                  value="1"
-                />
-                <Tab icon={<PetsIcon />} label="Pets" value="2" />
-                <Tab icon={<SmokeFreeIcon />} label="No smoking" value="3" />
-                <Tab icon={<WifiIcon />} label="wifi" value="4" />
-              </TabList>
-            </Box>
-            <TabPanel
-              value="1"
-              sx={{
-                padding: '24px',
-                marginTop: '0',
-              }}
-            >
-              {/* START - Tabs  unit */}
-              <Grid container spacing={4}>
-                {Object.keys(ParkingData).map((key, index) => (
-                  <>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography sx={{ fontWeight: 'bold' }}>{key}</Typography>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography>{ParkingData[key]}</Typography>
-                    </Grid>
-                  </>
-                ))}
-              </Grid>
-              {/* END - Tabs  unit*/}
-            </TabPanel>
-            <TabPanel value="2" sx={{ padding: '0', marginTop: '20px' }}>
-              {/* START - Tabs  unit */}
-              <Grid container spacing={4}>
-                {Object.keys(PetsData).map((key, index) => (
-                  <>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography sx={{ fontWeight: 'bold' }}>{key}</Typography>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography>{PetsData[key]}</Typography>
-                    </Grid>
-                  </>
-                ))}
-              </Grid>
-              {/* END - Tabs  unit*/}
-            </TabPanel>
-            <TabPanel value="3" sx={{ padding: '0', marginTop: '20px' }}>
-              {/* START - Tabs  unit */}
-              <Grid container spacing={4}>
-                {Object.keys(SmokingData).map((key, index) => (
-                  <>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography sx={{ fontWeight: 'bold' }}>{key}</Typography>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography>{SmokingData[key]}</Typography>
-                    </Grid>
-                  </>
-                ))}
-              </Grid>
-              {/* END - Tabs  unit*/}
-            </TabPanel>
-            <TabPanel value="4" sx={{ padding: '0', marginTop: '20px' }}>
-              {/* START - Tabs  unit */}
-              <Grid container spacing={4}>
-                {Object.keys(WifiData).map((key, index) => (
-                  <>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography sx={{ fontWeight: 'bold' }}>{key}</Typography>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={6}>
-                      <Typography>{WifiData[key]}</Typography>
-                    </Grid>
-                  </>
-                ))}
-              </Grid>
-              {/* END - Tabs  unit*/}
-            </TabPanel>
-          </TabContext>
-          <Grid
-            container
-            display="flex"
-            justifyContent="center"
-            alignItem="center"
-          >
-            {/* {Object.keys(iconAmenities).map((key, index) => (
+              {/* {Object.keys(iconAmenities).map((key, index) => (
               <>
                 <Grid
                   item
@@ -212,17 +219,18 @@ export default function HostelPolicies() {
                 </Grid>
               </>
             ))} */}
-          </Grid>
+            </Grid>
 
-          <Stack
-            sx={{ pt: 4 }}
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-          >
-            <Button variant="outlined">All Policies</Button>
-          </Stack>
-        </Container>
+            <Stack
+              sx={{ pt: 4 }}
+              direction="row"
+              spacing={2}
+              justifyContent="center"
+            >
+              <Button variant="outlined">All Policies</Button>
+            </Stack>
+          </Container>
+        </Box>
       </main>
     </ThemeProvider>
   );

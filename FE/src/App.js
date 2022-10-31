@@ -13,23 +13,24 @@ import About from './pages/about.page';
 import Location from './pages/location.page';
 import Cart from './pages/cart.page';
 import Room from './pages/room.page'
-import  CartContext  from './context/cart.context';
-import CartProvider from './context/cart.provider';
+import CartProvider from './context/cart/cart.provider';
+import SearchProvider from './context/search/search.provider';
 
 function App() {
   return (
         <CartProvider>
-
-        <Router>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/activities" element={<ActivitiesPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/location" element={<Location />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/room" element={<Room />} />
-          </Routes>
-        </Router>
+          <SearchProvider>
+            <Router>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/activities" element={<ActivitiesPage />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/location" element={<Location />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/room" element={<Room />} />
+              </Routes>
+            </Router>
+          </SearchProvider>
       </CartProvider>
   );
 }

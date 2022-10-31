@@ -83,7 +83,7 @@ export default function AllRoom2() {
               <Button variant="outlined">Go to Dorm & Rooms</Button>
             </Stack>
           </Container>
-          <Container sx={{ py: 0 }} maxWidth="lg">
+          <Container sx={{ py: 3 }} maxWidth="lg">
             {/* End hero unit */}
             <Grid container spacing={4}>
               {cards.map((card) => (
