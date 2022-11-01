@@ -6,6 +6,7 @@ const router = express.Router();
 const validate = require("../validate/validate");
 const { upload } = require("../utils/uploadImg");
 
+<<<<<<< Updated upstream
 router.get("/lang/:lang", controller.changeLanguage);
 router.post("/login", validate.handleLoginValidate, controller.handleLogin);
 router.get("/logout", controller.handleLogout);
@@ -18,4 +19,8 @@ router.get("/confirmation/:token", controller.confirmRegister);
 router.get("/signup", (req, res) => {
   res.render("login/signup");
 });
+=======
+router.post("/login", controller.login);
+router.post("/user", controller.createUser);
+>>>>>>> Stashed changes
 module.exports = router;

@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+const userRouter = require('./user.route');
+=======
+>>>>>>> parent of 73491da (add user, control route)
+>>>>>>> Stashed changes
 const controlRouter = require('./control.route');
 const roomRouter = require('./room.route');
 const cartRouter = require('./cart.route');
@@ -11,18 +18,37 @@ const { cloudinary } = require('../utils/cloudinary/cloudinary');
 const db = require('../models/index');
 
 const initRoutes = (app) => {
+<<<<<<< Updated upstream
   app.use('/control', controlRouter);
   app.use('/room', roomRouter);
   app.use('/category', categoryRouter);
   app.use('/cart', authenticateToken, isAuth, cartRouter);
   app.use('/order', authenticateToken, isAuth, orderRouter);
   app.use('/information', authenticateToken, isAuth, userRouter);
+=======
+<<<<<<< HEAD
+  app.use('/user', userRouter);
+  app.use('/control', controlRouter);
+  app.use('/room', isAuth, roomRouter);
+=======
+  app.use('/control', controlRouter);
+  app.use('/room', roomRouter);
+>>>>>>> parent of 73491da (add user, control route)
+  app.use('/category', isAuth, categoryRouter);
+  app.use('/cart', isAuth, cartRouter);
+  app.use('/order', isAuth, orderRouter);
+  app.use('/information', isAuth, userRouter);
+>>>>>>> Stashed changes
 
   app.get('/vi', (req, res) => {
     res.cookie('lang', 'vi', { maxAge: 900000 });
   });
 
+<<<<<<< Updated upstream
   app.get('/', authenticateToken, isAuth, async (req, res) => {
+=======
+  app.get('/', isAuth, async (req, res) => {
+>>>>>>> Stashed changes
     const rooms = await db.Room.findAll();
     res.render('index', {
       homepage: 'homepage',
