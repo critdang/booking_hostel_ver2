@@ -53,6 +53,12 @@ export default function Album() {
   const handleChangeAccordion = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const [cartInfo, setCartInfo] = React.useState({});
+  console.log(
+    '🚀 ~ file: cart.component.jsx ~ line 58 ~ Album ~ cartInfo',
+    cartInfo
+  );
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -87,6 +93,12 @@ export default function Album() {
                     label="Full Name"
                     fullWidth
                     variant="standard"
+                    onChange={(e) => {
+                      setCartInfo({
+                        ...cartInfo,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -97,15 +109,27 @@ export default function Album() {
                     label="Email"
                     fullWidth
                     variant="standard"
+                    onChange={(e) => {
+                      setCartInfo({
+                        ...cartInfo,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
                     id="Nationality"
-                    name="Nationality"
+                    name="nationality"
                     label="Nationality"
                     fullWidth
                     variant="standard"
+                    onChange={(e) => {
+                      setCartInfo({
+                        ...cartInfo,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -120,10 +144,16 @@ export default function Album() {
                 <Grid item xs={12}>
                   <TextField
                     id="PhoneNumber"
-                    name="PhoneNumber"
+                    name="phoneNumber"
                     label="Phone Number"
                     fullWidth
                     variant="standard"
+                    onChange={(e) => {
+                      setCartInfo({
+                        ...cartInfo,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>

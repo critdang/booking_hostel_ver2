@@ -16,11 +16,6 @@ export default function HomePage() {
   const onClick = (type) => () => dispatch({ type: type });
   return (
     <>
-      <div>{state.count}</div>
-      <div>
-        <button onClick={onClick('increase')}>Increase</button>
-        <button onClick={onClick('decrease')}>Decrease</button>
-      </div>
       {/* <HeaderHome /> */}
       <NavBar />
       <SearchRoom />

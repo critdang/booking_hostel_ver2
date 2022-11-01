@@ -337,7 +337,7 @@ export default function HeaderHome() {
           {/* Start- Book & Social icon on laptop */}
           <Box sx={{ flexGrow: 0 }}>
             <Link
-              to="/rooms"
+              to="/room"
               style={{ textDecoration: 'none', paddingLeft: '30px' }}
             >
               <Button variant="outlined" color="error">

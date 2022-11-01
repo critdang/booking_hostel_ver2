@@ -13,25 +13,29 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useSearch } from '../../../context/search/search.provider';
 import moment from 'moment';
+import { useSearchParams } from 'react-router-dom';
 
 const theme = createTheme();
+const initialState = {
+  From: moment(new Date()).format('MM/DD/YYYY'),
+  To: moment(new Date()).add(1, 'days').format('MM/DD/YYYY'),
+  room: '1 Room',
+  numberOfGuests: '1 Adult',
+};
 
 export default function SearchRoom() {
-  const { state } = useSearch();
+  let [searchParams, setSearchParams] = useSearchParams();
+  const term = searchParams.get('term');
+  const location = searchParams.get('location');
   console.log(
-    '🚀 ~ file: search-room.component.jsx ~ line 23 ~ SearchRoom ~ state',
-    state
+    '🚀 ~ file: search-room.component.jsx ~ line 30 ~ SearchRoom ~ searchParams',
+    term
   );
 
-  const [inputSearch, setInputSearch] = React.useState(state);
-  // [START - useContext]
-  const { dispatch } = useSearch();
-
-  // [END - useContext]
-  const handleUpdateSearch = async () => {
-    const data = () => dispatch(inputSearch);
+  const [inputSearch, setInputSearch] = React.useState(initialState);
+  const submitSearch = (e) => {
+    setSearchParams(inputSearch);
   };
   return (
     <>
@@ -148,7 +152,7 @@ export default function SearchRoom() {
                   <Button
                     variant="contained"
                     style={{ height: '35px' }}
-                    onClick={handleUpdateSearch}
+                    onClick={submitSearch}
                   >
                     Search
                   </Button>

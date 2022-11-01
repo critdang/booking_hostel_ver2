@@ -14,12 +14,10 @@ import Location from './pages/location.page';
 import Cart from './pages/cart.page';
 import Room from './pages/room.page'
 import CartProvider from './context/cart/cart.provider';
-import SearchProvider from './context/search/search.provider';
 
 function App() {
   return (
         <CartProvider>
-          <SearchProvider>
             <Router>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -30,7 +28,6 @@ function App() {
                 <Route path="/room" element={<Room />} />
               </Routes>
             </Router>
-          </SearchProvider>
       </CartProvider>
   );
 }
