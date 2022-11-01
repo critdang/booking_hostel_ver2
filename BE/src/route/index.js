@@ -1,32 +1,20 @@
-const controlRouter = require('./control.route');
+const userRouter = require('./user.route');
 const roomRouter = require('./room.route');
 const cartRouter = require('./cart.route');
-const userRouter = require('./user.route');
 const orderRouter = require('./order.route');
 const categoryRouter = require('./category.route');
 const { isAuth } = require('../middleware/AuthenticateSession');
-
 const { cloudinary } = require('../utils/cloudinary/cloudinary');
-const db = require('../models/index');
 
 const initRoutes = (app) => {
-  app.use('/control', controlRouter);
-  app.use('/room', roomRouter);
+  app.use('/user', userRouter);
+  app.use('/room', isAuth, roomRouter);
   app.use('/category', isAuth, categoryRouter);
   app.use('/cart', isAuth, cartRouter);
   app.use('/order', isAuth, orderRouter);
-  app.use('/information', isAuth, userRouter);
 
   app.get('/vi', (req, res) => {
     res.cookie('lang', 'vi', { maxAge: 900000 });
-  });
-
-  app.get('/', isAuth, async (req, res) => {
-    const rooms = await db.Room.findAll();
-    res.render('index', {
-      homepage: 'homepage',
-      rooms,
-    });
   });
 
   app.get(

@@ -7,5 +7,4 @@ const validate = require("../validate/validate");
 const { upload } = require("../utils/uploadImg");
 
 router.post("/login", controller.login);
-router.post("/user", controller.createUser);
 module.exports = router;

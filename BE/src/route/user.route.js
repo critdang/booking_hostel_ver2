@@ -1,7 +1,10 @@
-const express = require('express');
-const { userPage } = require('../controller/user.controller');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const express = require("express");
+const controller = require("../controller/user.controller");
 
 const router = express.Router();
-router.get('/', userPage);
+const validate = require("../validate/validate");
+const { upload } = require("../utils/uploadImg");
 
+router.post("/user", controller.createUser);
 module.exports = router;
