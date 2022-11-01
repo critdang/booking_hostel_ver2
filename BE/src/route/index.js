@@ -1,4 +1,5 @@
 const userRouter = require('./user.route');
+const controlRouter = require('./control.route');
 const roomRouter = require('./room.route');
 const cartRouter = require('./cart.route');
 const orderRouter = require('./order.route');
@@ -8,6 +9,7 @@ const { cloudinary } = require('../utils/cloudinary/cloudinary');
 
 const initRoutes = (app) => {
   app.use('/user', userRouter);
+  app.use('/control', controlRouter);
   app.use('/room', isAuth, roomRouter);
   app.use('/category', isAuth, categoryRouter);
   app.use('/cart', isAuth, cartRouter);
