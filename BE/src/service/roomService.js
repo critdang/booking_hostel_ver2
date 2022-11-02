@@ -17,12 +17,12 @@ const create = async (req, res) => {
     }
     const roomFetch = await db.Room.findOne({
       where: {
-        roomName: room.roomName,
+        name: room.name,
       },
     });
     if (roomFetch) {
       throw new AppError(
-        format(COMMON_MESSAGES.EXISTED, room.roomName),
+        format(COMMON_MESSAGES.EXISTED, room.name),
         CODE.EXISTED
       );
     }

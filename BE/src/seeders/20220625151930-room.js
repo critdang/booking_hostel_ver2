@@ -1,7 +1,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Room', [{
-      roomName: 'VIP Room',
+      name: 'VIP Room',
       detail: 'loren sum',
       description: 'loren sum',
       price: 500,
@@ -14,7 +14,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      roomName: 'Royal Room',
+      name: 'Royal Room',
       detail: 'loren sum',
       description: 'loren sum',
       price: 400,
@@ -27,7 +27,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      roomName: 'Luxury Room',
+      name: 'Luxury Room',
       detail: 'loren sum',
       description: 'loren sum',
       price: 700,
@@ -40,7 +40,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      roomName: 'Standard Room',
+      name: 'Standard Room',
       detail: 'loren sum',
       description: 'loren sum',
       price: 300,
@@ -53,7 +53,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      roomName: 'Business Room',
+      name: 'Business Room',
       detail: 'loren sum',
       description: 'loren sum',
       price: 350,

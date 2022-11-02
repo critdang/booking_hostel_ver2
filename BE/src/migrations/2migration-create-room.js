@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      roomName: {
+      name: {
         type: Sequelize.STRING,
       },
       detail: {

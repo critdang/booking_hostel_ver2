@@ -4,13 +4,13 @@ const roomRouter = require('./room.route');
 const cartRouter = require('./cart.route');
 const orderRouter = require('./order.route');
 const categoryRouter = require('./category.route');
-const { isAuth } = require('../middleware/AuthenticateSession');
+const { isAuth } = require('../middleware/authenticateSession');
 const { cloudinary } = require('../utils/cloudinary/cloudinary');
 
 const initRoutes = (app) => {
   app.use('/user', userRouter);
   app.use('/control', controlRouter);
-  app.use('/room', isAuth, roomRouter);
+  app.use('/room', roomRouter);
   app.use('/category', isAuth, categoryRouter);
   app.use('/cart', isAuth, cartRouter);
   app.use('/order', isAuth, orderRouter);

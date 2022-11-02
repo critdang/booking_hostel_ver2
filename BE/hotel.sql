@@ -169,7 +169,7 @@ INSERT INTO `order` (`id`, `code`, `date`, `status`, `adminAction`, `total`, `pa
 
 CREATE TABLE `room` (
   `id` int(11) NOT NULL,
-  `roomName` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `detail` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE `room` (
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id`, `roomName`, `detail`, `description`, `price`, `reserve`, `hot`, `active`, `image`, `categoryId`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `room` (`id`, `name`, `detail`, `description`, `price`, `reserve`, `hot`, `active`, `image`, `categoryId`, `createdAt`, `updatedAt`) VALUES
 (1, 'VIP Room', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 500, 10, 0, 1, 'room1.jpg', 4, '2022-06-25 22:29:15', '2022-06-25 22:29:15'),
 (2, 'Royal Room', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 400, 10, 1, 1, 'room2.jpg', 1, '2022-06-25 22:29:15', '2022-06-25 22:29:15'),
 (3, 'Luxury Room', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 700, 10, 0, 1, 'room3.jpg', 4, '2022-06-25 22:29:15', '2022-06-25 22:29:15'),

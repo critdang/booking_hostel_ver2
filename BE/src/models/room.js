@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    roomName: DataTypes.STRING,
+    name: DataTypes.STRING,
     detail: DataTypes.STRING,
     description: DataTypes.STRING,
     price: DataTypes.INTEGER,

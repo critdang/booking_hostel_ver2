@@ -19,6 +19,26 @@ const handleLoginValidateMethod = Joi.object({
     ),
 });
 
+const handleRoomValidateMethod = Joi.object({
+  name: Joi.string().required(),
+  price: Joi.number().required(),
+  description: Joi.string(),
+  image: Joi.string(),
+  categoryId: Joi.number().required(),
+  hot: Joi.number(),
+  reserve: Joi.number(),
+  active: Joi.number(),
+  detail: Joi.string(),
+});
+
+exports.handleRoomValidate = async (req, res, next) => {
+  try {
+    await handleRoomValidateMethod.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
 exports.handleLoginValidate = async (req, res, next) => {
   try {
     await handleLoginValidateMethod.validateAsync(req.body);
