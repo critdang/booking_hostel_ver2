@@ -2,20 +2,20 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Category', [{
       name: 'Standard room',
-      createAt: new Date(),
-      updateAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }, {
       name: 'Suite',
-      createAt: new Date(),
-      updateAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }, {
       name: 'Delux room',
-      createAt: new Date(),
-      updateAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }, {
       name: 'Economy',
-      createAt: new Date(),
-      updateAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }], {});
   },
 
