@@ -1,4 +1,5 @@
 const format = require("string-format");
+const _ = require("lodash");
 const service = require("../service/userService");
 const catchAsync = require("../utils/errorHandle/catchAsync");
 const { returnSuccess, returnFail } = require('../utils/helperFn');
@@ -8,15 +9,14 @@ const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
 const createUser = async (req, res) => {
   try {
-    // req.body.image = req.file.originalname;
-    if (!req.body) {
+    if (_.isEmpty(req.body)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'email or password'),
+        format(COMMON_MESSAGES.EMPTY, 'body'),
         CODE.INVALID
       );
     }
-    const data = await service.createUser(req.body, req.file);
-    if (!data.id) {
+    const data = await service.createUser(req, res);
+    if (data instanceof AppError) {
       throw data;
     }
     return returnSuccess(req, res, CODE.SUCCESS, data);
@@ -24,4 +24,22 @@ const createUser = async (req, res) => {
     return returnFail(req, res, error);
   }
 };
-module.exports = { createUser };
+
+const login = catchAsync(async (req, res) => {
+  try {
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, 'body'),
+        CODE.INVALID
+      );
+    }
+    const data = await service.login(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (e) {
+    return returnFail(req, res, e);
+  }
+});
+module.exports = { createUser, login };

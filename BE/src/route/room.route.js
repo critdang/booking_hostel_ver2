@@ -6,8 +6,8 @@ const validate = require('../validate/validate');
 const router = express.Router();
 router.post('/', validate.handleRoomValidate, roomController.create);
 router.get('/', roomController.getAll);
-router.get('/:fieldname/:value', roomController.getOne);
-router.put('/:fieldname/:value', roomController.update);
-router.delete('/:fieldname/:value', roomController.deletes);
+router.get('/:id', roomController.getOne);
+router.put('/:id', roomController.update);
+router.delete('/:id', roomController.deletes);
 
 module.exports = router;

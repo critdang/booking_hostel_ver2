@@ -1,6 +1,5 @@
 const format = require("string-format");
 const db = require("../models");
-const { returnSuccess, returnFail } = require("../utils/helperFn");
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { convertValue, objToArr } = require('../utils/convert/convert');
@@ -27,35 +26,33 @@ const create = async (req, res) => {
       );
     }
     const newRoom = await db.Room.create(room);
-    return returnSuccess(req, res, CODE.SUCCESS, newRoom);
+    return newRoom;
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
 const getOne = async (req, res) => {
   try {
-    const { fieldname, value } = req.params;
-    if (!fieldname || !value) {
+    const { id } = req.params;
+    if (!id) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, fieldname),
+        format(COMMON_MESSAGES.INVALID, id),
         CODE.INVALID
       );
     }
-    const condition = {};
-    condition[fieldname] = value;
     const roomFetch = await db.Room.findAll({
-      where: condition,
+      where: { id },
     });
     if (roomFetch.length === 0) {
       throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, value),
+        format(COMMON_MESSAGES.NOT_FOUND, id),
         CODE.NOT_FOUND
       );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, roomFetch);
+    return roomFetch;
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
@@ -69,68 +66,64 @@ const getAll = async (req, res) => {
         CODE.ERROR
       );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, roomFetch);
+    return roomFetch;
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
 const update = async (req, res) => {
   try {
-    const { fieldname, value } = req.params;
+    const { id } = req.params;
     const updateContents = convertValue(req.body);
-    if (!fieldname || !value) {
+    if (!id) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, value),
+        format(COMMON_MESSAGES.INVALID, id),
         CODE.INVALID
       );
     }
-    const condition = {};
-    condition[fieldname] = value;
     const result = await db.Room.update(
       updateContents,
       {
-        where: condition,
+        where: { id },
       }
     );
     if (result[0] === 0) {
       throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, value),
+        format(COMMON_MESSAGES.NOT_FOUND, id),
         CODE.NOT_FOUND
       );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, "update success");
+    return "update success";
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
 const deletes = async (req, res) => {
   try {
-    const { fieldname, value } = req.params;
-    if (!fieldname || !value) {
+    const { id } = req.params;
+    if (!id) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, value),
+        format(COMMON_MESSAGES.INVALID, id),
         CODE.INVALID
       );
     }
-    const condition = {};
-    condition[fieldname] = value;
     await db.Room.destroy(
       {
-        where: condition,
+        where: { id },
       }
     ).then((result) => {
       if (result === 0) {
         throw new AppError(
-          format(COMMON_MESSAGES.NOT_FOUND, value),
+          format(COMMON_MESSAGES.NOT_FOUND, id),
           CODE.NOT_FOUND
         );
       }
     });
-    return returnSuccess(req, res, CODE.SUCCESS, "delete success");
+    return "delete success";
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 module.exports = {

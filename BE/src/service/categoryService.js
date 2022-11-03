@@ -1,6 +1,5 @@
 const format = require("string-format");
 const db = require("../models");
-const { returnSuccess, returnFail } = require("../utils/helperFn");
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { convertValue, objToArr } = require('../utils/convert/convert');
@@ -8,58 +7,56 @@ const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
 const create = async (req, res) => {
   try {
-    const { categoryName } = req.body;
-    if (!categoryName) {
+    const { name } = req.body;
+    if (!name) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, categoryName),
+        format(COMMON_MESSAGES.INVALID, name),
         CODE.INVALID
       );
     }
     const CategoryFetch = await db.Category.findOne({
       where: {
-        categoryName,
+        name,
       },
     });
-    // CategoryFetch.categoryName = 'asdasd';
+    // CategoryFetch.name = 'asdasd';
     // CategoryFetch.save();
     if (CategoryFetch) {
       throw new AppError(
-        format(COMMON_MESSAGES.EXISTED, categoryName),
+        format(COMMON_MESSAGES.EXISTED, name),
         CODE.EXISTED
       );
     }
     const newCategory = await db.Category.create({
-      categoryName,
+      name,
     });
-    return returnSuccess(req, res, CODE.SUCCESS, newCategory);
+    return newCategory;
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
 const getOne = async (req, res) => {
   try {
-    const { fieldname, value } = req.params;
-    if (!fieldname || !value) {
+    const { id } = req.params;
+    if (!id) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, fieldname),
+        format(COMMON_MESSAGES.INVALID, id),
         CODE.INVALID
       );
     }
-    const condition = {};
-    condition[fieldname] = value;
     const categoryFetch = await db.Category.findAll({
-      where: condition,
+      where: { id },
     });
     if (categoryFetch.length === 0) {
       throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, value),
+        format(COMMON_MESSAGES.NOT_FOUND, id),
         CODE.NOT_FOUND
       );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, categoryFetch);
+    return categoryFetch;
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
@@ -74,15 +71,16 @@ const getAll = async (req, res) => {
         CODE.ERROR
       );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, CategoryFetch);
+    return CategoryFetch;
   } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 
 const update = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(!{});
     const updateContents = convertValue(req.body);
     if (!id) {
       throw new AppError(
@@ -90,52 +88,49 @@ const update = async (req, res) => {
         CODE.INVALID
       );
     }
-    await db.Category.update(
+    const result = await db.Category.update(
       updateContents,
       {
         where: { id },
       }
+    );
+    if (result[0] === 0) {
+      throw new AppError(
+        format(COMMON_MESSAGES.NOT_FOUND, id),
+        CODE.NOT_FOUND
+      );
+    }
+    return "update success";
+  } catch (error) {
+    return error;
+  }
+};
+
+const deletes = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, id),
+        CODE.INVALID
+      );
+    }
+
+    await db.Category.destroy(
+      {
+        where: { id },
+      }
     ).then((result) => {
-      if (result[0] === 0) {
+      if (result === 0) {
         throw new AppError(
           format(COMMON_MESSAGES.NOT_FOUND, id),
           CODE.NOT_FOUND
         );
       }
     });
-
-    return returnSuccess(req, res, CODE.SUCCESS, "update success");
+    return "delete success";
   } catch (error) {
-    return returnFail(req, res, error);
-  }
-};
-
-const deletes = async (req, res) => {
-  try {
-    const { fieldname, value } = req.params;
-    if (!fieldname || !value) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, value),
-        CODE.INVALID
-      );
-    }
-    const condition = {};
-    condition[fieldname] = value;
-    await db.Category.destroy(
-      {
-        where: condition,
-      }
-    ).then((result) => {
-      if (result === 0) {
-        throw new AppError(
-          format(COMMON_MESSAGES.NOT_FOUND, value),
-          CODE.NOT_FOUND
-        );
-      }
-    });
-    return returnSuccess(req, res, CODE.SUCCESS, "delete success");
-  } catch (error) {
-    return returnFail(req, res, error);
+    return error;
   }
 };
 module.exports = {

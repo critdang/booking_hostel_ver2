@@ -11,9 +11,9 @@ const initRoutes = (app) => {
   app.use('/user', userRouter);
   app.use('/control', controlRouter);
   app.use('/room', roomRouter);
-  app.use('/category', isAuth, categoryRouter);
-  app.use('/cart', isAuth, cartRouter);
-  app.use('/order', isAuth, orderRouter);
+  app.use('/category', categoryRouter);
+  app.use('/cart', cartRouter);
+  app.use('/order', orderRouter);
 
   app.get('/vi', (req, res) => {
     res.cookie('lang', 'vi', { maxAge: 900000 });
