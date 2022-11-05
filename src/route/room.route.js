@@ -2,6 +2,7 @@ const express = require('express');
 
 const roomController = require('../controller/room.controller');
 const validate = require('../validate/validate');
+const { upload } = require('../utils/uploadImg');
 
 const router = express.Router();
 router.post('/', validate.handleRoomValidate, roomController.create);
