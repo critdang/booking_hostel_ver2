@@ -2,11 +2,12 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: process.env.usernameHotel,
-    password: process.env.passwordHotel,
-    database: process.env.databaseHotel,
-    host: process.env.hostHotel,
-    dialect: process.env.dialectHotel,
+    username: 'root',
+    password: 'admin123',
+    database: 'booking_hotel_db1',
+    host: 'booking-hotel-db1.cgdmracygurn.ap-northeast-1.rds.amazonaws.com',
+    port: 3306,
+    dialect: 'mysql',
     logging: true,
     query: { raw: true },
     timezone: '+07:00',
