@@ -16,7 +16,6 @@ const createUser = async (req, res) => {
       );
     }
     const data = await service.createUser(req, res);
-    console.log(data);
     if (data instanceof AppError) {
       throw data;
     }

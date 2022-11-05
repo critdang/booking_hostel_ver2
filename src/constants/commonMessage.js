@@ -9,4 +9,9 @@ module.exports = {
     KEYWORD: "please pass a name",
     EMPTY: "{} is empty",
   },
+  VERIFY_MESSAGES: {
+    VERIFY_EMAIL: "Verify your email",
+    SUCCESS_EMAIL_DESC: "Please click the link below to verify your account",
+    SUCCESS_EMAIL_ENDPOINT: "/verify/",
+  }
 };

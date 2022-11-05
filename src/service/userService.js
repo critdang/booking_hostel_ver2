@@ -4,8 +4,8 @@ const db = require('../models/index');
 const { CODE, ERROR } = require("../constants/code");
 const { generateJWT } = require('../utils/middleware/JWTAction');
 const AppError = require("../utils/errorHandle/appError");
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
-// const { imageProcess } = require('../utils/cloudinary/cloudinary');
+const { COMMON_MESSAGES, VERIFY_MESSAGES } = require("../constants/commonMessage");
+const helperFn = require('../utils/helperFn');
 require('dotenv').config();
 
 const createUser = async (req, res) => {
@@ -25,7 +25,7 @@ const createUser = async (req, res) => {
     }
     const saltRounds = parseInt(process.env.saltrounds, 10);
     const hashPassword = await bcrypt.hash(data.password, saltRounds);
-    const user = await db.User.create({
+    const newUser = await db.User.create({
       userName: data.userName,
       email: data.email,
       password: hashPassword,
@@ -33,9 +33,9 @@ const createUser = async (req, res) => {
       phone: data.phone,
       avatar,
     });
-    // const userId = user.dataValues.id;
-    // imageProcess.upload(image, userId);
-    return user.dataValues;
+    const token = generateJWT(newUser.email, '30m');
+    helperFn.sendMail(data.email, VERIFY_MESSAGES.VERIFY_EMAIL, VERIFY_MESSAGES.SUCCESS_EMAIL_DESC, VERIFY_MESSAGES.SUCCESS_EMAIL_ENDPOINT, token);
+    return newUser;
   } catch (e) {
     return e;
   }
@@ -59,7 +59,7 @@ const login = async (req, res) => {
       // compare password
       const check = bcrypt.compareSync(password, userFetch.password);
       if (check) {
-        userFetch.token = generateJWT(userFetch.id);
+        userFetch.token = generateJWT(userFetch.id, '15m');
       } else {
         throw new AppError(
           format(COMMON_MESSAGES.INCORRECT, `password for user ${email}`),

@@ -1,14 +1,14 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
-const generateJWT = (userId) => {
+const generateJWT = (input, expired) => {
   const payload = {
-    id: userId,
+    input
   };
   const key = process.env.JWT_SECRET;
   try {
     const token = jwt.sign(payload, key, {
-      expiresIn: '15m',
+      expiresIn: expired,
     });
     return token;
   } catch (e) {
@@ -31,36 +31,18 @@ const authenticateToken = (req, res, next) => {
   }
 };
 
-const generateJWTForVerifyRegister = (userId) => {
-  const payload = {
-    id: userId,
-  };
-  const key = process.env.JWT_SECRET;
-  let token;
-  try {
-    token = jwt.sign(payload, key, {
-      expiresIn: '1d',
-    });
-  } catch (e) {
-    console.log(e);
-  }
-  return token;
-};
-
 const verifyToken = (token) => {
   try {
     const key = process.env.JWT_SECRET;
-    const id = jwt.verify(token, key);
-    return id;
+    const result = jwt.verify(token, key);
+    return result;
   } catch (e) {
-    console.log(e);
-    return null;
+    return e;
   }
 };
 
 module.exports = {
   generateJWT,
   authenticateToken,
-  generateJWTForVerifyRegister,
   verifyToken,
 };

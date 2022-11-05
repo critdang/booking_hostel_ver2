@@ -28,9 +28,6 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
-      image: {
-        type: Sequelize.STRING,
-      },
       categoryId: {
         allowNull: true,
         type: Sequelize.INTEGER,

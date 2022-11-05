@@ -1,6 +1,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('cartOrder', [{
+    await queryInterface.bulkInsert('CartOrder', [{
       cartId: 9,
       orderId: 10,
       createdAt: new Date(),
