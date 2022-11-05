@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'pending',
     },
     address: DataTypes.STRING,
-    image: DataTypes.STRING,
+    avatar: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',

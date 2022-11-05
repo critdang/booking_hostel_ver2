@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const createUser = async (req, res) => {
   try {
+    const avatar = await req.file.path;
     const data = req.body;
     const userFetch = await db.User.findOne({
       attributes: ['id', 'email'],
@@ -30,7 +31,7 @@ const createUser = async (req, res) => {
       password: hashPassword,
       address: data.address,
       phone: data.phone,
-      image: data.image,
+      avatar,
     });
     // const userId = user.dataValues.id;
     // imageProcess.upload(image, userId);

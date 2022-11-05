@@ -9,7 +9,7 @@ module.exports = {
       address: '12 Hàm Nghi',
       phone: '0923423120',
       status: 'pending',
-      image: 'dai.jpg',
+      avatar: 'dai.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -19,7 +19,7 @@ module.exports = {
       address: '45 Lý Thái Tổ',
       phone: '0912321312',
       status: 'pending',
-      image: 'dai.jpg',
+      avatar: 'dai.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -29,7 +29,7 @@ module.exports = {
       address: '35 Nguyễn Văn Linh',
       phone: '0346932432',
       status: 'pending',
-      image: 'dai.jpg',
+      avatar: 'dai.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -39,7 +39,7 @@ module.exports = {
       address: '56 Trần Duy Hưng',
       phone: '0912321320',
       status: 'pending',
-      image: 'dai.jpg',
+      avatar: 'dai.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -49,7 +49,7 @@ module.exports = {
       address: '45 Nguyễn Huệ',
       phone: '0912321323',
       status: 'pending',
-      image: 'dai.jpg',
+      avatar: 'dai.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -59,7 +59,7 @@ module.exports = {
       address: '67 Trần Hưng Đạo',
       phone: '0912312312',
       status: 'pending',
-      image: 'dai.jpg',
+      avatar: 'dai.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

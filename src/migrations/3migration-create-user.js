@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.ENUM('pending', 'reject', 'success'),
         defaultValue: 'pending',
       },
-      image: {
+      avatar: {
         type: Sequelize.STRING,
       },
       createdAt: {
