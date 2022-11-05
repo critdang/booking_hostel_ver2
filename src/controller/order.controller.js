@@ -1,4 +1,4 @@
-const { verifyToken } = require('../middleware/JWTAction');
+const { verifyToken } = require('../utils/middleware/JWTAction');
 const db = require('../models');
 // const cartOrder = require('../../models/cart-order');
 // const catchAsync = require('../../utils/errorHandle/catchAsync');

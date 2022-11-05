@@ -2,7 +2,7 @@ const format = require("string-format");
 const _ = require("lodash");
 const roomService = require("../service/roomService");
 const { returnSuccess, returnFail } = require("../utils/helperFn");
-const { CODE,ERROR } = require("../constants/code");
+const { CODE, ERROR } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 

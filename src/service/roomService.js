@@ -2,12 +2,12 @@ const format = require("string-format");
 const db = require("../models");
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
-const { convertValue, objToArr } = require('../utils/convert/convert');
+const { objToArr } = require('../utils/convert/convert');
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
 const create = async (req, res) => {
   try {
-    const room = convertValue(req.body);
+    const room = req.body;
     if (!room) {
       throw new AppError(
         format(COMMON_MESSAGES.INVALID, "the room"),
@@ -57,7 +57,7 @@ const getOne = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  const sort = objToArr(convertValue(req.query));
+  const sort = objToArr(req.query);
   try {
     const roomFetch = await db.Room.findAll({ order: sort });
     if (!roomFetch) {
@@ -75,7 +75,7 @@ const getAll = async (req, res) => {
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const updateContents = convertValue(req.body);
+    const updateContents = req.body;
     if (!id) {
       throw new AppError(
         format(COMMON_MESSAGES.INVALID, id),
