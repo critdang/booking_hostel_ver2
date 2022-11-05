@@ -6,6 +6,6 @@ const router = express.Router();
 const validate = require("../validate/validate");
 const { upload } = require("../utils/uploadImg");
 
-router.post("/", controller.createUser);
+router.post("/register", controller.createUser);
 router.post("/login", controller.login);
 module.exports = router;
