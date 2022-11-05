@@ -4,6 +4,7 @@ const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { objToArr } = require('../utils/convert/convert');
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const { sequelize } = require("../models");
 
 const create = async (req, res) => {
   try {
@@ -25,8 +26,21 @@ const create = async (req, res) => {
         CODE.EXISTED
       );
     }
-    const newRoom = await db.Room.create(room);
-    return newRoom;
+    const result = await sequelize.transaction(async (t) => {
+      const newRoom = await db.Room.create({ room }, { transaction: t });
+      const { files } = req;
+      for (const file of files) {
+        const { path } = file;
+
+        await db.roomImage.create({
+          data: {
+            roomId: newRoom.id,
+            href: path
+          }
+        }, { transaction: t });
+      }
+      return newRoom;
+    });
   } catch (error) {
     return error;
   }
