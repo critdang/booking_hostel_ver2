@@ -11,7 +11,6 @@ require('dotenv').config();
 const createUser = async (req, res) => {
   try {
     const data = req.body;
-    const { file } = req.file;
     const userFetch = await db.User.findOne({
       attributes: ['id', 'email'],
       where: { email: data.email },
