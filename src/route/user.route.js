@@ -8,4 +8,5 @@ const { upload } = require("../utils/uploadImg");
 
 router.post("/register", upload.single('avatar'), controller.createUser);
 router.post("/login", controller.login);
+router.post("/forgotPassword", controller.forgotPassword);
 module.exports = router;

@@ -25,6 +25,16 @@ exports.hashPassword = async (password) => {
   return hashPassword;
 };
 
+// config transporter to send mail
+const transporter = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: process.env.AUTH_USER,
+    pass: process.env.AUTH_PASS
+  }
+});
+
 exports.sendMail = async (
   email,
   subject,
@@ -34,22 +44,27 @@ exports.sendMail = async (
 ) => {
   const domain = 'http://localhost:8080';
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
-    auth: {
-      user: process.env.AUTH_USER,
-      pass: process.env.AUTH_PASS
-    }
-  });
   const link = `${domain + endpoint + token}`;
-  // const data = await ejs.renderFile('./src/views/createVerifyNoti/verify.ejs', { link });
+  const viewTemplate = await ejs.renderFile('./src/views/createVerifyNoti/verify.ejs', { link });
 
   const mailOption = {
     from: process.env.EMAIL,
     to: email,
     subject,
-    html: `<h1>${link}</h1>`,
+    html: viewTemplate,
   };
   await transporter.sendMail(mailOption);
+};
+
+exports.forgotPassword = async (to, token) => {
+  const link = `http://localhost:${process.env.FE_PORT}/forgotPassword/${token}`;
+  const data = await ejs.renderFile('./src/views/createForgotPassNoti/forgotPassword.ejs', { link });
+
+  await transporter.sendMail({
+    from: 'critdang@gmail.com',
+    to,
+    subject: 'Reset Password',
+    text: 'Dear customer',
+    html: data,
+  });
 };

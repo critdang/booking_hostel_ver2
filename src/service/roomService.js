@@ -6,37 +6,49 @@ const { objToArr } = require('../utils/convert/convert');
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 const { sequelize } = require("../models");
 
-const create = async (req, res) => {
+const create = async (req) => {
   try {
-    const room = req.body;
-    if (!room) {
+    const {
+      name, detail, description, price, reserve, hot, active, categoryId
+    } = req.body;
+    if (!name) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, "the room"),
+        format(COMMON_MESSAGES.INVALID, "Please use another name"),
         CODE.INVALID
       );
     }
     const roomFetch = await db.Room.findOne({
-      where: {
-        name: room.name,
-      },
+      where: { name },
     });
     if (roomFetch) {
       throw new AppError(
-        format(COMMON_MESSAGES.EXISTED, room.name),
+        format(COMMON_MESSAGES.EXISTED, name),
         CODE.EXISTED
       );
     }
-    const result = await sequelize.transaction(async (t) => {
-      const newRoom = await db.Room.create({ room }, { transaction: t });
+    await sequelize.transaction(async (t) => {
+      const newRoom = await db.Room.create({
+        name,
+        detail,
+        description,
+        price,
+        reserve,
+        hot,
+        active,
+        categoryId
+      }, { transaction: t });
+
       const { files } = req;
       for (const file of files) {
+        // upload to Image table
         const { path } = file;
-
-        await db.roomImage.create({
-          data: {
-            roomId: newRoom.id,
-            href: path
-          }
+        const newImage = await db.Image.create({
+          href: path
+        }, { transaction: t });
+        // point to RoomImage table
+        await db.RoomImage.create({
+          roomId: newRoom.id,
+          imageId: newImage.id
         }, { transaction: t });
       }
       return newRoom;
@@ -140,10 +152,27 @@ const deletes = async (req, res) => {
     return error;
   }
 };
+
+const defaultImage = async (req, res) => {
+  const { imgId } = req.params;
+  if (!imgId) return helperFn.returnFail(req, res, ERROR.PROVIDE_DEFAULT_IMAGE_ID);
+
+  try {
+    const foundProduct = await db.productImage.findMany({ where: { id: +imgId } });
+    if (!foundProduct) return helperFn.returnFail(req, res, ERROR.NO_IMAGE_FOUND);
+
+    const { productId, id } = await prisma.productImage.update({ where: { id: +imgId }, data: { isDefault: true } });
+    await prisma.productImage.updateMany({ where: { productId, NOT: { id } }, data: { isDefault: false } }); // removeIsDefault
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   create,
   getAll,
   getOne,
   update,
-  deletes
+  deletes,
+  defaultImage
 };

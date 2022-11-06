@@ -77,7 +77,28 @@ const login = async (req, res) => {
     return e;
   }
 };
+
+const forgotPassword = async (req, res, next) => {
+  const { email } = req.body;
+  try {
+    const result = await db.User.findFirst({ where: { email, isActive: false } });
+    if (!result) return helperFn.returnFail(req, res, 'User not found or not active yet');
+    const token = generateJWT(email, '30m');
+    await db.User.update({
+      where: {
+        email,
+        isActive: true,
+      },
+      resetToken: token,
+    });
+    await helperFn.forgotPassword(email, token);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   createUser,
-  login
+  login,
+  forgotPassword
 };

@@ -5,9 +5,11 @@ const AppError = require("../utils/errorHandle/appError");
 const { objToArr } = require('../utils/convert/convert');
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
-const create = async (req, res) => {
+const createCategory = async (req) => {
   try {
-    const { name } = req.body;
+    const { name, description } = req.body;
+    const thumbnail = await req.file.path;
+
     if (!name) {
       throw new AppError(
         format(COMMON_MESSAGES.INVALID, name),
@@ -19,8 +21,6 @@ const create = async (req, res) => {
         name,
       },
     });
-    // CategoryFetch.name = 'asdasd';
-    // CategoryFetch.save();
     if (CategoryFetch) {
       throw new AppError(
         format(COMMON_MESSAGES.EXISTED, name),
@@ -29,6 +29,8 @@ const create = async (req, res) => {
     }
     const newCategory = await db.Category.create({
       name,
+      description,
+      thumbnail,
     });
     return newCategory;
   } catch (error) {
@@ -36,7 +38,7 @@ const create = async (req, res) => {
   }
 };
 
-const getOne = async (req, res) => {
+const getOne = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -60,7 +62,7 @@ const getOne = async (req, res) => {
   }
 };
 
-const getAll = async (req, res) => {
+const getAll = async (req) => {
   const sort = objToArr(req.query);
   console.log(sort);
   try {
@@ -77,7 +79,7 @@ const getAll = async (req, res) => {
   }
 };
 
-const update = async (req, res) => {
+const update = async (req) => {
   try {
     const { id } = req.params;
     const updateContents = req.body;
@@ -105,7 +107,7 @@ const update = async (req, res) => {
   }
 };
 
-const deletes = async (req, res) => {
+const deletes = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -133,7 +135,7 @@ const deletes = async (req, res) => {
   }
 };
 module.exports = {
-  create,
+  createCategory,
   getAll,
   getOne,
   update,

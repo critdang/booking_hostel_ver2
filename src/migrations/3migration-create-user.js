@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      userName: {
+      fullName: {
         type: Sequelize.STRING,
       },
       email: {
@@ -24,10 +24,21 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        type: Sequelize.ENUM('pending', 'reject', 'success'),
+        type: Sequelize.ENUM('pending', 'reject', 'active'),
         defaultValue: 'pending',
       },
+      gender: {
+        type: Sequelize.ENUM('male', 'female', 'other'),
+        defaultValue: 'male',
+      },
       avatar: {
+        type: Sequelize.STRING,
+      },
+      isBlocked: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      resetToken: {
         type: Sequelize.STRING,
       },
       createdAt: {

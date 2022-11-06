@@ -16,7 +16,6 @@ const verifyUser = async (req, res) => {
       );
     }
     const data = await service.verifyUser(req, res);
-    console.log(data);
     if (data instanceof AppError) {
       throw data;
     }
@@ -26,4 +25,53 @@ const verifyUser = async (req, res) => {
   }
 };
 
-module.exports = { verifyUser };
+const changeBlockUserStt = async (req, res) => {
+  try {
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.params),
+        CODE.INVALID
+      );
+    }
+    const data = await service.changeBlockUserStt(req, res);
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
+
+const verifyResetPassword = async (req, res) => {
+  try {
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.params),
+        CODE.INVALID
+      );
+    }
+    await service.verifyResetPassword(req, res);
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
+
+const resetPassword = async (req, res) => {
+  try {
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.body),
+        CODE.INVALID
+      );
+    }
+    await service.resetPassword(req, res);
+    return returnSuccess(req, res, CODE.SUCCESS, 'Reset password successfully');
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
+
+module.exports = {
+  verifyUser,
+  changeBlockUserStt,
+  verifyResetPassword,
+  resetPassword
+};

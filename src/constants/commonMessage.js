@@ -13,5 +13,8 @@ module.exports = {
     VERIFY_EMAIL: "Verify your email",
     SUCCESS_EMAIL_DESC: "Please click the link below to verify your account",
     SUCCESS_EMAIL_ENDPOINT: "/verify/",
+  },
+  ERROR: {
+    NO_FOUND_USER: "No found user",
   }
 };

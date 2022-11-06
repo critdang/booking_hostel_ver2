@@ -6,7 +6,7 @@ const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
-const create = async (req, res) => {
+const createCategory = async (req, res) => {
   try {
     if (_.isEmpty(req.body)) {
       throw new AppError(
@@ -14,7 +14,7 @@ const create = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await categoryService.create(req, res);
+    const data = await categoryService.createCategory(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -96,7 +96,7 @@ const deletes = async (req, res) => {
 };
 
 module.exports = {
-  create,
+  createCategory,
   getAll,
   getOne,
   update,

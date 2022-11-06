@@ -7,6 +7,7 @@ const cors = require("cors");
 const { connectDB } = require("./config/connectDB");
 const { sequelize } = require("./config/connectDB");
 const initRoutes = require("./route");
+const viewEngine = require("./config/configViewEngine");
 
 const myStore = new SequelizeStore({
   db: sequelize,
@@ -16,6 +17,10 @@ const app = express();
 // use cors
 app.use(cors({ origin: true, credentials: true }));
 
+// view engine
+viewEngine(app);
+
+// allow read json and xxx.urlencoded
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 

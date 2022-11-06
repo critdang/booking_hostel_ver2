@@ -35,7 +35,6 @@ module.exports = (sequelize, DataTypes) => {
     reserve: DataTypes.INTEGER,
     hot: DataTypes.BOOLEAN,
     active: DataTypes.BOOLEAN,
-    image: DataTypes.STRING,
     categoryId: {
       allowNull: true,
       type: DataTypes.INTEGER,

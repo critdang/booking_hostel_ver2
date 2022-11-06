@@ -89,10 +89,28 @@ const deletes = async (req, res) => {
   }
 };
 
+const defaultImage = async (req, res) => {
+  try {
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.params),
+        CODE.INVALID
+      );
+    }
+    const data = await roomService.defaultImage(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, 'Set default image success');
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
 module.exports = {
   create,
   getAll,
   getOne,
   update,
-  deletes
+  deletes,
+  defaultImage
 };

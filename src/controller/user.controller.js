@@ -42,4 +42,20 @@ const login = catchAsync(async (req, res) => {
     return returnFail(req, res, e);
   }
 });
-module.exports = { createUser, login };
+
+const forgotPassword = catchAsync(async (req, res) => {
+  try {
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, 'body'),
+        CODE.INVALID
+      );
+    }
+    await service.forgotPassword(req, res);
+    return returnSuccess(req, res, CODE.SUCCESS, 'An email sent to you, please check the mail to reset password');
+  } catch (e) {
+    return returnFail(req, res, e);
+  }
+});
+
+module.exports = { createUser, login, forgotPassword };

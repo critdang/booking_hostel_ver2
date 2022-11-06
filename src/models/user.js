@@ -26,17 +26,29 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    userName: DataTypes.STRING,
+    fullName: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
+    address: DataTypes.STRING,
     status: {
       allowNull: true,
-      type: DataTypes.ENUM('pending', 'reject', 'success'),
+      type: DataTypes.ENUM('pending', 'reject', 'active'),
       defaultValue: 'pending',
     },
-    address: DataTypes.STRING,
+    gender: {
+      type: DataTypes.ENUM('male', 'female', 'other'),
+      defaultValue: 'male',
+    },
     avatar: DataTypes.STRING,
+    isBlocked: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    resetToken: {
+      type: DataTypes.STRING,
+    }
+
   }, {
     sequelize,
     modelName: 'User',
