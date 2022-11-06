@@ -56,7 +56,7 @@ const changeBlockUserStt = async (req, res) => {
 const verifyResetPassword = async (req, res) => {
   const { token } = req.params;
   const decodedToken = JWTAction.verifyToken(token);
-  const user = db.User.findFirst({
+  const user = await db.User.findOne({
     where: { email: decodedToken.input, resetToken: token },
   });
   const { email } = user;
@@ -64,20 +64,20 @@ const verifyResetPassword = async (req, res) => {
     res.send('<h1>This email is expired. Please use the latest email</h1>');
   }
   // helperFn.returnSuccess(req, res, { email, token });
-  res.render('auth/forgotPassword', { email, token });
+  res.render('auth/forgotPassword.ejs', { email, token });
 };
 
 const resetPassword = async (req) => {
   const { password, email } = req.body;
   const hashPass = await helperFn.hashPassword(password);
   try {
-    const result = await db.User.update({
-      where: { email },
-      data: {
+    const result = await db.User.update(
+      {
         password: hashPass,
         resetToken: null,
       },
-    });
+      { where: { email } }
+    );
     return result;
   } catch (err) {
     console.log(err);

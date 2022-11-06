@@ -81,17 +81,22 @@ const login = async (req, res) => {
 const forgotPassword = async (req, res, next) => {
   const { email } = req.body;
   try {
-    const result = await db.User.findFirst({ where: { email, isActive: false } });
-    if (!result) return helperFn.returnFail(req, res, 'User not found or not active yet');
+    const foundUser = await db.User.findOne({ where: { email, status: 'pending' } });
+    if (foundUser) {
+      return helperFn.returnFail(req, res, 'User not found or not active yet');
+    }
     const token = generateJWT(email, '30m');
-    await db.User.update({
-      where: {
-        email,
-        isActive: true,
+    const result = await db.User.update(
+      { resetToken: token },
+      {
+        where: {
+          email,
+          status: 'active',
+        }
       },
-      resetToken: token,
-    });
+    );
     await helperFn.forgotPassword(email, token);
+    return result;
   } catch (err) {
     console.log(err);
   }

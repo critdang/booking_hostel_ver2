@@ -51,7 +51,7 @@ const forgotPassword = catchAsync(async (req, res) => {
         CODE.INVALID
       );
     }
-    await service.forgotPassword(req, res);
+    const result = await service.forgotPassword(req, res);
     return returnSuccess(req, res, CODE.SUCCESS, 'An email sent to you, please check the mail to reset password');
   } catch (e) {
     return returnFail(req, res, e);

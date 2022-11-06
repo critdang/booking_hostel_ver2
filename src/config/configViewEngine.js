@@ -6,7 +6,7 @@ const configViewEngine = (app) => {
   // thiết lập kiểu view engine là ejs
   app.set('view engine', 'ejs');
   // đường link lấy view engine
-  app.set('views', './views');
+  app.set('views', `./src/views`);
 };
 
 module.exports = configViewEngine;

@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const express = require("express");
-const controller = require("../controller/user.controller");
+const userController = require("../controller/user.controller");
 
 const router = express.Router();
 const validate = require("../validate/validate");
 const { upload } = require("../utils/uploadImg");
 
-router.post("/register", upload.single('avatar'), controller.createUser);
-router.post("/login", controller.login);
-router.post("/forgotPassword", controller.forgotPassword);
+router.post("/register", upload.single('avatar'), userController.createUser);
+router.post("/login", userController.login);
+router.post("/forgotPassword", userController.forgotPassword);
 module.exports = router;
