@@ -10,20 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Room, {
-        foreignKey: 'roomId',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      });
+      // has one user
       this.belongsTo(models.User, {
         foreignKey: 'userId',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
+      // has many order
       this.belongsToMany(models.Order, {
         through: models.CartOrder,
       });
       this.hasMany(models.CartOrder, {
+        foreignKey: 'cartId',
+      });
+      // has many room
+      this.belongsToMany(models.Room, {
+        through: models.CartRoom,
+      });
+      this.hasMany(models.CartRoom, {
         foreignKey: 'cartId',
       });
     }
@@ -35,20 +39,14 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    quantity: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
-    arrival: {
+    checkIn: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    departure: {
+    checkOut: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    onCart: DataTypes.BOOLEAN,
     userId: {
       allowNull: true,
       type: DataTypes.INTEGER,
@@ -56,16 +54,6 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
       references: {
         model: 'User',
-        key: 'id',
-      },
-    },
-    roomId: {
-      allowNull: true,
-      type: DataTypes.INTEGER,
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-      references: {
-        model: 'Room',
         key: 'id',
       },
     },

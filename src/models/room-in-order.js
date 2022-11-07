@@ -3,7 +3,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class RoomImage extends Model {
+  class RoomInOrder extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,13 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Room, {
         foreignKey: 'roomId',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       });
-      this.belongsTo(models.Image, {
-        foreignKey: 'imageId',
+      this.belongsTo(models.Order, {
+        foreignKey: 'orderId',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       });
     }
   }
-  RoomImage.init({
+  RoomInOrder.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -26,26 +30,29 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     roomId: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
       references: {
         model: 'Room',
         key: 'id',
       },
     },
-    imageId: {
-      allowNull: false,
+    orderId: {
+      allowNull: true,
       type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
       references: {
-        model: 'Image',
+        model: 'Order',
         key: 'id',
       },
     },
-
   }, {
     sequelize,
-    modelName: 'RoomImage',
+    modelName: 'RoomInOrder',
     freezeTableName: true,
   });
-  return RoomImage;
+  return RoomInOrder;
 };

@@ -1,42 +1,39 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Order', {
+    await queryInterface.createTable('Room', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      code: {
+      name: {
         type: Sequelize.STRING,
       },
-      date: {
-        type: Sequelize.DATE,
+      detail: {
+        type: Sequelize.STRING,
       },
-      status: {
-        allowNull: false,
-        type: Sequelize.ENUM('Pending', 'Completed', 'Cancel'),
-        defaultValue: 'Pending',
+      description: {
+        type: Sequelize.STRING,
       },
-      adminAction: {
-        type: Sequelize.ENUM('Cancel', 'Accept', 'Pending'),
-        defaultValue: 'Pending',
+      price: {
+        type: Sequelize.INTEGER,
       },
-      paymentMethod: {
-        type: Sequelize.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
-        defaultValue: 'Pending',
+      hot: {
+        type: Sequelize.BOOLEAN,
       },
-      total: {
-        type: Sequelize.FLOAT,
+      active: {
+        type: Sequelize.BOOLEAN,
       },
-      userId: {
+      categoryId: {
         allowNull: true,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: {
-          model: 'User',
+          model: 'Category',
           key: 'id',
+          as: 'categoryId',
         },
       },
       createdAt: {
@@ -50,6 +47,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Order');
+    await queryInterface.dropTable('Room');
   },
 };

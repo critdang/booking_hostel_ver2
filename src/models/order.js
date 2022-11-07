@@ -10,15 +10,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      // has one user
       this.belongsTo(models.User, {
-        uniqueKey: 'userId',
+        foreignKey: 'userId',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
+      // has many Cart
       this.belongsToMany(models.Cart, {
         through: models.CartOrder,
       });
       this.hasMany(models.CartOrder, {
+        foreignKey: 'orderId',
+      });
+
+      // has many Room
+      this.belongsToMany(models.Room, {
+        through: models.RoomInOrder,
+      });
+      this.hasMany(models.RoomInOrder, {
         foreignKey: 'orderId',
       });
     }
@@ -48,9 +58,17 @@ module.exports = (sequelize, DataTypes) => {
     paymentDate: {
       type: DataTypes.DATE,
     },
+    arrival: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    departure: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
     total: DataTypes.FLOAT,
     userId: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',

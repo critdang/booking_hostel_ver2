@@ -1,24 +1,11 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Cart', {
+    await queryInterface.createTable('RoomInOrder', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      quantity: {
-        type: Sequelize.INTEGER,
-      },
-      userId: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        references: {
-          model: 'User',
-          key: 'id',
-        },
       },
       roomId: {
         allowNull: true,
@@ -30,17 +17,15 @@ module.exports = {
           key: 'id',
         },
       },
-      arrival: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      departure: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      onCart: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
+      orderId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Order',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -53,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Cart');
+    await queryInterface.dropTable('RoomInOrder');
   },
 };
