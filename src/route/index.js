@@ -1,12 +1,12 @@
 const userRouter = require('./user.route');
 const roomRouter = require('./room.route');
 const cartRouter = require('./cart.route');
-const adminRouter = require('./admin.router');
+const authRouter = require('./auth.router');
 const orderRouter = require('./order.route');
 const categoryRouter = require('./category.route');
 
 const initRoutes = (app) => {
-  app.use('/', adminRouter);
+  app.use('/', authRouter);
   app.use('/user', userRouter);
   app.use('/room', roomRouter);
   app.use('/category', categoryRouter);

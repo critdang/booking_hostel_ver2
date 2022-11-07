@@ -39,14 +39,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    checkIn: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    checkOut: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
     userId: {
       allowNull: true,
       type: DataTypes.INTEGER,
@@ -56,6 +48,14 @@ module.exports = (sequelize, DataTypes) => {
         model: 'User',
         key: 'id',
       },
+    },
+    checkIn: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    checkOut: {
+      allowNull: false,
+      type: DataTypes.DATE,
     },
   }, {
     sequelize,

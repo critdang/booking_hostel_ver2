@@ -27,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     fullName: DataTypes.STRING,
-    phone: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     address: DataTypes.STRING,
+    phone: DataTypes.STRING,
     status: {
       allowNull: true,
       type: DataTypes.ENUM('pending', 'reject', 'active'),

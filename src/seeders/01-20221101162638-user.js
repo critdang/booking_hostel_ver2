@@ -3,6 +3,21 @@ const helperFn = require('../utils/helperFn');
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('User', [{
+      fullName: 'admin',
+      email: 'admin@gmail.com',
+      password: await helperFn.hashPassword('admin'),
+      address: '12 Hàm Nghi',
+      phone: '0923423120',
+      status: 'pending',
+      gender: 'male',
+      avatar: 'dai.jpg',
+      isBlocked: false,
+      resetToken: '123456',
+      role: 'admin',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
       fullName: 'Huy',
       email: 'huy@gmail.com',
       password: await helperFn.hashPassword('123456'),
@@ -13,6 +28,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -26,6 +42,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -39,6 +56,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -52,6 +70,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -65,6 +84,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -78,6 +98,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

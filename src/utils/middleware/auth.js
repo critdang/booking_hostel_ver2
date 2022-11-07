@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const rateLimit = require('express-rate-limit');
 const catchAsync = require('../errorHandle/catchAsync');
 const JWTAction = require('./JWTAction');
@@ -17,6 +18,7 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
     attributes: { exclude: ['password', 'resetToken', 'status'] },
     where: { id: decodedToken.userId },
   });
+
   if (!user) {
     return next(new AppError('this user does not exist', 401));
   }
@@ -31,3 +33,12 @@ exports.loginLimiter = rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
+
+exports.checkRole = (role) => (req, res, next) => {
+  if (req.user.role !== role) {
+    return next(
+      new AppError('you dont have permission to do this action', 403)
+    );
+  }
+  next();
+};

@@ -40,6 +40,16 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      references: {
+        model: 'User',
+        key: 'id',
+      },
+    },
     code: DataTypes.STRING,
     date: DataTypes.DATE,
     status: {
@@ -67,16 +77,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     total: DataTypes.FLOAT,
-    userId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-      references: {
-        model: 'User',
-        key: 'id',
-      },
-    },
+
   }, {
     sequelize,
     modelName: 'Order',
