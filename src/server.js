@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -40,9 +41,9 @@ initRoutes(app);
 
 connectDB();
 
-app.listen(8080, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err);
   }
-  console.log("listen at port 8080");
+  console.log(`🚀 Server is listening at port ${process.env.PORT}`);
 });

@@ -1,6 +1,6 @@
 const format = require("string-format");
 const _ = require("lodash");
-const categoryService = require("../service/categoryService");
+const categoryService = require("../service/category.service");
 const { returnSuccess, returnFail } = require("../utils/helperFn");
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
@@ -23,9 +23,9 @@ const createCategory = async (req, res) => {
     return returnFail(req, res, error);
   }
 };
-const getAll = async (req, res) => {
+const getCategories = async (req, res) => {
   try {
-    const data = await categoryService.getAll(req, res);
+    const data = await categoryService.getCategories(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -35,7 +35,7 @@ const getAll = async (req, res) => {
   }
 };
 
-const getOne = async (req, res) => {
+const getCategory = async (req, res) => {
   try {
     if (_.isEmpty(req.params)) {
       throw new AppError(
@@ -43,7 +43,7 @@ const getOne = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await categoryService.getOne(req, res);
+    const data = await categoryService.getCategory(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -53,7 +53,7 @@ const getOne = async (req, res) => {
   }
 };
 
-const update = async (req, res) => {
+const updateCategory = async (req, res) => {
   try {
     if (_.isEmpty(req.params)) {
       throw new AppError(
@@ -67,17 +67,17 @@ const update = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await categoryService.update(req, res);
+    const data = await categoryService.updateCategory(req, res);
     if (data instanceof AppError) {
       throw data;
     }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_CATE_SUCCESS);
   } catch (error) {
     return returnFail(req, res, error);
   }
 };
 
-const deletes = async (req, res) => {
+const deleteCategory = async (req, res) => {
   try {
     if (_.isEmpty(req.params)) {
       throw new AppError(
@@ -97,8 +97,8 @@ const deletes = async (req, res) => {
 
 module.exports = {
   createCategory,
-  getAll,
-  getOne,
-  update,
-  deletes
+  getCategories,
+  getCategory,
+  updateCategory,
+  deleteCategory
 };

@@ -20,8 +20,8 @@ exports.returnFail = (req, res, err) => {
 };
 
 exports.hashPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  const hashPassword = await bcrypt.hash(password, salt);
+  const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
+  const hashPassword = await bcrypt.hash(password, saltRounds);
   return hashPassword;
 };
 
@@ -42,7 +42,7 @@ exports.sendMail = async (
   endpoint = '/',
   token = '',
 ) => {
-  const domain = 'http://localhost:8080';
+  const domain = `http://localhost:${process.env.PORT}`;
 
   const link = `${domain + endpoint + token}`;
   const viewTemplate = await ejs.renderFile('./src/views/createVerifyNoti/verify.ejs', { link });
@@ -61,7 +61,7 @@ exports.forgotPassword = async (to, token) => {
   const data = await ejs.renderFile('./src/views/createForgotPassNoti/forgotPassword.ejs', { link });
 
   await transporter.sendMail({
-    from: 'critdang@gmail.com',
+    from: process.env.EMAIL,
     to,
     subject: 'Reset Password',
     text: 'Dear customer',

@@ -1,7 +1,6 @@
 const format = require("string-format");
 const _ = require("lodash");
-const service = require("../service/adminService");
-const catchAsync = require("../utils/errorHandle/catchAsync");
+const service = require("../service/admin.service");
 const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");

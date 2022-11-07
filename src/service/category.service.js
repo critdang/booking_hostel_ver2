@@ -38,7 +38,7 @@ const createCategory = async (req) => {
   }
 };
 
-const getOne = async (req) => {
+const getCategory = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -62,7 +62,7 @@ const getOne = async (req) => {
   }
 };
 
-const getAll = async (req) => {
+const getCategories = async (req) => {
   const sort = objToArr(req.query);
   console.log(sort);
   try {
@@ -79,7 +79,7 @@ const getAll = async (req) => {
   }
 };
 
-const update = async (req) => {
+const updateCategory = async (req) => {
   try {
     const { id } = req.params;
     const updateContents = req.body;
@@ -101,13 +101,13 @@ const update = async (req) => {
         CODE.NOT_FOUND
       );
     }
-    return "update success";
+    return result;
   } catch (error) {
     return error;
   }
 };
 
-const deletes = async (req) => {
+const deleteCategory = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -136,8 +136,8 @@ const deletes = async (req) => {
 };
 module.exports = {
   createCategory,
-  getAll,
-  getOne,
-  update,
-  deletes
+  getCategories,
+  getCategory,
+  updateCategory,
+  deleteCategory
 };

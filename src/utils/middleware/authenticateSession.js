@@ -7,7 +7,7 @@ const isAuth = (req, res, next) => {
     return res.status(401).json({ error: "Access-denied" });
   }
   try {
-    const key = process.env.JWT_SECRET;
+    const key = process.env.ACCESS_TOKEN_SECRET;
     const id = jwt.verify(authHeader, key);
     req.id = { id };
     return next();
@@ -15,4 +15,5 @@ const isAuth = (req, res, next) => {
     return res.status(401).json({ error: "Invalid-token" });
   }
 };
+
 module.exports = { isAuth };

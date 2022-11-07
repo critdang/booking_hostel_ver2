@@ -9,7 +9,8 @@ router.post('/', upload.array('images'), validate.handleRoomValidate, roomContro
 router.get('/', roomController.getAll);
 router.get('/:id', roomController.getOne);
 router.put('/:id', roomController.update);
-router.delete('/:id', roomController.deletes);
+router.delete('/:id', roomController.deleteRoom);
 router.post('/default_image/:imgId', roomController.defaultImage);
+router.delete('/:productId/:imgId', roomController.deleteImage);
 
 module.exports = router;

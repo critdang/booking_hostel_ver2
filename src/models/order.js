@@ -34,14 +34,20 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.DATE,
     status: {
       allowNull: false,
-      type: DataTypes.ENUM('pending', 'reject', 'success'),
-      defaultValue: 'pending',
+      type: DataTypes.ENUM('Pending', 'Completed', 'Cancel'),
+      defaultValue: 'Pending',
     },
     adminAction: {
-      type: DataTypes.ENUM('cancel', 'accept', 'pending'),
-      defaultValue: 'pending',
+      type: DataTypes.ENUM('Cancel', 'Accept', 'Pending'),
+      defaultValue: 'Pending',
     },
-    payment: DataTypes.STRING,
+    paymentMethod: {
+      type: DataTypes.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
+      defaultValue: 'Pending',
+    },
+    paymentDate: {
+      type: DataTypes.DATE,
+    },
     total: DataTypes.FLOAT,
     userId: {
       allowNull: true,

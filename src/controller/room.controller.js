@@ -1,6 +1,6 @@
 const format = require("string-format");
 const _ = require("lodash");
-const roomService = require("../service/roomService");
+const roomService = require("../service/room.service");
 const { returnSuccess, returnFail } = require("../utils/helperFn");
 const { CODE, ERROR } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
@@ -71,7 +71,7 @@ const update = async (req, res) => {
   }
 };
 
-const deletes = async (req, res) => {
+const deleteRoom = async (req, res) => {
   try {
     if (_.isEmpty(req.params)) {
       throw new AppError(
@@ -79,7 +79,7 @@ const deletes = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await roomService.deletes(req, res);
+    const data = await roomService.deleteRoom(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -106,11 +106,30 @@ const defaultImage = async (req, res) => {
     return returnFail(req, res, error);
   }
 };
+
+const deleteImage = async (req, res) => {
+  try {
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.params),
+        CODE.INVALID
+      );
+    }
+    const data = await roomService.deleteImage(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, 'Delete image success');
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
 module.exports = {
   create,
   getAll,
   getOne,
   update,
-  deletes,
-  defaultImage
+  deleteRoom,
+  defaultImage,
+  deleteImage
 };

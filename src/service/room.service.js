@@ -1,6 +1,6 @@
 const format = require("string-format");
 const db = require("../models");
-const { CODE } = require("../constants/code");
+const { CODE, ERROR } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { objToArr } = require('../utils/convert/convert');
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
@@ -58,7 +58,7 @@ const create = async (req) => {
   }
 };
 
-const getOne = async (req, res) => {
+const getOne = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -82,7 +82,7 @@ const getOne = async (req, res) => {
   }
 };
 
-const getAll = async (req, res) => {
+const getAll = async (req) => {
   const sort = objToArr(req.query);
   try {
     const roomFetch = await db.Room.findAll({ order: sort });
@@ -98,7 +98,7 @@ const getAll = async (req, res) => {
   }
 };
 
-const update = async (req, res) => {
+const update = async (req) => {
   try {
     const { id } = req.params;
     const updateContents = req.body;
@@ -126,7 +126,7 @@ const update = async (req, res) => {
   }
 };
 
-const deletes = async (req, res) => {
+const deleteRoom = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -153,16 +153,38 @@ const deletes = async (req, res) => {
   }
 };
 
-const defaultImage = async (req, res) => {
+const defaultImage = async (req) => {
   const { imgId } = req.params;
-  if (!imgId) return helperFn.returnFail(req, res, ERROR.PROVIDE_DEFAULT_IMAGE_ID);
 
   try {
     const foundProduct = await db.productImage.findMany({ where: { id: +imgId } });
-    if (!foundProduct) return helperFn.returnFail(req, res, ERROR.NO_IMAGE_FOUND);
+    if (!foundProduct) {
+      throw new AppError(
+        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_IMAGE_FOUND),
+        CODE.NOT_FOUND
+      );
+    }
 
-    const { productId, id } = await prisma.productImage.update({ where: { id: +imgId }, data: { isDefault: true } });
-    await prisma.productImage.updateMany({ where: { productId, NOT: { id } }, data: { isDefault: false } }); // removeIsDefault
+    const { productId, id } = await db.productImage.update({ where: { id: +imgId }, data: { isDefault: true } });
+    await db.productImage.updateMany({ where: { productId, NOT: { id } }, data: { isDefault: false } }); // removeIsDefault
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const deleteImage = async (req) => {
+  const { productId, imgId } = req.params;
+  try {
+    const foundImg = await db.roomImage.deleteMany({
+      where: { id: imgId, productId },
+    });
+
+    if (foundImg.count === 0) {
+      throw new AppError(
+        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_IMAGE_FOUND),
+        CODE.NOT_FOUND
+      );
+    }
   } catch (err) {
     console.log(err);
   }
@@ -173,6 +195,7 @@ module.exports = {
   getAll,
   getOne,
   update,
-  deletes,
-  defaultImage
+  deleteRoom,
+  defaultImage,
+  deleteImage
 };

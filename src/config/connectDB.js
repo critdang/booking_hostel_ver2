@@ -20,7 +20,7 @@ const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameH
 const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
+    console.log('🚀 Connection to DB has been established successfully.');
     // có thêm câu Executing (default): SELECT 1+1 AS result là kết nối thành công
   } catch (error) {
     console.error('Unable to connect to the database:', error);

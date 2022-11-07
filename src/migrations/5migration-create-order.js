@@ -15,18 +15,19 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        type: Sequelize.ENUM('pending', 'reject', 'success'),
-        defaultValue: 'pending',
+        type: Sequelize.ENUM('Pending', 'Completed', 'Cancel'),
+        defaultValue: 'Pending',
       },
       adminAction: {
-        type: Sequelize.ENUM('cancel', 'accept', 'pending'),
-        defaultValue: 'pending',
+        type: Sequelize.ENUM('Cancel', 'Accept', 'Pending'),
+        defaultValue: 'Pending',
+      },
+      paymentMethod: {
+        type: Sequelize.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
+        defaultValue: 'Pending',
       },
       total: {
         type: Sequelize.FLOAT,
-      },
-      payment: {
-        type: Sequelize.STRING,
       },
       userId: {
         allowNull: true,

@@ -31,6 +31,11 @@ const handleRoomValidateMethod = Joi.object({
   detail: Joi.string(),
 });
 
+const handleCategoryValidateMethod = Joi.object({
+  name: Joi.string().required(),
+  description: Joi.string(),
+});
+
 exports.handleRoomValidate = async (req, res, next) => {
   try {
     await handleRoomValidateMethod.validateAsync(req.body);
@@ -39,9 +44,19 @@ exports.handleRoomValidate = async (req, res, next) => {
     next(err);
   }
 };
+
 exports.handleLoginValidate = async (req, res, next) => {
   try {
     await handleLoginValidateMethod.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleCategoryValidate = async (req, res, next) => {
+  try {
+    await handleCategoryValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);

@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const format = require("string-format");
 const db = require('../models/index');
 const { CODE } = require("../constants/code");

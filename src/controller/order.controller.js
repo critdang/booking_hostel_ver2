@@ -1,69 +1,80 @@
-const { verifyToken } = require('../utils/middleware/JWTAction');
-const db = require('../models');
-// const cartOrder = require('../../models/cart-order');
-// const catchAsync = require('../../utils/errorHandle/catchAsync');
-// const helperfn = require('../../utils/helperFn');
-// const { Cart } = require('../../models');
-// const { sequelize } = require('../../config/connectDB');
+const format = require("string-format");
+const _ = require("lodash");
+const service = require("../service/order.service");
+const catchAsync = require("../utils/errorHandle/catchAsync");
+const { returnSuccess, returnFail } = require('../utils/helperFn');
+const { CODE } = require("../constants/code");
+const AppError = require("../utils/errorHandle/appError");
+const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
-const orderController = {
-  orderPage:
-    async (req, res) => {
-      try {
-        const { id: userId } = verifyToken(req.cookies.token);
-        const orders = await db.Order.findAll(
-          {
-            where: {
-              userId,
-            },
-          },
-        );
-        res.render('order', {
-          orders,
-        });
-      } catch (e) {
-        console.log(e);
-      }
-    },
-  orderDetail:
-    async (req, res) => {
-      try {
-        const { orderId } = req.params;
-        // let cartOrder = await db.Order.findAll(
-        //   {
-        //     where: { id: orderId },
-        //     include: [{
-        //       model: db.Cart,
-        //       through: {
-        //         attributes: {
-        //           exclude: ['CartOrder']
-        //         }
-        //       }
-        //     }],
-        //     raw: true,
-        //     nest: true
-        //   })
+const getOrder = catchAsync(async (req, res) => {
+  try {
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, 'params'),
+        CODE.INVALID
+      );
+    }
+    const data = await service.getOrder(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (e) {
+    return returnFail(req, res, e);
+  }
+});
+const getOrders = catchAsync(async (req, res) => {
+  try {
+    const data = await service.getOrders(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (e) {
+    return returnFail(req, res, e);
+  }
+});
 
-        const orderDetail = await db.Cart.findAll({
-          include: [{
-            model: db.Order,
-            where: {
-              id: orderId,
-            },
-          }, {
-            model: db.Room,
-          }],
-          raw: true,
-          nest: true,
-        });
+const changeStatus = catchAsync(async (req, res) => {
+  try {
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, 'body'),
+        CODE.INVALID
+      );
+    }
+    const data = await service.changeStatus(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_ORDER_STATUS_SUCCESS);
+  } catch (e) {
+    return returnFail(req, res, e);
+  }
+});
 
-        // console.log(orderDetail);
-        res.render('orderDetail', {
-          data: orderDetail,
-        });
-      } catch (e) {
-        console.log(e);
-      }
-    },
+const updateOrder = catchAsync(async (req, res) => {
+  try {
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, 'body'),
+        CODE.INVALID
+      );
+    }
+    const data = await service.updateOrder(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_ORDER_SUCCESS);
+  } catch (e) {
+    return returnFail(req, res, e);
+  }
+});
+
+module.exports = {
+  getOrder,
+  getOrders,
+  changeStatus,
+  updateOrder
 };
-module.exports = orderController;

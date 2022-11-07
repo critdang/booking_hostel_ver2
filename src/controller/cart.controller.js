@@ -1,7 +1,12 @@
+const format = require("string-format");
 const { verifyToken } = require('../utils/middleware/JWTAction');
 const db = require('../models');
 const catchAsync = require('../utils/errorHandle/catchAsync');
 const { returnSuccess, returnFail } = require('../utils/helperFn');
+const AppError = require("../utils/errorHandle/appError");
+const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const { CODE } = require("../constants/code");
+const cartService = require('../service/cart.service');
 
 const checkout = catchAsync(async (req, res) => {
   try {
@@ -39,7 +44,6 @@ const checkout = catchAsync(async (req, res) => {
         const fetchQuantity = await db.Cart.findOne({
           where: { id },
         });
-        console.log("🚀 ~ file: cart.controller.js ~ line 43 ~ checkout ~ fetchQuantity", fetchQuantity);
         // await db.Cart.update({
         //   quantity: fetchQuantity.quantity + quantity[cartId]
         // }, {
@@ -56,6 +60,7 @@ const checkout = catchAsync(async (req, res) => {
     console.log(e);
   }
 });
+
 const cartPage = catchAsync(async (req, res) => {
   try {
     const { id: userId } = verifyToken(req.cookies.token);
@@ -83,4 +88,22 @@ const cartPage = catchAsync(async (req, res) => {
     console.log(e);
   }
 });
-module.exports = { cartPage, checkout };
+
+const addToCart = catchAsync(async (req, res) => {
+  try {
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.EMPTY, "body"),
+        CODE.INVALID
+      );
+    }
+    const data = await cartService.addToCart(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+});
+module.exports = { cartPage, checkout, addToCart };

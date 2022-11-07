@@ -1,8 +1,9 @@
-const { verifyToken } = require('../middleware/JWTAction');
+const { verifyToken } = require('../utils/middleware/JWTAction');
 const db = require('../models');
 const catchAsync = require('../utils/errorHandle/catchAsync');
 const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { sequelize } = require('../config/connectDB');
+const { ERROR } = require('../constants/commonMessage');
 
 const checkout = catchAsync(async (req, res) => {
   try {
@@ -72,7 +73,6 @@ const cartPage = catchAsync(async (req, res) => {
         },
       );
     }
-    const data = {ca}
     res.render('cart', {
       carts, userId,
     });
@@ -80,4 +80,42 @@ const cartPage = catchAsync(async (req, res) => {
     console.log(e);
   }
 });
-module.exports = { cartPage, checkout };
+const addToCart = catchAsync(async (req, res) => {
+  const { productId } = req.body;
+  const quantity = 1;
+  try {
+    const foundProduct = await db.Cart.findOne({ where: { id: productId } });
+    if (!foundProduct) {
+      return new Error(ERROR.NO_PRODUCT_FOUND);
+    }
+    if (quantity < 0) {
+      return new Error(ERROR.WRONG_INPUT_QUANTITY);
+    }
+    if (quantity > foundProduct.reserve) {
+      return new Error(ERROR.PRODUCT_EXCEED);
+    }
+    // if user login
+    // if() {
+    const existCart = await db.Cart.findOne({ where: {} });
+    // }
+
+    returnSuccess(req, res, 'Add to cart successfully');
+  } catch (e) {
+    returnFail(req, res, 1, e.message);
+  }
+});
+
+const getCart = catchAsync(async (req, res) => {
+  const userId = req.user.id;
+  try {
+    const foundCart = await db.Cart.findOne({
+      where: { userId },
+      include: {
+        model: db.Room,
+      }
+    });
+  } catch (e) {
+    return e;
+  }
+});
+module.exports = { cartPage, checkout, addToCart };

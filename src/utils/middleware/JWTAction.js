@@ -1,11 +1,8 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
-const generateJWT = (input, expired) => {
-  const payload = {
-    input
-  };
-  const key = process.env.JWT_SECRET;
+const generateJWT = (payload, expired) => {
+  const key = process.env.ACCESS_TOKEN_SECRET;
   try {
     const token = jwt.sign(payload, key, {
       expiresIn: expired,
@@ -19,7 +16,7 @@ const generateJWT = (input, expired) => {
 const authenticateToken = (req, res, next) => {
   try {
     const { token } = req.cookies;
-    const key = process.env.JWT_SECRET;
+    const key = process.env.ACCESS_TOKEN_SECRET;
     jwt.verify(token, key, (err) => {
       if (err) {
         return res.redirect('/login');
@@ -33,7 +30,7 @@ const authenticateToken = (req, res, next) => {
 
 const verifyToken = (token) => {
   try {
-    const key = process.env.JWT_SECRET;
+    const key = process.env.ACCESS_TOKEN_SECRET;
     const result = jwt.verify(token, key);
     return result;
   } catch (e) {
