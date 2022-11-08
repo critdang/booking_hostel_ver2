@@ -23,7 +23,7 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
     return next(new AppError('this user does not exist', 401));
   }
   req.user = user;
-  next();
+  return next();
 });
 
 exports.loginLimiter = rateLimit({
@@ -40,5 +40,5 @@ exports.checkRole = (role) => (req, res, next) => {
       new AppError('you dont have permission to do this action', 403)
     );
   }
-  next();
+  return next();
 };
