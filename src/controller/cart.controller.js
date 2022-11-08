@@ -1,4 +1,5 @@
 const format = require("string-format");
+const _ = require("lodash");
 const { verifyToken } = require('../utils/middleware/JWTAction');
 const db = require('../models');
 const catchAsync = require('../utils/errorHandle/catchAsync');
@@ -106,4 +107,19 @@ const addToCart = catchAsync(async (req, res) => {
     return returnFail(req, res, error);
   }
 });
-module.exports = { cartPage, checkout, addToCart };
+
+const getCart = async (req, res) => {
+  try {
+    const data = await cartService.getCart(req, res);
+    if (data instanceof AppError) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
+
+module.exports = {
+  cartPage, checkout, addToCart, getCart
+};

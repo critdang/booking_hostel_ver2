@@ -1,12 +1,12 @@
 const format = require("string-format");
 const _ = require("lodash");
-const roomService = require("../service/room.service");
+const service = require("../service/room.service");
 const { returnSuccess, returnFail } = require("../utils/helperFn");
 const { CODE, ERROR } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
-const create = async (req, res) => {
+const createRoom = async (req, res) => {
   try {
     if (_.isEmpty(req.body)) {
       throw new AppError(
@@ -14,7 +14,7 @@ const create = async (req, res) => {
         ERROR.NODATA
       );
     }
-    const data = await roomService.create(req, res);
+    const data = await service.createRoom(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -23,9 +23,9 @@ const create = async (req, res) => {
     return returnFail(req, res, error);
   }
 };
-const getAll = async (req, res) => {
+const getRooms = async (req, res) => {
   try {
-    const data = await roomService.getAll(req, res);
+    const data = await service.getRooms(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -35,7 +35,7 @@ const getAll = async (req, res) => {
   }
 };
 
-const getOne = async (req, res) => {
+const getRoom = async (req, res) => {
   try {
     if (_.isEmpty(req.params)) {
       throw new AppError(
@@ -43,7 +43,7 @@ const getOne = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await roomService.getOne(req, res);
+    const data = await service.getRoom(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -53,7 +53,7 @@ const getOne = async (req, res) => {
   }
 };
 
-const update = async (req, res) => {
+const updateRoom = async (req, res) => {
   try {
     if (_.isEmpty(req.body)) {
       throw new AppError(
@@ -61,7 +61,7 @@ const update = async (req, res) => {
         ERROR.NODATA
       );
     }
-    const data = await roomService.update(req, res);
+    const data = await service.updateRoom(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -79,7 +79,7 @@ const deleteRoom = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await roomService.deleteRoom(req, res);
+    const data = await service.deleteRoom(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -97,7 +97,7 @@ const defaultImage = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await roomService.defaultImage(req, res);
+    const data = await service.defaultImage(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -115,7 +115,7 @@ const deleteImage = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await roomService.deleteImage(req, res);
+    const data = await service.deleteImage(req, res);
     if (data instanceof AppError) {
       throw data;
     }
@@ -125,10 +125,10 @@ const deleteImage = async (req, res) => {
   }
 };
 module.exports = {
-  create,
-  getAll,
-  getOne,
-  update,
+  createRoom,
+  getRooms,
+  getRoom,
+  updateRoom,
   deleteRoom,
   defaultImage,
   deleteImage
