@@ -112,7 +112,7 @@ const addToCart = catchAsync(async (req, res) => {
 const getItemInCart = async (req) => {
   const userId = req.user.id;
   try {
-    const cartItems = await db.Cart.findOne({
+    const cartItems = await db.Cart.findAll({
       include: [{
         model: db.CartRoom,
         include: [{
@@ -135,6 +135,22 @@ const getItemInCart = async (req) => {
         CODE.ERROR
       );
     }
+    const totalCart = {};
+    const detailRoom = [];
+    const rooms = cartItems.map((room) => {
+      totalCart.totalPrice += parseInt(room.CartRooms.Room.price, 10);
+
+      const roomInDetail = {
+        roomId: room.CartRooms.roomId,
+        name: room.CartRooms.Room.name,
+        description: room.CartRooms.Room.description,
+        price: room.CartRooms.Room.price,
+        image: room.CartRooms.Room.RoomImages.Image.href
+      };
+      detailRoom.push(roomInDetail);
+    },);
+    totalCart.detailRoom = detailRoom;
+    console.log("🚀 ~ file: cart.service.js ~ line 142 ~ rooms ~ totalCart", totalCart);
 
     return cartItems;
   } catch (e) {

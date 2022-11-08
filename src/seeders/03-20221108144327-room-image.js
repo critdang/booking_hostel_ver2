@@ -1,16 +1,20 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('CartRoom', [{
-      cartId: 1,
+    await queryInterface.bulkInsert('RoomImage', [{
       roomId: 3,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      imageId: 1,
     },
     {
-      cartId: 1,
+      roomId: 3,
+      imageId: 2,
+    },
+    {
       roomId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      imageId: 3,
+    },
+    {
+      roomId: 2,
+      imageId: 4,
     }], {});
   },
 
