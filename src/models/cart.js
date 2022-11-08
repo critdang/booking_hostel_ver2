@@ -24,9 +24,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'cartId',
       });
       // has many room
-      this.belongsToMany(models.Room, {
-        through: models.CartRoom,
-      });
+      // this.belongsToMany(models.Room, {
+      //   through: models.CartRoom,
+      // });
       this.hasMany(models.CartRoom, {
         foreignKey: 'cartId',
       });

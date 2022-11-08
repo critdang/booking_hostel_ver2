@@ -109,38 +109,62 @@ const addToCart = catchAsync(async (req, res) => {
   }
 });
 
-const getCart = async (req) => {
+const getItemInCart = async (req) => {
   const userId = req.user.id;
   try {
-    const foundCart = await db.Cart.findOne({
-      where: { userId },
-      attributes: ['checkIn', 'checkOut'],
+    const cartItems = await db.Cart.findOne({
       include: [{
         model: db.CartRoom,
-      // include: [{
-      //   model: db.Room,
-      // include: [{
-      //   model: db.RoomImage,
-      //   include: [{
-      //     model: db.Image,
-      //   }]
-      // }]
-      // }]
-      }]
+        include: [{
+          model: db.Room,
+          include: [{
+            model: db.RoomImage,
+            include: [{
+              model: db.Image,
+            }]
+          }]
+        }]
+      }],
+      where: { userId },
+      raw: true,
+      nest: true
     });
-    console.log("🚀 ~ file: cart.service.js ~ line 130 ~ getCart ~ foundCart", foundCart);
-    if (!foundCart) {
+    if (!cartItems) {
       throw new AppError(
-        format(COMMON_MESSAGES.ERROR, foundCart),
+        format(COMMON_MESSAGES.ERROR, ERROR.NO_ROOM_IN_CART),
         CODE.ERROR
       );
     }
-    return foundCart;
+
+    return cartItems;
   } catch (e) {
     return e;
   }
 };
 
+const removeItemFromCart = async (req) => {
+  const userId = req.user.id;
+  const { roomId, cartId } = req.params;
+  try {
+    const foundCart = await db.Cart.findOne({ where: { userId, id: cartId } });
+    if (!foundCart) {
+      throw new AppError(
+        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_FOUND_CART),
+        CODE.NOT_FOUND
+      );
+    }
+    const roomInCart = await db.CartRoom.findOne({ where: { cartId, roomId } });
+    if (!roomInCart) {
+      throw new AppError(
+        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_ROOM_IN_CART),
+        CODE.NOT_FOUND
+      );
+    }
+    await roomInCart.destroy();
+  } catch (e) {
+    return e;
+  }
+};
 module.exports = {
-  cartPage, checkout, addToCart, getCart
+  cartPage, checkout, addToCart, getItemInCart, removeItemFromCart
 };

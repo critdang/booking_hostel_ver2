@@ -23,5 +23,7 @@ module.exports = {
     NO_PRODUCT_FOUND: "No product found",
     WRONG_INPUT_QUANTITY: "Wrong input quantity",
     PRODUCT_EXCEED: 'Product quantity not enough',
+    NO_ROOM_IN_CART: 'No room in cart',
+    NO_FOUND_CART: 'No found cart'
   }
 };
