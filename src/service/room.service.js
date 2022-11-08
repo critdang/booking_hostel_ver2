@@ -6,7 +6,7 @@ const { objToArr } = require('../utils/convert/convert');
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 const { sequelize } = require("../models");
 
-const create = async (req) => {
+const createRoom = async (req) => {
   try {
     const {
       name, detail, description, price, reserve, hot, active, categoryId
@@ -58,7 +58,7 @@ const create = async (req) => {
   }
 };
 
-const getOne = async (req) => {
+const getRoom = async (req) => {
   try {
     const { id } = req.params;
     if (!id) {
@@ -82,7 +82,7 @@ const getOne = async (req) => {
   }
 };
 
-const getAll = async (req) => {
+const getRooms = async (req) => {
   const sort = objToArr(req.query);
   try {
     const roomFetch = await db.Room.findAll({ order: sort });
@@ -98,7 +98,7 @@ const getAll = async (req) => {
   }
 };
 
-const update = async (req) => {
+const updateRoom = async (req) => {
   try {
     const { id } = req.params;
     const updateContents = req.body;
@@ -191,10 +191,10 @@ const deleteImage = async (req) => {
 };
 
 module.exports = {
-  create,
-  getAll,
-  getOne,
-  update,
+  createRoom,
+  getRooms,
+  getRoom,
+  updateRoom,
   deleteRoom,
   defaultImage,
   deleteImage

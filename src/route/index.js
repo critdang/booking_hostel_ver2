@@ -15,7 +15,6 @@ const initRoutes = (app) => {
 
   // Handle not found URL errors
   app.use("*", (req, res) => {
-    console.log("🚀 ~ file: index.js ~ line 18 ~ app.use ~ req", req.orginalUrl);
     const err = Error(`Requested path ${req.path} not found`);
     res.status(404).send({
       success: false,

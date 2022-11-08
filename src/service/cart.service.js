@@ -1,9 +1,13 @@
+const format = require("string-format");
 const { verifyToken } = require('../utils/middleware/JWTAction');
 const db = require('../models');
 const catchAsync = require('../utils/errorHandle/catchAsync');
 const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { sequelize } = require('../config/connectDB');
 const { ERROR } = require('../constants/commonMessage');
+const { CODE } = require("../constants/code");
+const AppError = require("../utils/errorHandle/appError");
+const { COMMON_MESSAGES } = require("../constants/commonMessage");
 
 const checkout = catchAsync(async (req, res) => {
   try {
@@ -105,17 +109,38 @@ const addToCart = catchAsync(async (req, res) => {
   }
 });
 
-const getCart = catchAsync(async (req, res) => {
+const getCart = async (req) => {
   const userId = req.user.id;
   try {
     const foundCart = await db.Cart.findOne({
       where: { userId },
-      include: {
-        model: db.Room,
-      }
+      attributes: ['checkIn', 'checkOut'],
+      include: [{
+        model: db.CartRoom,
+      // include: [{
+      //   model: db.Room,
+      // include: [{
+      //   model: db.RoomImage,
+      //   include: [{
+      //     model: db.Image,
+      //   }]
+      // }]
+      // }]
+      }]
     });
+    console.log("🚀 ~ file: cart.service.js ~ line 130 ~ getCart ~ foundCart", foundCart);
+    if (!foundCart) {
+      throw new AppError(
+        format(COMMON_MESSAGES.ERROR, foundCart),
+        CODE.ERROR
+      );
+    }
+    return foundCart;
   } catch (e) {
     return e;
   }
-});
-module.exports = { cartPage, checkout, addToCart };
+};
+
+module.exports = {
+  cartPage, checkout, addToCart, getCart
+};

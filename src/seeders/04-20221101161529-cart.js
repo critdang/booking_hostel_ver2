@@ -6,73 +6,7 @@ module.exports = {
       checkOut: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }, {
-      userId: 3,
-      checkIn: new Date(),
-      checkOut: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
+    },], {});
   },
 
   async down(queryInterface, Sequelize) {
