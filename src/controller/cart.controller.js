@@ -108,10 +108,22 @@ const addToCart = catchAsync(async (req, res) => {
   }
 });
 
-const getCart = async (req, res) => {
+const getItemInCart = async (req, res) => {
   try {
-    const data = await cartService.getCart(req, res);
-    if (data instanceof AppError) {
+    const data = await cartService.getItemInCart(req, res);
+    if (data instanceof Error) {
+      throw data;
+    }
+    return returnSuccess(req, res, CODE.SUCCESS, data);
+  } catch (error) {
+    return returnFail(req, res, error);
+  }
+};
+
+const removeItemFromCart = async (req, res) => {
+  try {
+    const data = await cartService.removeItemFromCart(req, res);
+    if (data instanceof Error) {
       throw data;
     }
     return returnSuccess(req, res, CODE.SUCCESS, data);
@@ -121,5 +133,5 @@ const getCart = async (req, res) => {
 };
 
 module.exports = {
-  cartPage, checkout, addToCart, getCart
+  cartPage, checkout, addToCart, getItemInCart, removeItemFromCart
 };

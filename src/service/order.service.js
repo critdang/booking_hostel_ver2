@@ -86,7 +86,7 @@ const updateOrder = async (req) => {
         CODE.INVALID
       );
     }
-    const updateOrder = await db.Order.update(
+    const result = await db.Order.update(
       { status: newStatus },
       {
         where: {
@@ -95,13 +95,13 @@ const updateOrder = async (req) => {
         }
       }
     );
-    if (!updateOrder) {
+    if (!result) {
       throw new AppError(
         format(COMMON_MESSAGES.NOT_FOUND, orderId),
         CODE.NOT_FOUND
       );
     }
-    return updateOrder;
+    return result;
   } catch (error) {
     return error;
   }

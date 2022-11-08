@@ -12,13 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Cart, {
         foreignKey: 'cartId',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       });
       this.belongsTo(models.Room, {
         foreignKey: 'roomId',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       });
     }
   }
