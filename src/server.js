@@ -40,7 +40,6 @@ app.use(cookieParser());
 initRoutes(app);
 
 connectDB();
-<<<<<<< HEAD
 app.use("*", (req, res) => {
   const err = Error(`Requested path ${req.path} not found`);
   res.status(404).send({
@@ -49,9 +48,7 @@ app.use("*", (req, res) => {
     stack: err.stack,
   });
 });
-=======
 
->>>>>>> 4e0f070c5a307b17799c708872bafa46943cd8af
 app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err);
