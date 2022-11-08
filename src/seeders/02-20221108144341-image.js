@@ -1,16 +1,20 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('CartRoom', [{
-      cartId: 1,
-      roomId: 3,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+    await queryInterface.bulkInsert('Image', [{
+      href: 'test.jpg',
+      isDefault: 'true',
     },
     {
-      cartId: 1,
-      roomId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      href: 'test1.jpg',
+      isDefault: 'true',
+    },
+    {
+      href: 'test2.jpg',
+      isDefault: 'true',
+    },
+    {
+      href: 'test3.jpg',
+      isDefault: 'true',
     }], {});
   },
 
