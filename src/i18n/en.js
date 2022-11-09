@@ -17,6 +17,7 @@ module.exports = {
     missingParams: '{} is missing',
     invalidParams: '{} is invalid',
     invalidDate: '{} is invalid date format',
+    missingToken: 'Missing token',
 
     // authentication
     loginFailed: 'Email or password is incorrect',
@@ -25,7 +26,11 @@ module.exports = {
     certificateInvalid: 'Your phone/email/username or password is incorrect!',
     certificateNotExisted: 'Your phone/email or username is incorrect!',
     oldPassIncorrect: 'Old password is incorrect',
+    verifyUserFailed: 'Verify user failed',
+    verifyUserSuccess: 'Verify user success',
 
+    // user
+    resetPasswordSucess: 'Reset password success',
     // createUser
     existUser: '{} is already existed',
     // forgotPassword
@@ -48,5 +53,20 @@ module.exports = {
     noDeleteImageRoom: 'No image room delete with productId {}',
     setDefaultImageRoomSuccess: 'Set default image room successfully',
     deleteImageRoomSuccess: 'Delete image room successfully',
+
+    // category
+    createCategorySuccess: 'Create category successfully',
+    createCategoryFail: 'Create category fail',
+    categoryIsExisted: 'Category is existed',
+    noFoundCategories: 'No categories found',
+    noFoundCategory: 'No category found with id {}',
+    deleteCategorySuccess: 'Delete category successfully',
+    deleteCategoryFailId: 'Delete category fail with id {}',
+
+    // order
+    noFoundOrder: 'No order found with id {}',
+    noFoundOrders: 'No orders found',
+    updateStatusOderFailed: 'Update order failed',
+    updateOrderFailed: 'Update order failed',
   }
 };

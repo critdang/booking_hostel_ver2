@@ -4,7 +4,7 @@ const userController = require("../controller/user.controller");
 const adminController = require("../controller/admin.controller");
 
 const router = express.Router();
-const { upload } = require("../utils/uploadImg");
+const { upload } = require("../utils/cloudinary/uploadImg");
 const validate = require('../validate/validate');
 const auth = require('../utils/middleware/auth');
 

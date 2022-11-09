@@ -1,97 +1,83 @@
 const format = require("string-format");
 const _ = require("lodash");
 const categoryService = require("../service/category.service");
-const { returnSuccess, returnFail } = require("../utils/helperFn");
-const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const ResponseHelper = require('../utils/response');
+const MessageHelper = require('../utils/message');
+const logger = require('../utils/logger/app-logger');
 
 const createCategory = async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.EMPTY, "body"),
-        CODE.INVALID
-      );
-    }
+    logger.info(`Category:createCategory::${JSON.stringify(req.body)}`);
+
     const data = await categoryService.createCategory(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`Category:createCategory:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 const getCategories = async (req, res) => {
   try {
+    logger.info(`Category:getCategories::${JSON.stringify(req.body)}`);
+
     const data = await categoryService.getCategories(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`Category:getCategories:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
 const getCategory = async (req, res) => {
   try {
-    if (_.isEmpty(req.params)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, req.params),
-        CODE.INVALID
-      );
-    }
+    logger.info(`Category:getCategory::req.params${JSON.stringify(req.params)}`);
+
     const data = await categoryService.getCategory(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`Category:getCategory:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
 const updateCategory = async (req, res) => {
   try {
+    logger.info(`Category:updateCategory::req.params${JSON.stringify(req.params)}`);
+    logger.info(`Category:updateCategory::req.body${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.params)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, req.params),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
       );
     }
     if (_.isEmpty(req.body)) {
       throw new AppError(
-        format(COMMON_MESSAGES.EMPTY, "body"),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'req.body')
       );
     }
+
     const data = await categoryService.updateCategory(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_CATE_SUCCESS);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`Category:updateCategory:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
 const deleteCategory = async (req, res) => {
   try {
+    logger.info(`Category:deleteCategory::req.params${JSON.stringify(req.params)}`);
     if (_.isEmpty(req.params)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, req.params),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
       );
     }
-    const data = await categoryService.deletes(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+
+    await categoryService.deleteCategory(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('deleteCategorySuccess'));
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`Category:deleteCategory:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 

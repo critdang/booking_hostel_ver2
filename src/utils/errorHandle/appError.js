@@ -1,3 +1,4 @@
+// inherits build-in Error class to custom return error
 class AppError extends Error {
   constructor(message, statusCode = 400) {
     super(message);
