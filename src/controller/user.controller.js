@@ -6,55 +6,42 @@ const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const ResponseHelper = require('../utils/response');
+const MessageHelper = require('../utils/message');
+const logger = require('../logger/app-logger');
 
 const createUser = async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.EMPTY, 'body'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAuthentication:create::${JSON.stringify(req.body)}`);
+
     const data = await service.createUser(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`UserAuthentication:login:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
-const login = catchAsync(async (req, res) => {
+const login = async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAuthentication:login::${JSON.stringify(req.body)}`);
+
     const data = await service.login(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`UserAuthentication:login:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
-});
+};
 
 const forgotPassword = catchAsync(async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAction:forgotPassword::${JSON.stringify(req.body)}`);
     await service.forgotPassword(req, res);
     return returnSuccess(req, res, CODE.SUCCESS, 'An email sent to you, please check the mail to reset password');
   } catch (e) {
-    return returnFail(req, res, e);
+    console.log("🚀 ~ file: user.controller.js ~ line 43 ~ forgotPassword ~ e", e);
+    // return returnFail(req, res, e);
   }
 });
 

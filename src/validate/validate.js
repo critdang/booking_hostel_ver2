@@ -36,6 +36,29 @@ const handleCategoryValidateMethod = Joi.object({
   description: Joi.string(),
 });
 
+const handleRegisterValidateMethod = Joi.object({
+  fullName: Joi.string().required(),
+  email: Joi.string().required(),
+  password: Joi.string().required(),
+  address: Joi.string(),
+  phone: Joi.string(),
+  status: Joi.string(),
+  gender: Joi.string(),
+  avatar: Joi.string(),
+  isBlocked: Joi.boolean(),
+  resetToken: Joi.string(),
+  role: Joi.string(),
+});
+
+const handleLogin = Joi.object({
+  email: Joi.string().required(),
+  password: Joi.string().required(),
+});
+
+const handleForgotPassword = Joi.object({
+  email: Joi.string().required(),
+});
+
 exports.handleRoomValidate = async (req, res, next) => {
   try {
     await handleRoomValidateMethod.validateAsync(req.body);
@@ -57,6 +80,33 @@ exports.handleLoginValidate = async (req, res, next) => {
 exports.handleCategoryValidate = async (req, res, next) => {
   try {
     await handleCategoryValidateMethod.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleRegisterValidate = async (req, res, next) => {
+  try {
+    await handleRegisterValidateMethod.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleLoginValidate = async (req, res, next) => {
+  try {
+    await handleLogin.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleForgotPasswordValidate = async (req, res, next) => {
+  try {
+    await handleForgotPassword.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);

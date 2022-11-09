@@ -1,0 +1,25 @@
+{"level":"info","message":"AdminAuthentication:login::{}"}
+{"level":"info","message":"AdminAuthentication:login::{}"}
+{"level":"info","message":"AdminAuthentication:login::{}"}
+{
+  message: 'AdminAuthentication:login::{}',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2022-11-08T16:40:01.866Z'
+}
+{
+  message: 'AdminAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2022-11-08T16:42:29.439Z'
+}
+{
+  message: 'AdminAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-08T16:43:20.973Z'
+}
+{
+  message: 'AdminAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-08T16:43:55.747Z'
+}

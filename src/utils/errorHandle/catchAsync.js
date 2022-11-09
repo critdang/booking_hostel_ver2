@@ -1,5 +1,5 @@
-const catchAsync = (cb) => (req, res, next) => {
-  cb(req, res, next).catch((err) => next(err));
+const catchAsync = (asyncFunction) => (req, res, next) => {
+  asyncFunction(req, res, next).catch(next);
 };
 
 module.exports = catchAsync;

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 25
+    },
+    "auditLog": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\.c3c9fbe79bc9d55ee6c0182a07646188dafa78ac-audit.json",
+    "files": [
+        {
+            "date": 1667924929850,
+            "name": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\debug..Tu-11-2022",
+            "hash": "3b5570410d1b1e509a3d0744be54a0a832e19689627b127f8c174e18e9548427"
+        }
+    ],
+    "hashType": "sha256"
+}
