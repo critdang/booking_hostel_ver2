@@ -14,6 +14,9 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
   }
   const decodedToken = await JWTAction.verifyToken(token);
 
+  if (!decodedToken.userId) {
+    return next(new AppError('You token is expired. Please login again', 401));
+  }
   const user = await db.User.findOne({
     attributes: { exclude: ['password', 'resetToken', 'status'] },
     where: { id: decodedToken.userId },

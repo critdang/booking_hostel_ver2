@@ -1,4 +1,8 @@
+const path = require('path');
+
 require('dotenv').config();
+
+const rootPath = path.join(__dirname, '../log');
 
 module.exports = {
   development: {
@@ -26,4 +30,8 @@ module.exports = {
     host: process.env.hostHotel,
     dialect: process.env.dialectHotel,
   },
+  logger: {
+    path: rootPath,
+    fileName: 'event-admin'
+  }
 };

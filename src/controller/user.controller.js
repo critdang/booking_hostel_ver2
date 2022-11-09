@@ -2,125 +2,107 @@ const format = require("string-format");
 const _ = require("lodash");
 const service = require("../service/user.service");
 const catchAsync = require("../utils/errorHandle/catchAsync");
-const { returnSuccess, returnFail } = require('../utils/helperFn');
-const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const ResponseHelper = require('../utils/response');
+const MessageHelper = require('../utils/message');
+const logger = require('../logger/app-logger');
 
 const createUser = async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.EMPTY, 'body'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAuthentication:create::${JSON.stringify(req.body)}`);
+
     const data = await service.createUser(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.error(`UserAuthentication:login:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
-const login = catchAsync(async (req, res) => {
+const login = async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAuthentication:login::${JSON.stringify(req.body)}`);
+
     const data = await service.login(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`UserAuthentication:login:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
-});
+};
 
 const forgotPassword = catchAsync(async (req, res) => {
   try {
+    logger.info(`UserAction:forgotPassword::${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'body')
       );
     }
+
     await service.forgotPassword(req, res);
-    return returnSuccess(req, res, CODE.SUCCESS, 'An email sent to you, please check the mail to reset password');
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('requestForgotPasswordSuccess'));
+  } catch (error) {
+    logger.error(`UserAction:forgotPassword:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
 const updateProfile = catchAsync(async (req, res) => {
   try {
+    logger.info(`UserAction:updateProfile::${JSON.stringify(req.params)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'body')
       );
     }
-    const data = await service.updateProfile(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_USER_SUCCESS);
-  } catch (e) {
-    return returnFail(req, res, e);
+
+    await service.updateProfile(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('updateProfileSuccess'));
+  } catch (error) {
+    logger.error(`UserAction:updateProfile:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
 const updateAvatar = catchAsync(async (req, res) => {
   try {
+    logger.info(`UserAction:updateAvatar::${JSON.stringify(req.file)}`);
     if (_.isEmpty(req.file)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'file'),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), req.file)
       );
     }
-    const data = await service.updateAvatar(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_AVATAR_SUCCESS);
-  } catch (e) {
-    return returnFail(req, res, e);
+
+    await service.updateAvatar(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('updateAvatarSuccess'));
+  } catch (error) {
+    logger.error(`UserAction:updateAvatar:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
 const getUser = catchAsync(async (req, res) => {
   try {
-    if (_.isEmpty(req.params)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'param'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAction:forgotPassword::${JSON.stringify(req.params)}`);
+
     const data = await service.getUser(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`UserAction:getUser:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
 const getUsers = catchAsync(async (req, res) => {
   try {
+    logger.info(`UserAction:getUsers::`);
+
     const data = await service.getUsers(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`UserAction:getUser:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 

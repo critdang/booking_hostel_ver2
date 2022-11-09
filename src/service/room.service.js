@@ -1,193 +1,123 @@
 const format = require("string-format");
 const db = require("../models");
-const { CODE, ERROR } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { objToArr } = require('../utils/convert/convert');
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
 const { sequelize } = require("../models");
+const MessageHelper = require('../utils/message');
 
 const createRoom = async (req) => {
-  try {
-    const {
-      name, detail, description, price, reserve, hot, active, categoryId
-    } = req.body;
-    if (!name) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, "Please use another name"),
-        CODE.INVALID
-      );
-    }
-    const roomFetch = await db.Room.findOne({
-      where: { name },
-    });
-    if (roomFetch) {
-      throw new AppError(
-        format(COMMON_MESSAGES.EXISTED, name),
-        CODE.EXISTED
-      );
-    }
-    await sequelize.transaction(async (t) => {
-      const newRoom = await db.Room.create({
-        name,
-        detail,
-        description,
-        price,
-        reserve,
-        hot,
-        active,
-        categoryId
+  const {
+    name, detail, description, price, reserve, hot, active, categoryId
+  } = req.body;
+  await sequelize.transaction(async (t) => {
+    const newRoom = await db.Room.create({
+      name,
+      detail,
+      description,
+      price,
+      reserve,
+      hot,
+      active,
+      categoryId
+    }, { transaction: t });
+
+    const { files } = req;
+    for (const file of files) {
+      // upload to Image table
+      const { path } = file;
+      const newImage = await db.Image.create({
+        href: path
       }, { transaction: t });
-
-      const { files } = req;
-      for (const file of files) {
-        // upload to Image table
-        const { path } = file;
-        const newImage = await db.Image.create({
-          href: path
-        }, { transaction: t });
         // point to RoomImage table
-        await db.RoomImage.create({
-          roomId: newRoom.id,
-          imageId: newImage.id
-        }, { transaction: t });
-      }
-      return newRoom;
-    });
-  } catch (error) {
-    return error;
-  }
-};
-
-const getRoom = async (req) => {
-  try {
-    const { id } = req.params;
-    if (!id) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, id),
-        CODE.INVALID
-      );
+      await db.RoomImage.create({
+        roomId: newRoom.id,
+        imageId: newImage.id
+      }, { transaction: t });
     }
-    const roomFetch = await db.Room.findAll({
-      where: { id },
-    });
-    if (roomFetch.length === 0) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, id),
-        CODE.NOT_FOUND
-      );
-    }
-    return roomFetch;
-  } catch (error) {
-    return error;
-  }
+    return newRoom;
+  });
 };
 
 const getRooms = async (req) => {
   const sort = objToArr(req.query);
-  try {
-    const roomFetch = await db.Room.findAll({ order: sort });
-    if (!roomFetch) {
-      throw new AppError(
-        format(COMMON_MESSAGES.ERROR, roomFetch),
-        CODE.ERROR
-      );
-    }
-    return roomFetch;
-  } catch (error) {
-    return error;
+  const roomFetch = await db.Room.findAll({ order: sort });
+  if (!roomFetch) {
+    throw new AppError(
+      format(MessageHelper.getMessage('cannotFindRoomCategory')),
+    );
   }
+  return roomFetch;
+};
+
+const getRoom = async (req) => {
+  const { id } = req.params;
+  const roomFetch = await db.Room.findAll({
+    where: { id },
+  });
+  if (roomFetch.length === 0) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundRoom'), id),
+    );
+  }
+  return roomFetch;
 };
 
 const updateRoom = async (req) => {
-  try {
-    const { id } = req.params;
-    const updateContents = req.body;
-    if (!id) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, id),
-        CODE.INVALID
-      );
+  const { id } = req.params;
+  const updateContents = req.body;
+  const result = await db.Room.update(
+    updateContents,
+    {
+      where: { id },
     }
-    const result = await db.Room.update(
-      updateContents,
-      {
-        where: { id },
-      }
+  );
+  if (result[0] === 0) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noRoomUpdated'))
     );
-    if (result[0] === 0) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, id),
-        CODE.NOT_FOUND
-      );
-    }
-    return "update success";
-  } catch (error) {
-    return error;
   }
 };
 
 const deleteRoom = async (req) => {
-  try {
-    const { id } = req.params;
-    if (!id) {
+  const { id } = req.params;
+  await sequelize.transaction(async (t) => {
+    const foundRoom = await db.Room.findOne({ where: { id } });
+    if (!foundRoom) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, id),
-        CODE.INVALID
+        format(MessageHelper.getMessage('noFoundRoom'), id),
       );
     }
-    await db.Room.destroy(
-      {
-        where: { id },
-      }
-    ).then((result) => {
-      if (result === 0) {
-        throw new AppError(
-          format(COMMON_MESSAGES.NOT_FOUND, id),
-          CODE.NOT_FOUND
-        );
-      }
-    });
-    return "delete success";
-  } catch (error) {
-    return error;
-  }
+    await db.RoomImage.destroy({ where: { roomId: id } }, { transaction: t });
+    await db.Room.destroy({ where: { id } }, { transaction: t });
+  });
 };
 
 const defaultImage = async (req) => {
   const { imgId } = req.params;
 
-  try {
-    const foundProduct = await db.productImage.findMany({ where: { id: +imgId } });
-    if (!foundProduct) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_IMAGE_FOUND),
-        CODE.NOT_FOUND
-      );
-    }
-
-    const { productId, id } = await db.productImage.update({ where: { id: +imgId }, data: { isDefault: true } });
-    await db.productImage.updateMany({ where: { productId, NOT: { id } }, data: { isDefault: false } }); // removeIsDefault
-  } catch (err) {
-    console.log(err);
+  const foundProduct = await db.RoomImage.findMany({ where: { id: imgId } });
+  if (!foundProduct) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundImageRoom'), imgId),
+    );
   }
+
+  const { productId, id } = await db.RoomImage.update({ isDefault: true }, { where: { id: +imgId } });
+  await db.RoomImage.update({ isDefault: false }, { where: { productId, NOT: { id } } }); // removeIsDefault
 };
 
 const deleteImage = async (req) => {
-  const { productId, imgId } = req.params;
-  try {
-    const foundImg = await db.roomImage.deleteMany({
-      where: { id: imgId, productId },
-    });
+  const { roomId, imgId } = req.params;
+  const foundImg = await db.RoomImage.findOne({
+    where: { imageId: imgId, roomId },
+  });
 
-    if (foundImg.count === 0) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_IMAGE_FOUND),
-        CODE.NOT_FOUND
-      );
-    }
-  } catch (err) {
-    console.log(err);
+  if (!foundImg) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noDeleteImageRoom'), roomId),
+    );
   }
+  await foundImg.destroy();
 };
 
 module.exports = {
