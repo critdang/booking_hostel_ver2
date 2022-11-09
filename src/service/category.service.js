@@ -1,137 +1,85 @@
 const format = require("string-format");
 const db = require("../models");
-const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { objToArr } = require('../utils/convert/convert');
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const MessageHelper = require('../utils/message');
 
 const createCategory = async (req) => {
-  try {
-    const { name, description } = req.body;
-    const thumbnail = await req.file.path;
+  const { name, description } = req.body;
+  const thumbnail = await req.file.path;
 
-    if (!name) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, name),
-        CODE.INVALID
-      );
-    }
-    const CategoryFetch = await db.Category.findOne({
-      where: {
-        name,
-      },
-    });
-    if (CategoryFetch) {
-      throw new AppError(
-        format(COMMON_MESSAGES.EXISTED, name),
-        CODE.EXISTED
-      );
-    }
-    const newCategory = await db.Category.create({
+  const foundCategory = await db.Category.findOne({
+    where: {
       name,
-      description,
-      thumbnail,
-    });
-    return newCategory;
-  } catch (error) {
-    return error;
-  }
-};
+    },
+  });
 
-const getCategory = async (req) => {
-  try {
-    const { id } = req.params;
-    if (!id) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, id),
-        CODE.INVALID
-      );
-    }
-    const categoryFetch = await db.Category.findAll({
-      where: { id },
-    });
-    if (categoryFetch.length === 0) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, id),
-        CODE.NOT_FOUND
-      );
-    }
-    return categoryFetch;
-  } catch (error) {
-    return error;
+  if (foundCategory) {
+    throw new AppError(
+      format(MessageHelper.getMessage('categoryIsExisted'), name),
+    );
   }
+  const newCategory = await db.Category.create({
+    name,
+    description,
+    thumbnail,
+  });
+  return newCategory;
 };
 
 const getCategories = async (req) => {
   const sort = objToArr(req.query);
-  console.log(sort);
-  try {
-    const CategoryFetch = await db.Category.findAll({ order: sort });
-    if (!CategoryFetch) {
-      throw new AppError(
-        format(COMMON_MESSAGES.ERROR, CategoryFetch),
-        CODE.ERROR
-      );
-    }
-    return CategoryFetch;
-  } catch (error) {
-    return error;
+  const foundCategory = await db.Category.findAll({ order: sort });
+  if (!foundCategory) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundCategories')),
+    );
   }
+  return foundCategory;
+};
+
+const getCategory = async (req) => {
+  const { id } = req.params;
+  const foundCategory = await db.Category.findOne({
+    where: { id },
+  });
+  if (!foundCategory) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundCategory'), id),
+    );
+  }
+  return foundCategory;
 };
 
 const updateCategory = async (req) => {
-  try {
-    const { id } = req.params;
-    const updateContents = req.body;
-    if (!id) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, id),
-        CODE.INVALID
-      );
+  const { id } = req.params;
+  const updateContents = req.body;
+  const result = await db.Category.update(
+    updateContents,
+    {
+      where: { id },
     }
-    const result = await db.Category.update(
-      updateContents,
-      {
-        where: { id },
-      }
+  );
+  if (!result) {
+    throw new AppError(
+      format(MessageHelper.getMessage('createCategoryFail'))
     );
-    if (result[0] === 0) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, id),
-        CODE.NOT_FOUND
-      );
-    }
-    return result;
-  } catch (error) {
-    return error;
   }
+  return result;
 };
 
 const deleteCategory = async (req) => {
-  try {
-    const { id } = req.params;
-    if (!id) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, id),
-        CODE.INVALID
-      );
+  const { id } = req.params;
+  const result = await db.Category.destroy(
+    {
+      where: { id },
     }
+  );
+  if (result === 0) {
+    throw new AppError(
+      format(MessageHelper.getMessage('deleteCategoryFailId'), id),
 
-    await db.Category.destroy(
-      {
-        where: { id },
-      }
-    ).then((result) => {
-      if (result === 0) {
-        throw new AppError(
-          format(COMMON_MESSAGES.NOT_FOUND, id),
-          CODE.NOT_FOUND
-        );
-      }
-    });
-    return "delete success";
-  } catch (error) {
-    return error;
+    );
   }
 };
 module.exports = {

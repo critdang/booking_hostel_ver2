@@ -1,6 +1,6 @@
 const express = require('express');
 const controller = require('../controller/category.controller');
-const { upload } = require("../utils/uploadImg");
+const { upload } = require("../utils/cloudinary/uploadImg");
 const validate = require('../validate/validate');
 const auth = require('../utils/middleware/auth');
 

@@ -1,31 +1,33 @@
 const format = require("string-format");
 const _ = require("lodash");
 const service = require("../service/admin.service");
-const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const logger = require('../logger/app-logger');
+const MessageHelper = require('../utils/message');
+const ResponseHelper = require('../utils/response');
 
 const verifyUser = async (req, res) => {
   try {
-    if (_.isEmpty(req.params)) {
+    logger.info(`AdminActions:verifyUser::req.params.token - ${JSON.stringify(req.params.token)}`);
+    if (_.isEmpty(req.params.token)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, req.params),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingToken'))
       );
     }
-    const data = await service.verifyUser(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+
+    await service.verifyUser(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('verifyUserSuccess'));
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.info(`RoomAction:getRoom:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
 const changeBlockUserStt = async (req, res) => {
   try {
+    logger.info(`AdminActions:changeBlockUserStt::req.params - ${JSON.stringify(req.params)}`);
     if (_.isEmpty(req.params)) {
       throw new AppError(
         format(COMMON_MESSAGES.INVALID, req.params),
@@ -33,14 +35,16 @@ const changeBlockUserStt = async (req, res) => {
       );
     }
     const data = await service.changeBlockUserStt(req, res);
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.info(`AdminActions:changeBlockUserStt:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
 const verifyResetPassword = async (req, res) => {
   try {
+    logger.info(`AdminActions:verifyResetPassword::req.params - ${JSON.stringify(req.params)}`);
     if (_.isEmpty(req.params)) {
       throw new AppError(
         format(COMMON_MESSAGES.INVALID, req.params),
@@ -49,22 +53,26 @@ const verifyResetPassword = async (req, res) => {
     }
     await service.verifyResetPassword(req, res);
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.info(`AdminActions:verifyResetPassword:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 
 const resetPassword = async (req, res) => {
   try {
+    logger.info(`AdminActions:resetPassword::req.body - ${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
         format(COMMON_MESSAGES.INVALID, req.body),
         CODE.INVALID
       );
     }
+
     await service.resetPassword(req, res);
-    return returnSuccess(req, res, CODE.SUCCESS, 'Reset password successfully');
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('resetPasswordSucess'));
   } catch (error) {
-    return returnFail(req, res, error);
+    logger.info(`AdminActions:resetPassword:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 };
 

@@ -3,7 +3,7 @@ const fs = require('fs');
 const {
   format
 } = require('winston');
-const config = require('../config/config');
+const config = require('../../config/config');
 require('winston-daily-rotate-file');
 
 const dir = config.logger.path;

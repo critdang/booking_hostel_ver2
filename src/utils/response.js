@@ -1,4 +1,4 @@
-const logger = require('../logger/app-logger');
+const logger = require("./logger/app-logger");
 const MessageHelper = require('./message');
 const { RESPONSE } = require('../constants/constants');
 

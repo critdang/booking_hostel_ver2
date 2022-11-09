@@ -5,16 +5,16 @@ const catchAsync = require("../utils/errorHandle/catchAsync");
 const AppError = require("../utils/errorHandle/appError");
 const ResponseHelper = require('../utils/response');
 const MessageHelper = require('../utils/message');
-const logger = require('../logger/app-logger');
+const logger = require('../utils/logger/app-logger');
 
 const createUser = async (req, res) => {
   try {
-    logger.info(`UserAuthentication:create::${JSON.stringify(req.body)}`);
+    logger.info(`UserAuthentication:createUser::${JSON.stringify(req.body)}`);
 
     const data = await service.createUser(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    logger.error(`UserAuthentication:login:: -  ${error}`);
+    logger.error(`UserAuthentication:createUser:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };

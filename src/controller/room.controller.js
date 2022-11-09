@@ -1,12 +1,9 @@
 const format = require("string-format");
 const _ = require("lodash");
 const service = require("../service/room.service");
-const { returnSuccess, returnFail } = require("../utils/helperFn");
-const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
 const ResponseHelper = require('../utils/response');
-const logger = require('../logger/app-logger');
+const logger = require('../utils/logger/app-logger');
 const MessageHelper = require('../utils/message');
 
 const createRoom = async (req, res) => {
@@ -48,9 +45,15 @@ const getRoom = async (req, res) => {
 const updateRoom = async (req, res) => {
   try {
     logger.info(`RoomAction:updateRoom::req.body - ${JSON.stringify(req.body)}`);
+    logger.info(`RoomAction:updateRoom::req.parms - ${JSON.stringify(req.parms)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
         format(MessageHelper.getMessage('missingParams'), 'body')
+      );
+    }
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
       );
     }
     await service.updateRoom(req, res);

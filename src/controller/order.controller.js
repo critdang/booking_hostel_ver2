@@ -2,73 +2,76 @@ const format = require("string-format");
 const _ = require("lodash");
 const service = require("../service/order.service");
 const catchAsync = require("../utils/errorHandle/catchAsync");
-const { returnSuccess, returnFail } = require('../utils/helperFn');
-const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const logger = require('../utils/logger/app-logger');
+
+const ResponseHelper = require('../utils/response');
+const MessageHelper = require('../utils/message');
 
 const getOrder = catchAsync(async (req, res) => {
   try {
-    if (_.isEmpty(req.params)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'params'),
-        CODE.INVALID
-      );
-    }
+    logger.info(`UserAction:updateProfile::${JSON.stringify(req.params)}`);
+
     const data = await service.getOrder(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`OrderActions:getOrder:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 const getOrders = catchAsync(async (req, res) => {
   try {
     const data = await service.getOrders(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
-  } catch (e) {
-    return returnFail(req, res, e);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`OrderActions:getOrders:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
 const changeStatus = catchAsync(async (req, res) => {
   try {
+    logger.info(`OrderActions:changeStatus::req.parms - ${JSON.stringify(req.parms)}`);
+    logger.info(`OrderActions:changeStatus::req.body - ${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'body')
       );
     }
-    const data = await service.changeStatus(req, res);
-    if (data instanceof AppError) {
-      throw data;
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
+      );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_ORDER_STATUS_SUCCESS);
-  } catch (e) {
-    return returnFail(req, res, e);
+
+    const data = await service.changeStatus(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`OrderActions:changeStatus:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
 const updateOrder = catchAsync(async (req, res) => {
   try {
+    logger.info(`OrderActions:updateOrder::req.parms - ${JSON.stringify(req.parms)}`);
+    logger.info(`OrderActions:updateOrder::req.body - ${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
-        format(COMMON_MESSAGES.INVALID, 'body'),
-        CODE.INVALID
+        format(MessageHelper.getMessage('missingParams'), 'body')
       );
     }
-    const data = await service.updateOrder(req, res);
-    if (data instanceof AppError) {
-      throw data;
+    if (_.isEmpty(req.params)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
+      );
     }
-    return returnSuccess(req, res, CODE.SUCCESS, COMMON_MESSAGES.UPDATE_ORDER_SUCCESS);
-  } catch (e) {
-    return returnFail(req, res, e);
+
+    const data = await service.updateOrder(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`OrderActions:changeStatus:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
 });
 
