@@ -14,9 +14,9 @@ module.exports = {
     tokenIsUsed: 'Token is used',
 
     // params
-    missingParams: '{param} is missing',
-    invalidParams: '{param} is invalid',
-    invalidDate: '{param} is invalid date format',
+    missingParams: '{} is missing',
+    invalidParams: '{} is invalid',
+    invalidDate: '{} is invalid date format',
 
     // authentication
     loginFailed: 'Email or password is incorrect',
@@ -28,5 +28,25 @@ module.exports = {
 
     // createUser
     existUser: '{} is already existed',
+    // forgotPassword
+    userNotActiveOrFound: '{} is not active or not found',
+    requestForgotPasswordSuccess: 'Request forgot password successfully',
+
+    // updateProfile
+    updateProfileSuccess: 'Update profile successfully',
+    updateAvatarSuccess: 'Update avatar successfully',
+
+    // room
+    createRoomSuccess: 'Create room successfully',
+    updateRoomSuccess: 'Update room successfully',
+    noRoomUpdated: 'No room update successfully',
+    noFoundRoom: 'No room found with id {}',
+    deleteRoomSuccess: 'Delete room successfully',
+    roomIsExisted: 'Room is existed',
+    cannotFindRoom: 'Cannot find room with these params',
+    noFoundImageRoom: 'No image room found with imgId {}',
+    noDeleteImageRoom: 'No image room delete with productId {}',
+    setDefaultImageRoomSuccess: 'Set default image room successfully',
+    deleteImageRoomSuccess: 'Delete image room successfully',
   }
 };

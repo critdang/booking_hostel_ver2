@@ -1009,3 +1009,453 @@
   level: 'info',
   timestamp: '2022-11-09T11:22:26.424Z'
 }
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:29:25.702Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:29:57.550Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:30:29.468Z'
+}
+{
+  message: "serAction:forgotPassword:: -  TypeError: Cannot read properties of undefined (reading 'replace')",
+  level: 'error',
+  timestamp: '2022-11-09T11:30:30.281Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:31:00.859Z'
+}
+{
+  message: "serAction:forgotPassword:: -  TypeError: Cannot read properties of undefined (reading 'replace')",
+  level: 'error',
+  timestamp: '2022-11-09T11:31:01.672Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:31:13.531Z'
+}
+{
+  message: "serAction:forgotPassword:: -  TypeError: Cannot read properties of undefined (reading 'replace')",
+  level: 'error',
+  timestamp: '2022-11-09T11:31:14.370Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:31:55.377Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  Error: dai@gmail.com is not active or not found',
+  level: 'error',
+  timestamp: '2022-11-09T11:31:56.189Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:32:17.202Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:32:26.908Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  Error: dai@gmail.com is not active or not found',
+  level: 'error',
+  timestamp: '2022-11-09T11:32:27.710Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234561"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:52:46.130Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-09T11:52:47.070Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:52:50.772Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:54:30.973Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-09T11:54:31.499Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"admin"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:54:36.124Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"userId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:55:05.041Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"userId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:55:47.713Z'
+}
+{
+  message: 'UserAction:getUsers::',
+  level: 'info',
+  timestamp: '2022-11-09T11:57:09.915Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"userId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T11:57:23.175Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"dai"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:00:03.289Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-09T12:00:04.095Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"dai"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:00:31.482Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-09T12:00:31.890Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:00:56.583Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-09T12:00:56.991Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:01:28.914Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-09T12:01:29.737Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"tesst1@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:02:11.711Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-09T12:02:12.191Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"duc@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:02:24.952Z'
+}
+{
+  message: 'UserAction:forgotPassword::{}',
+  level: 'info',
+  timestamp: '2022-11-09T12:03:38.125Z'
+}
+{
+  message: 'UserAction:forgotPassword::{}',
+  level: 'info',
+  timestamp: '2022-11-09T12:04:50.086Z'
+}
+{
+  message: 'UserAction:forgotPassword::{}',
+  level: 'info',
+  timestamp: '2022-11-09T12:05:01.665Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"duc@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:47:57.253Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-09T12:48:12.196Z'
+}
+{
+  message: 'UserAction:updateProfile:: -  Error: [object Object] is missing',
+  level: 'error',
+  timestamp: '2022-11-09T12:48:12.200Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-09T12:48:52.441Z'
+}
+{
+  message: 'UserAction:updateProfile:: -  Error: [object Object] is missing',
+  level: 'error',
+  timestamp: '2022-11-09T12:48:52.449Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-09T12:49:12.036Z'
+}
+{
+  message: 'UserAction:updateProfile:: -  Error: body is missing',
+  level: 'error',
+  timestamp: '2022-11-09T12:49:12.042Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"duc@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:55:17.647Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:55:24.612Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-09T12:55:24.775Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"admin"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:55:30.059Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room1","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:55:45.499Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room2","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:56:30.553Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room2","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:56:47.279Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room3","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:57:00.162Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room3","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:57:18.742Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room4","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T12:57:22.688Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room4","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:00:52.079Z'
+}
+{
+  message: 'RoomAction:createRoom:: -  Error: Normal Room4 is already exist',
+  level: 'error',
+  timestamp: '2022-11-09T13:00:52.173Z'
+}
+{
+  message: 'RoomAction:createRoom::{"name":"Normal Room5","detail":"Lorem Ipsum","description":"Lorem Ipsum","price":"2000","reserve":"20","hot":"1","active":"1","categoryId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:01:00.896Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-09T13:04:43.634Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-09T13:07:29.336Z'
+}
+{
+  message: 'RoomAction:getRooms:: - {"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:07:57.694Z'
+}
+{
+  message: 'RoomAction:getRooms::req.params - {"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:08:19.651Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"admin"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:11:34.596Z'
+}
+{
+  message: 'RoomAction:deleteRoom::req.params - {"id":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:25:52.183Z'
+}
+{
+  message: 'RoomAction:updateRoom:: -  Error: Cannot find room with these params',
+  level: 'info',
+  timestamp: '2022-11-09T13:25:52.755Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"admin"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:26:41.032Z'
+}
+{
+  message: 'RoomAction:deleteRoom::req.params - {"id":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:26:49.260Z'
+}
+{
+  message: "RoomAction:updateRoom:: -  TypeError: Cannot read properties of undefined (reading 'replace')",
+  level: 'info',
+  timestamp: '2022-11-09T13:26:49.863Z'
+}
+{
+  message: 'RoomAction:deleteRoom::req.params - {"id":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:27:02.204Z'
+}
+{
+  message: 'RoomAction:updateRoom:: -  Error: No room found with id 100',
+  level: 'info',
+  timestamp: '2022-11-09T13:27:02.774Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"admin"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:41:58.768Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"productId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:42:09.633Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'delete')",
+  level: 'info',
+  timestamp: '2022-11-09T13:42:09.636Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"productId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:42:29.086Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'delete')",
+  level: 'info',
+  timestamp: '2022-11-09T13:42:29.091Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"productId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:43:10.588Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'delete')",
+  level: 'info',
+  timestamp: '2022-11-09T13:43:10.593Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:45:12.208Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'delete')",
+  level: 'info',
+  timestamp: '2022-11-09T13:45:12.218Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:45:51.864Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'delete')",
+  level: 'info',
+  timestamp: '2022-11-09T13:45:51.870Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:47:17.767Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'destroy')",
+  level: 'info',
+  timestamp: '2022-11-09T13:47:17.772Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:48:36.457Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'findOne')",
+  level: 'info',
+  timestamp: '2022-11-09T13:48:36.462Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:49:33.311Z'
+}
+{
+  message: "RoomAction:deleteImage:: -  TypeError: Cannot read properties of undefined (reading 'findOne')",
+  level: 'info',
+  timestamp: '2022-11-09T13:49:33.324Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:51:00.062Z'
+}
+{
+  message: 'RoomAction:deleteImage:: -  Error: No image room delete with productId 1',
+  level: 'info',
+  timestamp: '2022-11-09T13:51:00.158Z'
+}
+{
+  message: 'RoomAction:deleteImage::req.params - {"roomId":"1","imgId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-09T13:51:40.825Z'
+}
+{
+  message: 'RoomAction:deleteImage:: -  TypeError: db.RoomImage.delete is not a function',
+  level: 'info',
+  timestamp: '2022-11-09T13:51:40.834Z'
+}

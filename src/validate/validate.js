@@ -59,6 +59,15 @@ const handleForgotPassword = Joi.object({
   email: Joi.string().required(),
 });
 
+const handleProfileValidateMethod = Joi.object({
+  fullName: Joi.string(),
+  email: Joi.string(),
+  password: Joi.string(),
+  address: Joi.string(),
+  phone: Joi.string(),
+  gender: Joi.string(),
+});
+
 exports.handleRoomValidate = async (req, res, next) => {
   try {
     await handleRoomValidateMethod.validateAsync(req.body);
@@ -107,6 +116,15 @@ exports.handleLoginValidate = async (req, res, next) => {
 exports.handleForgotPasswordValidate = async (req, res, next) => {
   try {
     await handleForgotPassword.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleProfileValidateMethodValidate = async (req, res, next) => {
+  try {
+    await handleProfileValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);
