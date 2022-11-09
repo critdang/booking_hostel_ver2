@@ -1459,3 +1459,23 @@
   level: 'info',
   timestamp: '2022-11-09T13:51:40.834Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T16:06:41.706Z'
+}
+{
+  message: "UserAuthentication:login:: -  SequelizeDatabaseError: Table 'booking_hotel_db1.User' doesn't exist",
+  level: 'error',
+  timestamp: '2022-11-09T16:06:42.679Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T16:07:26.715Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-09T16:23:10.670Z'
+}

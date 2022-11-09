@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 25
+    },
+    "auditLog": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\.8f6d4addabee648ae6e9f3df12830a6008074397-audit.json",
+    "files": [
+        {
+            "date": 1668009996304,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..We-11-2022",
+            "hash": "905ce63250dfbe845dd64d7beab07656e75d2e526df8013f7affad73841207f2"
+        }
+    ],
+    "hashType": "sha256"
+}

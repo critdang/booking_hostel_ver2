@@ -113,14 +113,19 @@ const getItemInCart = async (req) => {
   const userId = req.user.id;
   try {
     const cartItems = await db.Cart.findAll({
+      attributes: ['id', 'userId'],
       include: [{
         model: db.CartRoom,
+        attributes: [],
         include: [{
           model: db.Room,
+          attributes: ['name', 'detail', 'description', 'price'],
           include: [{
             model: db.RoomImage,
+            attributes: [],
             include: [{
               model: db.Image,
+              attributes: ['id', 'href', 'isDefault'],
             }]
           }]
         }]
@@ -135,25 +140,36 @@ const getItemInCart = async (req) => {
         CODE.ERROR
       );
     }
-    const totalCart = {};
-    const detailRoom = [];
-    const rooms = cartItems.map((room) => {
+    const totalCart = { totalPrice: 0 };
+    let detailRoom = [];
+    const roomIds = new Set();
+    cartItems.map((room) => {
       totalCart.totalPrice += parseInt(room.CartRooms.Room.price, 10);
-
-      const roomInDetail = {
-        roomId: room.CartRooms.roomId,
-        name: room.CartRooms.Room.name,
-        description: room.CartRooms.Room.description,
-        price: room.CartRooms.Room.price,
-        image: room.CartRooms.Room.RoomImages.Image.href
-      };
-      detailRoom.push(roomInDetail);
-    },);
+      const roomId = room.CartRooms.Room.id;
+      if (!roomIds.has(roomId)) {
+        roomIds.add(roomId);
+        const images = [room.CartRooms.Room.RoomImages.Image.href];
+        const roomInDetail = {
+          roomId,
+          name: room.CartRooms.Room.name,
+          description: room.CartRooms.Room.description,
+          price: room.CartRooms.Room.price,
+          image: images
+        };
+        detailRoom.push(roomInDetail);
+      } else {
+        detailRoom = detailRoom.map((roomInDetail) => {
+          if (roomInDetail.roomId === roomId) {
+            roomInDetail.image.push(room.CartRooms.Room.RoomImages.Image.href);
+          }
+          return roomInDetail;
+        });
+      }
+    });
     totalCart.detailRoom = detailRoom;
-    console.log("🚀 ~ file: cart.service.js ~ line 142 ~ rooms ~ totalCart", totalCart);
-
-    return cartItems;
+    return totalCart;
   } catch (e) {
+    console.log(e);
     return e;
   }
 };
