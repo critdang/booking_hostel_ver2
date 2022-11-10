@@ -4,7 +4,7 @@ const service = require("../service/admin.service");
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
-const logger = require('../logger/app-logger');
+const logger = require('../utils/logger/app-logger');
 const MessageHelper = require('../utils/message');
 const ResponseHelper = require('../utils/response');
 

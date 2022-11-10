@@ -1479,3 +1479,8 @@
   level: 'info',
   timestamp: '2022-11-09T16:23:10.670Z'
 }
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-09T16:38:11.415Z'
+}

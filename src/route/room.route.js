@@ -2,7 +2,7 @@ const express = require('express');
 
 const controller = require('../controller/room.controller');
 const validate = require('../validate/validate');
-const { upload } = require('../utils/uploadImg');
+const { upload } = require('../utils/cloudinary/uploadImg');
 const auth = require('../utils/middleware/auth');
 
 const router = express.Router();
