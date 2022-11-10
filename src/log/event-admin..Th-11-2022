@@ -369,3 +369,8 @@
   level: 'info',
   timestamp: '2022-11-10T08:44:17.360Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:54:16.721Z'
+}
