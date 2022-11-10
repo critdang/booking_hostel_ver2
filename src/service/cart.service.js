@@ -8,106 +8,47 @@ const { ERROR } = require('../constants/commonMessage');
 const { CODE } = require("../constants/code");
 const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const MessageHelper = require('../utils/message');
 
-const checkout = catchAsync(async (req, res) => {
-  try {
-    // create order
-    const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
-    const date = new Date();
-    const total = parseFloat(req.body.total);
-    const userId = parseInt(req.body.userId, 10);
-    const payment = 'cash';
+const addToCart = async (req, res) => {
+  const userId = req.user.id;
+  const { roomId } = req.body;
+  const foundRoom = await db.Room.findOne({ where: { id: roomId } });
+  if (!foundRoom) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundRoom'), roomId),
+    );
+  }
+  if (quantity < 0) {
+    throw new AppError(
+      format(MessageHelper.getMessage('invalidQuantity')),
+    );
+  }
+  // if user login
+  if(userId) {
 
-    const order = await db.Order.create({
-      code,
-      date,
-      total,
-      userId,
-      payment,
-    });
-    const orderId = order.dataValues.id;
+    const foundCart = await db.Cart.findOne({ where: { userId } });
+    if (!foundCart) {
+      const newCart = await db.Cart.create({ userId });
+    }
+    let roomInCart = await db.CartRoom.findOne({ where: { roomId, cartId: foundCart.id } });
+    if(roomInCart) {
+      roomInCart
+    } else{
+      const cartId = newCart.id;
+      await db.CartRoom.create({ cartId, roomId });
+      return returnSuccess(res, CODE.SUCCESS, newCart);
 
-    // update card quantity and also card-order table
-    const { quantity } = req.body;
-    const cartIds = Object.keys(quantity);
-    for (const cartId of cartIds) {
-      const id = parseInt(cartId.substring(2), 10);
-      if (quantity[cartId] == 'false') {
-        await db.Cart.destroy({
-          where: { id },
-        });
-      } else {
-        // update cart
-        await sequelize.query(`UPDATE Cart SET quantity = quantity +${quantity[cartId]}, onCart = 0  WHERE id=${id}`, {
-          model: db.Cart,
-          type: sequelize.QueryTypes.INSERT,
-        });
-
-        // create cart-order
-        await db.CartOrder.create({
-          cartId: id,
-          orderId,
-        });
       }
     }
-    const data = order.dataValues;
-    returnSuccess(req, res, 0, data, 'Checkout successfully');
-  } catch (e) {
-    returnFail(req, res, 1, e.message);
   }
-});
 
-const cartPage = catchAsync(async (req, res) => {
-  try {
-    const { id: userId } = verifyToken(req.cookies.token);
-    const carts = await db.Cart.findAll(
-      {
-        where: {
-          userId,
-          onCart: 1,
-        },
-      },
-    );
-    for (const cart of carts) {
-      cart.Room = await db.Room.findOne(
-        {
-          where: {
-            id: cart.roomId,
-          },
-        },
-      );
-    }
-    res.render('cart', {
-      carts, userId,
-    });
-  } catch (e) {
-    console.log(e);
-  }
-});
-const addToCart = catchAsync(async (req, res) => {
-  const { productId } = req.body;
-  const quantity = 1;
-  try {
-    const foundProduct = await db.Cart.findOne({ where: { id: productId } });
-    if (!foundProduct) {
-      return new Error(ERROR.NO_PRODUCT_FOUND);
-    }
-    if (quantity < 0) {
-      return new Error(ERROR.WRONG_INPUT_QUANTITY);
-    }
-    if (quantity > foundProduct.reserve) {
-      return new Error(ERROR.PRODUCT_EXCEED);
-    }
-    // if user login
-    // if() {
-    const existCart = await db.Cart.findOne({ where: {} });
-    // }
+  // if() {
+  const existCart = await db.Cart.findOne({ where: {} });
+  // }
 
-    returnSuccess(req, res, 'Add to cart successfully');
-  } catch (e) {
-    returnFail(req, res, 1, e.message);
-  }
-});
+  returnSuccess(req, res, 'Add to cart success  fully');
+};
 
 const getItemInCart = async (req) => {
   const userId = req.user.id;
@@ -198,5 +139,5 @@ const removeItemFromCart = async (req) => {
   }
 };
 module.exports = {
-  cartPage, checkout, addToCart, getItemInCart, removeItemFromCart
+  addToCart, getItemInCart, removeItemFromCart
 };

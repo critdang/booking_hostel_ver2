@@ -68,5 +68,7 @@ module.exports = {
     noFoundOrders: 'No orders found',
     updateStatusOderFailed: 'Update order failed',
     updateOrderFailed: 'Update order failed',
+
+    // cart
   }
 };

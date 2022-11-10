@@ -1,0 +1,75 @@
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:10:18.731Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:27:04.096Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-10T06:28:42.877Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:29:13.940Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:30:21.582Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:31:52.601Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:32:36.469Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:33:14.173Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:34:15.966Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:34:33.043Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:34:59.229Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:36:49.644Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:37:06.621Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:37:29.457Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1000"}',
+  level: 'info',
+  timestamp: '2022-11-10T06:37:58.545Z'
+}

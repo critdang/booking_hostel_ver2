@@ -8,7 +8,9 @@ const AppError = require("../utils/errorHandle/appError");
 const { COMMON_MESSAGES } = require("../constants/commonMessage");
 const { CODE } = require("../constants/code");
 const cartService = require('../service/cart.service');
-
+const logger = require('../utils/logger/app-logger');
+const ResponseHelper = require('../utils/response');
+const MessageHelper = require('../utils/message');
 const checkout = catchAsync(async (req, res) => {
   try {
     // create order
@@ -90,23 +92,25 @@ const cartPage = catchAsync(async (req, res) => {
   }
 });
 
-const addToCart = catchAsync(async (req, res) => {
+const addToCart = async (req, res) => {
   try {
-    if (_.isEmpty(req.body)) {
-      throw new AppError(
-        format(COMMON_MESSAGES.EMPTY, "body"),
-        CODE.INVALID
-      );
-    }
+    logger.info(`Category:getCategories::${JSON.stringify(req.body)}`);
+
+    // if (_.isEmpty(req.body)) {
+    //   throw new AppError(
+    //     format(COMMON_MESSAGES.EMPTY, "body"),
+    //     CODE.INVALID
+    //   );
+    // }
+
     const data = await cartService.addToCart(req, res);
-    if (data instanceof AppError) {
-      throw data;
-    }
-    return returnSuccess(req, res, CODE.SUCCESS, data);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    return returnFail(req, res, error);
+    console.log("🚀 ~ file: cart.controller.js ~ line 109 ~ addToCart ~ error", error.message)
+    // logger.error(`Category:createCategory:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
   }
-});
+};
 
 const getItemInCart = async (req, res) => {
   try {
