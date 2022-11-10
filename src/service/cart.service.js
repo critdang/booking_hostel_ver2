@@ -1,53 +1,49 @@
-const format = require("string-format");
-const { verifyToken } = require('../utils/middleware/JWTAction');
+const format = require('string-format');
 const db = require('../models');
-const catchAsync = require('../utils/errorHandle/catchAsync');
-const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { sequelize } = require('../config/connectDB');
 const { ERROR } = require('../constants/commonMessage');
-const { CODE } = require("../constants/code");
-const AppError = require("../utils/errorHandle/appError");
-const { COMMON_MESSAGES } = require("../constants/commonMessage");
+const { CODE } = require('../constants/code');
+const AppError = require('../utils/errorHandle/appError');
+const { COMMON_MESSAGES } = require('../constants/commonMessage');
 const MessageHelper = require('../utils/message');
 
-const addToCart = async (req, res) => {
+const addToCart = async (req) => {
   const userId = req.user.id;
-  const { roomId } = req.body;
+  const { roomId, checkIn, checkOut } = req.body;
   const foundRoom = await db.Room.findOne({ where: { id: roomId } });
   if (!foundRoom) {
-    throw new AppError(
-      format(MessageHelper.getMessage('noFoundRoom'), roomId),
-    );
-  }
-  if (quantity < 0) {
-    throw new AppError(
-      format(MessageHelper.getMessage('invalidQuantity')),
-    );
+    throw new AppError(format(MessageHelper.getMessage('noFoundRoom'), roomId));
   }
   // if user login
-  if(userId) {
-
+  if (userId) {
     const foundCart = await db.Cart.findOne({ where: { userId } });
+
     if (!foundCart) {
-      const newCart = await db.Cart.create({ userId });
+      const result = await sequelize.transaction(async (t) => {
+        const newCart = await db.Cart.create(
+          { userId, checkIn, checkOut },
+          { transaction: t }
+        );
+        await db.CartRoom.create(
+          { roomId, cartId: newCart.id },
+          { transaction: t }
+        );
+        return newCart;
+      });
+      return result;
     }
-    let roomInCart = await db.CartRoom.findOne({ where: { roomId, cartId: foundCart.id } });
-    if(roomInCart) {
-      roomInCart
-    } else{
-      const cartId = newCart.id;
-      await db.CartRoom.create({ cartId, roomId });
-      return returnSuccess(res, CODE.SUCCESS, newCart);
-
-      }
-    }
+    await db.CartRoom.create({ roomId, cartId: foundCart.id });
+    return foundCart;
   }
-
-  // if() {
-  const existCart = await db.Cart.findOne({ where: {} });
-  // }
-
-  returnSuccess(req, res, 'Add to cart success  fully');
+  // if user not login
+  const existCart = localStorage.getItem('roomId', roomId);
+  if (existCart) {
+    const newRoomToCart = existCart.push(roomId);
+    localStorage.setItem('roomId', newRoomToCart);
+    return newRoomToCart;
+  }
+  const newRoomToCart = localStorage.setItem('roomId', roomId);
+  return newRoomToCart;
 };
 
 const getItemInCart = async (req) => {
@@ -55,25 +51,33 @@ const getItemInCart = async (req) => {
   try {
     const cartItems = await db.Cart.findAll({
       attributes: ['id', 'userId'],
-      include: [{
-        model: db.CartRoom,
-        attributes: [],
-        include: [{
-          model: db.Room,
-          attributes: ['name', 'detail', 'description', 'price'],
-          include: [{
-            model: db.RoomImage,
-            attributes: [],
-            include: [{
-              model: db.Image,
-              attributes: ['id', 'href', 'isDefault'],
-            }]
-          }]
-        }]
-      }],
+      include: [
+        {
+          model: db.CartRoom,
+          attributes: [],
+          include: [
+            {
+              model: db.Room,
+              attributes: ['name', 'detail', 'description', 'price'],
+              include: [
+                {
+                  model: db.RoomImage,
+                  attributes: [],
+                  include: [
+                    {
+                      model: db.Image,
+                      attributes: ['id', 'href', 'isDefault'],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
       where: { userId },
       raw: true,
-      nest: true
+      nest: true,
     });
     if (!cartItems) {
       throw new AppError(
@@ -95,7 +99,7 @@ const getItemInCart = async (req) => {
           name: room.CartRooms.Room.name,
           description: room.CartRooms.Room.description,
           price: room.CartRooms.Room.price,
-          image: images
+          image: images,
         };
         detailRoom.push(roomInDetail);
       } else {
@@ -118,26 +122,19 @@ const getItemInCart = async (req) => {
 const removeItemFromCart = async (req) => {
   const userId = req.user.id;
   const { roomId, cartId } = req.params;
-  try {
+  if (userId) {
     const foundCart = await db.Cart.findOne({ where: { userId, id: cartId } });
     if (!foundCart) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_FOUND_CART),
-        CODE.NOT_FOUND
-      );
+      throw new AppError(format(MessageHelper.getMessage('noFoundCart'), cartId));
     }
-    const roomInCart = await db.CartRoom.findOne({ where: { cartId, roomId } });
+    const roomInCart = await db.CartRoom.destroy({ where: { cartId, roomId } });
     if (!roomInCart) {
-      throw new AppError(
-        format(COMMON_MESSAGES.NOT_FOUND, ERROR.NO_ROOM_IN_CART),
-        CODE.NOT_FOUND
-      );
+      throw new AppError(format(MessageHelper.getMessage('cannotRemoveItem')));
     }
-    await roomInCart.destroy();
-  } catch (e) {
-    return e;
   }
 };
 module.exports = {
-  addToCart, getItemInCart, removeItemFromCart
+  addToCart,
+  getItemInCart,
+  removeItemFromCart,
 };

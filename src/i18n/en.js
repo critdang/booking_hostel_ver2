@@ -68,7 +68,12 @@ module.exports = {
     noFoundOrders: 'No orders found',
     updateStatusOderFailed: 'Update order failed',
     updateOrderFailed: 'Update order failed',
+    creatOrderSuccess: 'Create order successfully',
 
     // cart
+    addRoomSuccess: 'Add room successfully',
+    cannotRemoveItem: 'Cannot remove item',
+    noFoundCart: 'No cart found with id {}',
+    removeItemCartSuccess: 'Remove item cart successfully',
   }
 };

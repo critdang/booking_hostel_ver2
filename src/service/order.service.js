@@ -69,9 +69,43 @@ const updateOrder = async (req) => {
   }
   return result;
 };
+
+const createOrder = async (req) => {
+  const { userId } = req.user.id;
+  const { productId, quantity } = req.body;
+
+  const foundProduct = await db.Product.findOne({
+    where: {
+      id: productId,
+    }
+  });
+  if (!foundProduct) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundProduct'), productId),
+    );
+  }
+  const foundUser = await db.User.findOne({
+    where: {
+      id: userId,
+    }
+  });
+  if (!foundUser) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser'), userId),
+    );
+  }
+  const order = await db.Order.create({
+    userId,
+    productId,
+    quantity,
+    status: 'pending',
+  });
+  return order;
+};
 module.exports = {
   getOrder,
   getOrders,
   changeStatus,
-  updateOrder
+  updateOrder,
+  createOrder
 };

@@ -73,3 +73,299 @@
   level: 'info',
   timestamp: '2022-11-10T06:37:58.545Z'
 }
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-10T07:09:48.904Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"admin@gmail.com","password":"admin"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:28:03.272Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:28:13.510Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-10T07:29:07.514Z'
+}
+{
+  message: 'Category:createCategory:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-10T07:29:07.517Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-10T07:30:09.726Z'
+}
+{
+  message: 'Category:createCategory:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-10T07:30:09.739Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-10T07:31:11.880Z'
+}
+{
+  message: 'Category:createCategory:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-10T07:31:11.889Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"100"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:31:43.548Z'
+}
+{
+  message: 'Category:createCategory:: -  Error: No room found with id 100',
+  level: 'error',
+  timestamp: '2022-11-10T07:31:43.670Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:31:55.666Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"nhan@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:34:34.512Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:34:59.759Z'
+}
+{
+  message: 'Category:createCategory:: -  SequelizeValidationError: notNull Violation: Cart.checkIn cannot be null,\n' +
+    'notNull Violation: Cart.checkOut cannot be null',
+  level: 'error',
+  timestamp: '2022-11-10T07:35:00.255Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:39:07.726Z'
+}
+{
+  message: 'Category:createCategory:: -  SequelizeValidationError: notNull Violation: Cart.checkIn cannot be null,\n' +
+    'notNull Violation: Cart.checkOut cannot be null',
+  level: 'error',
+  timestamp: '2022-11-10T07:39:08.160Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:39:18.613Z'
+}
+{
+  message: 'Category:createCategory:: -  SequelizeValidationError: notNull Violation: Cart.checkIn cannot be null,\n' +
+    'notNull Violation: Cart.checkOut cannot be null',
+  level: 'error',
+  timestamp: '2022-11-10T07:39:19.029Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:41:55.342Z'
+}
+{
+  message: 'Category:createCategory:: -  SequelizeValidationError: notNull Violation: Cart.checkIn cannot be null,\n' +
+    'notNull Violation: Cart.checkOut cannot be null',
+  level: 'error',
+  timestamp: '2022-11-10T07:41:55.803Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:42:37.155Z'
+}
+{
+  message: 'Category:createCategory:: -  SequelizeValidationError: notNull Violation: Cart.checkIn cannot be null,\n' +
+    'notNull Violation: Cart.checkOut cannot be null',
+  level: 'error',
+  timestamp: '2022-11-10T07:42:37.639Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:43:10.351Z'
+}
+{
+  message: 'Category:createCategory:: -  SequelizeValidationError: notNull Violation: Cart.checkIn cannot be null,\n' +
+    'notNull Violation: Cart.checkOut cannot be null',
+  level: 'error',
+  timestamp: '2022-11-10T07:43:10.777Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:44:36.227Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:44:37.067Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:45:46.216Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:45:47.066Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:47:52.248Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:48:54.500Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"nhan@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:49:44.911Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:50:17.739Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:50:48.788Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:50:49.718Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:51:41.989Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:51:42.915Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:54:41.403Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:54:42.301Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:56:14.598Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:58:02.925Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:58:24.486Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:58:25.290Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T07:59:10.548Z'
+}
+{
+  message: "Category:createCategory:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-10T07:59:11.531Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:00:59.467Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:01:17.912Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"nhan@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:20:18.897Z'
+}
+{
+  message: 'Category:createCategory:: -  Error: No cart found with id 1',
+  level: 'error',
+  timestamp: '2022-11-10T08:20:37.396Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:21:32.491Z'
+}
+{
+  message: 'Category:createCategory:: -  TypeError: roomInCart.destroy is not a function',
+  level: 'error',
+  timestamp: '2022-11-10T08:21:46.342Z'
+}
+{
+  message: 'Category:createCategory:: -  TypeError: roomInCart.destroy is not a function',
+  level: 'error',
+  timestamp: '2022-11-10T08:23:28.525Z'
+}
+{
+  message: 'Category:createCategory:: -  TypeError: roomInCart.destroy is not a function',
+  level: 'error',
+  timestamp: '2022-11-10T08:25:47.417Z'
+}
+{
+  message: 'Category:createCategory:: -  TypeError: roomInCart.destroy is not a function',
+  level: 'error',
+  timestamp: '2022-11-10T08:25:49.319Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:33:10.014Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:33:25.119Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-10T08:33:46.381Z'
+}
+{
+  message: 'Order:getOrder::{}',
+  level: 'info',
+  timestamp: '2022-11-10T08:44:17.360Z'
+}
