@@ -29,6 +29,30 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
   return next();
 });
 
+exports.protectingRoutes1 = catchAsync(async (req, res, next) => {
+  const token = req.headers.authorization?.startsWith('Bearer')
+  && req.headers.authorization.split(' ')[1];
+
+  if (!token || token === 'null') {
+    return next();
+  }
+  const decodedToken = await JWTAction.verifyToken(token);
+
+  if (!decodedToken.userId) {
+    return next(new AppError('You token is expired. Please login again', 401));
+  }
+  const user = await db.User.findOne({
+    attributes: { exclude: ['password', 'resetToken', 'status'] },
+    where: { id: decodedToken.userId },
+  });
+
+  if (!user) {
+    return next(new AppError('this user does not exist', 401));
+  }
+  req.user = user;
+  return next();
+});
+
 exports.loginLimiter = rateLimit({
   windowMs: 3 * 60 * 1000, // 3 minutes
   max: process.env.NODE_ENV === 'test' ? 100 : 5,
