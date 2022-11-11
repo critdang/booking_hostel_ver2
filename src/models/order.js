@@ -16,13 +16,13 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
-      // has many Cart
-      this.belongsToMany(models.Cart, {
-        through: models.CartOrder,
-      });
-      this.hasMany(models.CartOrder, {
-        foreignKey: 'orderId',
-      });
+      // // has many Cart
+      // this.belongsToMany(models.Cart, {
+      //   through: models.CartOrder,
+      // });
+      // this.hasMany(models.CartOrder, {
+      //   foreignKey: 'orderId',
+      // });
 
       // has many Room
       this.belongsToMany(models.Room, {
