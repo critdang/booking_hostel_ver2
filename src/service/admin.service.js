@@ -13,7 +13,7 @@ const verifyUser = async (req,) => {
 
   const decodedToken = JWTAction.verifyToken(token);
   const user = await db.User.findOne({
-    where: { email: decodedToken.id }
+    where: { email: decodedToken.email }
   });
   if (!user) {
     throw new AppError(
@@ -42,24 +42,28 @@ const verifyResetPassword = async (req, res) => {
   const { token } = req.params;
   const decodedToken = JWTAction.verifyToken(token);
   const user = await db.User.findOne({
-    where: { email: decodedToken.input, resetToken: token },
+    where: { email: decodedToken.email, resetToken: token },
   });
-  const { email } = user;
   if (!user) {
-    res.send('<h1>This email is expired. Please use the latest email</h1>');
+    throw new AppError(
+      format(MessageHelper.getMessage('forgotPasswordFailed')),
+    );
   }
-  res.render('auth/forgotPassword.ejs', { email, token });
+  res.redirect(`${process.env.PORT_FE}/forgotPassword/verify/${token}`);
 };
 
 const resetPassword = async (req) => {
-  const { password, email } = req.body;
+  const { tokenId } = req.params;
+  const decodedToken = JWTAction.verifyToken(tokenId);
+  const { password } = req.body;
+
   const hashPass = await helperFn.hashPassword(password);
   const result = await db.User.update(
     {
       password: hashPass,
       resetToken: null,
     },
-    { where: { email } }
+    { where: { email: decodedToken.email } }
   );
   return result;
 };
