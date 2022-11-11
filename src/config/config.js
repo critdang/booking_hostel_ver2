@@ -6,16 +6,27 @@ const rootPath = path.join(__dirname, '../log');
 
 module.exports = {
   development: {
-    username: 'root',
-    password: 'admin123',
-    database: 'booking_hotel_db1',
-    host: 'booking-hotel-db1.cgdmracygurn.ap-northeast-1.rds.amazonaws.com',
+    username: process.env.usernameHotel,
+    password: process.env.passwordHotel,
+    database: process.env.databaseHotel,
+    host: process.env.hostHotel,
     port: 3306,
-    dialect: 'mysql',
+    dialect: process.env.dialectHotel,
     logging: true,
     query: { raw: true },
     timezone: '+07:00',
   },
+  // development: {
+  //   username: 'root',
+  //   password: 'admin123',
+  //   database: 'booking_hotel_db1',
+  //   host: 'booking-hotel-db1.cgdmracygurn.ap-northeast-1.rds.amazonaws.com',
+  //   port: 3306,
+  //   dialect: 'mysql',
+  //   logging: true,
+  //   query: { raw: true },
+  //   timezone: '+07:00',
+  // },
   test: {
     username: process.env.usernameHotel,
     password: process.env.passwordHotel,
