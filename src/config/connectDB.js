@@ -5,16 +5,16 @@ const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameH
   // host: process.env.hostHotel, // <=> 127.0.0.1
   // dialect: 'mysql',
   // logging: false, // để k in câu lệnh:   Executing (default): SELECT 1+1 AS result
-  host: 'booking-hotel-db1.cgdmracygurn.ap-northeast-1.rds.amazonaws.com',
+  host: process.env.hostHotel,
   port: 3306,
-  password: 'admin123',
-  database: 'booking_hotel_db1',
+  password: process.env.passwordHotel,
+  database: process.env.databaseHotel,
   logging: true,
-  username: 'root',
+  username: process.env.usernameHotel,
   maxConcurrentQueries: 100,
   dialect: 'mysql',
-  ssl: 'Amazon RDS',
-  pool: { maxConnections: 5, maxIdleTime: 30 },
+  // ssl: 'Amazon RDS',
+  // pool: { maxConnections: 5, maxIdleTime: 30 },
   language: 'en',
 });
 const connectDB = async () => {
