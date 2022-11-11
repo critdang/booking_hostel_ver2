@@ -12,7 +12,7 @@ const getOrder = async (req, res) => {
   try {
     logger.info(`UserAction:updateProfile::${JSON.stringify(req.params)}`);
 
-    const data = await service.getOrder(req, res);
+    const data = await orderService.getOrder(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
     logger.error(`OrderActions:getOrder:: -  ${error}`);
@@ -21,7 +21,7 @@ const getOrder = async (req, res) => {
 };
 const getOrders = async (req, res) => {
   try {
-    const data = await service.getOrders(req, res);
+    const data = await orderService.getOrders(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
     logger.error(`OrderActions:getOrders:: -  ${error}`);
@@ -44,7 +44,7 @@ const changeStatus = async (req, res) => {
       );
     }
 
-    const data = await service.changeStatus(req, res);
+    const data = await orderService.changeStatus(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
     logger.error(`OrderActions:changeStatus:: -  ${error}`);
@@ -67,7 +67,7 @@ const updateOrder = async (req, res) => {
       );
     }
 
-    const data = await service.updateOrder(req, res);
+    const data = await orderService.updateOrder(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
     logger.error(`OrderActions:changeStatus:: -  ${error}`);

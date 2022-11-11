@@ -121,13 +121,13 @@ const getItemInCart = async (req) => {
 
 const removeItemFromCart = async (req) => {
   const userId = req.user.id;
-  const { roomId, cartId } = req.params;
+  const { roomId } = req.params;
   if (userId) {
-    const foundCart = await db.Cart.findOne({ where: { userId, id: cartId } });
+    const foundCart = await db.Cart.findOne({ where: { userId } });
     if (!foundCart) {
-      throw new AppError(format(MessageHelper.getMessage('noFoundCart'), cartId));
+      throw new AppError(format(MessageHelper.getMessage('noFoundCart'), userId));
     }
-    const roomInCart = await db.CartRoom.destroy({ where: { cartId, roomId } });
+    const roomInCart = await db.CartRoom.destroy({ where: { cartId: foundCart.id, roomId } });
     if (!roomInCart) {
       throw new AppError(format(MessageHelper.getMessage('cannotRemoveItem')));
     }

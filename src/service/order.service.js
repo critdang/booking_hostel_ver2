@@ -71,37 +71,71 @@ const updateOrder = async (req) => {
 };
 
 const createOrder = async (req) => {
-  const { userId } = req.user.id;
-  const { productId, quantity } = req.body;
-
-  const foundProduct = await db.Product.findOne({
-    where: {
-      id: productId,
+  const userId = req.user.id;
+  const { paymentMethod, arrival, departure } = req.body;
+  const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
+  if (userId) {
+    const cartItems = await db.Cart.findAll({
+      attributes: ['id', 'userId'],
+      include: [
+        {
+          model: db.CartRoom,
+          attributes: [],
+          include: [
+            {
+              model: db.Room,
+              attributes: ['name', 'detail', 'description', 'price'],
+            },
+          ],
+        },
+      ],
+      where: { userId },
+      raw: true,
+      nest: true,
+    });
+    if (!cartItems) {
+      throw new AppError(
+        format(MessageHelper.getMessage('noFoundCart'), userId),
+      );
     }
-  });
-  if (!foundProduct) {
-    throw new AppError(
-      format(MessageHelper.getMessage('noFoundProduct'), productId),
-    );
+    const totalCart = { totalPrice: 0 };
+    let detailRoom = [];
+    const roomIds = new Set();
+    cartItems.map((room) => {
+      totalCart.totalPrice += parseInt(room.CartRooms.Room.price, 10);
+      const roomId = room.CartRooms.Room.id;
+      if (!roomIds.has(roomId)) {
+        roomIds.add(roomId);
+        const roomInDetail = {
+          roomId,
+          name: room.CartRooms.Room.name,
+          description: room.CartRooms.Room.description,
+          price: room.CartRooms.Room.price,
+          quantity: 1,
+        };
+        detailRoom.push(roomInDetail);
+      } else {
+        detailRoom = detailRoom.map((roomInDetail) => {
+          if (roomInDetail.roomId === roomId) {
+            roomInDetail.quantity += 1;
+          }
+          return roomInDetail;
+        });
+      }
+    });
+    totalCart.detailRoom = detailRoom;
+    await db.Order.create({
+      code,
+      date: new Date(),
+      userId,
+      paymentMethod,
+      total: totalCart.totalPrice,
+      arrival,
+      departure,
+    });
   }
-  const foundUser = await db.User.findOne({
-    where: {
-      id: userId,
-    }
-  });
-  if (!foundUser) {
-    throw new AppError(
-      format(MessageHelper.getMessage('noFoundUser'), userId),
-    );
-  }
-  const order = await db.Order.create({
-    userId,
-    productId,
-    quantity,
-    status: 'pending',
-  });
-  return order;
 };
+
 module.exports = {
   getOrder,
   getOrders,

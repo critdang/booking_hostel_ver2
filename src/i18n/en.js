@@ -73,7 +73,7 @@ module.exports = {
     // cart
     addRoomSuccess: 'Add room successfully',
     cannotRemoveItem: 'Cannot remove item',
-    noFoundCart: 'No cart found with id {}',
+    noFoundCart: 'No cart found with user id {}',
     removeItemCartSuccess: 'Remove item cart successfully',
   }
 };
