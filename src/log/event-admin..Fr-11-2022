@@ -82,3 +82,38 @@
   level: 'info',
   timestamp: '2022-11-11T04:09:13.535Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T06:16:15.090Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T06:23:23.828Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T07:03:54.000Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T08:09:37.306Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T08:12:44.359Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T08:35:20.306Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-11T08:35:32.180Z'
+}
