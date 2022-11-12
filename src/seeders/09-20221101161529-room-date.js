@@ -6,7 +6,20 @@ module.exports = {
       to: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
-    },], {});
+    }, {
+      roomId: 2,
+      from: new Date(),
+      to: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      roomId: 2,
+      from: new Date(),
+      to: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }], {});
   },
 
   async down(queryInterface, Sequelize) {

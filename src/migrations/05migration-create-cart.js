@@ -17,14 +17,6 @@ module.exports = {
           key: 'id',
         },
       },
-      checkIn: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      checkOut: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

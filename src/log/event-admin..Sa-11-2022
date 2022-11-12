@@ -1,0 +1,60 @@
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T12:34:27.754Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-12T12:34:37.865Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T12:52:04.933Z'
+}
+{
+  message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
+  level: 'info',
+  timestamp: '2022-11-12T12:52:34.577Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-12T12:54:05.873Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T13:12:43.191Z'
+}
+{
+  message: "Order:createOrder:: -  SequelizeDatabaseError: Unknown column 'checkIn' in 'field list'",
+  level: 'error',
+  timestamp: '2022-11-12T13:12:43.216Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T13:13:31.323Z'
+}
+{
+  message: "Order:createOrder:: -  SequelizeDatabaseError: Unknown column 'checkIn' in 'field list'",
+  level: 'error',
+  timestamp: '2022-11-12T13:13:31.353Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T13:14:17.389Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T13:16:38.496Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T13:21:51.147Z'
+}

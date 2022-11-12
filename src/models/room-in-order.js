@@ -49,6 +49,14 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    from: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    to: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'RoomInOrder',

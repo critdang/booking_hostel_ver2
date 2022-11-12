@@ -1,0 +1,10 @@
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T20:03:48.999Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T20:03:59.758Z'
+}

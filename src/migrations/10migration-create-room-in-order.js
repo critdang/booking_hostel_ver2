@@ -27,6 +27,14 @@ module.exports = {
           key: 'id',
         },
       },
+      from: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      to: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

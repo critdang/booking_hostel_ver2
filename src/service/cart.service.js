@@ -22,18 +22,18 @@ const addToCart = async (req) => {
     if (!foundCart) {
       const result = await sequelize.transaction(async (t) => {
         const newCart = await db.Cart.create(
-          { userId, checkIn, checkOut },
+          { userId },
           { transaction: t }
         );
         await db.CartRoom.create(
-          { roomId, cartId: newCart.id },
+          { roomId, cartId: newCart.id, checkIn, checkOut },
           { transaction: t }
         );
         return newCart;
       });
       return result;
     }
-    await db.CartRoom.create({ roomId, cartId: foundCart.id });
+    await db.CartRoom.create({ roomId, cartId: foundCart.id, checkIn, checkOut });
     return foundCart;
   }
   // if user not login
@@ -56,7 +56,7 @@ const getItemInCart = async (req) => {
         include: [
           {
             model: db.CartRoom,
-            attributes: [],
+            attributes: ['checkIn', 'checkOut'],
             include: [
               {
                 model: db.Room,
