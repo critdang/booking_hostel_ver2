@@ -58,7 +58,7 @@ const login = async (req) => {
     // compare password
     const check = bcrypt.compareSync(password, foundUser.password);
     if (check) {
-      result.accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '15m');
+      result.accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '1h');
     } else {
       throw new AppError(
         format(MessageHelper.getMessage('loginFailed')),

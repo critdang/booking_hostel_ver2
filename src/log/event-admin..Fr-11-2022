@@ -661,26 +661,35 @@
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-11T16:47:13.981Z'
 }
 {
   message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
   level: 'error',
   timestamp: '2022-11-11T16:47:14.007Z'
+=======
+  timestamp: '2022-11-11T06:16:15.090Z'
+>>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-11T16:47:18.711Z'
 }
 {
   message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
   level: 'error',
   timestamp: '2022-11-11T16:47:18.718Z'
+=======
+  timestamp: '2022-11-11T06:23:23.828Z'
+>>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-11T16:47:31.660Z'
 }
 {
@@ -697,30 +706,42 @@
   message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
   level: 'info',
   timestamp: '2022-11-11T16:48:06.606Z'
+=======
+  timestamp: '2022-11-11T07:03:54.000Z'
+>>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-11T16:48:16.090Z'
 }
 {
   message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
   level: 'error',
   timestamp: '2022-11-11T16:48:16.096Z'
+=======
+  timestamp: '2022-11-11T08:09:37.306Z'
+>>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-11T16:48:38.061Z'
 }
 {
   message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
   level: 'error',
   timestamp: '2022-11-11T16:48:38.076Z'
+=======
+  timestamp: '2022-11-11T08:12:44.359Z'
+>>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-11T16:49:48.395Z'
 }
 {
@@ -767,4 +788,12 @@
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
   timestamp: '2022-11-11T16:57:38.185Z'
+=======
+  timestamp: '2022-11-11T08:35:20.306Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-11T08:35:32.180Z'
+>>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
