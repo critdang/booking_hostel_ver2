@@ -1,0 +1,145 @@
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:07:05.904Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:07:11.048Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:08:08.162Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:08:13.088Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:10:52.997Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:11:15.756Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:12:04.822Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:12:35.264Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:13:26.059Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:13:59.859Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:14:46.376Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:15:19.768Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:15:38.428Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:15:53.028Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:16:18.835Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:16:43.366Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:17:25.910Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:18:17.082Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:18:35.585Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:18:56.720Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T17:31:14.772Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T18:21:15.633Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T18:22:38.600Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-12T18:33:49.148Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-12T18:33:49.193Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-12T18:34:03.806Z'
+}
+{
+  message: 'UserAction:updateProfile:: -  Error: data and salt arguments required',
+  level: 'error',
+  timestamp: '2022-11-12T18:34:03.811Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-12T18:35:42.322Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-12T18:35:59.179Z'
+}

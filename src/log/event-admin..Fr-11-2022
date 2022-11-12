@@ -658,3 +658,113 @@
   timestamp: '2022-11-11T04:09:13.535Z'
 >>>>>>> 55e21d20d1892d9c4c39cbb5e5df15739cf77ba4
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:47:13.981Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:47:14.007Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:47:18.711Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:47:18.718Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:47:31.660Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:47:31.671Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:47:39.500Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:48:06.606Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:48:16.090Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:48:16.096Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:48:38.061Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:48:38.076Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:49:48.395Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:49:48.406Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:50:03.061Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:50:03.073Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:50:14.683Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: data and hash arguments required',
+  level: 'error',
+  timestamp: '2022-11-11T16:50:14.746Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:52:06.600Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:53:40.889Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:55:03.540Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T16:57:38.185Z'
+}

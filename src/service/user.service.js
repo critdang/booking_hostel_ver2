@@ -39,12 +39,20 @@ const createUser = async (req) => {
 const login = async (req) => {
   const { email, password } = req.body;
   const foundUser = await db.User.findOne({
-    attributes: ['id', 'email', 'password'],
     where: { email },
     raw: true,
   });
   const result = {
-    userId: foundUser.id,
+    userInfo: {
+      userId: foundUser.id,
+      fullName: foundUser.fullName,
+      email: foundUser.email,
+      address: foundUser.address,
+      phone: foundUser.phone,
+      avatar: foundUser.avatar,
+      gender: foundUser.gender,
+      role: foundUser.role
+    }
   };
   if (foundUser) {
     // compare password
@@ -85,11 +93,9 @@ const forgotPassword = async (req) => {
 const updateProfile = async (req) => {
   const { id } = req.user;
   const data = req.body;
-  const hashPassword = await helperFn.hashPassword(data.password);
   const newUser = await db.User.update({
     fullName: data.fullName,
     email: data.email,
-    password: hashPassword,
     address: data.address,
     phone: data.phone,
     gender: data.gender,
