@@ -54,6 +54,7 @@ module.exports = {
     noDeleteImageRoom: 'No image room delete with productId {}',
     setDefaultImageRoomSuccess: 'Set default image room successfully',
     deleteImageRoomSuccess: 'Delete image room successfully',
+    roomDateAlreadyExisted: 'The room is already booked from {} to {}',
 
     // category
     createCategorySuccess: 'Create category successfully',

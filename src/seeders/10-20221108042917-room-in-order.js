@@ -3,12 +3,16 @@ module.exports = {
     await queryInterface.bulkInsert('RoomInOrder', [{
       orderId: 1,
       roomId: 3,
+      from: new Date(),
+      to: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
       orderId: 2,
       roomId: 2,
+      from: new Date(),
+      to: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

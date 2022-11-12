@@ -1,6 +1,7 @@
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
   timestamp: '2022-11-12T17:07:05.904Z'
 }
 {
@@ -142,4 +143,12 @@
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
   timestamp: '2022-11-12T18:35:59.179Z'
+=======
+  timestamp: '2022-11-12T20:03:48.999Z'
+}
+{
+  message: 'Order:getOrder::{"paymentMethod":"cash"}',
+  level: 'info',
+  timestamp: '2022-11-12T20:03:59.758Z'
+>>>>>>> 100336e7579a90d500e0929186c2c9f2e0320399
 }

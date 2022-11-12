@@ -49,14 +49,6 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    checkIn: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    checkOut: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
   }, {
     sequelize,
     modelName: 'Cart',
