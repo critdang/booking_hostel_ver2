@@ -10,11 +10,10 @@ const MessageHelper = require('../utils/message');
 require('dotenv').config();
 
 const createUser = async (req) => {
-  const avatar = await req.file.path;
   const data = req.body;
   const foundUser = await db.User.findOne({
     attributes: ['id', 'email'],
-    where: { email: data.email },
+    where: { email: data.email, status: 'active' },
     raw: true,
   });
   if (foundUser) {
@@ -30,9 +29,9 @@ const createUser = async (req) => {
     password: hashPassword,
     address: data.address,
     phone: data.phone,
-    avatar,
   });
-  const token = JWTAction.generateJWT(newUser.email, '30m');
+  const { email } = newUser;
+  const token = JWTAction.generateJWT({ email }, '50m');
   helperFn.sendMail(data.email, VERIFY_MESSAGES.VERIFY_EMAIL, VERIFY_MESSAGES.SUCCESS_EMAIL_DESC, VERIFY_MESSAGES.SUCCESS_EMAIL_ENDPOINT, token);
   return newUser;
 };
@@ -69,7 +68,7 @@ const forgotPassword = async (req) => {
       format(MessageHelper.getMessage('userNotActiveOrFound'), foundUser.email),
     );
   }
-  const token = JWTAction.generateJWT(email, '30m');
+  const token = JWTAction.generateJWT({ email }, '30m');
   const result = await db.User.update(
     { resetToken: token },
     {

@@ -8,7 +8,7 @@ const { upload } = require("../utils/cloudinary/uploadImg");
 const validate = require('../validate/validate');
 const auth = require('../utils/middleware/auth');
 
-router.post("/register", upload.single('avatar'), validate.handleRegisterValidate, userController.createUser);
+router.post("/register", validate.handleRegisterValidate, userController.createUser);
 router.put("/updateAvatar", auth.protectingRoutes, upload.single('avatar'), userController.updateAvatar);
 router.post("/login", auth.loginLimiter, validate.handleLoginValidate, userController.login);
 router.post("/forgotPassword", validate.handleForgotPasswordValidate, userController.forgotPassword);

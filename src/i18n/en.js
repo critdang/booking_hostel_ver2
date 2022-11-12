@@ -31,6 +31,7 @@ module.exports = {
 
     // user
     resetPasswordSucess: 'Reset password success',
+    forgotPasswordFailed: 'This email is expired. Please use the latest email',
     // createUser
     existUser: '{} is already existed',
     // forgotPassword

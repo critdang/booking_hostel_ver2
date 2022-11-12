@@ -57,7 +57,7 @@ exports.sendMail = async (
 };
 
 exports.forgotPassword = async (to, token) => {
-  const link = `http://localhost:${process.env.PORT}/forgotPassword/verify/${token}`;
+  const link = `${process.env.PORT_FE}/forgotPassword/verify/${token}`;
   const data = await ejs.renderFile('./src/views/createForgotPassNoti/forgotPassword.ejs', { link });
 
   await transporter.sendMail({

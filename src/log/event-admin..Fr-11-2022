@@ -1,6 +1,9 @@
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
+  timestamp: '2022-11-11T09:58:49.042Z'
+=======
   timestamp: '2022-11-11T02:31:40.503Z'
 }
 {
@@ -22,10 +25,14 @@
   message: 'Order:getOrder::{"paymentMethod":"cash","arrival":"2022-11-09 23:07:16","departure":"2022-12-09 23:07:16"}',
   level: 'info',
   timestamp: '2022-11-11T02:42:45.396Z'
+>>>>>>> 55e21d20d1892d9c4c39cbb5e5df15739cf77ba4
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
+  timestamp: '2022-11-11T10:00:41.875Z'
+=======
   timestamp: '2022-11-11T02:47:14.404Z'
 }
 {
@@ -66,21 +73,590 @@
   message: 'Order:getOrder::{"paymentMethod":"cash","arrival":"2022-11-09 23:07:16","departure":"2022-12-09 23:07:16"}',
   level: 'info',
   timestamp: '2022-11-11T02:50:48.388Z'
+>>>>>>> 55e21d20d1892d9c4c39cbb5e5df15739cf77ba4
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
+  timestamp: '2022-11-11T10:03:21.541Z'
+=======
   timestamp: '2022-11-11T03:01:24.974Z'
 }
 {
   message: 'Category:getCategories::{"roomId":"2","checkIn":"2022-11-09 23:07:16","checkOut":"2022-11-09 23:07:16"}',
   level: 'info',
   timestamp: '2022-11-11T03:01:45.477Z'
+>>>>>>> 55e21d20d1892d9c4c39cbb5e5df15739cf77ba4
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
   level: 'info',
+<<<<<<< HEAD
+  timestamp: '2022-11-11T10:03:23.273Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:25:50.818Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:26:17.199Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:27:03.588Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:27:05.263Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:27:32.710Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:27:47.130Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:27:58.821Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:27:59.931Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:28:01.355Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:28:02.301Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:01.963Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456s"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:32.218Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-11T10:33:32.410Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456s"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:33.773Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-11T10:33:33.859Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456s"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:38.024Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-11T10:33:38.103Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456ss"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:39.581Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-11T10:33:39.660Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456ss"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:49.449Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-11T10:33:49.532Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"dasdasd"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:33:59.642Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:33:59.685Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"dasdasds"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:34:31.101Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:34:31.137Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"dasdasds"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:34:55.189Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:34:55.198Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:35:04.276Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"sdasda"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:36:50.495Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:36:50.532Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"sdasda"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:36:51.435Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:36:51.458Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"sdasda"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:37:51.039Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:37:51.077Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"sdasda"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:41:08.923Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:41:08.994Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"critdang1010@gmail.com","password":"sdasda"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:42:01.545Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-11T10:42:01.663Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:42:09.418Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:42:13.472Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:42:25.380Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:42:51.217Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T10:46:23.099Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"critdang1010@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:00:18.542Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:00:18.804Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"critdang1010@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:00:31.511Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:00:31.574Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"critdang1010@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:00:35.922Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:00:35.928Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"critdang1010@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:00:39.999Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:00:40.005Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:00:48.324Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  Error: dai@gmail.com is not active or not found',
+  level: 'error',
+  timestamp: '2022-11-11T11:00:48.401Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:03:05.756Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  Error: dai@gmail.com is not active or not found',
+  level: 'error',
+  timestamp: '2022-11-11T11:03:05.795Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:03:42.923Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:03:42.935Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:03:50.181Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:03:50.187Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:07:29.653Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  SequelizeValidationError: string violation: resetToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-11T11:07:29.740Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:08:51.304Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:08:57.278Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:09:39.889Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:09:41.889Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1010@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:38:08.200Z'
+}
+{
+  message: "UserAuthentication:createUser:: -  TypeError: Cannot read properties of undefined (reading 'path')",
+  level: 'error',
+  timestamp: '2022-11-11T11:38:08.298Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1010@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:38:54.175Z'
+}
+{
+  message: "UserAuthentication:createUser:: -  TypeError: Cannot read properties of undefined (reading 'path')",
+  level: 'error',
+  timestamp: '2022-11-11T11:38:54.185Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1010@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:39:26.677Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1010@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:39:57.759Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"huy@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:43:42.675Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  Error: huy@gmail.com is not active or not found',
+  level: 'error',
+  timestamp: '2022-11-11T11:43:42.795Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"nhan@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:43:48.889Z'
+}
+{
+  message: 'UserAction:forgotPassword:: -  Error: nhan@gmail.com is not active or not found',
+  level: 'error',
+  timestamp: '2022-11-11T11:43:48.897Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:43:56.653Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:44:01.880Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:44:21.608Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:44:23.994Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:45:03.363Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:45:28.678Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1012@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:48:39.269Z'
+}
+{
+  message: 'AdminActions:verifyUser::req.params.token - "Error:"',
+  level: 'info',
+  timestamp: '2022-11-11T11:49:04.093Z'
+}
+{
+  message: 'RoomAction:getRoom:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T11:49:04.098Z'
+}
+{
+  message: 'AdminActions:verifyUser::req.params.token - "Error:"',
+  level: 'info',
+  timestamp: '2022-11-11T11:49:13.866Z'
+}
+{
+  message: 'RoomAction:getRoom:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T11:49:13.869Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1012@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:50:05.919Z'
+}
+{
+  message: 'UserAuthentication:createUser:: -  Error: critdang1012@gmail.com is already existed',
+  level: 'error',
+  timestamp: '2022-11-11T11:50:05.998Z'
+}
+{
+  message: 'UserAuthentication:createUser::{"email":"critdang1012@gmail.com","password":"123456","fullName":"Huy Đặng","address":"128c đại la","phone":"0945246026"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:50:44.284Z'
+}
+{
+  message: 'AdminActions:verifyUser::req.params.token - "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXRkYW5nMTAxMkBnbWFpbC5jb20iLCJpYXQiOjE2NjgxNjc0NDQsImV4cCI6MTY2ODE3MDQ0NH0.9iz8OeNeR3vmgHVHJTAav-HF53z0qIAY40eDOi_hXXs"',
+  level: 'info',
+  timestamp: '2022-11-11T11:50:59.413Z'
+}
+{
+  message: 'RoomAction:getRoom:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T11:50:59.418Z'
+}
+{
+  message: 'AdminActions:verifyUser::req.params.token - "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXRkYW5nMTAxMkBnbWFpbC5jb20iLCJpYXQiOjE2NjgxNjc0NDQsImV4cCI6MTY2ODE3MDQ0NH0.9iz8OeNeR3vmgHVHJTAav-HF53z0qIAY40eDOi_hXXs"',
+  level: 'info',
+  timestamp: '2022-11-11T11:51:38.250Z'
+}
+{
+  message: 'RoomAction:getRoom:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T11:51:38.268Z'
+}
+{
+  message: 'AdminActions:verifyUser::req.params.token - "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXRkYW5nMTAxMkBnbWFpbC5jb20iLCJpYXQiOjE2NjgxNjc0NDQsImV4cCI6MTY2ODE3MDQ0NH0.9iz8OeNeR3vmgHVHJTAav-HF53z0qIAY40eDOi_hXXs"',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:12.024Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"critdang1012@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:38.357Z'
+}
+{
+  message: 'AdminActions:verifyResetPassword::req.params - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXRkYW5nMTAxMkBnbWFpbC5jb20iLCJpYXQiOjE2NjgxNjc1NTgsImV4cCI6MTY2ODE2OTM1OH0.Etqq9cYNUF45ghV7yWzxG6wAC9QKt0K3i16IOekqk6w"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:47.963Z'
+}
+{
+  message: 'AdminActions:verifyResetPassword:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:47.968Z'
+}
+{
+  message: 'AdminActions:verifyResetPassword::req.params - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXRkYW5nMTAxMkBnbWFpbC5jb20iLCJpYXQiOjE2NjgxNjc1NTgsImV4cCI6MTY2ODE2OTM1OH0.Etqq9cYNUF45ghV7yWzxG6wAC9QKt0K3i16IOekqk6w"}',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:56.488Z'
+}
+{
+  message: 'AdminActions:verifyResetPassword:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T11:52:56.491Z'
+}
+{
+  message: 'AdminActions:verifyResetPassword::req.params - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXRkYW5nMTAxMkBnbWFpbC5jb20iLCJpYXQiOjE2NjgxNjc1NTgsImV4cCI6MTY2ODE2OTM1OH0.Etqq9cYNUF45ghV7yWzxG6wAC9QKt0K3i16IOekqk6w"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:07:55.823Z'
+}
+{
+  message: 'AdminActions:verifyResetPassword:: -  Error: WHERE parameter "email" has invalid "undefined" value',
+  level: 'info',
+  timestamp: '2022-11-11T12:07:55.836Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:21:34.225Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:21:38.265Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:22:26.535Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:34:32.203Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:36:01.755Z'
+}
+{
+  message: 'UserAction:forgotPassword::{"email":"dai@gmail.com"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:36:05.134Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:36:21.544Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:39:13.473Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:39:34.404Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:40:47.765Z'
+}
+{
+  message: 'AdminActions:resetPassword::req.body - {"password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-11T12:41:12.586Z'
+=======
   timestamp: '2022-11-11T04:09:13.535Z'
+>>>>>>> 55e21d20d1892d9c4c39cbb5e5df15739cf77ba4
 }
 {
   message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',

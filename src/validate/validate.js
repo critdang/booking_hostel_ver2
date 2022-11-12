@@ -44,7 +44,6 @@ const handleRegisterValidateMethod = Joi.object({
   phone: Joi.string(),
   status: Joi.string(),
   gender: Joi.string(),
-  avatar: Joi.string(),
   isBlocked: Joi.boolean(),
   resetToken: Joi.string(),
   role: Joi.string(),
