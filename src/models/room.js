@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 const {
   Model,
 } = require('sequelize');
@@ -10,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // has many Category
+      // belong to one Category
       this.belongsTo(models.Category, {
         foreignKey: 'categoryId',
       });
+
       // has many image
       this.belongsToMany(models.Image, {
         through: models.RoomImage,
@@ -21,13 +23,17 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.RoomImage, {
         foreignKey: 'roomId',
       });
+
+      // has many roomDate
+      this.hasMany(models.RoomDate, {
+        foreignKey: 'roomId',
+      });
+
       // has many cart
-      // this.belongsToMany(models.Cart, {
-      //   through: models.CartRoom,
-      // });
       this.hasMany(models.CartRoom, {
         foreignKey: 'roomId',
       });
+
       // has many order
       this.belongsToMany(models.Order, {
         through: models.RoomInOrder,

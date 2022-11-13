@@ -1,7 +1,6 @@
 const format = require("string-format");
 const _ = require("lodash");
 const orderService = require("../service/order.service");
-const catchAsync = require("../utils/errorHandle/catchAsync");
 const AppError = require("../utils/errorHandle/appError");
 const logger = require('../utils/logger/app-logger');
 
@@ -93,11 +92,18 @@ const createOrder = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
-
+const viewOrder = async (req, res) => {
+  try {
+    await orderService.viewOrder(req, res);
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports = {
   getOrder,
   getOrders,
   changeStatus,
   updateOrder,
-  createOrder
+  createOrder,
+  viewOrder
 };

@@ -32,12 +32,6 @@ module.exports = {
       paymentDate: {
         type: Sequelize.DATE,
       },
-      arrival: {
-        type: Sequelize.DATE,
-      },
-      departure: {
-        type: Sequelize.DATE,
-      },
       userId: {
         allowNull: true,
         type: Sequelize.INTEGER,

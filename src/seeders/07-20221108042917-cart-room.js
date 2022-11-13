@@ -15,6 +15,14 @@ module.exports = {
       checkOut: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
+    },
+    {
+      cartId: 1,
+      roomId: 2,
+      checkIn: new Date(),
+      checkOut: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }], {});
   },
 

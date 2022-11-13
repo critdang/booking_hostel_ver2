@@ -26,7 +26,9 @@ const addToCart = async (req) => {
           { transaction: t }
         );
         await db.CartRoom.create(
-          { roomId, cartId: newCart.id, checkIn, checkOut },
+          {
+            roomId, cartId: newCart.id, checkIn, checkOut
+          },
           { transaction: t }
         );
         return newCart;

@@ -68,14 +68,6 @@ module.exports = (sequelize, DataTypes) => {
     paymentDate: {
       type: DataTypes.DATE,
     },
-    arrival: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    departure: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
     total: DataTypes.FLOAT,
 
   }, {
