@@ -8,8 +8,6 @@ const db = require("../../models");
 exports.protectingRoutes = catchAsync(async (req, res, next) => {
   const token = req.headers.authorization?.startsWith('Bearer')
   && req.headers.authorization.split(' ')[1];
-  console.log("🚀 ~ file: auth.js ~ line 10 ~ exports.protectingRoutes=catchAsync ~ req.headers.authorization", req.headers);
-  console.log("🚀 ~ file: auth.js ~ line 10 ~ exports.protectingRoutes=catchAsync ~ token", token);
 
   if (!token || token === 'null') {
     return next(new AppError('You are not logged in', 401));

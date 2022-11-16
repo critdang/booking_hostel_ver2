@@ -29,7 +29,10 @@ const createCategory = async (req) => {
 
 const getCategories = async (req) => {
   const sort = objToArr(req.query);
-  const foundCategory = await db.Category.findAll({ order: sort });
+  const foundCategory = await db.Category.findAll({
+    order: sort
+  });
+  console.log("🚀 ~ file: category.service.js ~ line 33 ~ getCategories ~ foundCategory", foundCategory);
   if (!foundCategory) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundCategories')),
@@ -40,15 +43,36 @@ const getCategories = async (req) => {
 
 const getCategory = async (req) => {
   const { id } = req.params;
-  const foundCategory = await db.Category.findOne({
+  const foundCategory = await db.Category.findAll({
+    include: { model: db.Room },
     where: { id },
+    raw: true,
+    nest: true,
   });
+
   if (!foundCategory) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundCategory'), id),
     );
   }
-  return foundCategory;
+  const category = {};
+  category.id = foundCategory[0].id;
+  category.name = foundCategory[0].name;
+  category.description = foundCategory[0].description;
+  category.thumbnail = foundCategory[0].thumbnail;
+  category.rooms = foundCategory.map((item) => ({
+    id: item.Rooms.id,
+    name: item.Rooms.name,
+    detail: item.Rooms.detail,
+    description: item.Rooms.description,
+    price: item.Rooms.price,
+    reserve: item.Rooms.reserve,
+    hot: item.Rooms.hot,
+    active: item.Rooms.active,
+    categoryId: item.Rooms.categoryId,
+  }));
+
+  return category;
 };
 
 const updateCategory = async (req) => {

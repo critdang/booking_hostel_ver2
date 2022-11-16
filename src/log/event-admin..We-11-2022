@@ -1484,3 +1484,2013 @@
   level: 'info',
   timestamp: '2022-11-09T16:38:11.415Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:09:14.784Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:14:40.086Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:15:09.717Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:19:28.772Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:20:26.183Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:20:44.331Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:24:48.693Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:25:14.842Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:25:42.799Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:26:34.286Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-15T17:26:56.905Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:27:01.792Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:27:01.875Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:35:48.238Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:36:18.600Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:37:27.871Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:37:27.957Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:37:43.959Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-15T17:37:44.024Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:02:44.377Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:02:44.683Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:07:29.448Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:07:29.512Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:08:53.086Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:08:53.170Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:09:01.474Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:09:15.289Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:09:15.371Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:21:16.765Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:21:16.840Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:46.271Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:51.558Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:51.598Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:58.018Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:58.064Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:59.939Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:56:59.980Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:01.508Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:01.572Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:05.328Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:05.355Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:07.861Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:10.312Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T02:57:10.349Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"5"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:58:31.534Z'
+}
+{
+  message: 'Category:getCategory:: -  Error: No category found with id 5',
+  level: 'error',
+  timestamp: '2022-11-16T02:58:31.586Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:58:40.063Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:58:47.530Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:58:52.500Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T02:59:22.379Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:00:14.485Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:10:03.251Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:11:54.230Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:12:09.758Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:12:31.240Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:13:29.476Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:13:43.637Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:13:59.779Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:14:02.041Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:14:33.553Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:15:12.405Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:15:24.162Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:16:21.442Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:16:41.606Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:25:31.759Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:25:31.864Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:25:33.587Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:25:33.632Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:26:04.786Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:26:55.516Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:27:21.299Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:27:42.861Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:27:49.705Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:27:57.918Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:27:57.948Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:28:10.949Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:28:15.127Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:28:18.441Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:28:22.051Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:28:52.256Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:28:56.506Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:29:05.268Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:29:28.384Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:30:09.736Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:30:28.137Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:30:39.361Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:30:47.213Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:30:50.078Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:31:54.465Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:31:54.511Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:31:56.724Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:31:58.129Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:00.695Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:01.642Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:02.398Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:03.344Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:03.874Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:04.731Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:12.110Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:32:12.162Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:16.161Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:16.226Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:21.451Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:21.473Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:22.717Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:24.713Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:25.656Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:26.211Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:27.889Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T03:55:27.929Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T09:59:33.658Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T09:59:33.765Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:37.417Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:37.430Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:37.519Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:37.535Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:37.633Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:37.639Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:40.629Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:40.634Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:40.675Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:40.692Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:44.347Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:46.247Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:47.727Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:48.100Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:48.864Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:49.658Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:14:51.899Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:05.246Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:05.252Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:36.324Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:36.327Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:39.878Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:39.882Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:15:39.934Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:39.947Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:39.967Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:15:39.983Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:41.155Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:41.160Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:15:41.179Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:41.198Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:15:41.224Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:41.286Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:51.121Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:51.125Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:15:57.362Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:04.445Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:07.028Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:08.054Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:09.046Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:11.042Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:18.801Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:18.818Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:16:18.831Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:18.847Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:16:18.860Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:18.883Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:30.358Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:30.363Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:16:30.395Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:30.410Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:16:30.422Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:30.485Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:49.783Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:49.790Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:53.659Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:53.674Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:16:53.688Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:53.716Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:16:53.725Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:16:53.741Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:26.365Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:26.369Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:26.469Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:26.474Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:28.739Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:29.577Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:40.964Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:40.969Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:41.047Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:41.068Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:43.666Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:43.672Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:43.727Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:43.746Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:57.645Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:17:57.649Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:02.825Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:02.830Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:02.881Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:02.898Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:38.340Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:38.345Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:42.819Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:42.843Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:43.044Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:18:43.049Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:19:20.483Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:19:20.487Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:19:20.554Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:19:20.562Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:19:20.567Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:19:20.602Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:20:20.712Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:20:20.717Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:20:24.664Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:20:24.691Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:20:24.698Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:20:24.745Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:20:24.755Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:20:24.766Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:40.571Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:40.576Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:40.688Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:40.703Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:42.341Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:44.867Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:45.277Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:46.236Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:49.708Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:53.975Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:21:56.618Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:00.762Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:19.740Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:21.624Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:21.701Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:23.458Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:25.228Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:28.635Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:29.237Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:31.038Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:31.054Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:31.101Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:31.129Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:32.310Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:35.350Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:39.613Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:41.613Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:42.296Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:44.082Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:46.277Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:47.822Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:22:49.589Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:05.228Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:05.231Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:07.335Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:07.350Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:07.371Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:07.390Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:23.802Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:23.806Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:23.875Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:23.891Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:26.597Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:28.637Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:32.320Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:34.114Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:34.651Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:37.942Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:23:39.818Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:24.572Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:24.574Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:28.924Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:28.940Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:28.983Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:28.997Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:31.094Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:32.088Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:33.087Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:34.034Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:34.989Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:35.767Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:36.625Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:37.484Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:24:38.381Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:04.659Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:04.661Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:06.880Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:08.046Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:08.050Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:08.089Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:08.107Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:11.157Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:12.254Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:13.345Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:13.969Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:14.788Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:15.334Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:15.941Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:16.553Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:17.537Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:18.056Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:18.648Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:19.475Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:20.210Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:20.808Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:21.422Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:22.111Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:22.792Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:23.295Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:23.892Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:24.578Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:25.322Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:26.072Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:28.850Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:28.854Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:28.900Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:25:28.921Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:37.365Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:37.368Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:38.062Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:38.796Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:39.426Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:40.122Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:53.862Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:53.865Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:56.834Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:57.735Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:59.087Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:27:59.678Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:00.385Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:00.917Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:01.796Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:02.184Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:03.039Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:29.503Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:29.506Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:34.414Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:34.431Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:34.455Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:28:34.516Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:33.351Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:33.515Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:33.519Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:33.539Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:29:33.587Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:33.596Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:29:33.606Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:35.352Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:36.187Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:36.732Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:38.159Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:38.163Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:29:38.178Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:38.193Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:29:38.200Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:29:38.236Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:05.525Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:05.536Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:05.585Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:05.590Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:06.210Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:06.634Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:07.025Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:07.580Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:25.975Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:25.979Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:26.054Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:26.060Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:30.310Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:30.323Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:30.364Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:30.381Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:34.276Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:34.290Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:34.342Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:34.360Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:37.858Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:38.521Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:39.112Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:39.723Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:40.005Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:30:52.137Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:31:08.364Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:31:11.837Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:31:11.853Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:31:11.901Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:31:11.907Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:24.641Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:24.646Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:34:24.667Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"undefined"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:24.685Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-16T10:34:24.700Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:24.760Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:26.539Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:27.073Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:27.504Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:28.011Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:31.794Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:31.800Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:31.883Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:34:31.899Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:25.474Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:25.477Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:25.556Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:25.561Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:39.790Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:39.793Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:39.833Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-16T10:35:39.837Z'
+}
