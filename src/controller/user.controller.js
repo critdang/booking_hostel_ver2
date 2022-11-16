@@ -65,7 +65,7 @@ const updateProfile = catchAsync(async (req, res) => {
   }
 });
 
-const updateAvatar = catchAsync(async (req, res) => {
+const updateAvatar = async (req, res) => {
   try {
     logger.info(`UserAction:updateAvatar::${JSON.stringify(req.file)}`);
     if (_.isEmpty(req.file)) {
@@ -80,7 +80,7 @@ const updateAvatar = catchAsync(async (req, res) => {
     logger.error(`UserAction:updateAvatar:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
-});
+};
 
 const getUser = catchAsync(async (req, res) => {
   try {

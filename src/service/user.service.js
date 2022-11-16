@@ -93,13 +93,22 @@ const forgotPassword = async (req) => {
 const updateProfile = async (req) => {
   const { id } = req.user;
   const data = req.body;
-  const newUser = await db.User.update({
-    fullName: data.fullName,
-    email: data.email,
-    address: data.address,
-    phone: data.phone,
-    gender: data.gender,
-  }, {
+  const { password } = req.body;
+  if (password) {
+    const hashPassword = await helperFn.hashPassword(password);
+    const newUser = await db.User.update({
+      fullName: data.fullName,
+      email: data.email,
+      password: hashPassword,
+      address: data.address,
+      phone: data.phone,
+      gender: data.gender,
+    }, {
+      where: { id },
+    });
+    return newUser;
+  }
+  const newUser = await db.User.update(data, {
     where: { id },
   });
   return newUser;
