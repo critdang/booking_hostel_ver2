@@ -1,5 +1,6 @@
 /* eslint-disable no-loop-func */
 const format = require("string-format");
+const moment = require('moment');
 const _ = require('lodash');
 const db = require("../models");
 const AppError = require("../utils/errorHandle/appError");
@@ -171,9 +172,20 @@ const createOrder = async (req) => {
 };
 const viewOrder = async (req, res) => {
   const orderId = 11;
-  const foundOrder = await db.Order.findOne({ where: { id: orderId }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod'] });
+  const foundOrder = await db.Order.findOne({ where: { id: orderId }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
+  foundOrder.date = moment(foundOrder.date).format('DD/MM/YYYY, h:mm:ss a');
+  foundOrder.userInfo = await db.User.findOne({ where: { id: foundOrder.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
+  const foundRoomInOrder = await db.RoomInOrder.findAll({ where: { orderId }, attributes: ['roomId', 'from', 'to'] });
+  const rooms = [];
+  for (const roomInOrder of foundRoomInOrder) {
+    const foundRoom = await db.Room.findOne({ where: { id: roomInOrder.roomId }, attributes: ['name', 'price'] });
+    foundRoom.from = moment((roomInOrder.from)).format('DD/MM/YYYY, HH:mm');
+    foundRoom.to = moment((roomInOrder.to)).format('DD/MM/YYYY, HH:mm');
+    rooms.push(foundRoom);
+  }
+  foundOrder.rooms = rooms;
   console.log(foundOrder);
-  // res.render('createOrderNoti/order', { data: 1 });
+  res.render('createOrderNoti/order', { order: foundOrder });
 };
 module.exports = {
   getOrder,

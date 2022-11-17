@@ -168,9 +168,9 @@
                                         style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;">
                                         <p
                                             style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777; text-align: center">
-                                            Hi Đặng Quốc Huy,
+                                            Hi <%=order.userInfo.fullname%>,
                                             <br>
-                                            For reference, your booking ID is 786908624. To view, cancel, or modify your
+                                            For reference, your booking ID is <%=order.userInfo.code%>. To view, cancel, or modify your
                                             booking, use our easy self service.
                                         </p>
                                     </td>
@@ -195,38 +195,28 @@
                                                 Price
                                             </td>
                                         </tr>
-                                        <%for(var i=0; i<orders.length; i++) {%>
+                                        <%for(room of order.rooms) {%>
                                             <tr>
-                                                <td width="50%" align="left"
+                                                <td width="25%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                    <%=orders[i].productName%>
+                                                    <%=room.name%>
                                                 </td>
                                                 <td width="25%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                    <%=orders[i].quantity%>
+                                                    <%=room.from%>
                                                 </td>
                                                 <td width="25%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                    <%=orders[i].price%>
+                                                    <%=room.to%>
+                                                </td>
+                                                <td width="25%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                                    <%=room.price%>
                                                 </td>
                                             </tr>
                                             <%}%>
                                                 <tr>
-                                                    <td width="50%" align="left"
-                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                                        Shipping
-                                                    </td>
                                                     <td width="25%" align="left"
-                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-
-                                                    </td>
-                                                    <td width="25%" align="left"
-                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                                        FREE
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="50%" align="left"
                                                         style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
                                                         Sales Tax
                                                     </td>
@@ -240,7 +230,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="100%" align="left"
+                                                    <td width="25%" align="left"
                                                         style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
                                                         TOTAL
                                                     </td>
@@ -249,11 +239,11 @@
                                                     </td>
                                                     <td width="25%" align="left"
                                                         style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                                                        20000
+                                                        
                                                     </td>
                                                     <td width="25%" align="left"
                                                         style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                                                        20000
+                                                        <%=order.total%>
                                                     </td>
                                                 </tr>
                                                 <!-- <tr>
@@ -264,14 +254,14 @@
                                                             style="display: inline-block; font-weight: bold; margin: 0px;">
                                                             Payment:</p>
                                                         <p style="display: inline-block; margin: 0px;">
-                                                            <%=orders[0].paymentMethod%>
+                                                            <%=order.paymentMethod%>
                                                         </p>
                                                         <p
                                                             style="display: inline-block; font-weight: bold; margin: 0px;">
                                                             Payment Date:
                                                         </p>
                                                         <p style="display: inline-block; margin: 0px;">
-                                                            <%=orders[0].paymentDate%>
+                                                            <%=order.date%>
                                                         </p>
                                                         <p
                                                             style="display: inline-block; font-weight: bold; margin: 0px;">
@@ -320,7 +310,7 @@
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
                                             Payment:</p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentMethod%>
+                                            <%=order.paymentMethod%>
                                         </p>
                                         <br>
 
@@ -328,21 +318,21 @@
                                             Payment Date:
                                         </p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentDate%>
+                                            <%=order.date%>
                                         </p>
                                         <br>
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
                                             Customer's Name:
                                         </p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentDate%>
+                                            <%=order.userInfo.fullname%>
                                         </p>
                                         <br>
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
                                             Phone number:
                                         </p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentDate%>
+                                            <%=order.userInfo.phone%>
                                         </p>
                                         <br>
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
@@ -360,7 +350,7 @@
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
                                             Room type:</p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentMethod%>
+                                            <%=order.id%>
                                         </p>
                                         <br>
 
@@ -368,21 +358,21 @@
                                             Promotion:
                                         </p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentDate%>
+                                            <%=order.id%>
                                         </p>
                                         <br>
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
                                             Lead guest:
                                         </p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentDate%>
+                                            <%=order.id%>
                                         </p>
                                         <br>
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
                                             Occupancy:
                                         </p>
                                         <p style="display: inline-block; margin: 0px;">
-                                            <%=orders[0].paymentDate%>
+                                            <%=order.id%>
                                         </p>
                                         <br>
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">
