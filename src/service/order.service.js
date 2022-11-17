@@ -171,7 +171,7 @@ const createOrder = async (req) => {
   // if user not login
 };
 const viewOrder = async (req, res) => {
-  const orderId = 11;
+  const orderId = 1;
   const foundOrder = await db.Order.findOne({ where: { id: orderId }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
   foundOrder.date = moment(foundOrder.date).format('DD/MM/YYYY, h:mm:ss a');
   foundOrder.userInfo = await db.User.findOne({ where: { id: foundOrder.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });

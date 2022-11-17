@@ -56,6 +56,8 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     hot: DataTypes.BOOLEAN,
     active: DataTypes.BOOLEAN,
+    adult: DataTypes.INTEGER,
+    kid: DataTypes.INTEGER,
     categoryId: {
       allowNull: true,
       type: DataTypes.INTEGER,

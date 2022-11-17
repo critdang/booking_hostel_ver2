@@ -25,6 +25,12 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
+      adult: {
+        type: Sequelize.INTEGER,
+      },
+      kid: {
+        type: Sequelize.INTEGER,
+      },
       categoryId: {
         allowNull: true,
         type: Sequelize.INTEGER,

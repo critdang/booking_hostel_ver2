@@ -549,3 +549,13 @@
   level: 'info',
   timestamp: '2022-11-17T04:49:41.903Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-17T08:11:29.182Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-17T08:15:16.412Z'
+}
