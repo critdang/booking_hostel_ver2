@@ -11,7 +11,7 @@ module.exports = {
     database: process.env.databaseHotel,
     host: process.env.hostHotel,
     port: process.env.PORT,
-    dialect: process.env.dialectHotel,
+    dialect: 'mysql',
     logging: true,
     query: { raw: true },
     timezone: '+07:00',
