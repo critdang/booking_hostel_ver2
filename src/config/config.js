@@ -10,7 +10,7 @@ module.exports = {
     password: process.env.passwordHotel,
     database: process.env.databaseHotel,
     host: process.env.hostHotel,
-    port: 3306,
+    port: process.env.PORT,
     dialect: process.env.dialectHotel,
     logging: true,
     query: { raw: true },
