@@ -49,9 +49,9 @@ app.use("*", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT, (err) => {
+app.listen(process.env.PORT_BE, (err) => {
   if (err) {
     console.log(err);
   }
-  console.log(`🚀 Server is listening at port ${process.env.PORT}`);
+  console.log(`🚀 Server is listening at port ${process.env.PORT_BE}`);
 });
