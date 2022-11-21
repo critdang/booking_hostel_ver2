@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "npx env-cmd -f .env.development nodemon src/server.js",
+    "dev": "nodemon src/server.js",
     "prod": "npx env-cmd -f .env.production nodemon src/server.js"
   },
   "repository": {
