@@ -42,6 +42,16 @@ module.exports = {
           key: 'id',
         },
       },
+      guestId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Guest',
+          key: 'id',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

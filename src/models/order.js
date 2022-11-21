@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
+      this.belongsTo(models.Guest, {
+        foreignKey: 'guestId',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      });
       // // has many Cart
       // this.belongsToMany(models.Cart, {
       //   through: models.CartOrder,
@@ -47,6 +52,16 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
       references: {
         model: 'User',
+        key: 'id',
+      },
+    },
+    guestId: {
+      allowNull: true,
+      type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Guest',
         key: 'id',
       },
     },
