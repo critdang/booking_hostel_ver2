@@ -6,7 +6,7 @@ const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameH
   // dialect: 'mysql',
   // logging: false, // để k in câu lệnh:   Executing (default): SELECT 1+1 AS result
   host: process.env.hostHotel,
-  port: 3306,
+  // port: process.env.PORT, // k cần
   password: process.env.passwordHotel,
   database: process.env.databaseHotel,
   logging: true,

@@ -596,3 +596,1373 @@
   timestamp: '2022-11-12T13:21:51.147Z'
 >>>>>>> 100336e7579a90d500e0929186c2c9f2e0320399
 }
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-18T18:14:02.571Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-18T18:14:03.025Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-18T18:14:04.237Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-18T18:14:04.317Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-18T18:29:34.016Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-18T18:29:34.031Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-18T18:29:34.829Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-18T18:29:34.977Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T02:27:46.686Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T02:27:46.701Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T02:27:46.967Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T02:27:46.978Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:08:08.948Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:08:08.952Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:08:09.069Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:08:09.074Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:10:26.174Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:10:26.183Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:10:47.197Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:10:47.203Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:11:28.145Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:11:28.177Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:12:29.044Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:12:29.104Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:12:52.275Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:12:52.280Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:12:58.809Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:12:58.817Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:13:04.517Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:13:04.539Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:13:53.153Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:13:53.156Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:14:10.301Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:14:10.310Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:16:25.083Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:16:25.090Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:16:53.416Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:16:53.421Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:18:19.437Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:18:19.443Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:18:34.588Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:18:34.594Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:18:46.737Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:18:46.740Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:23.418Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:23.424Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:26.479Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:26.518Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:34.200Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:34.215Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:52.769Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:19:52.772Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:20:16.258Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:20:16.262Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:20:19.827Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:20:19.834Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:22:15.957Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:22:15.959Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:22:52.833Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:22:52.837Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:23:10.705Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:23:10.710Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:23:10.764Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:23:10.768Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T03:24:05.819Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T03:24:05.822Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:40:47.997Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:40:48.011Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:40:48.137Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:40:48.147Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:41:01.870Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:41:02.636Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:41:03.663Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:41:04.372Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:12.182Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:12.185Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:12.254Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:12.276Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:36.070Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:36.074Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:36.123Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:42:36.129Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:43:58.743Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:05.047Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:05.060Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:05.110Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:05.160Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"2"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:08.159Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:08.704Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"3"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:09.399Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"4"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:09.953Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T07:44:10.590Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:22:12.792Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:22:12.818Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:22:12.961Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:22:12.967Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:22:24.327Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:23:27.764Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:23:27.771Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:23:27.833Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:23:27.837Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:27:42.064Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:27:42.103Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:27:42.163Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:27:42.175Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.614Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.621Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.680Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.692Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.873Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.876Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.904Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:14.925Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:15.424Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:15.437Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:15.491Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:36:15.507Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:27.335Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:27.339Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:27.389Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:27.402Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:32.618Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:32.640Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:32.656Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:32.685Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:33.694Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:33.709Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:33.770Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:33.775Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:34.740Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:34.744Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:34.793Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:34.808Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:36.112Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:36.139Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:36.155Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:36.175Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:37.016Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:37.020Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:37.050Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:37.071Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:38.689Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:38.702Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:38.726Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:38.744Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:39.608Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:39.612Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:39.648Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:39.654Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:40.751Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:40.754Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:40.898Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:40.987Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:41.844Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:41.849Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:41.875Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:41.915Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:42.835Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:42.848Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:42.881Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T08:46:42.897Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:01:24.165Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:03:49.044Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:03:52.748Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:03:52.755Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:03:52.822Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:03:52.831Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:04:00.287Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:04:02.476Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:04:02.490Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:04:02.510Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:04:02.530Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:12.147Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:12.156Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:12.233Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:12.253Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:20.933Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:20.938Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:20.963Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:32:20.988Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:08.163Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:08.176Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:08.228Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:08.233Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:11.283Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:11.287Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:11.313Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:11.330Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:47.590Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:48.158Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:48.553Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:48.557Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:56.885Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:56.913Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:56.958Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:34:56.962Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:36:12.715Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:37:55.243Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:37:55.363Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:38:02.491Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:38:02.582Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:38:26.758Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234561"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:38:36.944Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:38:37.048Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234561"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:39:48.462Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:39:48.555Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234561"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:39:56.348Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:39:56.467Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123451"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:16.026Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:40:16.116Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234561"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:23.607Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:40:23.691Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:30.478Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:55.188Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:57.329Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:57.983Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:58.151Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:40:58.308Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:02.271Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:03.228Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:03.389Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:03.581Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:03.724Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:03.877Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:04.057Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:04.238Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:04.410Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:04.598Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:10.162Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:10.634Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:10.809Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:10.970Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:11.133Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:11.282Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:11.427Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:11.706Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:22.776Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:24.361Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:41:51.742Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234561"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:42:05.625Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:42:05.721Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:43:18.998Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:43:19.089Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:43:36.528Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:43:36.612Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:36.759Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:44:36.856Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:41.925Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:43.595Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:45.394Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:46.415Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:47.845Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:44:54.251Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:45:08.122Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:45:08.218Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:45:18.186Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-19T09:45:18.273Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:49.365Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:52.649Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:52.653Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:52.714Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:52.724Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:56.792Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:56.851Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:56.871Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:47:56.886Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:48:05.672Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:48:05.712Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T09:48:05.734Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T09:48:05.764Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T12:47:47.850Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T12:47:47.867Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-19T12:47:48.086Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-19T12:47:48.095Z'
+}
