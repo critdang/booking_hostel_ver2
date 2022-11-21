@@ -171,6 +171,8 @@ const createOrder = async (req) => {
   // if user not login
 };
 const viewOrder = async (req, res) => {
+  const { option } = req.params;
+
   const foundOrder = await db.Order.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
   foundOrder.date = moment(foundOrder.date).format('DD/MM/YYYY, h:mm:ss a');
   foundOrder.userInfo = await db.User.findOne({ where: { id: foundOrder.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
@@ -193,7 +195,12 @@ const viewOrder = async (req, res) => {
     rooms.push(foundRoom);
   }
   foundOrder.rooms = rooms;
-  res.render('createOrderNoti/order', { order: foundOrder });
+  console.log("🚀 ~ file: order.service.js ~ line 198 ~ viewOrder ~ foundOrder", foundOrder)
+  if (option === 'order') {
+    res.render('createOrderNoti/order', { order: foundOrder });
+  } else if (option === 'invoice') {
+    res.render('createInvoice/invoice_order_receipt', { order: foundOrder });
+  }
 };
 module.exports = {
   getOrder,

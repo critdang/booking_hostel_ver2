@@ -25,7 +25,7 @@
 									<img src="http://vergo-kertas.herokuapp.com/assets/img/logo.png" alt="" height="35"
 										style="margin-bottom: 20px;">
 									<h2>Booking Confirmation<br>
-										<span class="small">orderId #1082</span>
+										<span class="small">orderId #<%= order.id %></span>
 									</h2>
 									<p>Please present either an electronic or paper copy of your booking confirmation
 										upon
@@ -44,23 +44,20 @@
 						<div class="row">
 							<div class="col-xs-6" style="margin-bottom: 20px">
 								<div>
-									<strong>Customer's Name:</strong> ádasd <br>
-									<strong>Phone number:</strong> ádasd <br>
-
-									<strong>Room type:</strong>ádasd<br>
-									<strong>Lead guest:</strong>ádasd<br>
-									<strong>Occupancy:</strong>ádasd<br>
-									<strong>Benefits:</strong>ádasd<br>
-									<strong>Special request:</strong>ádasd<br>
+									<strong>Customer's Name:</strong> <%= order.userInfo.fullname %> <br>
+									<strong>Lead guest:</strong>Claudion<br>
+									<strong>Occupancy:</strong>Claudion<br>
+									<strong>Benefits:</strong>Claudion<br>
+									<strong>Special request:</strong>Claudion<br>
 								</div>
 							</div>
 							<div class="col-xs-6 text-right">
 								<div style="background-color: rgb(221,221,221); padding: 2px 8px; height: 140px;">
-									<strong>Email:</strong>songhanvitalis@gmail.com<br>
-									<strong>Tel:</strong>0982751291<br>
-									<strong>Payment Method:</strong> MoMo <br>
-									<strong>Payment Date:</strong> ádasd <br>
-									<strong>Promotion:</strong>ádasd<br>
+									<strong>Email:</strong><%= order.userInfo.email %><br>
+									<strong>Tel:</strong><%= order.userInfo.phone %><br>
+									<strong>Payment Method:</strong> <%= order.paymentMethod %> <br>
+									<strong>Payment Date:</strong> <%= order.date %> <br>
+									<strong>Promotion:</strong> nothing <br>
 								</div>
 							</div>
 						</div>
@@ -90,28 +87,16 @@
 											<td class="text-right"><strong>SUBTOTAL</strong></td>
 										</tr>
 									</thead>
+									<% for( room of order.rooms){ %>
 									<tbody>
 										<tr>
-											<td>1</td>
-											<td class="text-center">dsada</td>
-											<td class="text-center">15</td>
-											<td class="text-center">$75</td>
-											<td class="text-right">$1,125.00</td>
+											<td><%= room.name %></td>
+											<td class="text-center"><%= room.from %></td>
+											<td class="text-center"><%= room.to %></td>
+											<td class="text-center">$<%= room.price %></td>
+											<td class="text-right">$<%= room.price %></td>
 										</tr>
-										<tr>
-											<td>2</td>
-											<td class="text-center">ad</td>
-											<td class="text-center">15</td>
-											<td class="text-center">$75</td>
-											<td class="text-right">$1,125.00</td>
-										</tr>
-										<tr class="line">
-											<td>3</td>
-											<td class="text-center">đâs</td>
-											<td class="text-center">2</td>
-											<td class="text-center">$75</td>
-											<td class="text-right">$150.00</td>
-										</tr>
+										<% } %>
 										<tr>
 											<td colspan="3"></td>
 											<td class="text-right"><strong>Taxes</strong></td>
@@ -121,7 +106,7 @@
 											<td colspan="3">
 											</td>
 											<td class="text-right"><strong>Total</strong></td>
-											<td class="text-right"><strong>$2,400.00</strong></td>
+											<td class="text-right"><strong>$<%= order.total %></strong></td>
 										</tr>
 									</tbody>
 								</table>
