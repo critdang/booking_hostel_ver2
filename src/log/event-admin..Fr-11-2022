@@ -797,3 +797,53 @@
   timestamp: '2022-11-11T08:35:32.180Z'
 >>>>>>> d59b2ac0033d83858f58a650517c8c03763e7034
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-18T06:28:19.322Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-18T06:29:19.006Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-18T06:56:41.209Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-18T07:02:47.818Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-18T07:03:34.976Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-18T07:04:04.564Z'
+}
+{
+  message: "RoomAction:getRooms:: -  SequelizeDatabaseError: Unknown column 'Room.categoryId`1' in 'order clause'",
+  level: 'info',
+  timestamp: '2022-11-18T07:04:04.590Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-18T07:05:24.820Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-18T07:07:24.677Z'
+}
+{
+  message: 'RoomAction:getRooms::',
+  level: 'info',
+  timestamp: '2022-11-18T07:07:46.052Z'
+}

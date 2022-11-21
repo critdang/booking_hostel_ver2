@@ -8,6 +8,6 @@ router.get('/', auth.protectingRoutes, controller.getOrders);
 router.post('/updateStatus/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.changeStatus);
 router.post('/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.updateOrder);
 router.post('/', auth.protectingRoutes, controller.createOrder);
-router.get('/view', controller.viewOrder);
+router.get('/view', auth.protectingRoutes, controller.viewOrder);
 
 module.exports = router;

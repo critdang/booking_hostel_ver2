@@ -170,7 +170,7 @@
                                             style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777; text-align: center">
                                             Hi <%=order.userInfo.fullname%>,
                                             <br>
-                                            For reference, your booking ID is <%=order.userInfo.code%>. To view, cancel, or modify your
+                                            For reference, your booking ID is <%=order.code%>. To view, cancel, or modify your
                                             booking, use our easy self service.
                                         </p>
                                     </td>
@@ -197,9 +197,9 @@
                                         </tr>
                                         <%for(room of order.rooms) {%>
                                             <tr>
-                                                <td width="25%" align="left"
+                                                <td width="35%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                    <%=room.name%>
+                                                    <%= room.name+"\n("+room.category+")"%>
                                                 </td>
                                                 <td width="25%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
@@ -347,11 +347,6 @@
                                     <td
                                         style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding:0 35px;  width:100%; background-color: white;">
                                         <p style="font-weight: 800; border-top: 1px solid black">Booking Infomation</p>
-                                        <p style="display: inline-block; font-weight: bold; margin: 0px;">
-                                            Room type:</p>
-                                        <p style="display: inline-block; margin: 0px;">
-                                            <%=order.id%>
-                                        </p>
                                         <br>
 
                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">

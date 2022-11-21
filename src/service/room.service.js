@@ -28,7 +28,7 @@ const createRoom = async (req) => {
       const newImage = await db.Image.create({
         href: path
       }, { transaction: t });
-        // point to RoomImage table
+      // point to RoomImage table
       await db.RoomImage.create({
         roomId: newRoom.id,
         imageId: newImage.id
@@ -39,8 +39,14 @@ const createRoom = async (req) => {
 };
 
 const getRooms = async (req) => {
-  const sort = objToArr(req.query);
-  const roomFetch = await db.Room.findAll({ order: sort });
+  // const sort = objToArr(req.query);
+  const conditions = req.query;
+  const roomFetch = await db.Room.findAll(
+    {
+      where: conditions,
+      // order: sort
+    }
+  );
   if (!roomFetch) {
     throw new AppError(
       format(MessageHelper.getMessage('cannotFindRoomCategory')),
@@ -127,5 +133,5 @@ module.exports = {
   updateRoom,
   deleteRoom,
   defaultImage,
-  deleteImage
+  deleteImage,
 };

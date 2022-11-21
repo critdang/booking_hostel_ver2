@@ -171,20 +171,28 @@ const createOrder = async (req) => {
   // if user not login
 };
 const viewOrder = async (req, res) => {
-  const orderId = 1;
-  const foundOrder = await db.Order.findOne({ where: { id: orderId }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
+  const foundOrder = await db.Order.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
   foundOrder.date = moment(foundOrder.date).format('DD/MM/YYYY, h:mm:ss a');
   foundOrder.userInfo = await db.User.findOne({ where: { id: foundOrder.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
-  const foundRoomInOrder = await db.RoomInOrder.findAll({ where: { orderId }, attributes: ['roomId', 'from', 'to'] });
+  const foundRoomInOrder = await db.RoomInOrder.findAll({ where: { orderId: foundOrder.id }, attributes: ['roomId', 'from', 'to'] });
   const rooms = [];
   for (const roomInOrder of foundRoomInOrder) {
-    const foundRoom = await db.Room.findOne({ where: { id: roomInOrder.roomId }, attributes: ['name', 'price'] });
+    const foundRoom = await db.Room.findOne({
+      where: { id: roomInOrder.roomId },
+      attributes: ['name', 'price'],
+      include: [{
+        model: db.Category,
+        attributes: ['name']
+      }],
+      raw: true,
+      nest: true
+    });
     foundRoom.from = moment((roomInOrder.from)).format('DD/MM/YYYY, HH:mm');
     foundRoom.to = moment((roomInOrder.to)).format('DD/MM/YYYY, HH:mm');
+    foundRoom.category = foundRoom.Category.name;
     rooms.push(foundRoom);
   }
   foundOrder.rooms = rooms;
-  console.log(foundOrder);
   res.render('createOrderNoti/order', { order: foundOrder });
 };
 module.exports = {
