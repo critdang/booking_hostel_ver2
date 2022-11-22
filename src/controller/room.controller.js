@@ -42,6 +42,18 @@ const getRoom = async (req, res) => {
   }
 };
 
+const searchRooms = async (req, res) => {
+  try {
+    logger.info(`RoomAction:getRoom::req.params - ${JSON.stringify(req.params)}`);
+
+    const data = await service.searchRooms(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.info(`RoomAction:getRoom:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
+
 const updateRoom = async (req, res) => {
   try {
     logger.info(`RoomAction:updateRoom::req.body - ${JSON.stringify(req.body)}`);
@@ -118,6 +130,7 @@ module.exports = {
   createRoom,
   getRooms,
   getRoom,
+  searchRooms,
   updateRoom,
   deleteRoom,
   defaultImage,

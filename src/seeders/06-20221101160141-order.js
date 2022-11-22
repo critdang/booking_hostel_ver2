@@ -12,7 +12,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      userId: 3,
+      guestId: 1,
       code: '4vly8',
       date: new Date(),
       status: 'Pending',
@@ -34,7 +34,8 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      userId: 3,
+      guestId: 3,
+      userId: 2,
       code: 'sxya7',
       date: new Date(),
       status: 'Pending',
@@ -45,7 +46,8 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      userId: 3,
+      userId: 5,
+      guestId: 4,
       code: 'ulapk',
       date: new Date(),
       status: 'Pending',

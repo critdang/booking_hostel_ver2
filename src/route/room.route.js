@@ -8,6 +8,7 @@ const auth = require('../utils/middleware/auth');
 const router = express.Router();
 router.post('/', auth.protectingRoutes, auth.checkRole('admin'), upload.array('images'), validate.handleRoomValidate, controller.createRoom);
 router.get('/', controller.getRooms);
+router.get('/search', controller.searchRooms);
 router.get('/:id', controller.getRoom);
 router.put('/:id', auth.protectingRoutes, auth.checkRole('admin'), controller.updateRoom);
 router.delete('/:id', auth.protectingRoutes, auth.checkRole('admin'), controller.deleteRoom);

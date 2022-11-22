@@ -74,24 +74,19 @@ const updateOrder = async (req) => {
   return result;
 };
 
-const createOrder = async (req) => {
+const putOrder = async (req) => {
   // create order from cart
   const userId = req.user.id;
   const { paymentMethod } = req.body;
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   if (userId) {
-    const foundCart = await db.Cart.findOne({
+    const foundOrder = await db.Order.findOne({
       where: { userId },
     });
-    if (!foundCart) {
-      throw new AppError(
-        format(MessageHelper.getMessage('noFoundCart'), userId),
-      );
-    }
-    const cartId = foundCart.id;
-    const foundCartRooms = await db.CartRoom.findAll({
-      where: { cartId },
-      attributes: ['checkIn', 'checkOut'],
+    const orderId = foundOrder.id;
+    const foundOrderRooms = await db.RoomInOrder.findAll({
+      where: { orderId },
+      attributes: ['from', 'to'],
       include: [{
         model: db.Room,
         attributes: ['id', 'name', 'price'],
@@ -99,15 +94,15 @@ const createOrder = async (req) => {
       raw: true,
       nest: true,
     });
-    if (!foundCartRooms) {
+    if (!foundOrderRooms) {
       throw new AppError(
-        format(MessageHelper.getMessage('noFoundCart'), userId),
+        format(MessageHelper.getMessage('nofoundOrder'), userId),
       );
     }
     // check valid booking date
     const roomDates = {};
     let total = 0;
-    for (const cartRoom of foundCartRooms) {
+    for (const cartRoom of foundOrderRooms) {
       const { checkIn, checkOut } = cartRoom;
       const { id, name, price } = cartRoom.Room;
       total += price;
@@ -149,30 +144,81 @@ const createOrder = async (req) => {
       }, { transaction: t });
       // delete cart room
       await db.CartRoom.destroy({
-        where: { cartId },
+        where: { orderId },
       }, { transaction: t });
-      for (const foundCartRoom of foundCartRooms) {
+      for (const foundOrderRoom of foundOrderRooms) {
         // create room date
         await db.RoomDate.create({
-          roomId: foundCartRoom.Room.id,
-          from: foundCartRoom.checkIn,
-          to: foundCartRoom.checkOut,
+          roomId: foundOrderRoom.Room.id,
+          from: foundOrderRoom.checkIn,
+          to: foundOrderRoom.checkOut,
         }, { transaction: t });
         // create room in order
         await db.RoomInOrder.create({
-          roomId: foundCartRoom.Room.id,
-          from: foundCartRoom.checkIn,
-          to: foundCartRoom.checkOut,
+          roomId: foundOrderRoom.Room.id,
+          from: foundOrderRoom.checkIn,
+          to: foundOrderRoom.checkOut,
           orderId: newOrder.id,
         }, { transaction: t });
       }
     });
   }
-  // if user not login
 };
+
+const createOrder = async (req) => {
+  const userInfo = req.user;
+  const { paymentMethod, guestInfo, rooms } = req.body;
+  let guestId = null;
+  const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
+  let total = 0;
+  for (const room of rooms) {
+    const foundRoom = await db.Room.findOne({
+      where: { id: room.roomId },
+    });
+    total += foundRoom.price;
+  }
+  if (guestInfo) {
+    const newGuest = await db.Guest.create({
+      name: guestInfo.name,
+      email: guestInfo.email,
+      phone: guestInfo.phone,
+      address: guestInfo.address,
+      gender: guestInfo.gender
+    });
+    guestId = newGuest.id;
+  }
+  await sequelize.transaction(async (t) => {
+    // create order
+    const newOrder = await db.Order.create({
+      code,
+      date: new Date(),
+      userId: userInfo.id,
+      guestId,
+      paymentMethod,
+      total,
+    }, { transaction: t });
+
+    for (const room of rooms) {
+      // create room date
+      await db.RoomDate.create({
+        roomId: room.roomId,
+        from: room.From,
+        to: room.To,
+      }, { transaction: t });
+
+      // create room in order
+      await db.RoomInOrder.create({
+        roomId: room.roomId,
+        from: room.From,
+        to: room.To,
+        orderId: newOrder.id,
+      }, { transaction: t });
+    }
+  });
+};
+
 const viewOrder = async (req, res) => {
   const { option } = req.params;
-
   const foundOrder = await db.Order.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
   foundOrder.date = moment(foundOrder.date).format('DD/MM/YYYY, h:mm:ss a');
   foundOrder.userInfo = await db.User.findOne({ where: { id: foundOrder.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
@@ -195,7 +241,6 @@ const viewOrder = async (req, res) => {
     rooms.push(foundRoom);
   }
   foundOrder.rooms = rooms;
-  console.log("🚀 ~ file: order.service.js ~ line 198 ~ viewOrder ~ foundOrder", foundOrder)
   if (option === 'order') {
     res.render('createOrderNoti/order', { order: foundOrder });
   } else if (option === 'invoice') {

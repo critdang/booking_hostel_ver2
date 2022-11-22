@@ -57,6 +57,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.DATE,
     },
+    adults: {
+      allowNull: true,
+      type: DataTypes.INTEGER,
+    },
+    kids: {
+      allowNull: true,
+      type: DataTypes.INTEGER,
+    },
   }, {
     sequelize,
     modelName: 'RoomInOrder',

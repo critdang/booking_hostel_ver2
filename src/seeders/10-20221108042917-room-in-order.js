@@ -5,6 +5,8 @@ module.exports = {
       roomId: 3,
       from: new Date(),
       to: new Date(),
+      adults: 2,
+      kids: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -13,6 +15,8 @@ module.exports = {
       roomId: 2,
       from: new Date(),
       to: new Date(),
+      adults: 2,
+      kids: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

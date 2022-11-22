@@ -1,4 +1,6 @@
 const format = require("string-format");
+const { Op } = require('sequelize');
+const moment = require('moment');
 const db = require("../models");
 const AppError = require("../utils/errorHandle/appError");
 const { objToArr } = require('../utils/convert/convert');
@@ -68,6 +70,95 @@ const getRoom = async (req) => {
   return roomFetch;
 };
 
+const searchRooms = async (req) => {
+  let { arrival, departure, adults, kids } = req.query;
+  adults = adults.split(',');
+  kids = kids.split(',');
+  const rooms = [];
+  for (let i = 0; i < adults.length; i += 1) {
+    const foundRoom = await db.Room.findAll({
+      where: {
+        [Op.and]: [
+          { adult: { [Op.gte]: adults[i] } },
+          { kid: { [Op.gte]: kids[i] } },
+        ],
+      },
+      attributes: ['id', 'name', 'price'],
+      include: [{
+        model: db.RoomDate,
+        where: {
+          [Op.or]: [
+            {
+              from: {
+                [Op.gte]: departure
+              },
+            },
+            {
+              to: {
+                [Op.lte]: arrival
+              },
+            }
+          ]
+        },
+        attributes: [],
+      }],
+      raw: true,
+      nest: true,
+    });
+    rooms.push(foundRoom);
+  }
+  return rooms;
+  // const foundRoom = await db.RoomDate.findAll({
+  //   where: {
+  //     [Op.or]: [
+  //       {
+  //         from: {
+  //           [Op.gte]: departure
+  //         },
+  //       },
+  //       {
+  //         to: {
+  //           [Op.lte]: arrival
+  //         },
+  //       }
+  //     ]
+  //   },
+  //   attributes: ['from', 'to'],
+  // });
+  // foundRoom.forEach((item) => {
+  //   item.from = moment(item.from).format('YYYY-MM-DD');
+  //   item.to = moment(item.to).format('YYYY-MM-DD');
+  // });
+
+
+  // const roomDates = {};
+  // for (const cartRoom of foundOrderRooms) {
+  //   const { checkIn, checkOut } = cartRoom;
+  //   const { id, name, price } = cartRoom.Room;
+  //   // array contain all dates of each room
+  //   if (!roomDates[name]) {
+  //     const roomDate = await db.RoomDate.findAll({
+  //       where: { roomId: id },
+  //       attributes: ['from', 'to'],
+  //     });
+  //     if (_.isEmpty(roomDate)) {
+  //       throw new AppError(
+  //         format(MessageHelper.getMessage('noFoundRoomDate'), id),
+  //       );
+  //     }
+  //     roomDates[name] = roomDate;
+  //   }
+  //   // compare booking date with room date
+  //   for (const date in roomDates[name]) {
+  //     if ((checkIn > date.from && checkIn < date.to) || (checkOut > date.from && checkOut < date.to)) {
+  //       throw new AppError(
+  //         format(MessageHelper.getMessage('roomUnavailable'), name),
+  //       );
+  //     }
+  //   }
+  // }
+};
+
 const updateRoom = async (req) => {
   const { id } = req.params;
   const updateContents = req.body;
@@ -130,6 +221,7 @@ module.exports = {
   createRoom,
   getRooms,
   getRoom,
+  searchRooms,
   updateRoom,
   deleteRoom,
   defaultImage,

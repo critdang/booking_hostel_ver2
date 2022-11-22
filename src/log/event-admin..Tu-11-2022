@@ -188,3 +188,188 @@
   level: 'info',
   timestamp: '2022-11-15T16:54:18.388Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:33:54.799Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:34:10.272Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:36:58.862Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:37:26.602Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:38:32.960Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:40:35.464Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:42:25.914Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:43:29.782Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:44:02.676Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:46:28.400Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:55:18.693Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:55:33.154Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:56:06.644Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:57:02.143Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:58:13.786Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:30.872Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:04:11.645Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-22T01:06:17.891Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:06:26.909Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:08:57.192Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:09:10.881Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:24:13.801Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:24:47.964Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:25:02.023Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:32:38.246Z'
+}
+{
+  message: "RoomAction:getRoom:: -  SequelizeDatabaseError: Unknown column 'RoomImages.from' in 'field list'",
+  level: 'info',
+  timestamp: '2022-11-22T01:32:38.295Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:33:11.523Z'
+}
+{
+  message: "RoomAction:getRoom:: -  SequelizeDatabaseError: Unknown column 'Room.adults' in 'where clause'",
+  level: 'info',
+  timestamp: '2022-11-22T01:33:11.563Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:33:13.650Z'
+}
+{
+  message: "RoomAction:getRoom:: -  SequelizeDatabaseError: Unknown column 'Room.adults' in 'where clause'",
+  level: 'info',
+  timestamp: '2022-11-22T01:33:13.658Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:33:29.246Z'
+}
+{
+  message: "RoomAction:getRoom:: -  SequelizeDatabaseError: Unknown column 'Room.adults' in 'where clause'",
+  level: 'info',
+  timestamp: '2022-11-22T01:33:29.288Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:34:10.600Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:34:41.197Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:35:33.220Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:39:20.421Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-22T01:41:25.008Z'
+}
