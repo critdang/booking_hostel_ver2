@@ -188,3 +188,128 @@
   level: 'info',
   timestamp: '2022-11-15T16:54:18.388Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:22:00.301Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:22:11.567Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:22:11.574Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:22:11.647Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:22:11.668Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:23:24.834Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:23:24.839Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:23:24.916Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:23:24.927Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:27.654Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:27.672Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:27.749Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:27.755Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:32.039Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:32.055Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:32.092Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T00:59:32.130Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:50.379Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:50.390Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:50.520Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:50.531Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:54.793Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:54.800Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:54.858Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-22T01:10:54.904Z'
+}
