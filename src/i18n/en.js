@@ -28,7 +28,7 @@ module.exports = {
     oldPassIncorrect: 'Old password is incorrect',
     verifyUserFailed: 'Verify user failed',
     verifyUserSuccess: 'Verify user success',
-
+    expiredToken: 'Your token is expired. Please login again',
     // user
     resetPasswordSucess: 'Reset password success',
     forgotPasswordFailed: 'This email is expired. Please use the latest email',

@@ -1,9 +1,14 @@
 /* eslint-disable no-param-reassign */
 const rateLimit = require('express-rate-limit');
+const format = require("string-format");
 const catchAsync = require('../errorHandle/catchAsync');
 const JWTAction = require('./JWTAction');
 const AppError = require('../errorHandle/appError');
 const db = require("../../models");
+const logger = require('../logger/app-logger');
+
+const ResponseHelper = require('../response');
+const MessageHelper = require('../message');
 
 exports.protectingRoutes = catchAsync(async (req, res, next) => {
   const token = req.headers.authorization?.startsWith('Bearer')
@@ -15,7 +20,7 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
   const decodedToken = await JWTAction.verifyToken(token);
 
   if (!decodedToken.userId) {
-    return next(new AppError('You token is expired. Please login again', 401));
+    return next(new AppError('Your token is expired. Please login again', 401));
   }
   const user = await db.User.findOne({
     attributes: { exclude: ['password', 'resetToken', 'status'] },
@@ -28,6 +33,36 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
   req.user = user;
   return next();
 });
+
+exports.checkUser = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.startsWith('Bearer')
+  && req.headers.authorization.split(' ')[1];
+    if (!token) {
+      console.log('herrr');
+      return next();
+    }
+    const decodedToken = await JWTAction.verifyToken(token);
+    if (token && !decodedToken.userId) {
+      console.log('herr2222222222r');
+      throw new AppError(
+        format(MessageHelper.getMessage('expiredToken'))
+      );
+    }
+
+    const user = await db.User.findOne({
+      attributes: { exclude: ['password', 'resetToken', 'status'] },
+      where: { id: decodedToken.userId },
+    });
+
+    req.user = user;
+    return next();
+  } catch (error) {
+    console.log("🚀 ~ file: auth.js ~ line 60 ~ exports.checkUser= ~ error", error.message);
+    logger.error(`AdminAuthentication:login:: - ${error.message}`);
+    return ResponseHelper.responseError(res, error.message);
+  }
+};
 
 exports.protectingRoutes1 = catchAsync(async (req, res, next) => {
   const token = req.headers.authorization?.startsWith('Bearer')
