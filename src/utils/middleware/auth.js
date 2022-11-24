@@ -39,12 +39,10 @@ exports.checkUser = async (req, res, next) => {
     const token = req.headers.authorization?.startsWith('Bearer')
   && req.headers.authorization.split(' ')[1];
     if (!token) {
-      console.log('herrr');
       return next();
     }
     const decodedToken = await JWTAction.verifyToken(token);
     if (token && !decodedToken.userId) {
-      console.log('herr2222222222r');
       throw new AppError(
         format(MessageHelper.getMessage('expiredToken'))
       );
