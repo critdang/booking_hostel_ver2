@@ -71,7 +71,9 @@ const getRoom = async (req) => {
 };
 
 const searchRooms = async (req) => {
-  let { arrival, departure, adults, kids } = req.query;
+  let {
+    arrival, departure, adults, kids
+  } = req.query;
   adults = adults.split(',');
   kids = kids.split(',');
   const rooms = [];
@@ -84,6 +86,7 @@ const searchRooms = async (req) => {
         ],
       },
       attributes: ['id', 'name', 'price'],
+      group: ['name'], // should group else it will return duplicate and res.json remove empty array
       include: [{
         model: db.RoomDate,
         where: {
@@ -105,6 +108,7 @@ const searchRooms = async (req) => {
       raw: true,
       nest: true,
     });
+    console.log("🚀 ~ file: room.service.js ~ line 111 ~ searchRooms ~ foundRoom", foundRoom);
     rooms.push(foundRoom);
   }
   return rooms;
@@ -129,7 +133,6 @@ const searchRooms = async (req) => {
   //   item.from = moment(item.from).format('YYYY-MM-DD');
   //   item.to = moment(item.to).format('YYYY-MM-DD');
   // });
-
 
   // const roomDates = {};
   // for (const cartRoom of foundOrderRooms) {

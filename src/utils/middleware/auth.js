@@ -56,7 +56,7 @@ exports.checkUser = async (req, res, next) => {
     req.user = user;
     return next();
   } catch (error) {
-    console.log("🚀 ~ file: auth.js ~ line 60 ~ exports.checkUser= ~ error", error.message);
+    console.log("🚀 ~ file: auth.js ~ line 60 ~ exports.checkUser= ~ error", error);
     logger.error(`AdminAuthentication:login:: - ${error.message}`);
     return ResponseHelper.responseError(res, error.message);
   }
