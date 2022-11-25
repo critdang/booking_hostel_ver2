@@ -11697,3 +11697,143 @@
   level: 'info',
   timestamp: '2022-11-25T11:07:05.132Z'
 }
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:42.467Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:42.489Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:52:45.317Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:45.331Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:45.335Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:52:45.568Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:56.393Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:56.398Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:52:57.775Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:57.784Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:52:58.025Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:52:58.700Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:53:08.527Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:53:08.533Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:53:08.991Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:53:09.004Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:53:09.227Z'
+}
+{
+  message: "Category:getCategory:: -  TypeError: Cannot read properties of undefined (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:53:09.239Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:53:11.744Z'
+}
+{
+  message: "UserAuthentication:login:: -  TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2022-11-25T16:53:11.995Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:06.710Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:06.715Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:08.130Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:08.142Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:10.946Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:10.954Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:11.189Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-25T16:56:11.194Z'
+}
