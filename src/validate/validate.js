@@ -123,7 +123,6 @@ exports.handleForgotPasswordValidate = async (req, res, next) => {
 
 exports.handleProfileValidateMethodValidate = async (req, res, next) => {
   try {
-    console.log("🚀 ~ file: validate.js ~ line 127 ~ exports.handleProfileValidateMethodValidate= ~ req.body", req.body);
     await handleProfileValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
