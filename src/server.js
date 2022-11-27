@@ -9,14 +9,21 @@ const { connectDB } = require("./config/connectDB");
 const { sequelize } = require("./config/connectDB");
 const initRoutes = require("./route");
 const viewEngine = require("./config/configViewEngine");
+const corsOptions = require("./config/corsOptions");
+const credentials = require("./utils/middleware/credentials");
 
 const myStore = new SequelizeStore({
   db: sequelize,
 });
 
 const app = express();
-// use cors
-app.use(cors({ origin: true, credentials: true }));
+// Handle options credentials check - before CORS!
+// and fetch cookies credentials requirement
+app.use(credentials);
+// use // Cross Origin Resource Sharing
+
+// app.use(cors({ origin: true, credentials: true }));
+app.use(cors(corsOptions));
 
 // view engine
 viewEngine(app);

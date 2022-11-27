@@ -14,6 +14,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'admin',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -29,6 +30,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'user',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -43,6 +45,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'user',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -57,6 +60,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'user',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -71,6 +75,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'user',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -85,6 +90,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'user',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -99,6 +105,7 @@ module.exports = {
       isBlocked: false,
       resetToken: '123456',
       role: 'user',
+      refreshToken: '',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});
