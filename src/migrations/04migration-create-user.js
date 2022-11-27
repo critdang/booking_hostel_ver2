@@ -45,6 +45,9 @@ module.exports = {
         type: Sequelize.ENUM('admin', 'user'),
         defaultValue: 'user',
       },
+      refreshToken: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

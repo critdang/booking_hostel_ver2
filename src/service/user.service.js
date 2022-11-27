@@ -1,12 +1,14 @@
 const bcrypt = require('bcrypt');
 const format = require("string-format");
 
+const jwt = require('jsonwebtoken');
 const db = require('../models/index');
 const JWTAction = require('../utils/middleware/JWTAction');
 const AppError = require("../utils/errorHandle/appError");
 const { VERIFY_MESSAGES } = require("../constants/commonMessage");
 const helperFn = require('../utils/helperFn');
 const MessageHelper = require('../utils/message');
+
 require('dotenv').config();
 
 const createUser = async (req) => {
@@ -36,13 +38,21 @@ const createUser = async (req) => {
   return newUser;
 };
 
-const login = async (req) => {
+const login = async (req, res) => {
+  const { cookies } = req;
+
   const { email, password } = req.body;
   const foundUser = await db.User.findOne({
     where: { email },
     raw: true,
   });
-  const result = {
+  if (!foundUser) {
+    throw new AppError(
+      format(MessageHelper.getMessage('loginFailed')),
+    );
+  }
+
+  const data = {
     userInfo: {
       userId: foundUser.id,
       fullName: foundUser.fullName,
@@ -54,18 +64,114 @@ const login = async (req) => {
       role: foundUser.role
     }
   };
-  if (foundUser) {
-    // compare password
-    const check = bcrypt.compareSync(password, foundUser.password);
-    if (check) {
-      result.accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '1h');
-    } else {
-      throw new AppError(
-        format(MessageHelper.getMessage('loginFailed')),
-      );
+  const match = bcrypt.compareSync(password, foundUser.password);
+
+  if (match) {
+    // create JWTS
+    const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '1h');
+    const newRefreshToken = JWTAction.generateRefreshToken({ userId: foundUser.id });
+    // Changed to let keyword
+    let newRefreshTokenArray = !cookies?.jwt
+      ? foundUser.refreshToken
+      : '';
+
+    if (cookies?.jwt) {
+      /*
+        Scenario added here:
+            1) User logs in but never uses RT and does not logout
+            2) RT is stolen
+            3) If 1 & 2, reuse detection is needed to clear all RTs when user logs in
+        */
+      const refreshToken = cookies.jwt;
+      const foundToken = await db.User.findOne({ refreshToken });
+
+      // Detected refresh token reuse!
+      if (!foundToken) {
+        console.log('attempted refresh token reuse at login!');
+        newRefreshTokenArray = [];
+      }
+
+      res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
     }
+    // Saving refreshToken with current user
+    // const savedRefreshToken = [...newRefreshTokenArray, newRefreshToken];
+    const updateUser = await db.User.update(
+      { refreshToken: newRefreshToken },
+      { where: { email } },
+    );
+
+    // Creates Secure Cookie with refresh token
+    res.cookie('refresh_token', newRefreshToken, {
+      httpOnly: true, sameSite: 'Strict', maxAge: 24 * 60 * 60 * 100,
+      // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
+    }).cookie('access_token', accessToken, {
+      httpOnly: true, sameSite: 'Strict', maxAge: 24 * 60 * 60 * 1000,
+      // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
+    });
+
+    data.accessToken = accessToken;
+    data.refreshToken = newRefreshToken;
+    return data;
   }
-  return result;
+  res.sendStatus(401);
+
+  return data;
+};
+
+const handleRefeshToken = async (req, res) => {
+  const { cookies } = req;
+  console.log(`cookie available at refresh token: ${JSON.stringify(cookies)}`);
+
+  const { refreshToken } = cookies;
+  const foundUser = await db.User.findOne({ refreshToken });
+
+  // Detected refresh token reuse!
+  if (!foundUser) {
+    jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET,
+      async (err, decoded) => {
+        if (err) return res.sendStatus(403); // Forbidden
+        console.log('attempted refresh token reuse!');
+        const hackedUser = await db.User.findOne({ username: decoded.username });
+        hackedUser.refreshToken = [];
+        const result = await hackedUser.save();
+        console.log(result);
+      }
+    );
+    return res.sendStatus(403); // Forbidden
+  }
+  // evaluate jwt
+  const verifyToken = jwt.verify(
+    refreshToken,
+    process.env.REFRESH_TOKEN_SECRET,
+    async (err, decoded) => {
+      if (err) {
+        console.log('expired refresh token');
+      }
+      if (err || foundUser.username !== decoded.username) return res.sendStatus(403);
+    }
+  );
+  if (verifyToken) {
+    // Refresh token was still valid
+    const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '1h');
+    const newRefreshToken = JWTAction.generateRefreshToken({ userId: foundUser.id });
+
+    // Saving refreshToken with current user
+    const updateUser = await db.User.update(
+      { refreshToken: newRefreshToken },
+      { where: { refreshToken } },
+    );
+
+    // Creates Secure Cookie with refresh token
+    res.cookie('refresh_token', newRefreshToken, {
+      httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000
+    });
+    res.cookie('access_token', accessToken, {
+      httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000
+    });
+    return { refreshToken: newRefreshToken };
+  }
 };
 
 const forgotPassword = async (req) => {
@@ -91,6 +197,8 @@ const forgotPassword = async (req) => {
 };
 
 const updateProfile = async (req) => {
+  const { cookies } = req;
+  console.log("🚀 ~ file: user.service.js ~ line 201 ~ updateProfile ~ cookies", cookies);
   const { id } = req.user;
   const data = req.body;
   const { password } = req.body;
@@ -145,6 +253,7 @@ const getUsers = async () => {
 module.exports = {
   createUser,
   login,
+  handleRefeshToken,
   forgotPassword,
   updateProfile,
   updateAvatar,

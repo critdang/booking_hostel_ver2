@@ -7,7 +7,19 @@ const generateJWT = (payload, expired) => {
     const token = jwt.sign(payload, key, {
       expiresIn: expired,
     });
-    return token;
+    return `Bearer ${token}`;
+  } catch (e) {
+    return e;
+  }
+};
+
+const generateRefreshToken = (payload) => {
+  const key = process.env.REFRESH_TOKEN_SECRET;
+  try {
+    const token = jwt.sign(payload, key, {
+      expiresIn: "1d",
+    });
+    return `Bearer ${token}`;
   } catch (e) {
     return e;
   }
@@ -40,6 +52,7 @@ const verifyToken = (token) => {
 
 module.exports = {
   generateJWT,
+  generateRefreshToken,
   authenticateToken,
   verifyToken,
 };

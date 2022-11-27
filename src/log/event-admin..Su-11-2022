@@ -1040,3 +1040,519 @@
   level: 'info',
   timestamp: '2022-11-20T13:50:36.912Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:08:04.687Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:09:04.106Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"1234562"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:10:16.236Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error: Email or password is incorrect',
+  level: 'error',
+  timestamp: '2022-11-26T17:10:16.360Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:20:09.174Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: newRefreshTokenArray is not iterable',
+  level: 'error',
+  timestamp: '2022-11-26T17:20:09.330Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:21:04.631Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: foundUser.save is not a function',
+  level: 'error',
+  timestamp: '2022-11-26T17:21:04.749Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:21:06.222Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: foundUser.save is not a function',
+  level: 'error',
+  timestamp: '2022-11-26T17:21:06.315Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:21:35.933Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: newRefreshTokenArray is not iterable',
+  level: 'error',
+  timestamp: '2022-11-26T17:21:36.084Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:30:36.197Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: foundUser.save is not a function',
+  level: 'error',
+  timestamp: '2022-11-26T17:30:36.315Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:38:01.733Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:38:01.890Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:38:59.471Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:38:59.622Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:39:01.573Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:39:01.670Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:43:19.214Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:43:19.373Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:43:31.139Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:43:31.258Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:43:37.080Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:43:37.181Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:43:45.654Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:43:45.794Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:43:59.059Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:43:59.215Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:44:35.356Z'
+}
+{
+  message: 'UserAuthentication:login:: -  SequelizeValidationError: string violation: refreshToken cannot be an array or an object',
+  level: 'error',
+  timestamp: '2022-11-26T17:44:35.494Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:46:16.275Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:53:17.903Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-26T17:53:39.557Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T02:49:17.250Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T02:51:30.766Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T02:53:02.517Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T02:54:28.959Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T02:55:35.290Z'
+}
+{
+  message: 'UserAuthentication:login::{"connect.sid":"s:nRXb2G2E-x3X6yGkZ08_jS5qntu4XItY./2iFMnLtc0pam8tvtdDxCg+dCHg4jLLVT38aRn3ce/Y"}',
+  level: 'info',
+  timestamp: '2022-11-27T03:00:26.379Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'Socket'\n" +
+    "    |     property 'parser' -> object with constructor 'HTTPParser'\n" +
+    "    --- property 'socket' closes the circle",
+  level: 'error',
+  timestamp: '2022-11-27T03:00:26.420Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'Socket'\n" +
+    "    |     property 'parser' -> object with constructor 'HTTPParser'\n" +
+    "    --- property 'socket' closes the circle",
+  level: 'error',
+  timestamp: '2022-11-27T03:01:20.397Z'
+}
+{
+  message: 'UserAuthentication:login:: -  TypeError: res.status(...).message is not a function',
+  level: 'error',
+  timestamp: '2022-11-27T03:03:25.223Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T03:06:00.865Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:35:46.455Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:38:32.349Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:38:56.729Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:42:23.262Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:43:36.883Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:43:50.724Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:44:18.432Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T04:45:30.783Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client',
+  level: 'error',
+  timestamp: '2022-11-27T05:02:59.579Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client',
+  level: 'error',
+  timestamp: '2022-11-27T05:03:46.469Z'
+}
+{
+  message: 'UserAuthentication:login:: -  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client',
+  level: 'error',
+  timestamp: '2022-11-27T05:04:42.738Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:32:32.940Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:33:01.331Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:33:19.017Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:33:31.591Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:33:40.358Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:34:12.086Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:45:09.448Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T07:45:34.080Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T07:45:34.088Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:45:44.718Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T07:45:53.920Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T07:45:53.923Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:47:59.920Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:51:06.279Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T07:51:10.679Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T07:51:10.686Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T07:55:57.038Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T07:56:01.257Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T07:56:01.261Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T07:56:35.504Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T07:56:35.514Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:45:22.918Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T08:45:25.858Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T08:45:25.863Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T08:52:41.859Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T08:52:41.871Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:53:53.216Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:54:05.430Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:54:33.885Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:54:57.018Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:57:45.990Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T08:57:48.579Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T08:57:48.585Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T08:58:02.605Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T08:58:06.210Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T08:58:06.215Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T09:01:26.297Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T09:01:29.307Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T09:01:29.311Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T09:01:48.663Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T09:01:50.893Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T09:01:50.899Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T09:06:32.178Z'
+}
+{
+  message: 'UserAction:updateProfile::{}',
+  level: 'info',
+  timestamp: '2022-11-27T09:06:44.944Z'
+}
+{
+  message: "UserAction:updateProfile:: -  TypeError: Cannot destructure property 'id' of 'req.user' as it is undefined.",
+  level: 'error',
+  timestamp: '2022-11-27T09:06:44.950Z'
+}
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T09:18:48.926Z'
+}
