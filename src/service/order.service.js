@@ -170,7 +170,6 @@ const createOrder = async (req) => {
   const {
     paymentMethod, guestInfo, rooms, searchInfo
   } = req.body;
-  console.log("🚀 ~ file: order.service.js ~ line 173 ~ createOrder ~ req.body", req.body);
   let guestId = null;
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   let total = 0;

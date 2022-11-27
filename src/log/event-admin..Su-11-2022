@@ -1040,3 +1040,53 @@
   level: 'info',
   timestamp: '2022-11-20T13:50:36.912Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-27T15:10:44.535Z'
+}
+{
+  message: 'UserAction:updateProfile::{"orderId":"1"}',
+  level: 'info',
+  timestamp: '2022-11-27T15:11:17.583Z'
+}
+{
+  message: 'Order:getOrder::{"searchInfo":{"From":"11/23/2022","To":"11/24/2022","adult":"1 Adult","kids":"1 Kid","room":"1 Room"},"guestInfo":{"address":"45 Lý Thái Tổ","email":"dai@gmail.com","fullName":"Dai12","gender":"male","phone":912321312},"payment":{"cardCVV":22,"cardName":"huy","cardNumber":12,"expiryDate":12,"paymentMethod":"VISA"},"rooms":[{"From":"11/21/2022","To":"11/22/2022","adult":1,"kids":0,"roomId":2},{"From":"11/22/2022","To":"11/23/2022","adult":2,"kids":2,"roomId":3}]}',
+  level: 'info',
+  timestamp: '2022-11-27T15:12:12.825Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-27T15:12:12.842Z'
+}
+{
+  message: 'Order:getOrder::{"searchInfo":{"From":"11/23/2022","To":"11/24/2022","adult":"1 Adult","kids":"1 Kid","room":"1 Room"},"guestInfo":{"address":"45 Lý Thái Tổ","email":"dai@gmail.com","fullName":"Dai12","gender":"male","phone":912321312},"payment":{"cardCVV":22,"cardName":"huy","cardNumber":12,"expiryDate":12,"paymentMethod":"VISA"},"rooms":[{"From":"11/21/2022","To":"11/22/2022","adult":1,"kids":0,"roomId":2},{"From":"11/22/2022","To":"11/23/2022","adult":2,"kids":2,"roomId":3}]}',
+  level: 'info',
+  timestamp: '2022-11-27T15:13:39.201Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-27T15:13:39.217Z'
+}
+{
+  message: 'Order:getOrder::{"searchInfo":{"From":"11/23/2022","To":"11/24/2022","adult":"1 Adult","kids":"1 Kid","room":"1 Room"},"guestInfo":{"address":"45 Lý Thái Tổ","email":"dai@gmail.com","fullName":"Dai12","gender":"male","phone":912321312},"payment":{"cardCVV":22,"cardName":"huy","cardNumber":12,"expiryDate":12,"paymentMethod":"VISA"},"rooms":[{"From":"11/21/2022","To":"11/22/2022","adult":1,"kids":0,"roomId":2},{"From":"11/22/2022","To":"11/23/2022","adult":2,"kids":2,"roomId":3}]}',
+  level: 'info',
+  timestamp: '2022-11-27T15:15:54.713Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-27T15:15:54.725Z'
+}
+{
+  message: 'Order:getOrder::{"searchInfo":{"From":"11/23/2022","To":"11/24/2022","adult":"1 Adult","kids":"1 Kid","room":"1 Room"},"guestInfo":{"address":"45 Lý Thái Tổ","email":"dai@gmail.com","fullName":"Dai12","gender":"male","phone":912321312},"payment":{"cardCVV":22,"cardName":"huy","cardNumber":12,"expiryDate":12,"paymentMethod":"VISA"},"rooms":[{"From":"11/21/2022","To":"11/22/2022","adult":1,"kids":0,"id":2},{"From":"11/22/2022","To":"11/23/2022","adult":2,"kids":2,"id":3}]}',
+  level: 'info',
+  timestamp: '2022-11-27T15:16:58.134Z'
+}
+{
+  message: 'Order:getOrder::{"searchInfo":{"From":"11/23/2022","To":"11/24/2022","adult":"1 Adult","kids":"1 Kid","room":"1 Room"},"guestInfo":{"address":"45 Lý Thái Tổ","email":"dai@gmail.com","fullName":"Dai12","gender":"male","phone":912321312},"payment":{"cardCVV":22,"cardName":"huy","cardNumber":12,"expiryDate":12,"paymentMethod":"VISA"},"rooms":[{"From":"11/21/2022","To":"11/22/2022","adult":1,"kids":0,"id":2},{"From":"11/22/2022","To":"11/23/2022","adult":2,"kids":2,"id":3}]}',
+  level: 'info',
+  timestamp: '2022-11-27T15:18:50.140Z'
+}
