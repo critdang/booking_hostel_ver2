@@ -32,7 +32,6 @@ const getCategories = async (req) => {
   const foundCategory = await db.Category.findAll({
     order: sort
   });
-  console.log("🚀 ~ file: category.service.js ~ line 33 ~ getCategories ~ foundCategory", foundCategory);
   if (!foundCategory) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundCategories')),

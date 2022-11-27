@@ -69,8 +69,7 @@ const getRoom = async (req) => {
 };
 
 const searchRooms = async (req) => {
-  let { adults, kids } = req.query;
-  const { arrival, departure } = req.query;
+  let { arrival, departure, adults, kids } = req.query;
   adults = adults.split(',');
   kids = kids.split(',');
   const rooms = [];
@@ -83,6 +82,7 @@ const searchRooms = async (req) => {
         ],
       },
       attributes: ['id', 'name', 'price'],
+      group: ['name'], // should group else it will return duplicate and res.json remove empty array
       include: [{
         model: db.RoomDate,
         where: {
@@ -104,9 +104,59 @@ const searchRooms = async (req) => {
       raw: true,
       nest: true,
     });
+    console.log("🚀 ~ file: room.service.js ~ line 111 ~ searchRooms ~ foundRoom", foundRoom);
     rooms.push(foundRoom);
   }
   return rooms;
+  // const foundRoom = await db.RoomDate.findAll({
+  //   where: {
+  //     [Op.or]: [
+  //       {
+  //         from: {
+  //           [Op.gte]: departure
+  //         },
+  //       },
+  //       {
+  //         to: {
+  //           [Op.lte]: arrival
+  //         },
+  //       }
+  //     ]
+  //   },
+  //   attributes: ['from', 'to'],
+  // });
+  // foundRoom.forEach((item) => {
+  //   item.from = moment(item.from).format('YYYY-MM-DD');
+  //   item.to = moment(item.to).format('YYYY-MM-DD');
+  // });
+
+
+  // const roomDates = {};
+  // for (const cartRoom of foundOrderRooms) {
+  //   const { checkIn, checkOut } = cartRoom;
+  //   const { id, name, price } = cartRoom.Room;
+  //   // array contain all dates of each room
+  //   if (!roomDates[name]) {
+  //     const roomDate = await db.RoomDate.findAll({
+  //       where: { roomId: id },
+  //       attributes: ['from', 'to'],
+  //     });
+  //     if (_.isEmpty(roomDate)) {
+  //       throw new AppError(
+  //         format(MessageHelper.getMessage('noFoundRoomDate'), id),
+  //       );
+  //     }
+  //     roomDates[name] = roomDate;
+  //   }
+  //   // compare booking date with room date
+  //   for (const date in roomDates[name]) {
+  //     if ((checkIn > date.from && checkIn < date.to) || (checkOut > date.from && checkOut < date.to)) {
+  //       throw new AppError(
+  //         format(MessageHelper.getMessage('roomUnavailable'), name),
+  //       );
+  //     }
+  //   }
+  // }
 };
 
 const updateRoom = async (req) => {

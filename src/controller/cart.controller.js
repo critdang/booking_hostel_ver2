@@ -1,5 +1,3 @@
-const _ = require("lodash");
-const db = require('../models');
 const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { CODE } = require("../constants/code");
 const cartService = require('../service/cart.service');

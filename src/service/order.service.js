@@ -167,16 +167,21 @@ const putOrder = async (req) => {
 
 const createOrder = async (req) => {
   const userInfo = req.user;
-  const { paymentMethod, guestInfo, rooms } = req.body;
+  const {
+    paymentMethod, guestInfo, rooms, searchInfo
+  } = req.body;
+  console.log("🚀 ~ file: order.service.js ~ line 173 ~ createOrder ~ req.body", req.body);
   let guestId = null;
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   let total = 0;
   for (const room of rooms) {
     const foundRoom = await db.Room.findOne({
-      where: { id: room.roomId },
+      where: { id: room.id },
     });
     total += foundRoom.price;
   }
+  // check thiếu req.body bên controller
+  // đẩy tạo user xuống transaction -> tránh tạo user khi tạo order thất bại
   if (guestInfo) {
     const newGuest = await db.Guest.create({
       name: guestInfo.name,
@@ -185,14 +190,14 @@ const createOrder = async (req) => {
       address: guestInfo.address,
       gender: guestInfo.gender
     });
-    guestId = newGuest.id;
+    guestId = newGuest.id; // guestId: newGuest.id
   }
   await sequelize.transaction(async (t) => {
     // create order
     const newOrder = await db.Order.create({
       code,
       date: new Date(),
-      userId: userInfo.id,
+      userId: (userInfo == undefined) ? null : userInfo.id,
       guestId,
       paymentMethod,
       total,
@@ -201,16 +206,16 @@ const createOrder = async (req) => {
     for (const room of rooms) {
       // create room date
       await db.RoomDate.create({
-        roomId: room.roomId,
-        from: room.From,
-        to: room.To,
+        roomId: room.id,
+        from: searchInfo.From,
+        to: searchInfo.To,
       }, { transaction: t });
 
       // create room in order
       await db.RoomInOrder.create({
-        roomId: room.roomId,
-        from: room.From,
-        to: room.To,
+        roomId: room.id,
+        from: searchInfo.From,
+        to: searchInfo.To,
         orderId: newOrder.id,
       }, { transaction: t });
     }

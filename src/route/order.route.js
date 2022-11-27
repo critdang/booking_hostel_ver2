@@ -7,7 +7,7 @@ router.get('/id/:orderId', auth.protectingRoutes, controller.getOrder);
 router.get('/', auth.protectingRoutes, controller.getOrders);
 router.post('/updateStatus/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.changeStatus);
 router.post('/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.updateOrder);
-router.post('/', auth.protectingRoutes, controller.createOrder);
+router.post('/', auth.checkUser, controller.createOrder);
 router.get('/view/:option', auth.protectingRoutes, controller.viewOrder);
 
 module.exports = router;

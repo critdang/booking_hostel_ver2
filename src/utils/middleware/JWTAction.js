@@ -13,6 +13,18 @@ const generateJWT = (payload, expired) => {
   }
 };
 
+const generateRefreshToken = (payload) => {
+  const key = process.env.REFRESH_TOKEN_SECRET;
+  try {
+    const token = jwt.sign(payload, key, {
+      expiresIn: "7d",
+    });
+    return token;
+  } catch (e) {
+    return e;
+  }
+};
+
 const authenticateToken = (req, res, next) => {
   try {
     const { token } = req.cookies;
@@ -40,6 +52,7 @@ const verifyToken = (token) => {
 
 module.exports = {
   generateJWT,
+  generateRefreshToken,
   authenticateToken,
   verifyToken,
 };

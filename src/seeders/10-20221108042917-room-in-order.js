@@ -1,8 +1,8 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('RoomInOrder', [{
-      orderId: 1,
       roomId: 3,
+      orderId: 1,
       from: new Date(),
       to: new Date(),
       adults: 2,
@@ -11,8 +11,8 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      orderId: 2,
       roomId: 2,
+      orderId: 2,
       from: new Date(),
       to: new Date(),
       adults: 2,

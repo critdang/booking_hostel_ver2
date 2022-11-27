@@ -88,6 +88,7 @@ const createOrder = async (req, res) => {
     await orderService.createOrder(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('creatOrderSuccess'));
   } catch (error) {
+    console.log("🚀 ~ file: order.controller.js ~ line 91 ~ createOrder ~ error", error);
     logger.error(`Order:createOrder:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
