@@ -20,7 +20,8 @@ module.exports = {
     missingToken: 'Missing token',
 
     // authentication
-    loginFailed: 'Email or password is incorrect',
+    loginFailed: 'No found user. Please sign up',
+    wrongPassword: 'Wrong password. Please try again',
     emailNotExisted: 'Email is not existed',
     accountExisted: 'Email, User Name or phone number is existed',
     certificateInvalid: 'Your phone/email/username or password is incorrect!',
@@ -29,6 +30,7 @@ module.exports = {
     verifyUserFailed: 'Verify user failed',
     verifyUserSuccess: 'Verify user success',
     expiredToken: 'Your token is expired. Please login again',
+    refreshTokenNotFound: 'Refresh Token is not found',
     // user
     resetPasswordSucess: 'Reset password success',
     forgotPasswordFailed: 'This email is expired. Please use the latest email',

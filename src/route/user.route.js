@@ -11,6 +11,7 @@ const auth = require('../utils/middleware/auth');
 router.post("/register", validate.handleRegisterValidate, userController.createUser);
 router.put("/updateAvatar", auth.protectingRoutes, upload.single('avatar'), userController.updateAvatar);
 router.post("/login", validate.handleLoginValidate, userController.login);
+router.post("/refreshToken", userController.handleRefeshToken);
 router.post("/forgotPassword", validate.handleForgotPasswordValidate, userController.forgotPassword);
 router.put("/updateProfile", validate.handleProfileValidateMethodValidate, userController.updateProfile);
 router.get("/:userId", auth.protectingRoutes, auth.checkRole('admin'), userController.getUser);

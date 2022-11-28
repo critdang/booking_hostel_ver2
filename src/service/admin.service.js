@@ -5,6 +5,7 @@ const AppError = require("../utils/errorHandle/appError");
 const { ERROR } = require("../constants/commonMessage");
 const helperFn = require('../utils/helperFn');
 const MessageHelper = require('../utils/message');
+const client = require("../config/connectRedis");
 
 require('dotenv').config();
 
@@ -68,9 +69,21 @@ const resetPassword = async (req) => {
   return result;
 };
 
+const logOut = async (req) => {
+  const { refreshToken } = req.cookies;
+  if (!refreshToken) {
+    throw new AppError(
+      format(MessageHelper.getMessage('refreshTokenNotFound')),
+    );
+  }
+  const { userId } = JWTAction.verifyRefreshToken(refreshToken);
+  client.del(userId.toString());
+};
+
 module.exports = {
   verifyUser,
   changeBlockUserStt,
   verifyResetPassword,
-  resetPassword
+  resetPassword,
+  logOut
 };

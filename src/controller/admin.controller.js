@@ -76,9 +76,22 @@ const resetPassword = async (req, res) => {
   }
 };
 
+const logOut = async (req, res) => {
+  try {
+    logger.info(`AdminActions:logOut::req.body - ${JSON.stringify(req.cookies)}`);
+
+    await service.logOut(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('logOutSuccess'));
+  } catch (error) {
+    logger.info(`AdminActions:logOut:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
+
 module.exports = {
   verifyUser,
   changeBlockUserStt,
   verifyResetPassword,
-  resetPassword
+  resetPassword,
+  logOut
 };

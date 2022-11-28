@@ -7,6 +7,7 @@ const AppError = require("../utils/errorHandle/appError");
 const { VERIFY_MESSAGES } = require("../constants/commonMessage");
 const helperFn = require('../utils/helperFn');
 const MessageHelper = require('../utils/message');
+
 require('dotenv').config();
 
 const createUser = async (req) => {
@@ -36,13 +37,19 @@ const createUser = async (req) => {
   return newUser;
 };
 
-const login = async (req) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
   const foundUser = await db.User.findOne({
+    attributes: { exclude: ['createdAt', 'updatedAt', 'resetToken', 'isBlocked'] },
     where: { email },
     raw: true,
   });
-  const result = {
+  if (!foundUser) {
+    throw new AppError(
+      format(MessageHelper.getMessage('loginFailed')),
+    );
+  }
+  const data = {
     userInfo: {
       userId: foundUser.id,
       fullName: foundUser.fullName,
@@ -54,18 +61,44 @@ const login = async (req) => {
       role: foundUser.role
     }
   };
-  if (foundUser) {
-    // compare password
-    const check = bcrypt.compareSync(password, foundUser.password);
-    if (check) {
-      result.accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '1h');
-    } else {
-      throw new AppError(
-        format(MessageHelper.getMessage('loginFailed')),
-      );
-    }
+  const isValid = bcrypt.compareSync(password, foundUser.password);
+
+  if (!isValid) {
+    throw new AppError(
+      format(MessageHelper.getMessage('wrongPassword')),
+    );
   }
-  return result;
+  const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '30m');
+  const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
+
+  res.cookie('refreshToken', refreshToken, {
+    httpOnly: true, sameSite: 'Strict', maxAge: 365 * 24 * 60 * 60 * 100,
+    // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
+  }).cookie('accessToken', accessToken, {
+    httpOnly: true, sameSite: 'Strict', maxAge: 365 * 24 * 60 * 60 * 100,
+  });
+  data.accessToken = accessToken;
+  data.refreshToken = refreshToken;
+
+  return data;
+};
+
+const handleRefeshToken = async (req,) => {
+  const { refreshToken } = req.cookies;
+  console.log(`cookie available at refresh token: ${JSON.stringify(req.cookies)}`);
+  if (!refreshToken) {
+    throw new AppError(
+      format(MessageHelper.getMessage('refreshTokenNotFound')),
+    );
+  }
+  const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
+  const newAccessToken = await JWTAction.generateJWT({ userId }, '30m');
+  const newRefreshToken = await JWTAction.generateRefreshToken(userId);
+
+  return {
+    accessToken: newAccessToken,
+    refreshToken: newRefreshToken,
+  };
 };
 
 const forgotPassword = async (req) => {
@@ -91,6 +124,8 @@ const forgotPassword = async (req) => {
 };
 
 const updateProfile = async (req) => {
+  const { cookies } = req;
+  console.log("🚀 ~ file: user.service.js ~ line 201 ~ updateProfile ~ cookies", cookies);
   const { id } = req.user;
   const data = req.body;
   const { password } = req.body;
@@ -145,6 +180,7 @@ const getUsers = async () => {
 module.exports = {
   createUser,
   login,
+  handleRefeshToken,
   forgotPassword,
   updateProfile,
   updateAvatar,
