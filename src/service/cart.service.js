@@ -35,7 +35,9 @@ const addToCart = async (req) => {
       });
       return result;
     }
-    await db.CartRoom.create({ roomId, cartId: foundCart.id, checkIn, checkOut });
+    await db.CartRoom.create({
+      roomId, cartId: foundCart.id, checkIn, checkOut
+    });
     return foundCart;
   }
   // if user not login

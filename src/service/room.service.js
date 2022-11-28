@@ -1,9 +1,7 @@
 const format = require("string-format");
 const { Op } = require('sequelize');
-const moment = require('moment');
 const db = require("../models");
 const AppError = require("../utils/errorHandle/appError");
-const { objToArr } = require('../utils/convert/convert');
 const { sequelize } = require("../models");
 const MessageHelper = require('../utils/message');
 
@@ -71,9 +69,7 @@ const getRoom = async (req) => {
 };
 
 const searchRooms = async (req) => {
-  let {
-    arrival, departure, adults, kids
-  } = req.query;
+  let { arrival, departure, adults, kids } = req.query;
   adults = adults.split(',');
   kids = kids.split(',');
   const rooms = [];
@@ -133,6 +129,7 @@ const searchRooms = async (req) => {
   //   item.from = moment(item.from).format('YYYY-MM-DD');
   //   item.to = moment(item.to).format('YYYY-MM-DD');
   // });
+
 
   // const roomDates = {};
   // for (const cartRoom of foundOrderRooms) {

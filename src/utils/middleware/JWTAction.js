@@ -1,5 +1,6 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const client = require('../../config/connectRedis');
 
 const generateJWT = (payload, expired) => {
   const key = process.env.ACCESS_TOKEN_SECRET;
@@ -10,6 +11,22 @@ const generateJWT = (payload, expired) => {
     return token;
   } catch (e) {
     return e;
+  }
+};
+
+const generateRefreshToken = (userId) => {
+  const key = process.env.REFRESH_TOKEN_SECRET;
+  const expiresIn = '1d';
+  const expiresTokenOnRedis = 1 * 24 * 60 * 60;
+  const payload = { userId };
+  try {
+    const refreshToken = jwt.sign(payload, key, {
+      expiresIn,
+    });
+    client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);
+    return refreshToken;
+  } catch (error) {
+    return error;
   }
 };
 
@@ -38,8 +55,24 @@ const verifyToken = (token) => {
   }
 };
 
+const verifyRefreshToken = (token) => {
+  try {
+    const key = process.env.REFRESH_TOKEN_SECRET;
+    const result = jwt.verify(token, key);
+    const tokenOnRedis = client.get(result.userId);
+    if (token === tokenOnRedis) {
+      return result;
+    }
+    return result;
+  } catch (e) {
+    return e;
+  }
+};
+
 module.exports = {
   generateJWT,
+  generateRefreshToken,
   authenticateToken,
   verifyToken,
+  verifyRefreshToken
 };

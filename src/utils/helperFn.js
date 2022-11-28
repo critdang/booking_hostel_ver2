@@ -68,3 +68,15 @@ exports.forgotPassword = async (to, token) => {
     html: data,
   });
 };
+
+exports.notifyOrder = async (to, order) => {
+  const data = await ejs.renderFile('./src/views/createOrderNoti/order.ejs', { order });
+
+  await transporter.sendMail({
+    from: process.env.EMAIL,
+    to,
+    subject: 'Notification about your order',
+    text: 'Dear customer',
+    html: data,
+  });
+};
