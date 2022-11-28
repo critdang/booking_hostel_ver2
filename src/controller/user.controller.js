@@ -26,6 +26,7 @@ const login = async (req, res) => {
     const data = await service.login(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
+    console.log("🚀 ~ file: user.controller.js ~ line 29 ~ login ~ error", error);
     logger.error(`UserAuthentication:login:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }

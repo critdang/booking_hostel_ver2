@@ -11,6 +11,7 @@ const initRoutes = require("./route");
 const viewEngine = require("./config/configViewEngine");
 const corsOptions = require("./config/corsOptions");
 const credentials = require("./utils/middleware/credentials");
+require('./config/connectRedis'); // auto connect redis
 
 const myStore = new SequelizeStore({
   db: sequelize,
@@ -20,7 +21,6 @@ const app = express();
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
 app.use(credentials);
-// use // Cross Origin Resource Sharing
 
 // app.use(cors({ origin: true, credentials: true }));
 app.use(cors(corsOptions));
