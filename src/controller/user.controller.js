@@ -26,6 +26,20 @@ const login = async (req, res) => {
     const data = await service.login(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
+    console.log("🚀 ~ file: user.controller.js ~ line 29 ~ login ~ error", error);
+    logger.error(`UserAuthentication:login:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
+
+const handleRefeshToken = async (req, res) => {
+  try {
+    // logger.info(`UserAuthentication:login::${JSON.stringify(req.cookies)}`);
+
+    const data = await service.handleRefeshToken(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    console.log("🚀 ~ file: user.controller.js ~ line 42 ~ handleRefeshToken ~ error", error);
     logger.error(`UserAuthentication:login:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
@@ -107,5 +121,5 @@ const getUsers = catchAsync(async (req, res) => {
 });
 
 module.exports = {
-  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers
+  createUser, login, handleRefeshToken, forgotPassword, updateProfile, updateAvatar, getUser, getUsers
 };
