@@ -85,18 +85,6 @@ const createOrder = async (req) => {
   const foundRooms = [];
   for (const room of rooms) {
     const foundRoom = await db.Room.findOne({
-<<<<<<< HEAD
-      where: { id: room.id },
-      attributes: ['name', 'price'],
-      include: [{
-        model: db.Category,
-        attributes: ['name']
-      }],
-      raw: true,
-      nest: true
-=======
-      where: { id: room.roomId },
->>>>>>> feature-26-11-refresh-token
     });
     foundRoom.from = moment((searchInfo.from)).format('DD/MM/YYYY');
     foundRoom.to = moment((searchInfo.to)).format('DD/MM/YYYY');

@@ -2,4 +2,5 @@ node_modules
 .env
 .env.development
 .env.production
+.env.staging
 src/log/*
