@@ -9,7 +9,6 @@ const router = express.Router();
 // getting the user from google with key
 
 // getting current user
-router.get("/verify/:token", controller.verifyUser);
 router.get("/forgotPassword/verify/:token", controller.verifyResetPassword);
 router.post("/resetPassword/:tokenId", controller.resetPassword);
 router.get("/logout", controller.logOut);

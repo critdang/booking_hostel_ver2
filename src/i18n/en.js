@@ -27,6 +27,7 @@ module.exports = {
     certificateInvalid: 'Your phone/email/username or password is incorrect!',
     certificateNotExisted: 'Your phone/email or username is incorrect!',
     oldPassIncorrect: 'Old password is incorrect',
+    providedPassword: 'Please provide password',
     verifyUserFailed: 'Verify user failed',
     verifyUserSuccess: 'Verify user success',
     expiredToken: 'Your token is expired. Please login again',

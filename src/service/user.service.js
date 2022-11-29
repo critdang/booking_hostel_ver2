@@ -72,11 +72,17 @@ const login = async (req, res) => {
   const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
 
   res.cookie('refreshToken', refreshToken, {
-    httpOnly: true, sameSite: 'Strict', maxAge: 365 * 24 * 60 * 60 * 100,
+    httpOnly: true,
+    maxAge: 365 * 24 * 60 * 60 * 100,
+    sameSite: 'strict',
+    // maxAge: 365 * 24 * 60 * 60 * 100,
     // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
   }).cookie('accessToken', accessToken, {
-    httpOnly: true, sameSite: 'Strict', maxAge: 365 * 24 * 60 * 60 * 100,
+    httpOnly: true,
+    sameSite: 'Lax',
+    maxAge: 365 * 24 * 60 * 60 * 100,
   });
+
   data.accessToken = accessToken;
   data.refreshToken = refreshToken;
 
@@ -123,27 +129,52 @@ const forgotPassword = async (req) => {
   return result;
 };
 
+// const updateProfile = async (req) => {
+//   const { id } = req.user;
+//   const data = req.body;
+//   const { password } = req.body;
+//   if (password) {
+//     const hashPassword = await helperFn.hashPassword(password);
+//     const newUser = await db.User.update({
+//       fullName: data.fullName,
+//       email: data.email,
+//       password: hashPassword,
+//       address: data.address,
+//       phone: data.phone,
+//       gender: data.gender,
+//     }, {
+//       where: { id },
+//     });
+//     return newUser;
+//   }
+//   const newUser = await db.User.update(data, {
+//     where: { id },
+//   });
+//   return newUser;
+// };
+
 const updateProfile = async (req) => {
-  const { cookies } = req;
-  console.log("🚀 ~ file: user.service.js ~ line 201 ~ updateProfile ~ cookies", cookies);
   const { id } = req.user;
   const data = req.body;
-  const { password } = req.body;
-  if (password) {
-    const hashPassword = await helperFn.hashPassword(password);
-    const newUser = await db.User.update({
-      fullName: data.fullName,
-      email: data.email,
-      password: hashPassword,
-      address: data.address,
-      phone: data.phone,
-      gender: data.gender,
-    }, {
-      where: { id },
-    });
-    return newUser;
-  }
+
   const newUser = await db.User.update(data, {
+    where: { id },
+  });
+  return newUser;
+};
+
+const updatePassword = async (req) => {
+  const { id } = req.user;
+  const { password } = req.body;
+  if (!password) {
+    throw new AppError(
+      format(MessageHelper.getMessage('providedPassword')),
+    );
+  }
+  const hashPassword = await helperFn.hashPassword(password);
+  const newUser = await db.User.update({
+    password: hashPassword,
+  }, {
     where: { id },
   });
   return newUser;
@@ -183,6 +214,7 @@ module.exports = {
   handleRefeshToken,
   forgotPassword,
   updateProfile,
+  updatePassword,
   updateAvatar,
   getUser,
   getUsers

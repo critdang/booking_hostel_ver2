@@ -11,9 +11,9 @@ const ResponseHelper = require('../response');
 const MessageHelper = require('../message');
 
 exports.protectingRoutes = catchAsync(async (req, res, next) => {
-  const token = req.headers.authorization?.startsWith('Bearer')
-  && req.headers.authorization.split(' ')[1];
-
+  // const token = req.headers.authorization?.startsWith('Bearer')
+  // && req.headers.authorization.split(' ')[1];
+  const token = req.cookies?.accessToken;
   if (!token || token === 'null') {
     return next(new AppError('You are not logged in', 401));
   }
@@ -36,8 +36,10 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
 
 exports.checkUser = async (req, res, next) => {
   try {
-    const token = req.headers.authorization?.startsWith('Bearer')
-  && req.headers.authorization.split(' ')[1];
+  //   const token = req.headers.authorization?.startsWith('Bearer')
+  // && req.headers.authorization.split(' ')[1];
+    const token = req.cookies?.accessToken;
+
     if (!token) {
       return next();
     }

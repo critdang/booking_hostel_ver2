@@ -85,6 +85,7 @@ const createOrder = async (req) => {
   const foundRooms = [];
   for (const room of rooms) {
     const foundRoom = await db.Room.findOne({
+<<<<<<< HEAD
       where: { id: room.id },
       attributes: ['name', 'price'],
       include: [{
@@ -93,6 +94,9 @@ const createOrder = async (req) => {
       }],
       raw: true,
       nest: true
+=======
+      where: { id: room.roomId },
+>>>>>>> feature-26-11-refresh-token
     });
     foundRoom.from = moment((searchInfo.from)).format('DD/MM/YYYY');
     foundRoom.to = moment((searchInfo.to)).format('DD/MM/YYYY');
@@ -110,7 +114,7 @@ const createOrder = async (req) => {
       address: guestInfo.address,
       gender: guestInfo.gender
     });
-    guestId = newGuest.id; // guestId: newGuest.id
+    guestId = newGuest.id;
   }
   await sequelize.transaction(async (t) => {
     // create order
@@ -126,13 +130,13 @@ const createOrder = async (req) => {
     for (const room of rooms) {
       // create room date
       await db.RoomDate.create({
-        roomId: room.id,
+        roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
       }, { transaction: t });
       // create room in order
       await db.RoomInOrder.create({
-        roomId: room.id,
+        roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
         orderId: newOrder.id,
