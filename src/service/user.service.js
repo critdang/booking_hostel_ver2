@@ -85,7 +85,6 @@ const login = async (req, res) => {
 
   data.accessToken = accessToken;
   data.refreshToken = refreshToken;
-  console.log("🚀 ~ file: user.service.js ~ line 85 ~ login ~ data", data);
 
   return data;
 };
