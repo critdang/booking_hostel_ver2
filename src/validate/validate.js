@@ -61,7 +61,6 @@ const handleForgotPassword = Joi.object({
 const handleProfileValidateMethod = Joi.object({
   fullName: Joi.string(),
   email: Joi.string(),
-  password: Joi.string(),
   address: Joi.string(),
   phone: Joi.string(),
   gender: Joi.string(),
@@ -123,6 +122,7 @@ exports.handleForgotPasswordValidate = async (req, res, next) => {
 
 exports.handleProfileValidateMethodValidate = async (req, res, next) => {
   try {
+    console.log("🚀 ~ file: validate.js ~ line 126 ~ exports.handleProfileValidateMethodValidate= ~ req.body", req.body);
     await handleProfileValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {

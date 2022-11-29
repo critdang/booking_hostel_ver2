@@ -8,23 +8,6 @@ const logger = require('../utils/logger/app-logger');
 const MessageHelper = require('../utils/message');
 const ResponseHelper = require('../utils/response');
 
-const verifyUser = async (req, res) => {
-  try {
-    logger.info(`AdminActions:verifyUser::req.params.token - ${JSON.stringify(req.params.token)}`);
-    if (_.isEmpty(req.params.token)) {
-      throw new AppError(
-        format(MessageHelper.getMessage('missingToken'))
-      );
-    }
-
-    await service.verifyUser(req, res);
-    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('verifyUserSuccess'));
-  } catch (error) {
-    logger.info(`RoomAction:getRoom:: -  ${error}`);
-    ResponseHelper.responseError(res, error.message);
-  }
-};
-
 const changeBlockUserStt = async (req, res) => {
   try {
     logger.info(`AdminActions:changeBlockUserStt::req.params - ${JSON.stringify(req.params)}`);
@@ -78,8 +61,6 @@ const resetPassword = async (req, res) => {
 
 const logOut = async (req, res) => {
   try {
-    logger.info(`AdminActions:logOut::req.body - ${JSON.stringify(req.cookies)}`);
-
     await service.logOut(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('logOutSuccess'));
   } catch (error) {
@@ -89,7 +70,6 @@ const logOut = async (req, res) => {
 };
 
 module.exports = {
-  verifyUser,
   changeBlockUserStt,
   verifyResetPassword,
   resetPassword,

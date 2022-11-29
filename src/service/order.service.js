@@ -170,13 +170,12 @@ const createOrder = async (req) => {
   const {
     paymentMethod, guestInfo, rooms, searchInfo
   } = req.body;
-  console.log("🚀 ~ file: order.service.js ~ line 173 ~ createOrder ~ req.body", req.body);
   let guestId = null;
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   let total = 0;
   for (const room of rooms) {
     const foundRoom = await db.Room.findOne({
-      where: { id: room.id },
+      where: { id: room.roomId },
     });
     total += foundRoom.price;
   }
@@ -190,7 +189,7 @@ const createOrder = async (req) => {
       address: guestInfo.address,
       gender: guestInfo.gender
     });
-    guestId = newGuest.id; // guestId: newGuest.id
+    guestId = newGuest.id;
   }
   await sequelize.transaction(async (t) => {
     // create order
@@ -206,14 +205,14 @@ const createOrder = async (req) => {
     for (const room of rooms) {
       // create room date
       await db.RoomDate.create({
-        roomId: room.id,
+        roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
       }, { transaction: t });
 
       // create room in order
       await db.RoomInOrder.create({
-        roomId: room.id,
+        roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
         orderId: newOrder.id,

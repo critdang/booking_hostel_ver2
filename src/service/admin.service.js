@@ -9,23 +9,6 @@ const client = require("../config/connectRedis");
 
 require('dotenv').config();
 
-const verifyUser = async (req,) => {
-  const { token } = req.params;
-
-  const decodedToken = JWTAction.verifyToken(token);
-  const user = await db.User.findOne({
-    where: { email: decodedToken.email }
-  });
-  if (!user) {
-    throw new AppError(
-      format(MessageHelper.getMessage('verifyUserFailed')),
-    );
-  }
-  await db.User.update({
-    status: 'active'
-  }, { where: { email: user.email } });
-};
-
 const changeBlockUserStt = async (req, res) => {
   const idUser = +req.params.id;
   const existStatus = await db.User.findOne({
@@ -69,7 +52,7 @@ const resetPassword = async (req) => {
   return result;
 };
 
-const logOut = async (req) => {
+const logOut = async (req, res) => {
   const { refreshToken } = req.cookies;
   if (!refreshToken) {
     throw new AppError(
@@ -78,10 +61,11 @@ const logOut = async (req) => {
   }
   const { userId } = JWTAction.verifyRefreshToken(refreshToken);
   client.del(userId.toString());
+  res.clearCookie('refreshToken');
+  res.clearCookie('accessToken');
 };
 
 module.exports = {
-  verifyUser,
   changeBlockUserStt,
   verifyResetPassword,
   resetPassword,

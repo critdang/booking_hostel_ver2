@@ -74,7 +74,25 @@ const updateProfile = catchAsync(async (req, res) => {
     await service.updateProfile(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('updateProfileSuccess'));
   } catch (error) {
+    console.log("🚀 ~ file: user.controller.js ~ line 77 ~ updateProfile ~ error", error);
     logger.error(`UserAction:updateProfile:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+});
+const updatePassword = catchAsync(async (req, res) => {
+  try {
+    logger.info(`UserAction:updatePassword::${JSON.stringify(req.body)}`);
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'body')
+      );
+    }
+
+    await service.updatePassword(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('updateProfileSuccess'));
+  } catch (error) {
+    console.log("🚀 ~ file: user.controller.js ~ line 77 ~ updateProfile ~ error", error);
+    logger.error(`UserAction:updatePassword:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 });
@@ -121,5 +139,5 @@ const getUsers = catchAsync(async (req, res) => {
 });
 
 module.exports = {
-  createUser, login, handleRefeshToken, forgotPassword, updateProfile, updateAvatar, getUser, getUsers
+  createUser, login, handleRefeshToken, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword
 };

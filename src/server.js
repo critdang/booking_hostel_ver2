@@ -24,13 +24,21 @@ app.use(credentials);
 
 // app.use(cors({ origin: true, credentials: true }));
 app.use(cors(corsOptions));
-
+app.use((req, res, next) => {
+  res.header('Content-Type', 'application/json;charset=UTF-8');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
 // view engine
 viewEngine(app);
 
 // allow read json and xxx.urlencoded
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+app.use(bodyParser.json({ }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
   session({
@@ -38,6 +46,12 @@ app.use(
     store: myStore,
     resave: false, // evey request to the server, the session will be refreshed
     saveUninitialized: true, // do not modified the session
+    // cookie: {
+    //   maxAge: 1000 * 60 * 60,
+    //   sameSite: "none",
+    //   // httpOnly: false,
+    //   secure: true,
+    // },
   }),
 );
 myStore.sync();
