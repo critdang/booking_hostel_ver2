@@ -9,6 +9,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 1732.5,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -20,6 +21,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 420,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -31,6 +33,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 420,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -43,6 +46,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 1785,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -55,6 +59,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 1260,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -66,6 +71,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 367.5,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -77,6 +83,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 367.5,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -88,6 +95,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 2730,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -99,6 +107,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 1770,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -110,6 +119,7 @@ module.exports = {
       paymentMethod: 'Cash',
       paymentDate: new Date(),
       total: 1320,
+      checkInDate: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

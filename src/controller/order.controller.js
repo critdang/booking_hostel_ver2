@@ -93,6 +93,25 @@ const createOrder = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
+
+const confirmCheckIn = async (req, res) => {
+  try {
+    logger.info(`Order:confirmCheckIn::${JSON.stringify(req?.params)}`);
+
+    if (_.isEmpty(req?.params)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
+      );
+    }
+
+    const order = await orderService.confirmCheckIn(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('confirmCheckInSuccess'));
+  } catch (error) {
+    console.log("🚀 ~ file: order.controller.js:110 ~ confirmCheckIn ~ error", error);
+    logger.error(`Order:confirmCheckIn:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 const viewOrder = async (req, res) => {
   try {
     await orderService.viewOrder(req, res);
@@ -106,5 +125,6 @@ module.exports = {
   changeStatus,
   updateOrder,
   createOrder,
+  confirmCheckIn,
   viewOrder
 };

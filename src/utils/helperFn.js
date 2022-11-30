@@ -26,14 +26,46 @@ exports.hashPassword = async (password) => {
 };
 
 // config transporter to send mail
-const transporter = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: process.env.AUTH_USER,
-    pass: process.env.AUTH_PASS
-  }
-});
+let config;
+if (process.env.NODE_ENV === 'production') {
+  config = {
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    secure: 'false',
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASSWORD
+    }
+  };
+} else {
+  config = {
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: process.env.AUTH_USER,
+      pass: process.env.AUTH_PASS
+    }
+  };
+}
+
+const transporter = nodemailer.createTransport(config);
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.mailtrap.io",
+//   port: 2525,
+//   auth: {
+//     user: process.env.AUTH_USER,
+//     pass: process.env.AUTH_PASS
+//   }
+// });
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   host: 'smtp.gmail.com',
+//   secure: 'false',
+//   auth: {
+//     user: process.env.EMAIL,
+//     pass: process.env.EMAIL_PASSWORD
+//   }
+// });
 
 exports.sendMail = async (
   email,
@@ -70,8 +102,9 @@ exports.forgotPassword = async (to, token) => {
 };
 
 exports.notifyOrder = async (to, order) => {
-  console.log("🚀 ~ file: helperFn.js:73 ~ exports.notifyOrder= ~ order", order);
-  const data = await ejs.renderFile('./src/views/createOrderNoti/order.ejs', { order });
+  const confirmCheckIn = `${process.env.DOMAIN_FE_PROD}/order/confirmCheckIn/${order.code}`;
+  const data = await ejs.renderFile('./src/views/createOrderNoti/order.ejs', { order, confirmCheckIn });
+  console.log("🚀 ~ file: helperFn.js:107 ~ exports.notifyOrder= ~ confirmCheckIn", confirmCheckIn);
 
   await transporter.sendMail({
     from: process.env.EMAIL,

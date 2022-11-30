@@ -26,10 +26,13 @@ module.exports = {
         type: Sequelize.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
         defaultValue: 'Pending',
       },
+      paymentDate: {
+        type: Sequelize.DATE,
+      },
       total: {
         type: Sequelize.FLOAT,
       },
-      paymentDate: {
+      checkInDate: {
         type: Sequelize.DATE,
       },
       userId: {

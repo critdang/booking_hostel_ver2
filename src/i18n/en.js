@@ -70,6 +70,7 @@ module.exports = {
 
     // order
     noFoundOrder: 'No order found with id {}',
+    noFoundOrderWithCode: 'No order found with code {}',
     noFoundOrders: 'No orders found',
     updateStatusOderFailed: 'Update order failed',
     updateOrderFailed: 'Update order failed',

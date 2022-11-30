@@ -84,7 +84,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     total: DataTypes.FLOAT,
-
+    checkInDate: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Order',

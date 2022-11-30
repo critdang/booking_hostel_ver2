@@ -79,7 +79,6 @@ const createOrder = async (req) => {
   const {
     paymentMethod, guestInfo, rooms, searchInfo
   } = req.body;
-  console.log("🚀 ~ file: order.service.js:82 ~ createOrder ~ rooms", rooms);
   let guestId = null;
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   let total = 0;
@@ -95,8 +94,8 @@ const createOrder = async (req) => {
       raw: true,
       nest: true
     });
-    foundRoom.from = moment((searchInfo.from)).format('DD/MM/YYYY');
-    foundRoom.to = moment((searchInfo.to)).format('DD/MM/YYYY');
+    foundRoom.from = moment((searchInfo.From)).format('DD/MM/YYYY');
+    foundRoom.to = moment((searchInfo.To)).format('DD/MM/YYYY');
     foundRoom.category = foundRoom.Category.name;
     foundRooms.push(foundRoom);
     total += foundRoom.price;
@@ -139,12 +138,41 @@ const createOrder = async (req) => {
         orderId: newOrder.id,
       }, { transaction: t });
     }
-    newOrder.date = moment(newOrder.date).format('DD/MM/YYYY, h:mm:ss a');
+    newOrder.date = moment(newOrder.date).format('DD/MM/YYYY');
     newOrder.userInfo = userInfo;
     newOrder.guestInfo = guestInfo;
     newOrder.rooms = foundRooms;
     return helperFn.notifyOrder(guestInfo.email, newOrder);
   });
+};
+
+const confirmCheckIn = async (req, res) => {
+  const { code } = req.params;
+  await db.Order.update(
+    { checkInDate: new Date() },
+    { where: { code }, }
+  );
+  const order = await db.Order.findOne(
+    {
+      where: {
+        code,
+      },
+      include: [{
+        model: db.RoomInOrder,
+        include: [{
+          model: db.Room,
+        }],
+      }],
+      raw: true,
+      nest: true
+    }
+  );
+  if (!order) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundOrderWithCode'), code),
+    );
+  }
+  return res.status(200).json(order);
 };
 
 const viewOrder = async (req, res) => {
@@ -183,5 +211,6 @@ module.exports = {
   changeStatus,
   updateOrder,
   createOrder,
-  viewOrder
+  viewOrder,
+  confirmCheckIn
 };
