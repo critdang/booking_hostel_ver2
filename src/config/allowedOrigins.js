@@ -1,7 +1,7 @@
 const allowedOrigins = process.env.NODE_ENV === 'production'
   ? [
-    process.env.DOMAIN_FE,
-    process.env.DOMAIN_FE_PROD
+    'https://booking-hotel-fe.vercel.app',
+    'https://www.critdang.tech'
   ] : [
     // Add your FE domains allowed origins here
     'http://localhost:3000',
