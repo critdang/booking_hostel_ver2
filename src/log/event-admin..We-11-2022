@@ -3494,3 +3494,260 @@
   level: 'info',
   timestamp: '2022-11-16T10:35:39.837Z'
 }
+{
+  message: 'UserAuthentication:login::{"email":"dai@gmail.com","password":"123456"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:35:20.215Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:35:22.690Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:35:22.696Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":2,"price":400,"roomName":"Royal Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:35:32.362Z'
+}
+{
+  message: "Order:createOrder:: -  TypeError: Cannot read property 'name' of undefined",
+  level: 'error',
+  timestamp: '2022-11-30T13:35:32.389Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":2,"price":400,"roomName":"Royal Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:36:13.336Z'
+}
+{
+  message: "Order:createOrder:: -  TypeError: Cannot read property 'name' of undefined",
+  level: 'error',
+  timestamp: '2022-11-30T13:36:13.422Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":2,"price":400,"roomName":"Royal Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:38:38.128Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-30T13:38:38.156Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":2,"price":400,"roomName":"Royal Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:38:46.980Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-30T13:38:46.990Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":2,"price":400,"roomName":"Royal Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:38:54.380Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-30T13:38:54.419Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:39:01.946Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:39:01.953Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:39:10.898Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-30T13:39:10.907Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:39:37.642Z'
+}
+{
+  message: 'Order:createOrder:: -  Error: WHERE parameter "id" has invalid "undefined" value',
+  level: 'error',
+  timestamp: '2022-11-30T13:39:37.674Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:39:48.613Z'
+}
+{
+  message: 'Order:createOrder:: -  TypeError: ./src/views/createOrderNoti/order.ejs:171\n' +
+    '    169|                                         <p\r\n' +
+    '    170|                                             style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777; text-align: center">\r\n' +
+    ' >> 171|                                             Hi <%=order.userInfo.fullname%>,\r\n' +
+    '    172|                                             <br>\r\n' +
+    '    173|                                             For reference, your booking ID is <%=order.code%>. To view, cancel, or modify your\r\n' +
+    '    174|                                             booking, use our easy self service.\r\n' +
+    '\n' +
+    "Cannot read property 'fullname' of undefined",
+  level: 'error',
+  timestamp: '2022-11-30T13:39:49.418Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:41:01.728Z'
+}
+{
+  message: 'Order:createOrder:: -  TypeError: ./src/views/createOrderNoti/order.ejs:171\n' +
+    '    169|                                         <p\r\n' +
+    '    170|                                             style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777; text-align: center">\r\n' +
+    ' >> 171|                                             Hi <%=order.userInfo.name%>,\r\n' +
+    '    172|                                                 <br>\r\n' +
+    '    173|                                                 For reference, your booking ID is <%=order.code%>. To view, cancel, or\r\n' +
+    '    174|                                                     modify your\r\n' +
+    '\n' +
+    "Cannot read property 'name' of undefined",
+  level: 'error',
+  timestamp: '2022-11-30T13:41:01.869Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:41:48.341Z'
+}
+{
+  message: 'Order:createOrder:: -  TypeError: ./src/views/createOrderNoti/order.ejs:171\n' +
+    '    169|                                         <p\r\n' +
+    '    170|                                             style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777; text-align: center">\r\n' +
+    ' >> 171|                                             Hi <%=order.userInfo.name%>,\r\n' +
+    '    172|                                                 <br>\r\n' +
+    '    173|                                                 For reference, your booking ID is <%=order.code%>. To view, cancel, or\r\n' +
+    '    174|                                                     modify your\r\n' +
+    '\n' +
+    "Cannot read property 'name' of undefined",
+  level: 'error',
+  timestamp: '2022-11-30T13:41:48.507Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:09.891Z'
+}
+{
+  message: 'Order:createOrder:: -  TypeError: ./src/views/createOrderNoti/order.ejs:329\n' +
+    '    327|                                         </p>\r\n' +
+    '    328|                                         <p style="display: inline-block; margin: 0px;">\r\n' +
+    ' >> 329|                                             <%=order.userInfo.fullname%>\r\n' +
+    '    330|                                         </p>\r\n' +
+    '    331|                                         <br>\r\n' +
+    '    332|                                         <p style="display: inline-block; font-weight: bold; margin: 0px;">\r\n' +
+    '\n' +
+    "Cannot read property 'fullname' of undefined",
+  level: 'error',
+  timestamp: '2022-11-30T13:42:10.018Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:31.486Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:44.529Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:44.535Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":4,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:52.590Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:57.971Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:42:57.981Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:01.407Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:01.416Z'
+}
+{
+  message: 'RoomAction:getRoom::req.params - {}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:04.182Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":1,"name":"VIP Room","price":500}],"guestInfo":{"gender":"male","address":"45 Lý Thái Tổ","phone":912321312,"email":"dai@gmail.com","fullName":"Dai"},"searchInfo":{"From":"11-30-2022","To":"11-01-2022","adults":"1","kids":"0"}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:11.589Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:21.788Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:21.796Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"128c đại la","phone":945246026,"email":"critdang1010@gmail.com","fullName":"Huy Đặng"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:32.470Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:37.706Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:37.715Z'
+}
+{
+  message: 'Category:getCategories::{}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:42.199Z'
+}
+{
+  message: 'Category:getCategory::req.params{"id":"1"}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:42.207Z'
+}
+{
+  message: 'Order:getOrder::{"payment":{"cardName":"huy12","cardNumber":12,"expiryDate":12,"cardCVV":12,"paymentMethod":"VISA"},"rooms":[{"roomId":9,"price":300,"roomName":"Standard Room"}],"guestInfo":{"gender":"male","address":"10 ngo gia tu","phone":945246026,"email":"huy.dang@madison-technology.com","fullName":"Huy dang"},"searchInfo":{"From":"11/30/2022","To":"12/01/2022","adults":1,"kids":0}}',
+  level: 'info',
+  timestamp: '2022-11-30T13:43:53.000Z'
+}

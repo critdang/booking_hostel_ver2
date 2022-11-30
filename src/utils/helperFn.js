@@ -70,6 +70,7 @@ exports.forgotPassword = async (to, token) => {
 };
 
 exports.notifyOrder = async (to, order) => {
+  console.log("🚀 ~ file: helperFn.js:73 ~ exports.notifyOrder= ~ order", order);
   const data = await ejs.renderFile('./src/views/createOrderNoti/order.ejs', { order });
 
   await transporter.sendMail({

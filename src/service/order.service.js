@@ -79,12 +79,21 @@ const createOrder = async (req) => {
   const {
     paymentMethod, guestInfo, rooms, searchInfo
   } = req.body;
+  console.log("🚀 ~ file: order.service.js:82 ~ createOrder ~ rooms", rooms);
   let guestId = null;
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   let total = 0;
   const foundRooms = [];
   for (const room of rooms) {
     const foundRoom = await db.Room.findOne({
+      where: { id: room.roomId },
+      attributes: ['name', 'price'],
+      include: [{
+        model: db.Category,
+        attributes: ['name']
+      }],
+      raw: true,
+      nest: true
     });
     foundRoom.from = moment((searchInfo.from)).format('DD/MM/YYYY');
     foundRoom.to = moment((searchInfo.to)).format('DD/MM/YYYY');
