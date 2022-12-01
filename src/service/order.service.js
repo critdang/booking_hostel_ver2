@@ -103,13 +103,7 @@ const createOrder = async (req) => {
   // check thiếu req.body bên controller
   // đẩy tạo user xuống transaction -> tránh tạo user khi tạo order thất bại
   if (guestInfo) {
-    const newGuest = await db.Guest.create({
-      name: guestInfo.name,
-      email: guestInfo.email,
-      phone: guestInfo.phone,
-      address: guestInfo.address,
-      gender: guestInfo.gender
-    });
+    const newGuest = await db.Guest.create(guestInfo);
     guestId = newGuest.id;
   }
   await sequelize.transaction(async (t) => {
