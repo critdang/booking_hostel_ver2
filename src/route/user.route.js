@@ -11,7 +11,6 @@ const auth = require('../utils/middleware/auth');
 router.post("/register", validate.handleRegisterValidate, userController.createUser);
 router.put("/updateAvatar", auth.protectingRoutes, upload.single('avatar'), userController.updateAvatar);
 router.post("/login", validate.handleLoginValidate, userController.login);
-router.post("/refreshToken", userController.handleRefeshToken);
 router.post("/forgotPassword", validate.handleForgotPasswordValidate, userController.forgotPassword);
 router.put("/updateProfile", auth.protectingRoutes, validate.handleProfileValidateMethodValidate, userController.updateProfile);
 router.put("/updatePassword", auth.protectingRoutes, userController.updatePassword);

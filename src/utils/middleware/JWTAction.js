@@ -14,7 +14,7 @@ const generateJWT = (payload, expired) => {
   }
 };
 
-const generateRefreshToken = (userId) => {
+const generateRefreshToken = async (userId) => {
   const key = process.env.REFRESH_TOKEN_SECRET;
   const expiresIn = '1d';
   const expiresTokenOnRedis = 1 * 24 * 60 * 60;
@@ -23,7 +23,7 @@ const generateRefreshToken = (userId) => {
     const refreshToken = jwt.sign(payload, key, {
       expiresIn,
     });
-    client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);
+    await client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);
     return refreshToken;
   } catch (error) {
     return error;

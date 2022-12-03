@@ -70,6 +70,7 @@ const login = async (req, res) => {
   }
   const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '30m');
   const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
+  console.log("🚀 ~ file: user.service.js:73 ~ login ~ refreshToken", refreshToken);
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
@@ -79,7 +80,7 @@ const login = async (req, res) => {
     // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
   }).cookie('accessToken', accessToken, {
     httpOnly: true,
-    sameSite: 'Lax',
+    sameSite: 'strict',
     maxAge: 365 * 24 * 60 * 60 * 100,
   });
 
@@ -87,24 +88,6 @@ const login = async (req, res) => {
   data.refreshToken = refreshToken;
 
   return data;
-};
-
-const handleRefeshToken = async (req,) => {
-  const { refreshToken } = req.cookies;
-  console.log(`cookie available at refresh token: ${JSON.stringify(req.cookies)}`);
-  if (!refreshToken) {
-    throw new AppError(
-      format(MessageHelper.getMessage('refreshTokenNotFound')),
-    );
-  }
-  const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
-  const newAccessToken = await JWTAction.generateJWT({ userId }, '30m');
-  const newRefreshToken = await JWTAction.generateRefreshToken(userId);
-
-  return {
-    accessToken: newAccessToken,
-    refreshToken: newRefreshToken,
-  };
 };
 
 const forgotPassword = async (req) => {
@@ -211,7 +194,6 @@ const getUsers = async () => {
 module.exports = {
   createUser,
   login,
-  handleRefeshToken,
   forgotPassword,
   updateProfile,
   updatePassword,
