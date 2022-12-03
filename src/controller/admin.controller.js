@@ -58,6 +58,18 @@ const resetPassword = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
+const handleRefeshToken = async (req, res) => {
+  try {
+    // logger.info(`UserAuthentication:login::${JSON.stringify(req.cookies)}`);
+
+    const data = await service.handleRefeshToken(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    console.log("🚀 ~ file: user.controller.js ~ line 42 ~ handleRefeshToken ~ error", error);
+    logger.error(`UserAuthentication:login:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 
 const logOut = async (req, res) => {
   try {
@@ -73,5 +85,6 @@ module.exports = {
   changeBlockUserStt,
   verifyResetPassword,
   resetPassword,
+  handleRefeshToken,
   logOut
 };

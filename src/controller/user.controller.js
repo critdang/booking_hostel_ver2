@@ -32,19 +32,6 @@ const login = async (req, res) => {
   }
 };
 
-const handleRefeshToken = async (req, res) => {
-  try {
-    // logger.info(`UserAuthentication:login::${JSON.stringify(req.cookies)}`);
-
-    const data = await service.handleRefeshToken(req, res);
-    ResponseHelper.responseSuccess(res, data);
-  } catch (error) {
-    console.log("🚀 ~ file: user.controller.js ~ line 42 ~ handleRefeshToken ~ error", error);
-    logger.error(`UserAuthentication:login:: -  ${error}`);
-    ResponseHelper.responseError(res, error.message);
-  }
-};
-
 const forgotPassword = catchAsync(async (req, res) => {
   try {
     logger.info(`UserAction:forgotPassword::${JSON.stringify(req.body)}`);
@@ -139,5 +126,5 @@ const getUsers = catchAsync(async (req, res) => {
 });
 
 module.exports = {
-  createUser, login, handleRefeshToken, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword
+  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword
 };
