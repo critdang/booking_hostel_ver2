@@ -51,6 +51,24 @@ const resetPassword = async (req) => {
   );
   return result;
 };
+const handleRefeshToken = async (req,) => {
+  const { refreshToken } = req.cookies;
+  console.log("🚀 ~ file: admin.service.js:56 ~ handleRefeshToken ~ refreshToken", refreshToken);
+  console.log(`cookie available at refresh token: ${JSON.stringify(req.cookies)}`);
+  if (!refreshToken) {
+    throw new AppError(
+      format(MessageHelper.getMessage('refreshTokenNotFound')),
+    );
+  }
+  // const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
+  // const newAccessToken = await JWTAction.generateJWT({ userId }, '30m');
+  // const newRefreshToken = await JWTAction.generateRefreshToken(userId);
+
+  // return {
+  //   accessToken: newAccessToken,
+  //   refreshToken: newRefreshToken,
+  // };
+};
 
 const logOut = async (req, res) => {
   const { refreshToken } = req.cookies;
@@ -69,5 +87,6 @@ module.exports = {
   changeBlockUserStt,
   verifyResetPassword,
   resetPassword,
+  handleRefeshToken,
   logOut
 };

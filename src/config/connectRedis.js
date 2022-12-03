@@ -19,13 +19,14 @@ const { createClient } = require('redis');
   //   console.log(error);
   // });
 
-  // client.on("connect", () => {
-  //   console.log("[Redis] connected");
-  // });
+  client.on("connect", () => {
+    console.log("[Redis] connected");
+  });
+  
 
-  // client.on("ready", () => {
-  //   console.log("[Redis] ready");
-  // });
+  client.on("ready", () => {
+    console.log("[Redis] ready");
+  });
   client.on('error', (err) => console.log('Redis Client Error', err));
 
   await client.connect();
