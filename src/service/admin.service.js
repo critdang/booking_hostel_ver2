@@ -53,11 +53,9 @@ const resetPassword = async (req) => {
 };
 const handleRefeshToken = async (req,) => {
   const { refreshToken } = req.cookies;
-  console.log("🚀 ~ file: admin.service.js:56 ~ handleRefeshToken ~ refreshToken", refreshToken);
-  console.log(`cookie available at refresh token: ${JSON.stringify(req.cookies)}`);
   if (!refreshToken) {
     throw new AppError(
-      format(MessageHelper.getMessage('refreshTokenNotFound')),
+        format(MessageHelper.getMessage('refreshTokenNotFound')),
     );
   }
   // const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
