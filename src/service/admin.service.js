@@ -55,7 +55,7 @@ const handleRefeshToken = async (req, res) => {
   const { refreshToken } = req.cookies;
   if (!refreshToken) {
     throw new AppError(
-      format(MessageHelper.getMessage('refreshTokenNotFound')),
+        format(MessageHelper.getMessage('refreshTokenNotFound')),
     );
   }
   const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
