@@ -18,6 +18,7 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
     return next(new AppError('You are not logged in', 401));
   }
   const decodedToken = await JWTAction.verifyToken(token);
+  console.log("🚀 ~ file: auth.js:21 ~ exports.protectingRoutes=catchAsync ~ decodedToken", decodedToken);
 
   if (!decodedToken.userId) {
     return next(new AppError('Your token is expired. Please login again', 401));
@@ -26,6 +27,7 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
     attributes: { exclude: ['password', 'resetToken', 'status'] },
     where: { id: decodedToken.userId },
   });
+  console.log("🚀 ~ file: auth.js:29 ~ exports.protectingRoutes=catchAsync ~ user", user);
 
   if (!user) {
     return next(new AppError('this user does not exist', 401));

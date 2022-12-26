@@ -6,29 +6,27 @@ const { sequelize } = require("../models");
 const MessageHelper = require('../utils/message');
 
 const createRoom = async (req) => {
-  const {
-    name, detail, description, price, reserve, hot, active, categoryId
-  } = req.body;
+  const inputData = req.body;
   await sequelize.transaction(async (t) => {
     const newRoom = await db.Room.create({
-      name,
-      detail,
-      description,
-      price,
-      reserve,
-      hot,
-      active,
-      categoryId
+      inputData
     }, { transaction: t });
 
     const { files } = req;
     for (const file of files) {
-      // upload to Image table
       const { path } = file;
-      const newImage = await db.Image.create({
-        href: path
-      }, { transaction: t });
-      // point to RoomImage table
+      let newImage;
+      if (file == files[0]) {
+        newImage = await db.Image.create({
+          href: path,
+          isDefault: true
+        }, { transaction: t });
+      } else {
+        newImage = await db.Image.create({
+          href: path
+        }, { transaction: t });
+      }
+
       await db.RoomImage.create({
         roomId: newRoom.id,
         imageId: newImage.id
@@ -69,7 +67,9 @@ const getRoom = async (req) => {
 };
 
 const searchRooms = async (req) => {
-  let { arrival, departure, adults, kids } = req.query;
+  let {
+    arrival, departure, adults, kids
+  } = req.query;
   adults = adults.split(',');
   kids = kids.split(',');
   const rooms = [];
@@ -104,7 +104,6 @@ const searchRooms = async (req) => {
       raw: true,
       nest: true,
     });
-    console.log("🚀 ~ file: room.service.js ~ line 111 ~ searchRooms ~ foundRoom", foundRoom);
     rooms.push(foundRoom);
   }
   return rooms;
@@ -129,7 +128,6 @@ const searchRooms = async (req) => {
   //   item.from = moment(item.from).format('YYYY-MM-DD');
   //   item.to = moment(item.to).format('YYYY-MM-DD');
   // });
-
 
   // const roomDates = {};
   // for (const cartRoom of foundOrderRooms) {

@@ -16,6 +16,7 @@ router.put("/updateProfile", auth.protectingRoutes, validate.handleProfileValida
 router.put("/updatePassword", auth.protectingRoutes, userController.updatePassword);
 router.get("/:userId", auth.protectingRoutes, auth.checkRole('admin'), userController.getUser);
 router.get("/", auth.protectingRoutes, auth.checkRole('admin'), userController.getUsers);
+router.get("/accessToken", (req) => { console.log(req.cookies); });
 
 router.get("/block/:id", adminController.changeBlockUserStt);
 

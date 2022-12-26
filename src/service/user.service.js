@@ -68,7 +68,7 @@ const login = async (req, res) => {
       format(MessageHelper.getMessage('wrongPassword')),
     );
   }
-  const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '30m');
+  const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '10s');
   const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
   console.log("🚀 ~ file: user.service.js:73 ~ login ~ refreshToken", refreshToken);
 
@@ -83,7 +83,6 @@ const login = async (req, res) => {
     sameSite: 'strict',
     maxAge: 365 * 24 * 60 * 60 * 100,
   });
-
   data.accessToken = accessToken;
   data.refreshToken = refreshToken;
 

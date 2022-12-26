@@ -51,23 +51,31 @@ const resetPassword = async (req) => {
   );
   return result;
 };
-const handleRefeshToken = async (req,) => {
+const handleRefeshToken = async (req, res) => {
   const { refreshToken } = req.cookies;
-  console.log("🚀 ~ file: admin.service.js:56 ~ handleRefeshToken ~ refreshToken", refreshToken);
-  console.log(`cookie available at refresh token: ${JSON.stringify(req.cookies)}`);
   if (!refreshToken) {
     throw new AppError(
       format(MessageHelper.getMessage('refreshTokenNotFound')),
     );
   }
-  // const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
-  // const newAccessToken = await JWTAction.generateJWT({ userId }, '30m');
-  // const newRefreshToken = await JWTAction.generateRefreshToken(userId);
-
-  // return {
-  //   accessToken: newAccessToken,
-  //   refreshToken: newRefreshToken,
-  // };
+  const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
+  const newAccessToken = await JWTAction.generateJWT({ userId }, '30m');
+  const newRefreshToken = await JWTAction.generateRefreshToken(userId);
+  res.cookie('refreshToken', newRefreshToken, {
+    httpOnly: true,
+    maxAge: 365 * 24 * 60 * 60 * 100,
+    sameSite: 'strict',
+    // maxAge: 365 * 24 * 60 * 60 * 100,
+    // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
+  }).cookie('accessToken', newAccessToken, {
+    httpOnly: true,
+    sameSite: 'strict',
+    maxAge: 365 * 24 * 60 * 60 * 100,
+  });
+  return {
+    accessToken: newAccessToken,
+    refreshToken: newRefreshToken,
+  };
 };
 
 const logOut = async (req, res) => {

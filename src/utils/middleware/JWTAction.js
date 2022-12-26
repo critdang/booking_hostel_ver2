@@ -23,7 +23,10 @@ const generateRefreshToken = async (userId) => {
     const refreshToken = jwt.sign(payload, key, {
       expiresIn,
     });
-    await client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);
+    client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);
+    const value = client.get(userId.toString());
+
+    console.log("found value: ", value);
     return refreshToken;
   } catch (error) {
     return error;
