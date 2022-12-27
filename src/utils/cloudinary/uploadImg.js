@@ -12,7 +12,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: 'hotel_nodejs',
+    folder: process.env.CLOUDINARY_FOLDER_IMG,
   },
 });
 

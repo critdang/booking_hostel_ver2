@@ -1,20 +1,22 @@
+const _ = require("lodash");
+const format = require("string-format");
 const { returnSuccess, returnFail } = require('../utils/helperFn');
 const { CODE } = require("../constants/code");
 const cartService = require('../service/cart.service');
 const logger = require('../utils/logger/app-logger');
 const ResponseHelper = require('../utils/response');
 const MessageHelper = require('../utils/message');
+const AppError = require("../utils/errorHandle/appError");
 
 const addToCart = async (req, res) => {
   try {
     logger.info(`Category:getCategories::${JSON.stringify(req.body)}`);
 
-    // if (_.isEmpty(req.body)) {
-    //   throw new AppError(
-    //     format(COMMON_MESSAGES.EMPTY, "body"),
-    //     CODE.INVALID
-    //   );
-    // }
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), "body"),
+      );
+    }
 
     await cartService.addToCart(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('addRoomSuccess'));

@@ -11,7 +11,7 @@ const initRoutes = require("./route");
 const viewEngine = require("./config/configViewEngine");
 const corsOptions = require("./config/corsOptions");
 const credentials = require("./utils/middleware/credentials");
-require('./config/connectRedis'); // auto connect redis
+// require('./config/connectRedis'); // auto connect redis
 
 const myStore = new SequelizeStore({
   db: sequelize,

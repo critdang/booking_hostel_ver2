@@ -78,12 +78,11 @@ const createOrder = async (req, res) => {
   try {
     logger.info(`Order:getOrder::${JSON.stringify(req.body)}`);
 
-    // if (_.isEmpty(req.body)) {
-    //   throw new AppError(
-    //     format(COMMON_MESSAGES.EMPTY, "body"),
-    //     CODE.INVALID
-    //   );
-    // }
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), "body"),
+      );
+    }
 
     await orderService.createOrder(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('creatOrderSuccess'));
@@ -104,7 +103,7 @@ const confirmCheckIn = async (req, res) => {
       );
     }
 
-    const order = await orderService.confirmCheckIn(req, res);
+    await orderService.confirmCheckIn(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('confirmCheckInSuccess'));
   } catch (error) {
     console.log("🚀 ~ file: order.controller.js:110 ~ confirmCheckIn ~ error", error);

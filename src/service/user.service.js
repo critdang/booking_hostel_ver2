@@ -46,7 +46,7 @@ const login = async (req, res) => {
   });
   if (!foundUser) {
     throw new AppError(
-      format(MessageHelper.getMessage('loginFailed')),
+      format(MessageHelper.getMessage('noFoundUser')),
     );
   }
   const data = {
@@ -70,13 +70,11 @@ const login = async (req, res) => {
   }
   const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '10s');
   const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
-  console.log("🚀 ~ file: user.service.js:73 ~ login ~ refreshToken", refreshToken);
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
     maxAge: 365 * 24 * 60 * 60 * 100,
     sameSite: 'strict',
-    // maxAge: 365 * 24 * 60 * 60 * 100,
     // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
   }).cookie('accessToken', accessToken, {
     httpOnly: true,

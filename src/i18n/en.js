@@ -20,7 +20,7 @@ module.exports = {
     missingToken: 'Missing token',
 
     // authentication
-    loginFailed: 'No found user. Please sign up',
+    noFoundUser: 'No found user. Please sign up',
     wrongPassword: 'Wrong password. Please try again',
     emailNotExisted: 'Email is not existed',
     accountExisted: 'Email, User Name or phone number is existed',
