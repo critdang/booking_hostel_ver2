@@ -2,6 +2,8 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const ejs = require('ejs');
+const fs = require('fs');
+const pdf = require('html-pdf');
 
 exports.returnSuccess = (req, res, code, data = "") => {
   res.status(200).json({
@@ -102,9 +104,8 @@ exports.forgotPassword = async (to, token) => {
 };
 
 exports.notifyOrder = async (to, order) => {
-  const confirmCheckIn = `${process.env.DOMAIN_FE_PROD}/order/confirmCheckIn/${order.code}`;
+  const confirmCheckIn = `${process.env.DOMAIN_BE_PROD}/order/confirmCheckIn/${order.code}`;
   const data = await ejs.renderFile('./src/views/createOrderNoti/order.ejs', { order, confirmCheckIn });
-  console.log("🚀 ~ file: helperFn.js:107 ~ exports.notifyOrder= ~ confirmCheckIn", confirmCheckIn);
 
   await transporter.sendMail({
     from: process.env.EMAIL,
@@ -113,4 +114,14 @@ exports.notifyOrder = async (to, order) => {
     text: 'Dear customer',
     html: data,
   });
+};
+
+exports.confirmCheckIn = async (foundOrder, dataAdmin) => {
+  const html = ejs.render(fs.readFileSync('./src/views/createInvoice/invoice_order_receipt.ejs', 'utf8'), { order: foundOrder, admin: dataAdmin });
+  const options = { format: 'Letter' };
+  pdf.create(html, options).toFile('./onlineCheckInTicket.pdf', (err, res) => {
+    if (err) return console.log(err);
+    console.log(res);
+  });
+  return 'success';
 };

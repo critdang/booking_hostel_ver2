@@ -1,9 +1,8 @@
 const { Sequelize } = require('sequelize');
+
 require('dotenv').config();
 
 const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameHotel, process.env.passwordHotel, { // ket noi den db (dbname, username, password)
-  // host: process.env.hostHotel, // <=> 127.0.0.1
-  // dialect: 'mysql',
   // logging: false, // để k in câu lệnh:   Executing (default): SELECT 1+1 AS result
   host: process.env.hostHotel,
   port: process.env.PORT_DB,
@@ -14,7 +13,13 @@ const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameH
   maxConcurrentQueries: 100,
   dialect: 'mysql',
   // ssl: 'Amazon RDS',
-  // pool: { maxConnections: 5, maxIdleTime: 30 },
+  ssl: {},
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false, // accept unauthorized with ssl key no certificate
+    },
+  },
+  pool: { maxConnections: 5, maxIdleTime: 30 },
   language: 'en',
 });
 const connectDB = async () => {

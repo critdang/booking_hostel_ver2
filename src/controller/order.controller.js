@@ -104,7 +104,7 @@ const confirmCheckIn = async (req, res) => {
     }
 
     await orderService.confirmCheckIn(req, res);
-    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('confirmCheckInSuccess'));
+    // ResponseHelper.responseSuccess(res, MessageHelper.getMessage('confirmCheckInSuccess'));
   } catch (error) {
     console.log("🚀 ~ file: order.controller.js:110 ~ confirmCheckIn ~ error", error);
     logger.error(`Order:confirmCheckIn:: -  ${error}`);

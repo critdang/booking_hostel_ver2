@@ -8,7 +8,7 @@ router.get('/', auth.protectingRoutes, controller.getOrders);
 router.post('/updateStatus/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.changeStatus);
 router.post('/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.updateOrder);
 router.post('/', auth.checkUser, controller.createOrder);
-router.get('/confirmCheckIn/:code', controller.confirmCheckIn);
+router.get('/confirmCheckIn/:code', auth.checkUser, controller.confirmCheckIn);
 router.get('/view/:option', auth.protectingRoutes, controller.viewOrder);
 
 module.exports = router;

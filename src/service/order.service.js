@@ -142,31 +142,43 @@ const createOrder = async (req) => {
 
 const confirmCheckIn = async (req, res) => {
   const { code } = req.params;
-  await db.Order.update(
-    { checkInDate: new Date() },
-    { where: { code }, }
-  );
-  const order = await db.Order.findOne(
+
+  if (req.user && req.user.role == 'admin') {
+    const updateStatusRoom = await db.Order.update(
+      { checkInDate: new Date() },
+      { where: { code }, }
+    );
+    if (!updateStatusRoom) {
+      throw new AppError(
+        format(MessageHelper.getMessage('noFoundOrderWithCode'), code),
+      );
+    }
+  }
+  const foundOrder = await db.Order.findOne(
     {
       where: {
         code,
       },
-      include: [{
-        model: db.RoomInOrder,
-        include: [{
-          model: db.Room,
+      include: [
+        {
+          model: db.Guest,
+        }, {
+          model: db.RoomInOrder,
+          include: [{
+            model: db.Room,
+          }],
         }],
-      }],
       raw: true,
       nest: true
     }
   );
-  if (!order) {
+  if (!foundOrder) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundOrderWithCode'), code),
     );
   }
-  return res.status(200).json(order);
+  await helperFn.confirmCheckIn(foundOrder, req.user);
+  return foundOrder;
 };
 
 const viewOrder = async (req, res) => {
