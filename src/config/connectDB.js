@@ -16,7 +16,7 @@ const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameH
   ssl: {},
   dialectOptions: {
     ssl: {
-      rejectUnauthorized: false, // accept unauthorized with ssl key no certificate
+      rejectUnauthorized: true, // accept unauthorized with ssl key no certificate
     },
   },
   pool: { maxConnections: 5, maxIdleTime: 30 },
