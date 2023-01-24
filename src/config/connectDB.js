@@ -12,14 +12,14 @@ const sequelize = new Sequelize(process.env.databaseHotel, process.env.usernameH
   username: process.env.usernameHotel,
   maxConcurrentQueries: 100,
   dialect: 'mysql',
-  // ssl: 'Amazon RDS',
+  ssl: 'Amazon RDS',
   // ssl: {},
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false, // accept unauthorized with ssl key no certificate
-    },
-  },
+  // dialectOptions: {
+  //   ssl: {
+  //     require: true,
+  //     rejectUnauthorized: false, // accept unauthorized with ssl key no certificate
+  //   },
+  // },
   pool: { maxConnections: 5, maxIdleTime: 30 },
   language: 'en',
 });
