@@ -81,5 +81,8 @@ module.exports = {
     cannotRemoveItem: 'Cannot remove item',
     noFoundCart: 'No cart found with user id {}',
     removeItemCartSuccess: 'Remove item cart successfully',
+
+    // guest
+    cannotFindGuests: 'Cannot find guests',
   }
 };

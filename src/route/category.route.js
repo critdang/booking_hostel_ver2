@@ -5,7 +5,8 @@ const validate = require('../validate/validate');
 const auth = require('../utils/middleware/auth');
 
 const router = express.Router();
-router.post('/', auth.protectingRoutes, auth.checkRole('admin'), upload.single('thumbnail'), validate.handleCategoryValidate, controller.createCategory);
+// router.post('/', auth.protectingRoutes, auth.checkRole('admin'), upload.single('thumbnail'), validate.handleCategoryValidate, controller.createCategory);
+router.post('/', upload.single('thumbnail'), validate.handleCategoryValidate, controller.createCategory);
 router.get('/', controller.getCategories);
 router.get('/:id', controller.getCategory);
 router.put('/:id', auth.protectingRoutes, auth.checkRole('admin'), validate.handleCategoryValidate, controller.updateCategory);

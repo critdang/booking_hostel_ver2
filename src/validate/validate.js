@@ -34,6 +34,7 @@ const handleRoomValidateMethod = Joi.object({
 const handleCategoryValidateMethod = Joi.object({
   name: Joi.string().required(),
   description: Joi.string(),
+  thumbnail: Joi.string(),
 });
 
 const handleRegisterValidateMethod = Joi.object({
@@ -87,6 +88,7 @@ exports.handleLoginValidate = async (req, res, next) => {
 exports.handleCategoryValidate = async (req, res, next) => {
   try {
     await handleCategoryValidateMethod.validateAsync(req.body);
+    console.log("🚀 ~ file: validate.js:91 ~ exports.handleCategoryValidate= ~ req.body:", req.body);
     next();
   } catch (err) {
     next(err);
