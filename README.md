@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">Welcome to booking_hotel_be 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
@@ -62,3 +63,40 @@ This project is [ISC](https://github.com/shiyongchiz/Web_dien_may/blob/master/LI
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+=======
+# Nodejs FES Template
+
+# Environment vars
+This project uses the following environment variables:
+
+| Name                          | Description                         | Default Value                                  |
+| ----------------------------- | ------------------------------------| -----------------------------------------------|
+|CORS           | Cors accepted values            | "*"      |
+
+
+# Pre-requisites
+- Install [Node.js](https://nodejs.org/en/) version 14.17.6
+
+
+# Getting started
+- Clone the repository
+```
+git clone  <git lab template url> <project_name>
+```
+- Install dependencies
+```
+cd <project_name>
+npm install
+```
+- Build and run the project
+```
+npm start
+```
+  Navigate to `http://localhost:8001`
+
+- Set up database
+Account: root
+Password: Admin
+  Run migartion to database - npx sequelize-cli db:migrate
+  Run seeder to database - npx sequelize-cli db:seed:all
+>>>>>>> e8c1eb7a6c244f0b84747fda6ab9eb87cdd417f7
