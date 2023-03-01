@@ -7,11 +7,12 @@ const MessageHelper = require('../utils/message');
 
 const createRoom = async (req) => {
   const inputData = req.body;
+  let newRoomData;
   await sequelize.transaction(async (t) => {
-    const newRoom = await db.Room.create({
-      inputData
-    }, { transaction: t });
-
+    // create room
+    const newRoom = await db.Room.create(inputData, { transaction: t });
+    newRoomData = newRoom;
+    // upload image
     const { files } = req;
     for (const file of files) {
       const { path } = file;
@@ -32,8 +33,8 @@ const createRoom = async (req) => {
         imageId: newImage.id
       }, { transaction: t });
     }
-    return newRoom;
   });
+  return newRoomData;
 };
 
 const getRooms = async (req) => {
@@ -172,6 +173,7 @@ const updateRoom = async (req) => {
       format(MessageHelper.getMessage('noRoomUpdated'))
     );
   }
+  console.log("🚀 ~ file: room.service.js:171 ~ updateRoom ~ result:", result);
 };
 
 const deleteRoom = async (req) => {

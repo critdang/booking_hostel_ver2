@@ -23,9 +23,11 @@ const handleRoomValidateMethod = Joi.object({
   name: Joi.string().required(),
   price: Joi.number().required(),
   description: Joi.string(),
-  image: Joi.string(),
+  images: Joi.array(),
   categoryId: Joi.number().required(),
   hot: Joi.number(),
+  kid: Joi.number(),
+  adult: Joi.number(),
   reserve: Joi.number(),
   active: Joi.number(),
   detail: Joi.string(),
@@ -67,6 +69,19 @@ const handleProfileValidateMethod = Joi.object({
   gender: Joi.string(),
 });
 
+const handleGuestValidateMethod = Joi.object({
+  fullName: Joi.string().required(),
+  email: Joi.string().email({
+    minDomainSegments: 2,
+    tlds: { allow: ['com', 'net'] },
+  }).error(
+    new AppError('Wrong format email', 400),
+  ).required(),
+  address: Joi.string(),
+  phone: Joi.number(),
+  gender: Joi.string()
+});
+
 exports.handleRoomValidate = async (req, res, next) => {
   try {
     await handleRoomValidateMethod.validateAsync(req.body);
@@ -87,8 +102,8 @@ exports.handleLoginValidate = async (req, res, next) => {
 
 exports.handleCategoryValidate = async (req, res, next) => {
   try {
-    await handleCategoryValidateMethod.validateAsync(req.body);
     console.log("🚀 ~ file: validate.js:91 ~ exports.handleCategoryValidate= ~ req.body:", req.body);
+    await handleCategoryValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);
@@ -126,6 +141,15 @@ exports.handleProfileValidateMethodValidate = async (req, res, next) => {
   try {
     console.log("🚀 ~ file: validate.js ~ line 126 ~ exports.handleProfileValidateMethodValidate= ~ req.body", req.body);
     await handleProfileValidateMethod.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleGuestValidate = async (req, res, next) => {
+  try {
+    await handleGuestValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);

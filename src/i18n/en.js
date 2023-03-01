@@ -84,5 +84,11 @@ module.exports = {
 
     // guest
     cannotFindGuests: 'Cannot find guests',
+    cannotFindGuestsWithId: 'Cannot find guests with id {}',
+    deleteGuestSuccess: 'Delete guest successfully',
+
+    // team
+    noFoundTeamUser: 'No found user in team with id {}',
+    deleteUserInTeamSuccess: 'Delete user in team successfully',
   }
 };

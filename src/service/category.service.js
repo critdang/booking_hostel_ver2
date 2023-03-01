@@ -75,10 +75,15 @@ const getCategory = async (req) => {
 };
 
 const updateCategory = async (req) => {
+  console.log("🚀 ~ file: category.service.js:78 ~ updateCategory ~ req:", req.file);
   const { id } = req.params;
-  const updateContents = req.body;
+  // eslint-disable-next-line no-unused-expressions
+  if (req.file != undefined) {
+    req.body.thumbnail = await req.file.path;
+  }
+  console.log("🚀 ~ file: category.service.js:83 ~ updateCategory ~ req.body:", req.body);
   const result = await db.Category.update(
-    updateContents,
+    req.body,
     {
       where: { id },
     }

@@ -10,8 +10,8 @@ const createRoom = async (req, res) => {
   try {
     logger.info(`RoomAction:createRoom::${JSON.stringify(req.body)}`);
 
-    await service.createRoom(req, res);
-    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('createRoomSuccess'));
+    const data = await service.createRoom(req, res);
+    ResponseHelper.responseSuccess(res, data);
   } catch (error) {
     logger.error(`RoomAction:createRoom:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
