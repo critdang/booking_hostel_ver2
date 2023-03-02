@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Category, {
         foreignKey: 'categoryId',
       });
+      // belong to one Branch
+      this.belongsTo(models.Branch, {
+        foreignKey: 'BranchId',
+      });
 
       // has many image
       this.belongsToMany(models.Image, {
@@ -29,16 +33,24 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'roomId',
       });
 
-      // has many cart
-      this.hasMany(models.CartRoom, {
+      // has many invoice
+      this.belongsToMany(models.Invoice, {
+        through: models.RoomBooking,
+      });
+      this.hasMany(models.RoomBooking, {
         foreignKey: 'roomId',
       });
 
-      // has many order
-      this.belongsToMany(models.Order, {
-        through: models.RoomInOrder,
+      // has many review
+      this.hasMany(models.Review, {
+        foreignKey: 'roomId',
       });
-      this.hasMany(models.RoomInOrder, {
+
+      // has many amenities
+      this.belongsToMany(models.Amenity, {
+        through: models.RoomAmenity,
+      });
+      this.hasMany(models.RoomAmenity, {
         foreignKey: 'roomId',
       });
     }
@@ -56,17 +68,30 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     hot: DataTypes.BOOLEAN,
     active: DataTypes.BOOLEAN,
-    adult: DataTypes.INTEGER,
-    kid: DataTypes.INTEGER,
+    adult_limit: DataTypes.INTEGER,
+    kid_limit: DataTypes.INTEGER,
+    status: {
+      type: DataTypes.ENUM('available', 'unavailable', 'maintenance'),
+      defaultValue: 'available',
+    },
     categoryId: {
       allowNull: true,
       type: DataTypes.INTEGER,
       references: {
         model: 'Category',
         key: 'id',
+        as: 'categoryId',
       },
     },
-  }, {
+    branchId: {
+      allowNull: true,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Branch',
+        key: 'id',
+        as: 'branchId',
+      },
+    }, 
     sequelize,
     modelName: 'Room',
     freezeTableName: true,

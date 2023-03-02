@@ -3,7 +3,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class RoomInOrder extends Model {
+  class Review extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,17 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Room, {
         foreignKey: 'roomId',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       });
-      this.belongsTo(models.Order, {
-        foreignKey: 'orderId',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+      this.belongsTo(models.User, {
+        foreignKey: 'userId',
       });
     }
   }
-  RoomInOrder.init({
+  Review.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -30,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     roomId: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
@@ -39,36 +35,22 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    orderId: {
-      allowNull: true,
+    userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
       references: {
-        model: 'Order',
+        model: 'User',
         key: 'id',
       },
     },
-    from: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    to: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    adults: {
-      allowNull: true,
-      type: DataTypes.INTEGER,
-    },
-    kids: {
-      allowNull: true,
-      type: DataTypes.INTEGER,
-    },
+    content: DataTypes.STRING,
+    reviewDate: DataTypes.DATE,
   }, {
     sequelize,
-    modelName: 'RoomInOrder',
+    modelName: 'Review',
     freezeTableName: true,
   });
-  return RoomInOrder;
+  return Review;
 };

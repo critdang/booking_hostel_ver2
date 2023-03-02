@@ -3,60 +3,54 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class CartRoom extends Model {
+  class Rating extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Cart, {
-        foreignKey: 'cartId',
+      this.belongsTo(models.RoomBooking, {
+        foreignKey: 'roomBookingId',
       });
-      this.belongsTo(models.Room, {
-        foreignKey: 'roomId',
+      this.belongsTo(models.User, {
+        foreignKey: 'userId',
       });
     }
   }
-  CartRoom.init({
+  Rating.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    cartId: {
-      allowNull: true,
+    roomBookingId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
       references: {
-        model: 'Cart',
+        model: 'RoomBooking',
         key: 'id',
       },
     },
-    roomId: {
-      allowNull: true,
+    userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
       references: {
-        model: 'Room',
+        model: 'User',
         key: 'id',
       },
     },
-    checkIn: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    checkOut: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
+    rate: DataTypes.INTEGER,
+    ratingDate: DataTypes.DATE,
   }, {
     sequelize,
-    modelName: 'CartRoom',
+    modelName: 'Rating',
     freezeTableName: true,
   });
-  return CartRoom;
+  return Rating;
 };

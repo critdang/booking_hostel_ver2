@@ -28,7 +28,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
-      role: 'user',
+      role: 'customer',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -42,7 +42,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
-      role: 'user',
+      role: 'customer',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -56,7 +56,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
-      role: 'user',
+      role: 'customer',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -70,7 +70,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
-      role: 'user',
+      role: 'customer',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -84,7 +84,7 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
-      role: 'user',
+      role: 'customer',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -98,7 +98,21 @@ module.exports = {
       avatar: 'dai.jpg',
       isBlocked: false,
       resetToken: '123456',
-      role: 'user',
+      role: 'customer',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }, {
+      fullName: 'Linh',
+      email: 'linh@gmail.com',
+      password: await helperFn.hashPassword('123456'),
+      address: '67 Trần Hưng Đạo',
+      phone: '0912312312',
+      status: 'pending',
+      gender: 'male',
+      avatar: 'dai.jpg',
+      isBlocked: false,
+      resetToken: '123456',
+      role: 'cleaner',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

@@ -1,22 +1,27 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('RoomInOrder', [{
-      roomId: 3,
-      orderId: 1,
-      from: new Date(),
-      to: new Date(),
-      adults: 2,
-      kids: 1,
+    await queryInterface.bulkInsert('Amenity', [{
+      name: 'TV',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      roomId: 2,
-      orderId: 2,
-      from: new Date(),
-      to: new Date(),
-      adults: 2,
-      kids: 1,
+      name: 'Air Conditioner',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      name: 'mini bar',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      name: 'work desk',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      name: 'heater',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});
@@ -29,5 +34,5 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };

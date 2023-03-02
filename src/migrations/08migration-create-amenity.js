@@ -1,27 +1,14 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Guest', {
+    await queryInterface.createTable('Amenity', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      fullName: {
+      name: {
         type: Sequelize.STRING,
-      },
-      email: {
-        type: Sequelize.STRING,
-      },
-      address: {
-        type: Sequelize.STRING,
-      },
-      phone: {
-        type: Sequelize.STRING,
-      },
-      gender: {
-        type: Sequelize.ENUM('male', 'female', 'other'),
-        defaultValue: 'male',
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +21,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Guest');
+    await queryInterface.dropTable('Amenity');
   },
 };

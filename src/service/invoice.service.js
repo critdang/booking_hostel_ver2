@@ -7,40 +7,40 @@ const MessageHelper = require('../utils/message');
 const { sequelize } = require("../config/connectDB");
 const helperFn = require('../utils/helperFn');
 
-const getOrder = async (req) => {
-  const { orderId } = req.params;
-  const foundOrder = await db.Order.findOne({
+const getInvoice = async (req) => {
+  const { invoiceId } = req.params;
+  const foundInvoice = await db.Invoice.findOne({
     where: {
-      id: orderId,
+      id: invoiceId,
     }
   });
-  if (!foundOrder) {
+  if (!foundInvoice) {
     throw new AppError(
-      format(MessageHelper.getMessage('noFoundOrder'), orderId),
+      format(MessageHelper.getMessage('noFoundInvoice'), invoiceId),
     );
   }
-  return foundOrder;
+  return foundInvoice;
 };
 
-const getOrders = async () => {
-  const foundOrders = await db.Order.findAll();
-  if (!foundOrders) {
+const getInvoices = async () => {
+  const foundInvoices = await db.Invoice.findAll();
+  if (!foundInvoices) {
     throw new AppError(
-      format(MessageHelper.getMessage('noFoundOrders')),
+      format(MessageHelper.getMessage('noFoundInvoices')),
     );
   }
-  return foundOrders;
+  return foundInvoices;
 };
 
 const changeStatus = async (req) => {
-  const { orderId } = req.params;
+  const { invoiceId } = req.params;
   const { newStatus } = req.body;
 
-  const updateStatus = await db.Order.update(
+  const updateStatus = await db.Invoice.update(
     { status: newStatus },
     {
       where: {
-        id: orderId,
+        id: invoiceId,
         status: 'pending',
       }
     }
@@ -53,11 +53,11 @@ const changeStatus = async (req) => {
   return updateStatus;
 };
 
-const updateOrder = async (req) => {
-  const id = req.params.orderId;
+const updateInvoice = async (req) => {
+  const id = req.params.invoiceId;
   const { newStatus } = req.body;
 
-  const result = await db.Order.update(
+  const result = await db.Invoice.update(
     { status: newStatus },
     {
       where: {
@@ -68,13 +68,13 @@ const updateOrder = async (req) => {
   );
   if (!result) {
     throw new AppError(
-      format(MessageHelper.getMessage('updateOrderFailed')),
+      format(MessageHelper.getMessage('updateInvoiceFailed')),
     );
   }
   return result;
 };
 
-const createOrder = async (req) => {
+const createInvoice = async (req) => {
   const userInfo = req.user;
   const {
     paymentMethod, guestInfo, rooms, searchInfo
@@ -101,14 +101,14 @@ const createOrder = async (req) => {
     total += foundRoom.price;
   }
   // check thiếu req.body bên controller
-  // đẩy tạo user xuống transaction -> tránh tạo user khi tạo order thất bại
+  // đẩy tạo user xuống transaction -> tránh tạo user khi tạo invoice thất bại
   if (guestInfo) {
     const newGuest = await db.Guest.create(guestInfo);
     guestId = newGuest.id;
   }
   await sequelize.transaction(async (t) => {
-    // create order
-    const newOrder = await db.Order.create({
+    // create invoice
+    const newInvoice = await db.Invoice.create({
       code,
       date: new Date(),
       userId: (userInfo == undefined) ? null : userInfo.id,
@@ -124,19 +124,19 @@ const createOrder = async (req) => {
         from: searchInfo.From,
         to: searchInfo.To,
       }, { transaction: t });
-      // create room in order
-      await db.RoomInOrder.create({
+      // create room in invoice
+      await db.RoomBooking.create({
         roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
-        orderId: newOrder.id,
+        invoiceId: newInvoice.id,
       }, { transaction: t });
     }
-    newOrder.date = moment(newOrder.date).format('DD/MM/YYYY');
-    newOrder.userInfo = userInfo;
-    newOrder.guestInfo = guestInfo;
-    newOrder.rooms = foundRooms;
-    return helperFn.notifyOrder(guestInfo.email, newOrder);
+    newInvoice.date = moment(newInvoice.date).format('DD/MM/YYYY');
+    newInvoice.userInfo = userInfo;
+    newInvoice.guestInfo = guestInfo;
+    newInvoice.rooms = foundRooms;
+    return helperFn.notifyInvoice(guestInfo.email, newInvoice);
   });
 };
 
@@ -144,17 +144,17 @@ const confirmCheckIn = async (req, res) => {
   const { code } = req.params;
 
   if (req.user && req.user.role == 'admin') {
-    const updateStatusRoom = await db.Order.update(
+    const updateStatusRoom = await db.Invoice.update(
       { checkInDate: new Date() },
       { where: { code }, }
     );
     if (!updateStatusRoom) {
       throw new AppError(
-        format(MessageHelper.getMessage('noFoundOrderWithCode'), code),
+        format(MessageHelper.getMessage('noFoundInvoiceWithCode'), code),
       );
     }
   }
-  const foundOrder = await db.Order.findOne(
+  const foundInvoice = await db.Invoice.findOne(
     {
       where: {
         code,
@@ -163,7 +163,7 @@ const confirmCheckIn = async (req, res) => {
         {
           model: db.Guest,
         }, {
-          model: db.RoomInOrder,
+          model: db.RoomBooking,
           include: [{
             model: db.Room,
           }],
@@ -172,26 +172,26 @@ const confirmCheckIn = async (req, res) => {
       nest: true
     }
   );
-  if (!foundOrder) {
+  if (!foundInvoice) {
     throw new AppError(
-      format(MessageHelper.getMessage('noFoundOrderWithCode'), code),
+      format(MessageHelper.getMessage('noFoundInvoiceWithCode'), code),
     );
   }
-  // return res.render('createInvoice/invoice_order_receipt', { order: foundOrder, admin: req.user });
-  await helperFn.confirmCheckIn(foundOrder, req.user);
-  return foundOrder;
+  return res.render('createInvoice/invoice_receipt', { invoice: foundInvoice, admin: req.user });
+  // await helperFn.confirmCheckIn(foundInvoice, req.user);
+  // return foundInvoice;
 };
 
-const viewOrder = async (req, res) => {
+const viewInvoice = async (req, res) => {
   const { option } = req.params;
-  const foundOrder = await db.Order.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
-  foundOrder.date = moment(foundOrder.date).format('DD/MM/YYYY, h:mm:ss a');
-  foundOrder.userInfo = await db.User.findOne({ where: { id: foundOrder.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
-  const foundRoomInOrder = await db.RoomInOrder.findAll({ where: { orderId: foundOrder.id }, attributes: ['roomId', 'from', 'to'] });
+  const foundInvoice = await db.Invoice.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
+  // foundInvoice.date = moment(foundInvoice.date).format('DD/MM/YYYY, h:mm:ss a');
+  foundInvoice.userInfo = await db.User.findOne({ where: { id: foundInvoice.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
+  const foundRoomBooking = await db.RoomBooking.findAll({ where: { invoiceId: foundInvoice.id }, attributes: ['roomId', 'from', 'to'] });
   const rooms = [];
-  for (const roomInOrder of foundRoomInOrder) {
+  for (const RoomBooking of foundRoomBooking) {
     const foundRoom = await db.Room.findOne({
-      where: { id: roomInOrder.roomId },
+      where: { id: RoomBooking.roomId },
       attributes: ['name', 'price'],
       include: [{
         model: db.Category,
@@ -200,24 +200,22 @@ const viewOrder = async (req, res) => {
       raw: true,
       nest: true
     });
-    foundRoom.from = moment((roomInOrder.from)).format('DD/MM/YYYY, HH:mm');
-    foundRoom.to = moment((roomInOrder.to)).format('DD/MM/YYYY, HH:mm');
+    foundRoom.from = moment((RoomBooking.from)).format('DD/MM/YYYY, HH:mm');
+    foundRoom.to = moment((RoomBooking.to)).format('DD/MM/YYYY, HH:mm');
     foundRoom.category = foundRoom.Category.name;
     rooms.push(foundRoom);
   }
-  foundOrder.rooms = rooms;
-  if (option === 'order') {
-    res.render('createOrderNoti/order', { order: foundOrder });
-  } else if (option === 'invoice') {
-    res.render('createInvoice/invoice_order_receipt', { order: foundOrder });
-  }
+  foundInvoice.rooms = rooms;
+  foundInvoice.confirmCheckInLink = `http://localhost:8080/invoice/confirmCheckIn/${foundInvoice.code}`;
+  console.log("🚀 ~ file: invoice.service.js:209 ~ viewInvoice ~ foundInvoice:", foundInvoice)
+  res.render('createInvoiceNoti/invoice', { invoice: foundInvoice });
 };
 module.exports = {
-  getOrder,
-  getOrders,
+  getInvoice,
+  getInvoices,
   changeStatus,
-  updateOrder,
-  createOrder,
-  viewOrder,
+  updateInvoice,
+  createInvoice,
+  viewInvoice,
   confirmCheckIn
 };

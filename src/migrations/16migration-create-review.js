@@ -1,6 +1,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('RoomInOrder', {
+    await queryInterface.createTable('Review', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,40 +8,26 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       roomId: {
-        allowNull: true,
         type: Sequelize.INTEGER,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
         references: {
           model: 'Room',
           key: 'id',
+          as: 'roomId',
         },
       },
-      orderId: {
-        allowNull: true,
+      userId: {
         type: Sequelize.INTEGER,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
         references: {
-          model: 'Order',
+          model: 'User',
           key: 'id',
+          as: 'userId',
         },
       },
-      from: {
-        allowNull: false,
+      content: {
+        type: Sequelize.STRING,
+      },
+      reviewDate: {
         type: Sequelize.DATE,
-      },
-      to: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      adults: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
-      kids: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -54,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('RoomInOrder');
+    await queryInterface.dropTable('Review');
   },
 };

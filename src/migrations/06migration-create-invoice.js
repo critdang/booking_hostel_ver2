@@ -1,6 +1,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Order', {
+    await queryInterface.createTable('Invoice', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,7 +10,10 @@ module.exports = {
       code: {
         type: Sequelize.STRING,
       },
-      date: {
+      checkinDate: {
+        type: Sequelize.DATE,
+      },
+      checkoutDate: {
         type: Sequelize.DATE,
       },
       status: {
@@ -18,22 +21,15 @@ module.exports = {
         type: Sequelize.ENUM('Pending', 'Completed', 'Cancel'),
         defaultValue: 'Pending',
       },
-      adminAction: {
-        type: Sequelize.ENUM('Cancel', 'Accept', 'Pending'),
-        defaultValue: 'Pending',
-      },
       paymentMethod: {
         type: Sequelize.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
         defaultValue: 'Pending',
       },
       paymentDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       total: {
         type: Sequelize.FLOAT,
-      },
-      checkInDate: {
-        type: Sequelize.DATE,
       },
       userId: {
         allowNull: true,
@@ -42,16 +38,6 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'User',
-          key: 'id',
-        },
-      },
-      guestId: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Guest',
           key: 'id',
         },
       },
@@ -66,6 +52,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Order');
+    await queryInterface.dropTable('Invoice');
   },
 };

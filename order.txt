@@ -29,7 +29,7 @@ const userId = req.client.id;
             if (payment === 'visa') {
                 completedDay = formatDay(temp);
             }
-            const order = await Order.create({ userId, status: PENDING_PAYMENT, completedDay, payment }, { transaction: t });
+            const invoice = await Invoice.create({ userId, status: PENDING_PAYMENT, completedDay, payment }, { transaction: t });
 
             const promises = [];
             items.products.forEach(product => {
@@ -39,7 +39,7 @@ const userId = req.client.id;
                 }
                 let obj = {};
                 const p = new Promise((resolve, reject) => {
-                    obj['orderId'] = order.id;
+                    obj['orderId'] = invoice.id;
                     obj['quantity'] = product.quantity;
                     obj['total'] = product.quantity * product.details.price;
                     obj['productId'] = product.details.id;
@@ -57,7 +57,7 @@ const userId = req.client.id;
                                     console.log('updated');
                                 });
                         });
-                    productInOrder.create(obj, { transaction: t })
+                    productInInvoice.create(obj, { transaction: t })
                         .then(() => cartProduct.destroy({ where: { productId: product.details.id } }, { transaction: t }))
                         .then(() => resolve("done"))
                         .catch(error => reject(error));

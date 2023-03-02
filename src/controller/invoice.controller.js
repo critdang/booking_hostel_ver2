@@ -1,37 +1,37 @@
 const format = require("string-format");
 const _ = require("lodash");
-const orderService = require("../service/order.service");
+const invoiceService = require("../service/invoice.service");
 const AppError = require("../utils/errorHandle/appError");
 const logger = require('../utils/logger/app-logger');
 
 const ResponseHelper = require('../utils/response');
 const MessageHelper = require('../utils/message');
 
-const getOrder = async (req, res) => {
+const getInvoice = async (req, res) => {
   try {
     logger.info(`UserAction:updateProfile::${JSON.stringify(req.params)}`);
 
-    const data = await orderService.getOrder(req, res);
+    const data = await invoiceService.getInvoice(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    logger.error(`OrderActions:getOrder:: -  ${error}`);
+    logger.error(`InvoiceActions:getInvoice:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
-const getOrders = async (req, res) => {
+const getInvoices = async (req, res) => {
   try {
-    const data = await orderService.getOrders(req, res);
+    const data = await invoiceService.getInvoices(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    logger.error(`OrderActions:getOrders:: -  ${error}`);
+    logger.error(`InvoiceActions:getInvoices:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
 
 const changeStatus = async (req, res) => {
   try {
-    logger.info(`OrderActions:changeStatus::req.parms - ${JSON.stringify(req.parms)}`);
-    logger.info(`OrderActions:changeStatus::req.body - ${JSON.stringify(req.body)}`);
+    logger.info(`InvoiceActions:changeStatus::req.parms - ${JSON.stringify(req.parms)}`);
+    logger.info(`InvoiceActions:changeStatus::req.body - ${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
         format(MessageHelper.getMessage('missingParams'), 'body')
@@ -43,18 +43,18 @@ const changeStatus = async (req, res) => {
       );
     }
 
-    const data = await orderService.changeStatus(req, res);
+    const data = await invoiceService.changeStatus(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    logger.error(`OrderActions:changeStatus:: -  ${error}`);
+    logger.error(`InvoiceActions:changeStatus:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
 
-const updateOrder = async (req, res) => {
+const updateInvoice = async (req, res) => {
   try {
-    logger.info(`OrderActions:updateOrder::req.parms - ${JSON.stringify(req.parms)}`);
-    logger.info(`OrderActions:updateOrder::req.body - ${JSON.stringify(req.body)}`);
+    logger.info(`InvoiceActions:updateInvoice::req.parms - ${JSON.stringify(req.parms)}`);
+    logger.info(`InvoiceActions:updateInvoice::req.body - ${JSON.stringify(req.body)}`);
     if (_.isEmpty(req.body)) {
       throw new AppError(
         format(MessageHelper.getMessage('missingParams'), 'body')
@@ -66,17 +66,17 @@ const updateOrder = async (req, res) => {
       );
     }
 
-    const data = await orderService.updateOrder(req, res);
+    const data = await invoiceService.updateInvoice(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
-    logger.error(`OrderActions:changeStatus:: -  ${error}`);
+    logger.error(`InvoiceActions:changeStatus:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
 
-const createOrder = async (req, res) => {
+const createInvoice = async (req, res) => {
   try {
-    logger.info(`Order:getOrder::${JSON.stringify(req.body)}`);
+    logger.info(`Invoice:getInvoice::${JSON.stringify(req.body)}`);
 
     if (_.isEmpty(req.body)) {
       throw new AppError(
@@ -84,18 +84,18 @@ const createOrder = async (req, res) => {
       );
     }
 
-    await orderService.createOrder(req, res);
-    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('creatOrderSuccess'));
+    await invoiceService.createInvoice(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('creatInvoiceSuccess'));
   } catch (error) {
-    console.log("🚀 ~ file: order.controller.js ~ line 91 ~ createOrder ~ error", error);
-    logger.error(`Order:createOrder:: -  ${error}`);
+    console.log("🚀 ~ file: invoice.controller.js ~ line 91 ~ createInvoice ~ error", error);
+    logger.error(`Invoice:createInvoice:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
 
 const confirmCheckIn = async (req, res) => {
   try {
-    logger.info(`Order:confirmCheckIn::${JSON.stringify(req?.params)}`);
+    logger.info(`Invoice:confirmCheckIn::${JSON.stringify(req?.params)}`);
 
     if (_.isEmpty(req?.params)) {
       throw new AppError(
@@ -103,27 +103,27 @@ const confirmCheckIn = async (req, res) => {
       );
     }
 
-    await orderService.confirmCheckIn(req, res);
+    await invoiceService.confirmCheckIn(req, res);
     // ResponseHelper.responseSuccess(res, MessageHelper.getMessage('confirmCheckInSuccess'));
   } catch (error) {
-    console.log("🚀 ~ file: order.controller.js:110 ~ confirmCheckIn ~ error", error);
-    logger.error(`Order:confirmCheckIn:: -  ${error}`);
+    console.log("🚀 ~ file: invoice.controller.js:110 ~ confirmCheckIn ~ error", error);
+    logger.error(`Invoice:confirmCheckIn:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
-const viewOrder = async (req, res) => {
+const viewInvoice = async (req, res) => {
   try {
-    await orderService.viewOrder(req, res);
+    await invoiceService.viewInvoice(req, res);
   } catch (error) {
     console.log(error);
   }
 };
 module.exports = {
-  getOrder,
-  getOrders,
+  getInvoice,
+  getInvoices,
   changeStatus,
-  updateOrder,
-  createOrder,
+  updateInvoice,
+  createInvoice,
   confirmCheckIn,
-  viewOrder
+  viewInvoice
 };

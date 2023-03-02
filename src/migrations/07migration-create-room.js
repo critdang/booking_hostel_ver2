@@ -25,14 +25,18 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
-      adult: {
+      adult_limit: {
         type: Sequelize.INTEGER,
       },
-      kid: {
+      kid_limit: {
         type: Sequelize.INTEGER,
+      },
+      status: {
+        type: Sequelize.ENUM('available', 'unavailable', 'maintenance'),
+        defaultValue: 'available',
       },
       categoryId: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -40,6 +44,17 @@ module.exports = {
           model: 'Category',
           key: 'id',
           as: 'categoryId',
+        },
+      },
+      branchId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Branch',
+          key: 'id',
+          as: 'branchId',
         },
       },
       createdAt: {

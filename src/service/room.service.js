@@ -43,7 +43,7 @@ const getRooms = async (req) => {
   const roomFetch = await db.Room.findAll(
     {
       where: conditions,
-      // order: sort
+      // invoice: sort
     }
   );
   if (!roomFetch) {
@@ -109,54 +109,6 @@ const searchRooms = async (req) => {
     rooms.push(foundRoom);
   }
   return rooms;
-  // const foundRoom = await db.RoomDate.findAll({
-  //   where: {
-  //     [Op.or]: [
-  //       {
-  //         from: {
-  //           [Op.gte]: departure
-  //         },
-  //       },
-  //       {
-  //         to: {
-  //           [Op.lte]: arrival
-  //         },
-  //       }
-  //     ]
-  //   },
-  //   attributes: ['from', 'to'],
-  // });
-  // foundRoom.forEach((item) => {
-  //   item.from = moment(item.from).format('YYYY-MM-DD');
-  //   item.to = moment(item.to).format('YYYY-MM-DD');
-  // });
-
-  // const roomDates = {};
-  // for (const cartRoom of foundOrderRooms) {
-  //   const { checkIn, checkOut } = cartRoom;
-  //   const { id, name, price } = cartRoom.Room;
-  //   // array contain all dates of each room
-  //   if (!roomDates[name]) {
-  //     const roomDate = await db.RoomDate.findAll({
-  //       where: { roomId: id },
-  //       attributes: ['from', 'to'],
-  //     });
-  //     if (_.isEmpty(roomDate)) {
-  //       throw new AppError(
-  //         format(MessageHelper.getMessage('noFoundRoomDate'), id),
-  //       );
-  //     }
-  //     roomDates[name] = roomDate;
-  //   }
-  //   // compare booking date with room date
-  //   for (const date in roomDates[name]) {
-  //     if ((checkIn > date.from && checkIn < date.to) || (checkOut > date.from && checkOut < date.to)) {
-  //       throw new AppError(
-  //         format(MessageHelper.getMessage('roomUnavailable'), name),
-  //       );
-  //     }
-  //   }
-  // }
 };
 
 const updateRoom = async (req) => {

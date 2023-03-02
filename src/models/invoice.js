@@ -3,7 +3,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Cart extends Model {
+  class Invoice extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -16,23 +16,16 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       });
-      // // has many order
-      // this.belongsToMany(models.Order, {
-      //   through: models.CartOrder,
-      // });
-      // this.hasMany(models.CartOrder, {
-      //   foreignKey: 'cartId',
-      // });
-      // has many room
-      // this.belongsToMany(models.Room, {
-      //   through: models.CartRoom,
-      // });
-      this.hasMany(models.CartRoom, {
-        foreignKey: 'cartId',
+      // has many Room
+      this.belongsToMany(models.Room, {
+        through: models.RoomBooking,
+      });
+      this.hasMany(models.RoomBooking, {
+        foreignKey: 'invoiceId',
       });
     }
   }
-  Cart.init({
+  Invoice.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -49,10 +42,24 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    code: DataTypes.STRING,
+    checkinDate: DataTypes.DATE,
+    checkoutDate: DataTypes.DATE,
+    status: {
+      allowNull: false,
+      type: DataTypes.ENUM('Pending', 'Completed', 'Cancel'),
+      defaultValue: 'Pending',
+    },
+    paymentMethod: {
+      type: DataTypes.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
+      defaultValue: 'Pending',
+    },
+    paymentDate: DataTypes.DATEONLY,
+    total: DataTypes.FLOAT,
   }, {
     sequelize,
-    modelName: 'Cart',
+    modelName: 'Invoice',
     freezeTableName: true,
   });
-  return Cart;
+  return Invoice;
 };
