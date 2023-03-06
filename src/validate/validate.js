@@ -79,7 +79,9 @@ const handleGuestValidateMethod = Joi.object({
   ).required(),
   address: Joi.string(),
   phone: Joi.number(),
-  gender: Joi.string()
+  gender: Joi.string(),
+  createdAt: Joi.date(),
+  updatedAt: Joi.date()
 });
 
 exports.handleRoomValidate = async (req, res, next) => {
@@ -102,7 +104,6 @@ exports.handleLoginValidate = async (req, res, next) => {
 
 exports.handleCategoryValidate = async (req, res, next) => {
   try {
-    console.log("🚀 ~ file: validate.js:91 ~ exports.handleCategoryValidate= ~ req.body:", req.body);
     await handleCategoryValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {

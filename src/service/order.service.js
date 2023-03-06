@@ -140,7 +140,7 @@ const createOrder = async (req) => {
   });
 };
 
-const confirmCheckIn = async (req, res) => {
+const confirmCheckIn = async (req) => {
   const { code } = req.params;
 
   if (req.user && req.user.role == 'admin') {

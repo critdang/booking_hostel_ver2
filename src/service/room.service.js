@@ -160,6 +160,7 @@ const searchRooms = async (req) => {
 };
 
 const updateRoom = async (req) => {
+  console.log("🚀 ~ file: room.service.js:165 ~ updateRoom ~ req.body:", req.body);
   const { id } = req.params;
   const updateContents = req.body;
   const result = await db.Room.update(
@@ -168,6 +169,7 @@ const updateRoom = async (req) => {
       where: { id },
     }
   );
+  console.log("🚀 ~ file: room.service.js:172 ~ updateRoom ~ result:", result);
   if (result[0] === 0) {
     throw new AppError(
       format(MessageHelper.getMessage('noRoomUpdated'))
