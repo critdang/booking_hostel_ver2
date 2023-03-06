@@ -7,7 +7,7 @@ const AppError = require("../utils/errorHandle/appError");
 const { VERIFY_MESSAGES } = require("../constants/commonMessage");
 const helperFn = require('../utils/helperFn');
 const MessageHelper = require('../utils/message');
-
+const ResponseHelper = require('../utils/response');
 require('dotenv').config();
 
 const createUser = async (req) => {
@@ -45,6 +45,7 @@ const login = async (req, res) => {
     raw: true,
   });
   if (!foundUser) {
+    ResponseHelper.responseError(res, format(MessageHelper.getMessage('noFoundUser')));
     throw new AppError(
       format(MessageHelper.getMessage('noFoundUser')),
     );
@@ -109,30 +110,6 @@ const forgotPassword = async (req) => {
   return result;
 };
 
-// const updateProfile = async (req) => {
-//   const { id } = req.user;
-//   const data = req.body;
-//   const { password } = req.body;
-//   if (password) {
-//     const hashPassword = await helperFn.hashPassword(password);
-//     const newUser = await db.User.update({
-//       fullName: data.fullName,
-//       email: data.email,
-//       password: hashPassword,
-//       address: data.address,
-//       phone: data.phone,
-//       gender: data.gender,
-//     }, {
-//       where: { id },
-//     });
-//     return newUser;
-//   }
-//   const newUser = await db.User.update(data, {
-//     where: { id },
-//   });
-//   return newUser;
-// };
-
 const updateProfile = async (req) => {
   const { id } = req.user;
   const data = req.body;
@@ -188,6 +165,34 @@ const getUsers = async () => {
   return users;
 };
 
+const ratingRoom = async (req) => {
+  const { userId } = req.user;
+  const { roomId, rating } = req.body;
+  const foundUser = await db.User.findOne({
+    where: { id: userId },
+  });
+  const foundRoom = await db.Room.findOne({
+    where: { id: roomId },
+  });
+  if (!foundUser) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser')),
+    );
+  }
+  if (!foundRoom) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundRoom')),
+    );
+  }
+  // const newRating = await db.Rating.create({
+  //   userId,
+  //   roomId,
+  //   rating,
+  // });
+  const newRating = "Room has been rated";
+  return newRating;
+};
+
 module.exports = {
   createUser,
   login,
@@ -196,5 +201,6 @@ module.exports = {
   updatePassword,
   updateAvatar,
   getUser,
-  getUsers
+  getUsers,
+  ratingRoom
 };
