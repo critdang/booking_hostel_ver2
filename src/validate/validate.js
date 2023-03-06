@@ -80,8 +80,6 @@ const handleGuestValidateMethod = Joi.object({
   address: Joi.string(),
   phone: Joi.number(),
   gender: Joi.string(),
-  createdAt: Joi.date(),
-  updatedAt: Joi.date()
 });
 
 exports.handleRoomValidate = async (req, res, next) => {
