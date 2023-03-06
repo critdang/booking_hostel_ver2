@@ -4,7 +4,8 @@ const auth = require('../utils/middleware/auth');
 
 const router = express.Router();
 router.get('/id/:orderId', auth.protectingRoutes, controller.getOrder);
-router.get('/', auth.protectingRoutes, controller.getOrders);
+// router.get('/', auth.protectingRoutes, controller.getOrders);
+router.get('/', controller.getOrders);
 router.post('/updateStatus/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.changeStatus);
 router.post('/:orderId', auth.protectingRoutes, auth.checkRole('admin'), controller.updateOrder);
 router.post('/', auth.checkUser, controller.createOrder);

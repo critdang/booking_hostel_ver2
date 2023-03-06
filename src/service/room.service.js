@@ -7,11 +7,12 @@ const MessageHelper = require('../utils/message');
 
 const createRoom = async (req) => {
   const inputData = req.body;
+  let newRoomData;
   await sequelize.transaction(async (t) => {
-    const newRoom = await db.Room.create({
-      inputData
-    }, { transaction: t });
-
+    // create room
+    const newRoom = await db.Room.create(inputData, { transaction: t });
+    newRoomData = newRoom;
+    // upload image
     const { files } = req;
     for (const file of files) {
       const { path } = file;
@@ -32,8 +33,8 @@ const createRoom = async (req) => {
         imageId: newImage.id
       }, { transaction: t });
     }
-    return newRoom;
   });
+  return newRoomData;
 };
 
 const getRooms = async (req) => {
@@ -159,6 +160,7 @@ const searchRooms = async (req) => {
 };
 
 const updateRoom = async (req) => {
+  console.log("🚀 ~ file: room.service.js:165 ~ updateRoom ~ req.body:", req.body);
   const { id } = req.params;
   const updateContents = req.body;
   const result = await db.Room.update(
@@ -167,11 +169,13 @@ const updateRoom = async (req) => {
       where: { id },
     }
   );
+  console.log("🚀 ~ file: room.service.js:172 ~ updateRoom ~ result:", result);
   if (result[0] === 0) {
     throw new AppError(
       format(MessageHelper.getMessage('noRoomUpdated'))
     );
   }
+  console.log("🚀 ~ file: room.service.js:171 ~ updateRoom ~ result:", result);
 };
 
 const deleteRoom = async (req) => {

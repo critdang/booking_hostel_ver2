@@ -140,7 +140,7 @@ const createOrder = async (req) => {
   });
 };
 
-const confirmCheckIn = async (req, res) => {
+const confirmCheckIn = async (req) => {
   const { code } = req.params;
 
   if (req.user && req.user.role == 'admin') {
@@ -177,9 +177,9 @@ const confirmCheckIn = async (req, res) => {
       format(MessageHelper.getMessage('noFoundOrderWithCode'), code),
     );
   }
-  return res.render('createInvoice/invoice_order_receipt', { order: foundOrder, admin: req.user });
-  // await helperFn.confirmCheckIn(foundOrder, req.user);
-  // return foundOrder;
+  // return res.render('createInvoice/invoice_order_receipt', { order: foundOrder, admin: req.user });
+  await helperFn.confirmCheckIn(foundOrder, req.user);
+  return foundOrder;
 };
 
 const viewOrder = async (req, res) => {
