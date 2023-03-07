@@ -7,7 +7,8 @@
   "scripts": {
     "start": "nodemon src/server.js",
     "dev": "npx env-cmd -f .env.development nodemon src/server.js",
-    "prod": "npx env-cmd -f .env.production nodemon src/server.js"
+    "prod": "npx env-cmd -f .env.production nodemon src/server.js",
+    "test": "jest --NODE_ENV=test --verbose"
   },
   "repository": {
     "type": "git",
