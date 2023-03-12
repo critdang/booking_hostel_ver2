@@ -78,10 +78,16 @@ const handleRefeshToken = async (req, res) => {
   };
 };
 
-const rating = async (req, res) => {
+const rating = async (req) => {
   const userId = req.user.id;
-  const inputData = req.body;
-  return inputData;
+  const inputData = { ...req.body, userId };
+  const newRating = await db.Rating.create(inputData);
+  if (!newRating) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noRatingCreated')),
+    );
+  }
+  return newRating;
 };
 
 const logOut = async (req, res) => {

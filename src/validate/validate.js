@@ -96,6 +96,18 @@ const handleGuestValidateMethod = Joi.object({
   gender: Joi.string(),
 });
 
+const handleBranchValidateMethod = Joi.object({
+  name: Joi.string().required(),
+  address: Joi.string().required(),
+  phone: Joi.string().required(),
+  email: Joi.string().email({
+    minDomainSegments: 2,
+    tlds: { allow: ['com', 'net'] },
+  }).error(
+    new AppError('Wrong format email', 400),
+  ).required(),
+});
+
 exports.handleRoomValidate = async (req, res, next) => {
   try {
     await handleRoomValidateMethod.validateAsync(req.body);
@@ -176,6 +188,15 @@ exports.handleProfileValidateMethodValidate = async (req, res, next) => {
 exports.handleGuestValidate = async (req, res, next) => {
   try {
     await handleGuestValidateMethod.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleBranchValidate = async (req, res, next) => {
+  try {
+    await handleBranchValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);
