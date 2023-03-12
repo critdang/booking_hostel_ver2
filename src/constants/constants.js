@@ -55,21 +55,16 @@ const ERROR = {
   PriceProductIsRequired: 152,
   SaleProductIsRequired: 153,
   CategorieIsRequired: 158,
-  // Carts 161
-  CanNotGetCart: 161,
-  CanNotCreateCart: 162,
-  CanNotDeleteCart: 163,
-  CanNotUpdateCart: 164,
   // Wishlists 171
   CanNotGetWishlist: 171,
   CanNotCreateWishlist: 172,
   CanNotDeleteWishlist: 173,
   CanNotUpdateWishlist: 174,
   // Wishlists 181
-  CanNotGetOrder: 181,
-  CanNotCreateOrder: 182,
-  CanNotDeleteOrder: 183,
-  CanNotUpdateOrder: 184,
+  CanNotGetInvoice: 181,
+  CanNotCreateInvoice: 182,
+  CanNotDeleteInvoice: 183,
+  CanNotUpdateInvoice: 184,
 };
 
 module.exports = {

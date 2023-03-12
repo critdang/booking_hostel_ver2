@@ -4,6 +4,7 @@ const db = require("../models");
 const AppError = require("../utils/errorHandle/appError");
 const { sequelize } = require("../models");
 const MessageHelper = require('../utils/message');
+const admin = require('../config/configFirebase');
 
 const createRoom = async (req) => {
   const inputData = req.body;
@@ -43,7 +44,7 @@ const getRooms = async (req) => {
   const roomFetch = await db.Room.findAll(
     {
       where: conditions,
-      // order: sort
+      // invoice: sort
     }
   );
   if (!roomFetch) {
@@ -109,54 +110,6 @@ const searchRooms = async (req) => {
     rooms.push(foundRoom);
   }
   return rooms;
-  // const foundRoom = await db.RoomDate.findAll({
-  //   where: {
-  //     [Op.or]: [
-  //       {
-  //         from: {
-  //           [Op.gte]: departure
-  //         },
-  //       },
-  //       {
-  //         to: {
-  //           [Op.lte]: arrival
-  //         },
-  //       }
-  //     ]
-  //   },
-  //   attributes: ['from', 'to'],
-  // });
-  // foundRoom.forEach((item) => {
-  //   item.from = moment(item.from).format('YYYY-MM-DD');
-  //   item.to = moment(item.to).format('YYYY-MM-DD');
-  // });
-
-  // const roomDates = {};
-  // for (const cartRoom of foundOrderRooms) {
-  //   const { checkIn, checkOut } = cartRoom;
-  //   const { id, name, price } = cartRoom.Room;
-  //   // array contain all dates of each room
-  //   if (!roomDates[name]) {
-  //     const roomDate = await db.RoomDate.findAll({
-  //       where: { roomId: id },
-  //       attributes: ['from', 'to'],
-  //     });
-  //     if (_.isEmpty(roomDate)) {
-  //       throw new AppError(
-  //         format(MessageHelper.getMessage('noFoundRoomDate'), id),
-  //       );
-  //     }
-  //     roomDates[name] = roomDate;
-  //   }
-  //   // compare booking date with room date
-  //   for (const date in roomDates[name]) {
-  //     if ((checkIn > date.from && checkIn < date.to) || (checkOut > date.from && checkOut < date.to)) {
-  //       throw new AppError(
-  //         format(MessageHelper.getMessage('roomUnavailable'), name),
-  //       );
-  //     }
-  //   }
-  // }
 };
 
 const updateRoom = async (req) => {
@@ -220,6 +173,25 @@ const deleteImage = async (req) => {
   await foundImg.destroy();
 };
 
+const reviewRoom = async (req, res) => {
+  const dbFireBase = admin.database();
+  const reviewsRef = dbFireBase.ref('reviews');
+  // const review = reviewsRef.child('review');
+  const images = req.files;
+  // create data to REVIEW_IMAGE table
+  const reviewImages = [];
+  for (const image of images) {
+    reviewImages.push(image.path);
+  }
+
+  // push images and data together
+  const inputData = { ...req.body, images: reviewImages };
+
+  const newReview = reviewsRef.push(inputData);
+
+  return res.status(200).json(newReview);
+};
+
 module.exports = {
   createRoom,
   getRooms,
@@ -229,4 +201,5 @@ module.exports = {
   deleteRoom,
   defaultImage,
   deleteImage,
+  reviewRoom
 };

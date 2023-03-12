@@ -17,5 +17,6 @@ router.put('/:id', controller.updateRoom);
 router.delete('/:id', controller.deleteRoom);
 router.post('/default_image/:imgId', auth.protectingRoutes, auth.checkRole('admin'), controller.defaultImage);
 router.delete('/:roomId/:imgId', auth.protectingRoutes, auth.checkRole('admin'), controller.deleteImage);
+router.post('/review', upload.array('images'), controller.reviewRoom);
 
 module.exports = router;

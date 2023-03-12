@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+	<!--  All snippets are MIT license http://bootdey.com/license -->
+	<title>Confirm_for_booking_id_65468798</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<!-- BEGIN INVOICE -->
+			<div class="col-xs-12">
+				<div class="grid invoice">
+					<div class="grid-body">
+						<div class="invoice-title">
+							<div class="row">
+								<div class="col-xs-6">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/CASA_logo.svg" alt=""
+										height="35" style="margin-bottom: 20px;">
+									<h2>Booking Confirmation<br>
+										<span class=" small">invoiceId #<%= invoice.id %></span>
+									</h2>
+									<p>Please present either an electronic or paper copy of your booking confirmation
+										upon
+										check-in.</p>
+								</div>
+								<div class="col-xs-6 text-right">
+									<!-- <img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=200x200"
+										alt="" title="" />
+									<br> -->
+								</div>
+							</div>
+
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-xs-6" style="margin-bottom: 20px">
+								<div>
+									<strong>Customer's Name:</strong>
+									<%= invoice.Guest.fullname %> <br>
+										<strong>Lead guest:</strong>Claudion<br>
+										<strong>Occupancy:</strong>Claudion<br>
+										<strong>Benefits:</strong>Claudion<br>
+										<strong>Special request:</strong>Claudion<br>
+								</div>
+							</div>
+							<div class="col-xs-6 text-right">
+								<div style="background-color: rgb(221,221,221); padding: 2px 8px; height: 140px;">
+									<strong>Email:</strong>
+									<%= invoice.Guest.email %><br>
+										<strong>Tel:</strong>
+										<%= invoice.Guest.phone %><br>
+											<strong>Payment Method:</strong>
+											<%= invoice.paymentMethod %> <br>
+												<strong>Payment Date:</strong>
+												<%= invoice.date %> <br>
+													<strong>Promotion:</strong> nothing <br>
+								</div>
+							</div>
+						</div>
+						<div class=" row">
+							<div class="col-md-12">
+								<p style="background-color: rgb(221,221,221); padding: 2px 8px;">Cancellation
+									Policy:
+									Free Cancellation is free any time before check-in date. If you
+									do not check in or cancel by then, no refund will be given by property.</p>
+							</div>
+							<div class="col-md-12">
+								<p style="background-color: rgb(221,221,221); padding: 2px 8px;">Benefits
+									Included:
+									Parking, Free WiFi, Express check-in, Drinking water</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h3>INVOICE SUMMARY</h3>
+								<table class="table table-striped">
+									<thead>
+										<tr class="line">
+											<% if(admin){ %>
+												<td class="text-center"><strong>RoomID</strong></td>
+												<% }%>
+
+													<td class="text-center"><strong>Check-In</strong></td>
+													<td class="text-center"><strong>Check-Out</strong></td>
+													<td class="text-center"><strong>Price</strong></td>
+													<td class="text-right"><strong>SUBTOTAL</strong></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<% if(admin){ %>
+												<td class="text-center">
+													<%= invoice.RoomBookings.RoomId%>
+												</td>
+												<% }%>
+													<td class="text-center">
+														<%= invoice.RoomBookings.from %>
+													</td>
+													<td class="text-center">
+														<%= invoice.RoomBookings.to %>
+													</td>
+													<td class="text-center">$<%= invoice.RoomBookings.Room.price %>
+													</td>
+													<td class="text-right">$<%= invoice.RoomBookings.Room.price %>
+													</td>
+										</tr>
+										<tr>
+											<% if(admin){ %>
+												<td colspan="3"></td>
+												<% } else{%>
+													<td colspan="2"></td>
+													<% } %>
+														<td class="text-right"><strong>Taxes</strong></td>
+														<td class="text-right"><strong>0</strong></td>
+										</tr>
+										<tr>
+											<% if(admin){ %>
+												<td colspan="3"></td>
+												<% } else{%>
+													<td colspan="2"></td>
+													<% } %>
+														<td class="text-right"><strong>Total</strong></td>
+														<td class="text-right"><strong>$<%= invoice.total %></strong></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-right identity">
+								<p>Designer identity<br><strong>Crit Dang</strong></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-left identity">
+								<img src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=200x200"
+									alt="" title="" style="display: block;
+									margin-left: auto;
+									margin-right: auto;
+									width: 50%;" />
+								<br>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-left identity " style="border:2px solid #dddddd;">
+								<ul>
+									<li><span style="color: red;">Important notice:</span> to protect your
+										personal data and payment
+										information,
+										never disclose your personal data or payment information or transfer
+										funds to any person calling or messaging you from unofficial
+										communication channels outside of Agoda’s platform. If you have received
+										such communications, please report any suspicious or fraudulent activity
+										by contacting our customer support and always check with us if you are
+										unsure before responding to external or suspicious communications
+										(calls, emails, text messages, etc.)</li>
+									<li><span style="color: red;">IMPORTANT:</span> At check-in, you must
+										present a valid photo ID with your
+										address confirming the same name as the lead guest on the booking. For
+										bookings paid with a credit card, you may also need to present the card
+										used to make the payment. Failure to do so may result in the hotel
+										requesting additional payment or your reservation not being honored.
+									</li>
+									<li>All rooms are guaranteed on the day of arrival. In the case of a
+										no-show, your room(s) will be released and you will be subject to the
+										terms and conditions of the Cancellation/No-Show Policy specified at the
+										time you made the booking as well as noted in the Confirmation Email.
+									</li>
+									<li>The total price for this booking does not include mini-bar items,
+										telephone usage, laundry service, etc. The property will bill you
+										directly.
+									</li>
+									<li>In cases where Breakfast is included with the room rate, please note
+										that
+										certain properties may charge extra for children travelling with their
+										parents. If applicable, the property will bill you directly. Upon
+										arrival, if you have any questions, please verify with the property.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END INVOICE -->
+		</div>
+	</div>
+
+	<style type="text/css">
+		body {
+			margin-top: 20px;
+			background: #eee;
+		}
+
+		.invoice {
+			padding: 30px;
+		}
+
+		.invoice h2 {
+			margin-top: 0px;
+			line-height: 0.8em;
+		}
+
+		.invoice .small {
+			font-weight: 300;
+		}
+
+		.invoice hr {
+			margin-top: 10px;
+			border-color: #ddd;
+		}
+
+		.invoice .table tr.line {
+			border-bottom: 1px solid #ccc;
+		}
+
+		.invoice .table td {
+			border: none;
+		}
+
+		.invoice .identity {
+			margin-top: 10px;
+			font-size: 1.1em;
+			font-weight: 300;
+		}
+
+		.invoice .identity strong {
+			font-weight: 600;
+		}
+
+
+		.grid {
+			position: relative;
+			width: 100%;
+			background: #fff;
+			color: #666666;
+			border-radius: 2px;
+			margin-bottom: 25px;
+			box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+		}
+	</style>
+
+	<script type="text/javascript">
+
+	</script>
+</body>
+
+</html>

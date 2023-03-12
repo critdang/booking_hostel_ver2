@@ -105,9 +105,9 @@ exports.forgotPassword = async (to, token) => {
   });
 };
 
-exports.notifyOrder = async (to, order) => {
-  const confirmCheckIn = `${process.env.DOMAIN_BE_PROD}/order/confirmCheckIn/${order.code}`;
-  const data = await ejs.renderFile('./src/views/createOrderNoti/order.ejs', { order, confirmCheckIn });
+exports.notifyInvoice = async (to, invoice) => {
+  const confirmCheckIn = `${process.env.DOMAIN_BE_PROD}/invoice/confirmCheckIn/${invoice.code}`;
+  const data = await ejs.renderFile('./src/views/createInvoiceNoti/invoice.ejs', { invoice, confirmCheckIn });
   const options = { format: 'Letter' };
 
   // create pdf file
@@ -119,20 +119,20 @@ exports.notifyOrder = async (to, order) => {
   await transporter.sendMail({
     from: process.env.EMAIL,
     to,
-    subject: 'Notification about your order',
+    subject: 'Notification about your invoice',
     text: 'Dear customer',
     html: data,
   });
 };
 
-exports.confirmCheckIn = async (foundOrder, dataAdmin) => {
-  const html = ejs.render(fs.readFileSync('./src/views/createInvoice/invoice_order_receipt.ejs', 'utf8'), { order: foundOrder, admin: dataAdmin });
+exports.confirmCheckIn = async (foundInvoice, dataAdmin) => {
+  const html = ejs.render(fs.readFileSync('./src/views/createInvoice/invoice_receipt.ejs', 'utf8'), { invoice: foundInvoice, admin: dataAdmin });
   const options = { format: 'Letter' };
   pdf.create(html, options).toFile('./onlineCheckInTicket.pdf', (err, res) => {
     if (err) return console.log(err);
     console.log("🚀 ~ file: helperFn.js:130 ~ pdf.create ~ res:", res)
   });
-  googleDrive.uploadFile();
+  // googleDrive.uploadFile();
   return 'success';
 };
 
