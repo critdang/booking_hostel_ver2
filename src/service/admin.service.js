@@ -10,7 +10,7 @@ const client = require("../config/connectRedis");
 require('dotenv').config();
 
 const changeBlockUserStt = async (req, res) => {
-  const idUser = +req.params.id;
+  const idUser = req.params.id;
   const existStatus = await db.User.findOne({
     where: { id: idUser },
   });
@@ -55,7 +55,7 @@ const handleRefeshToken = async (req, res) => {
   const { refreshToken } = req.cookies;
   if (!refreshToken) {
     throw new AppError(
-        format(MessageHelper.getMessage('refreshTokenNotFound')),
+      format(MessageHelper.getMessage('refreshTokenNotFound')),
     );
   }
   const { userId } = await JWTAction.verifyRefreshToken(refreshToken);
@@ -78,6 +78,12 @@ const handleRefeshToken = async (req, res) => {
   };
 };
 
+const rating = async (req, res) => {
+  const userId = req.user.id;
+  const inputData = req.body;
+  return inputData;
+};
+
 const logOut = async (req, res) => {
   const { refreshToken } = req.cookies;
   if (!refreshToken) {
@@ -96,5 +102,6 @@ module.exports = {
   verifyResetPassword,
   resetPassword,
   handleRefeshToken,
+  rating,
   logOut
 };

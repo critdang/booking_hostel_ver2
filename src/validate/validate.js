@@ -7,10 +7,14 @@ const handleLoginValidateMethod = Joi.object({
       minDomainSegments: 2,
       tlds: { allow: ['com', 'net'] },
     })
-    .required()
     .error(
-      new AppError('Wrong format email', 400),
-    ),
+      (errors) => {
+        errors.forEach((err) => {
+          console.log("🚀 ~ file: validate.js:15 ~ errors.forEach ~ err:", err);
+        });
+      }
+    )
+    .required(),
   password: Joi.string()
     .regex(/^[a-zA-Z0-9]{1,30}$/)
     .required()
@@ -31,6 +35,16 @@ const handleRoomValidateMethod = Joi.object({
   reserve: Joi.number(),
   active: Joi.number(),
   detail: Joi.string(),
+});
+
+const handleReviewRoomValidateMethod = Joi.object({
+  branchId: Joi.number().required(),
+  roomId: Joi.number().required(),
+  userId: Joi.number().required(),
+  fullName: Joi.string().required(),
+  content: Joi.string().required(),
+  reviewDate: Joi.date(),
+  images: Joi.array(),
 });
 
 const handleCategoryValidateMethod = Joi.object({
@@ -91,11 +105,25 @@ exports.handleRoomValidate = async (req, res, next) => {
   }
 };
 
-exports.handleLoginValidate = async (req, res, next) => {
+exports.handleReviewRoomValidate = async (req, res, next) => {
   try {
-    await handleLoginValidateMethod.validateAsync(req.body);
+    await handleReviewRoomValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleLoginValidate = async (req, res, next) => {
+  try {
+    const joiRes = await handleLoginValidateMethod.validateAsync(req.body);
+    if (joiRes.error) {
+      console.log("🚀 ~ file: validate.js:102 ~ exports.handleLoginValidate= ~ joiRes.error:", joiRes.error);
+    }
+
+    next();
+  } catch (err) {
+    console.log("🚀 ~ file: validate.js:103 ~ exports.handleLoginValidate= ~ err:", err);
     next(err);
   }
 };
@@ -138,7 +166,6 @@ exports.handleForgotPasswordValidate = async (req, res, next) => {
 
 exports.handleProfileValidateMethodValidate = async (req, res, next) => {
   try {
-    console.log("🚀 ~ file: validate.js ~ line 126 ~ exports.handleProfileValidateMethodValidate= ~ req.body", req.body);
     await handleProfileValidateMethod.validateAsync(req.body);
     next();
   } catch (err) {

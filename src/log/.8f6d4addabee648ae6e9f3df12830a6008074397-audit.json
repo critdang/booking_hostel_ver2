@@ -49,6 +49,36 @@
             "date": 1677517329046,
             "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..Tu-02-2023",
             "hash": "a6daa516f5d6397473cb85c6ef7fc472b2ed986c22144858092a409e2e7c74ca"
+        },
+        {
+            "date": 1677662446096,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..We-03-2023",
+            "hash": "7a4e7ef45ba2a3336af085ea98a1f8030548a1471943c36da842d9205e9d7b2e"
+        },
+        {
+            "date": 1677729718179,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..Th-03-2023",
+            "hash": "a35e3208949baf7dcd187ec043abc7579b577dfcaa70b15eb3b4a602fbd124c0"
+        },
+        {
+            "date": 1677906823335,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..Sa-03-2023",
+            "hash": "e8f42254fd8d1969ff772418c1ec6535390fc90f60611bc43e029086c6db7591"
+        },
+        {
+            "date": 1678032184761,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..Su-03-2023",
+            "hash": "a5730e55457ea6ab99909e140fd9d8c9aa9227cf247f17dba0806439075c9595"
+        },
+        {
+            "date": 1678087613342,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..Mo-03-2023",
+            "hash": "0c994dc7ad7ca2ccd4f0edfa823424f39f47ed2cf3cb241731e1da2aaa3b7729"
+        },
+        {
+            "date": 1678149519162,
+            "name": "F:\\Javascript\\Nodejs_project\\booking_hostel_ver2\\src\\log\\event-admin..Tu-03-2023",
+            "hash": "c5db236ff50f13b5478e4862393ac7a2aa957285e3e1c88b6480205dd9bb54f0"
         }
     ],
     "hashType": "sha256"

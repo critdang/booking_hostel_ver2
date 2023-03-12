@@ -11,10 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.Cart, {
-        foreignKey: 'userId',
-      });
-      this.hasMany(models.Order, {
+      this.hasMany(models.Invoice, {
         foreignKey: 'userId',
       });
     }
@@ -49,8 +46,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     role: {
-      type: DataTypes.ENUM('admin', 'user'),
-      defaultValue: 'user',
+      type: DataTypes.ENUM('admin', 'customer', 'receptionist', 'manager', 'cleaner', 'guest'),
+      defaultValue: 'customer',
     },
   }, {
     sequelize,
