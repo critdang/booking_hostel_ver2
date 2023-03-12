@@ -25,7 +25,7 @@ const createUser = async (req) => {
   const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
   const hashPassword = await bcrypt.hash(data.password, saltRounds);
   const newUser = await db.User.create({
-    fullName: data.fullname,
+    fullName: data.fullName,
     email: data.email,
     password: hashPassword,
     address: data.address,
@@ -145,7 +145,10 @@ const updatePassword = async (req) => {
 
 const updateAvatar = async (req) => {
   const { id } = req.user;
+  console.log("🚀 ~ file: user.service.js:141 ~ updateAvatar ~ req.user:", req.user);
   const avatar = await req.file.path;
+  console.log("🚀 ~ file: user.service.js:142 ~ updateAvatar ~ avatar:", avatar);
+
   const newUser = await db.User.update({
     avatar,
   }, {
@@ -155,10 +158,10 @@ const updateAvatar = async (req) => {
 };
 
 const getUser = async (req) => {
-  const { userId } = req.params;
+  const { id } = req.params;
   const user = await db.User.findOne({
     attributes: ['id', 'fullName', 'email', 'address', 'phone', 'avatar'],
-    where: { id: userId },
+    where: { id },
     raw: true,
   });
   return user;
@@ -169,6 +172,14 @@ const getUsers = async () => {
     attributes: { exclude: ['password', 'resetToken'] },
   });
   return users;
+};
+
+const deleteUser = async (req) => {
+  const { id } = req.params;
+  const user = await db.User.destroy({
+    where: { id },
+  });
+  return user;
 };
 
 const ratingRoom = async (req) => {
@@ -208,5 +219,6 @@ module.exports = {
   updateAvatar,
   getUser,
   getUsers,
-  ratingRoom
+  ratingRoom,
+  deleteUser
 };

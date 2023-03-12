@@ -3,46 +3,36 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class RoomDate extends Model {
+  class Service extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Room, {
-        foreignKey: 'roomId',
+      this.belongsToMany(models.Invoice, {
+        through: models.ServiceRequest,
+      });
+      this.hasMany(models.ServiceRequest, {
+        foreignKey: 'serviceId',
       });
     }
   }
-  RoomDate.init({
+  Service.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    roomId: {
-      type: DataTypes.INTEGER,
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-      references: {
-        model: 'Room',
-        key: 'id',
-      },
-    },
-    from: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
-    to: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
+    name: DataTypes.STRING,
+    thumbnail: DataTypes.STRING,
+    description: DataTypes.STRING,
+    price: DataTypes.INTEGER,
   }, {
     sequelize,
-    modelName: 'RoomDate',
+    modelName: 'Service',
     freezeTableName: true,
   });
-  return RoomDate;
+  return Service;
 };

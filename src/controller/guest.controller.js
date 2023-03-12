@@ -15,6 +15,18 @@ const getGuests = async (req, res) => {
   }
 };
 
+const getGuest = async (req, res) => {
+  try {
+    logger.info(`GuestAction:getGuest::`);
+
+    const data = await service.getGuest(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.info(`GuestAction:getGuest:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
+
 const createGuest = async (req, res) => {
   try {
     logger.info(`GuestAction:createGuest::`);
@@ -54,6 +66,7 @@ const deleteGuest = async (req, res) => {
 module.exports = {
   createGuest,
   getGuests,
+  getGuest,
   updateGuest,
   deleteGuest
 };

@@ -44,6 +44,7 @@ module.exports = {
     // updateProfile
     updateProfileSuccess: 'Update profile successfully',
     updateAvatarSuccess: 'Update avatar successfully',
+    updatePasswordSuccess: 'Update password successfully',
 
     // room
     createRoomSuccess: 'Create room successfully',
@@ -68,19 +69,13 @@ module.exports = {
     deleteCategorySuccess: 'Delete category successfully',
     deleteCategoryFailId: 'Delete category fail with id {}',
 
-    // order
-    noFoundOrder: 'No order found with id {}',
-    noFoundOrderWithCode: 'No order found with code {}',
-    noFoundOrders: 'No orders found',
-    updateStatusOderFailed: 'Update order failed',
-    updateOrderFailed: 'Update order failed',
-    creatOrderSuccess: 'Create order successfully',
-
-    // cart
-    addRoomSuccess: 'Add room successfully',
-    cannotRemoveItem: 'Cannot remove item',
-    noFoundCart: 'No cart found with user id {}',
-    removeItemCartSuccess: 'Remove item cart successfully',
+    // invoice
+    noFoundInvoice: 'No invoice found with id {}',
+    noFoundInvoiceWithCode: 'No invoice found with code {}',
+    noFoundInvoices: 'No invoices found',
+    updateStatusOderFailed: 'Update invoice failed',
+    updateInvoiceFailed: 'Update invoice failed',
+    creatInvoiceSuccess: 'Create invoice successfully',
 
     // guest
     cannotFindGuests: 'Cannot find guests',

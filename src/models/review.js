@@ -3,7 +3,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class RoomDate extends Model {
+  class Review extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,9 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Room, {
         foreignKey: 'roomId',
       });
+      this.belongsTo(models.User, {
+        foreignKey: 'userId',
+      });
     }
   }
-  RoomDate.init({
+  Review.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -23,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     roomId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
@@ -31,18 +35,22 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    from: {
+    userId: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      references: {
+        model: 'User',
+        key: 'id',
+      },
     },
-    to: {
-      allowNull: false,
-      type: DataTypes.DATE,
-    },
+    content: DataTypes.STRING,
+    reviewDate: DataTypes.DATE,
   }, {
     sequelize,
-    modelName: 'RoomDate',
+    modelName: 'Review',
     freezeTableName: true,
   });
-  return RoomDate;
+  return Review;
 };
