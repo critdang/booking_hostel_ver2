@@ -88,5 +88,12 @@ module.exports = {
 
     // rating
     ratingSuccess: 'Rating successfully',
+    noRatingCreated: 'No rating created',
+    // branch
+    noFoundBranch: 'No branch found with id {}',
+    cannotFindBranches: 'Cannot find branches',
+    updateBranchSuccess: 'Update branch successfully',
+    noBranchUpdated: 'No branch update successfully',
+    cannotCreateBranch: 'Cannot create branch',
   }
 };
