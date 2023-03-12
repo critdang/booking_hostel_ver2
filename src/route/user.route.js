@@ -19,7 +19,7 @@ router.get("/rating", userController.ratingRoom);
 // router.get("/", auth.protectingRoutes, auth.checkRole('admin'), userController.getUsers);
 router.get("/", userController.getUsers);
 router.get("/accessToken", (req) => { console.log(req.cookies); });
-
 router.get("/block/:id", adminController.changeBlockUserStt);
+router.post("/rating", auth.protectingRoutes, adminController.rating);
 
 module.exports = router;

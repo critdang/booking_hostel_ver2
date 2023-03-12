@@ -90,5 +90,8 @@ module.exports = {
     // team
     noFoundTeamUser: 'No found user in team with id {}',
     deleteUserInTeamSuccess: 'Delete user in team successfully',
+
+    // rating
+    ratingSuccess: 'Rating successfully',
   }
 };

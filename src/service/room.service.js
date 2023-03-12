@@ -4,6 +4,7 @@ const db = require("../models");
 const AppError = require("../utils/errorHandle/appError");
 const { sequelize } = require("../models");
 const MessageHelper = require('../utils/message');
+const admin = require('../config/configFirebase');
 
 const createRoom = async (req) => {
   const inputData = req.body;
@@ -220,6 +221,25 @@ const deleteImage = async (req) => {
   await foundImg.destroy();
 };
 
+const reviewRoom = async (req, res) => {
+  const dbFireBase = admin.database();
+  const reviewsRef = dbFireBase.ref('reviews');
+  // const review = reviewsRef.child('review');
+  const images = req.files;
+  // create data to REVIEW_IMAGE table
+  const reviewImages = [];
+  for (const image of images) {
+    reviewImages.push(image.path);
+  }
+
+  // push images and data together
+  const inputData = { ...req.body, images: reviewImages };
+
+  const newReview = reviewsRef.push(inputData);
+
+  return res.status(200).json(newReview);
+};
+
 module.exports = {
   createRoom,
   getRooms,
@@ -229,4 +249,5 @@ module.exports = {
   deleteRoom,
   defaultImage,
   deleteImage,
+  reviewRoom
 };

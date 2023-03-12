@@ -70,6 +70,22 @@ const handleRefeshToken = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
+const rating = async (req, res) => {
+  try {
+    await service.rating(req, res);
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(COMMON_MESSAGES.INVALID, req.body),
+        CODE.INVALID
+      );
+    }
+
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('ratingSuccess'));
+  } catch (error) {
+    logger.info(`AdminActions:rating:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 
 const logOut = async (req, res) => {
   try {
@@ -86,5 +102,6 @@ module.exports = {
   verifyResetPassword,
   resetPassword,
   handleRefeshToken,
-  logOut
+  logOut,
+  rating
 };

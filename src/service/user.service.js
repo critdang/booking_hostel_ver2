@@ -39,6 +39,12 @@ const createUser = async (req) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+  console.log("🚀 ~ file: user.service.js:42 ~ login ~ req.body:", req.body);
+  if (!email || !password) {
+    throw new AppError(
+      format(MessageHelper.getMessage('Please provide email and password!')),
+    );
+  }
   const foundUser = await db.User.findOne({
     attributes: { exclude: ['createdAt', 'updatedAt', 'resetToken', 'isBlocked'] },
     where: { email },

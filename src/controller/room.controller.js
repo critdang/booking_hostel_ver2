@@ -126,6 +126,19 @@ const deleteImage = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
+
+const reviewRoom = async (req, res) => {
+  try {
+    logger.info(`RoomAction:reviewRoom::${JSON.stringify(req.body)}`);
+
+    const data = await service.reviewRoom(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`RoomAction:reviewRoom:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
+
 module.exports = {
   createRoom,
   getRooms,
@@ -134,5 +147,6 @@ module.exports = {
   updateRoom,
   deleteRoom,
   defaultImage,
-  deleteImage
+  deleteImage,
+  reviewRoom
 };
