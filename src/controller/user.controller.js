@@ -154,5 +154,5 @@ const deleteUser = catchAsync(async (req, res) => {
   }
 });
 module.exports = {
-  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword
+  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword, ratingRoom, deleteUser
 };
