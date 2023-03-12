@@ -5,13 +5,15 @@ const validate = require('../validate/validate');
 const auth = require('../utils/middleware/auth');
 
 const router = express.Router();
-// router.post('/', auth.protectingRoutes, auth.checkRole('admin'), upload.single('thumbnail'), validate.handleCategoryValidate, controller.createCategory);
-router.post('/', upload.single('thumbnail'), validate.handleCategoryValidate, controller.createCategory);
+// route display create new category
+router.post('/', auth.protectingRoutes, auth.checkRole('admin'), upload.single('thumbnail'), validate.handleCategoryValidate, controller.createCategory);
+// route display category by criteria
 router.get('/', controller.getCategories);
+// route display all categories
 router.get('/:id', controller.getCategory);
-// router.put('/:id', auth.protectingRoutes, auth.checkRole('admin'), validate.handleCategoryValidate, controller.updateCategory);
-router.put('/:id', upload.single('thumbnail'), validate.handleCategoryValidate, controller.updateCategory);
-// router.delete('/:id', auth.protectingRoutes, auth.checkRole('admin'), controller.deleteCategory);
-router.delete('/:id', controller.deleteCategory);
+// route used for update category
+router.put('/:id', auth.protectingRoutes, auth.checkRole('admin'), upload.single('thumbnail'), validate.handleCategoryValidate, controller.updateCategory);
+// route used for delete category
+router.delete('/:id', auth.protectingRoutes, auth.checkRole('admin'), controller.deleteCategory);
 
 module.exports = router;

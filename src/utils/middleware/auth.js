@@ -10,6 +10,7 @@ const logger = require('../logger/app-logger');
 const ResponseHelper = require('../response');
 const MessageHelper = require('../message');
 
+// determine the user is login or not
 exports.protectingRoutes = catchAsync(async (req, res, next) => {
   // const token = req.headers.authorization?.startsWith('Bearer')
   // && req.headers.authorization.split(' ')[1];
@@ -34,13 +35,14 @@ exports.protectingRoutes = catchAsync(async (req, res, next) => {
   return next();
 });
 
+// determine the user role is guest or not
 exports.checkUser = async (req, res, next) => {
   try {
   //   const token = req.headers.authorization?.startsWith('Bearer')
   // && req.headers.authorization.split(' ')[1];
     const token = req.cookies?.accessToken;
-
     if (!token) {
+      // the user is guest (not login)
       return next();
     }
     const decodedToken = await JWTAction.verifyToken(token);
@@ -54,11 +56,12 @@ exports.checkUser = async (req, res, next) => {
       attributes: { exclude: ['password', 'resetToken', 'status'] },
       where: { id: decodedToken.userId },
     });
-
+    if (!user) {
+      return next(new AppError('this user does not exist', 401));
+    }
     req.user = user;
     return next();
   } catch (error) {
-    console.log("🚀 ~ file: auth.js ~ line 60 ~ exports.checkUser= ~ error", error);
     logger.error(`AdminAuthentication:login:: - ${error.message}`);
     return ResponseHelper.responseError(res, error.message);
   }
@@ -96,8 +99,8 @@ exports.loginLimiter = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
-exports.checkRole = (role) => (req, res, next) => {
-  if (req.user.role !== role) {
+exports.checkRole = (roles) => (req, res, next) => {
+  if (!roles.includes(req.user.role)) {
     return next(
       new AppError('you dont have permission to do this action', 403)
     );
