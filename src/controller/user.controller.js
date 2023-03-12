@@ -76,7 +76,7 @@ const updatePassword = catchAsync(async (req, res) => {
     }
 
     await service.updatePassword(req, res);
-    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('updateProfileSuccess'));
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('updatePasswordSuccess'));
   } catch (error) {
     console.log("🚀 ~ file: user.controller.js ~ line 77 ~ updateProfile ~ error", error);
     logger.error(`UserAction:updatePassword:: -  ${error}`);
@@ -125,6 +125,17 @@ const getUsers = catchAsync(async (req, res) => {
   }
 });
 
+const deleteUser = catchAsync(async (req, res) => {
+  try {
+    logger.info(`UserAction:forgotPassword::${JSON.stringify(req.params)}`);
+
+    const data = await service.deleteUser(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    logger.error(`UserAction:getUser:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+});
 module.exports = {
-  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword
+  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword, deleteUser
 };

@@ -44,6 +44,7 @@ module.exports = {
     // updateProfile
     updateProfileSuccess: 'Update profile successfully',
     updateAvatarSuccess: 'Update avatar successfully',
+    updatePasswordSuccess: 'Update password successfully',
 
     // room
     createRoomSuccess: 'Create room successfully',

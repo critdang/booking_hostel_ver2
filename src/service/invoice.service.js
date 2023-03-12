@@ -103,7 +103,7 @@ const createInvoice = async (req) => {
   // check thiếu req.body bên controller
   // đẩy tạo user xuống transaction -> tránh tạo user khi tạo invoice thất bại
   if (guestInfo) {
-    const newGuest = await db.Guest.create(guestInfo);
+    const newGuest = await db.Invoice.create(guestInfo);
     guestId = newGuest.id;
   }
   await sequelize.transaction(async (t) => {

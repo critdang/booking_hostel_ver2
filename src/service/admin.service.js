@@ -10,7 +10,7 @@ const client = require("../config/connectRedis");
 require('dotenv').config();
 
 const changeBlockUserStt = async (req, res) => {
-  const idUser = +req.params.id;
+  const idUser = req.params.id;
   const existStatus = await db.User.findOne({
     where: { id: idUser },
   });

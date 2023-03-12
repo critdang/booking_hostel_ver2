@@ -1,4 +1,3 @@
-/* eslint-disable no-trailing-spaces */
 const {
   Model,
 } = require('sequelize');
@@ -77,6 +76,8 @@ module.exports = (sequelize, DataTypes) => {
     categoryId: {
       allowNull: true,
       type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
       references: {
         model: 'Category',
         key: 'id',
@@ -86,12 +87,15 @@ module.exports = (sequelize, DataTypes) => {
     branchId: {
       allowNull: true,
       type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
       references: {
         model: 'Branch',
         key: 'id',
         as: 'branchId',
       },
-    }, 
+    }
+  }, {
     sequelize,
     modelName: 'Room',
     freezeTableName: true,

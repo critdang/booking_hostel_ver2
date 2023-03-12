@@ -10,6 +10,8 @@ module.exports = {
       roomId: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'Room',
           key: 'id',
@@ -18,6 +20,8 @@ module.exports = {
       imageId: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'Image',
           key: 'id',

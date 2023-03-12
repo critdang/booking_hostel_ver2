@@ -9,6 +9,8 @@ module.exports = {
       },
       roomId: {
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'Room',
           key: 'id',
@@ -17,6 +19,8 @@ module.exports = {
       },
       amenityId: {
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'Amenity',
           key: 'id',

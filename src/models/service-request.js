@@ -28,6 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     roomBookingId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
       references: {
         model: 'RoomBooking',
         key: 'id',
@@ -36,6 +38,8 @@ module.exports = (sequelize, DataTypes) => {
     serviceId: {
       allowNull: false,
       type: DataTypes.INTEGER,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
       references: {
         model: 'Service',
         key: 'id',
