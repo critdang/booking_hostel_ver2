@@ -19,7 +19,7 @@ module.exports = {
   test: {
     username: process.env.usernameHotel,
     password: process.env.passwordHotel,
-    database: 'database_test',
+    database: process.env.databaseHotelTest,
     host: process.env.hostHotel,
     dialect: 'mysql',
     logging: true,

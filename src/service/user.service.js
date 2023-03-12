@@ -7,7 +7,7 @@ const AppError = require("../utils/errorHandle/appError");
 const { VERIFY_MESSAGES } = require("../constants/commonMessage");
 const helperFn = require('../utils/helperFn');
 const MessageHelper = require('../utils/message');
-
+const ResponseHelper = require('../utils/response');
 require('dotenv').config();
 
 const createUser = async (req) => {
@@ -39,12 +39,19 @@ const createUser = async (req) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+  console.log("🚀 ~ file: user.service.js:42 ~ login ~ req.body:", req.body);
+  if (!email || !password) {
+    throw new AppError(
+      format(MessageHelper.getMessage('Please provide email and password!')),
+    );
+  }
   const foundUser = await db.User.findOne({
     attributes: { exclude: ['createdAt', 'updatedAt', 'resetToken', 'isBlocked'] },
     where: { email },
     raw: true,
   });
   if (!foundUser) {
+    ResponseHelper.responseError(res, format(MessageHelper.getMessage('noFoundUser')));
     throw new AppError(
       format(MessageHelper.getMessage('noFoundUser')),
     );
@@ -138,10 +145,10 @@ const updatePassword = async (req) => {
 
 const updateAvatar = async (req) => {
   const { id } = req.user;
-  console.log("🚀 ~ file: user.service.js:141 ~ updateAvatar ~ req.user:", req.user)
+  console.log("🚀 ~ file: user.service.js:141 ~ updateAvatar ~ req.user:", req.user);
   const avatar = await req.file.path;
-  console.log("🚀 ~ file: user.service.js:142 ~ updateAvatar ~ avatar:", avatar)
-  
+  console.log("🚀 ~ file: user.service.js:142 ~ updateAvatar ~ avatar:", avatar);
+
   const newUser = await db.User.update({
     avatar,
   }, {
@@ -175,6 +182,34 @@ const deleteUser = async (req) => {
   return user;
 };
 
+const ratingRoom = async (req) => {
+  const { userId } = req.user;
+  const { roomId, rating } = req.body;
+  const foundUser = await db.User.findOne({
+    where: { id: userId },
+  });
+  const foundRoom = await db.Room.findOne({
+    where: { id: roomId },
+  });
+  if (!foundUser) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser')),
+    );
+  }
+  if (!foundRoom) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundRoom')),
+    );
+  }
+  // const newRating = await db.Rating.create({
+  //   userId,
+  //   roomId,
+  //   rating,
+  // });
+  const newRating = "Room has been rated";
+  return newRating;
+};
+
 module.exports = {
   createUser,
   login,
@@ -184,5 +219,6 @@ module.exports = {
   updateAvatar,
   getUser,
   getUsers,
+  ratingRoom,
   deleteUser
 };

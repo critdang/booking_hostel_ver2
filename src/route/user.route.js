@@ -27,8 +27,13 @@ router.get("/", auth.protectingRoutes, auth.checkRole(['admin']), userController
 // route for delete user (admin only)
 router.delete("/:id", auth.protectingRoutes, auth.checkRole(['admin']), userController.deleteUser);
 // route for user get access token
+router.get("/:userId", auth.protectingRoutes, auth.checkRole('admin'), userController.getUser);
+router.get("/rating", userController.ratingRoom);
+// router.get("/", auth.protectingRoutes, auth.checkRole('admin'), userController.getUsers);
+router.get("/", userController.getUsers);
 router.get("/accessToken", (req) => { console.log(req.cookies); });
-// route for block user (admin only)
+
 router.get("/block/:id", adminController.changeBlockUserStt);
+router.post("/rating", auth.protectingRoutes, adminController.rating);
 
 module.exports = router;

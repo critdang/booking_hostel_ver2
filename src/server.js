@@ -74,5 +74,7 @@ app.listen(process.env.PORT_BE, (err) => {
   if (err) {
     console.log(err);
   }
-  console.log(`🚀 Server is listening at port ${process.env.PORT_BE}`);
+  console.log(`🚀 Server is listening at port http://localhost:${process.env.PORT_BE}`);
 });
+
+module.exports = app;

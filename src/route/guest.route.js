@@ -14,5 +14,9 @@ router.post("/", auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']
 router.put("/:id", auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), validate.handleGuestValidate, controller.updateGuest);
 // route used for delete guest
 router.delete("/:id", auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), controller.deleteGuest);
+router.get("/", controller.getGuests);
+router.post("/", validate.handleGuestValidate, controller.createGuest);
+// router.put("/:id", auth.protectingRoutes, auth.checkRole('admin'), validate.handleRoomValidate, controller.updateGuest);
+router.put("/:id", validate.handleGuestValidate, controller.updateGuest);
 
 module.exports = router;

@@ -5,7 +5,7 @@ const { google } = require('googleapis');
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID, // Google client ID
     process.env.GOOGLE_CLIENT_SECRET, // Google client secret
-    process.env.GOOGLE_CLIENT_REDIRECT_URL // redirectUrl 
+    process.env.GOOGLE_CLIENT_REDIRECT_URL // redirectUrl
 );
 
 oauth2Client.setCredentials({
@@ -38,5 +38,5 @@ exports.uploadFile = async () => {
           body: 'Hello World'
         }
       });
-    console.log("🚀 ~ file: googleApi.js:54 ~ exports.uploadFile= ~ response:", response)
+    console.log("🚀 ~ file: googleApi.js:54 ~ exports.uploadFile= ~ response:", response);
 };

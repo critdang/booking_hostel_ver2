@@ -125,6 +125,23 @@ const getUsers = catchAsync(async (req, res) => {
   }
 });
 
+const ratingRoom = catchAsync(async (req, res) => {
+  try {
+    logger.info(`UserAction:ratingRoom::${JSON.stringify(req.body)}`);
+    if (_.isEmpty(req.body)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'body')
+      );
+    }
+
+    await service.ratingRoom(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('ratingRoomSuccess'));
+  } catch (error) {
+    logger.error(`UserAction:ratingRoom:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+});
+
 const deleteUser = catchAsync(async (req, res) => {
   try {
     logger.info(`UserAction:forgotPassword::${JSON.stringify(req.params)}`);
@@ -137,5 +154,5 @@ const deleteUser = catchAsync(async (req, res) => {
   }
 });
 module.exports = {
-  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword, deleteUser
+  createUser, login, forgotPassword, updateProfile, updateAvatar, getUser, getUsers, updatePassword
 };
