@@ -5,6 +5,7 @@ const invoiceRouter = require('./invoice.route');
 const categoryRouter = require('./category.route');
 const guestRouter = require('./guest.route');
 const teamRouter = require('./team.route');
+const branchRouter = require('./branch.route');
 
 const initRoutes = (app) => {
   app.use('/', authRouter);
@@ -14,6 +15,7 @@ const initRoutes = (app) => {
   app.use('/invoice', invoiceRouter);
   app.use('/guest', guestRouter);
   app.use('/team', teamRouter);
+  app.use('/branch', branchRouter);
   app.use('/', (req, res) => res.status(200).json('Welcome to my API server for CASA. This API is authorized by Crit Dang and is not for public use.'));
   // Handle not found URL errors
   app.use("*", (req, res) => {
