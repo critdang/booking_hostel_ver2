@@ -39,7 +39,6 @@ const createUser = async (req) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  console.log("🚀 ~ file: user.service.js:42 ~ login ~ req.body:", req.body);
   if (!email || !password) {
     throw new AppError(
       format(MessageHelper.getMessage('Please provide email and password!')),
@@ -56,6 +55,8 @@ const login = async (req, res) => {
       format(MessageHelper.getMessage('noFoundUser')),
     );
   }
+  const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '15m');
+  const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
   const data = {
     userInfo: {
       userId: foundUser.id,
@@ -65,7 +66,7 @@ const login = async (req, res) => {
       phone: foundUser.phone,
       avatar: foundUser.avatar,
       gender: foundUser.gender,
-      role: foundUser.role
+      role: foundUser.role,
     }
   };
   const isValid = bcrypt.compareSync(password, foundUser.password);
@@ -75,19 +76,18 @@ const login = async (req, res) => {
       format(MessageHelper.getMessage('wrongPassword')),
     );
   }
-  const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '10s');
-  const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    maxAge: 365 * 24 * 60 * 60 * 100,
+    maxAge: 60 * 60 * 1000,
     sameSite: 'strict',
-    // secure: true, //ssl nếu có, nếu chạy localhost thì comment nó lại
+    // secure: true, //cookie will only be sent over HTTPS
   }).cookie('accessToken', accessToken, {
     httpOnly: true,
     sameSite: 'strict',
-    maxAge: 365 * 24 * 60 * 60 * 100,
+    maxAge: 60 * 60 * 1000,
   });
+  console.log('accessToken and refreshToken: ', accessToken, refreshToken);
   data.accessToken = accessToken;
   data.refreshToken = refreshToken;
 

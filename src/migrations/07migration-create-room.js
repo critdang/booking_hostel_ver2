@@ -25,10 +25,10 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
-      adult_limit: {
+      adult: {
         type: Sequelize.INTEGER,
       },
-      kid_limit: {
+      kid: {
         type: Sequelize.INTEGER,
       },
       status: {
