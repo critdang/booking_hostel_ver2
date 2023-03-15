@@ -67,8 +67,8 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     hot: DataTypes.BOOLEAN,
     active: DataTypes.BOOLEAN,
-    adult_limit: DataTypes.INTEGER,
-    kid_limit: DataTypes.INTEGER,
+    adult: DataTypes.INTEGER,
+    kid: DataTypes.INTEGER,
     status: {
       type: DataTypes.ENUM('available', 'unavailable', 'maintenance'),
       defaultValue: 'available',
