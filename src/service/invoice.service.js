@@ -55,10 +55,10 @@ const changeStatus = async (req) => {
 
 const updateInvoice = async (req) => {
   const id = req.params.invoiceId;
-  const { newStatus } = req.body;
+  const updateContent = req.body;
 
   const result = await db.Invoice.update(
-    { status: newStatus },
+    updateContent,
     {
       where: {
         id,
@@ -75,13 +75,26 @@ const updateInvoice = async (req) => {
 };
 
 const createInvoice = async (req) => {
-  const userInfo = req.user;
   const {
-    paymentMethod, guestInfo, rooms, searchInfo
+    payment, customerInfo, rooms, searchInfo
   } = req.body;
-  let guestId = null;
+
+  // if user is not logged in, create a guest in user table
+  let userId = null;
+  let userInfo = req.user;
+  if (!userInfo) {
+    userInfo = customerInfo;
+    customerInfo.role = 'guest';
+    customerInfo.avatar = 'default.jpg';
+    const newGuest = await db.User.create(customerInfo);
+    userId = newGuest.id;
+  } else {
+    userId = userInfo.id;
+  }
+  // find rooms
   const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
   let total = 0;
+  const { paymentMethod } = payment;
   const foundRooms = [];
   for (const room of rooms) {
     const foundRoom = await db.Room.findOne({
@@ -102,17 +115,14 @@ const createInvoice = async (req) => {
   }
   // check thiếu req.body bên controller
   // đẩy tạo user xuống transaction -> tránh tạo user khi tạo invoice thất bại
-  if (guestInfo) {
-    const newGuest = await db.Invoice.create(guestInfo);
-    guestId = newGuest.id;
-  }
   await sequelize.transaction(async (t) => {
     // create invoice
     const newInvoice = await db.Invoice.create({
       code,
       date: new Date(),
-      userId: (userInfo == undefined) ? null : userInfo.id,
-      guestId,
+      userId,
+      checkinDate: searchInfo.From,
+      checkoutDate: searchInfo.To,
       paymentMethod,
       total,
     }, { transaction: t });
@@ -129,18 +139,20 @@ const createInvoice = async (req) => {
         roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
+        adults: searchInfo.adults,
+        kids: searchInfo.kids,
         invoiceId: newInvoice.id,
       }, { transaction: t });
     }
     newInvoice.date = moment(newInvoice.date).format('DD/MM/YYYY');
     newInvoice.userInfo = userInfo;
-    newInvoice.guestInfo = guestInfo;
     newInvoice.rooms = foundRooms;
-    return helperFn.notifyInvoice(guestInfo.email, newInvoice);
+    return helperFn.notifyInvoice(userInfo.email, newInvoice);
   });
 };
 
-const confirmCheckIn = async (req) => {
+// function confirmCheckIn use to confirm check in when user click on link in email
+const confirmCheckIn = async (req, res) => {
   const { code } = req.params;
 
   if (req.user && req.user.role == 'admin') {
@@ -183,9 +195,9 @@ const confirmCheckIn = async (req) => {
 };
 
 const viewInvoice = async (req, res) => {
-  const { option } = req.params;
-  const foundInvoice = await db.Invoice.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'date', 'total', 'paymentMethod', 'userId'] });
-  // foundInvoice.date = moment(foundInvoice.date).format('DD/MM/YYYY, h:mm:ss a');
+  // const { option } = req.params;
+  const foundInvoice = await db.Invoice.findOne({ where: { userId: req.user.id }, attributes: ['id', 'code', 'paymentDate', 'total', 'paymentMethod', 'userId'] });
+  foundInvoice.paymentDate = moment(foundInvoice.paymentDate).format('DD/MM/YYYY, h:mm:ss a');
   foundInvoice.userInfo = await db.User.findOne({ where: { id: foundInvoice.userId }, attributes: ['id', 'fullname', 'email', 'phone', 'address'] });
   const foundRoomBooking = await db.RoomBooking.findAll({ where: { invoiceId: foundInvoice.id }, attributes: ['roomId', 'from', 'to'] });
   const rooms = [];
@@ -207,7 +219,6 @@ const viewInvoice = async (req, res) => {
   }
   foundInvoice.rooms = rooms;
   foundInvoice.confirmCheckInLink = `http://localhost:8080/invoice/confirmCheckIn/${foundInvoice.code}`;
-  console.log("🚀 ~ file: invoice.service.js:209 ~ viewInvoice ~ foundInvoice:", foundInvoice)
   res.render('createInvoiceNoti/invoice', { invoice: foundInvoice });
 };
 module.exports = {
