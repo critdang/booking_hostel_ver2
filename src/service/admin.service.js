@@ -98,7 +98,7 @@ const logOut = async (req, res) => {
     );
   }
   const { userId } = JWTAction.verifyRefreshToken(refreshToken);
-  client.del(userId.toString());
+  // client.del(userId.toString());
   res.clearCookie('refreshToken');
   res.clearCookie('accessToken');
 };

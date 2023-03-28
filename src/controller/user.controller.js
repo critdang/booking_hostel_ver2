@@ -21,8 +21,8 @@ const createUser = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    console.log("🚀 ~ file: user.service.js:41 ~ login ~ req:", req.body)
     logger.info(`UserAuthentication:login::${JSON.stringify(req.body)}`);
-
     const data = await service.login(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
@@ -85,6 +85,7 @@ const updatePassword = catchAsync(async (req, res) => {
 });
 
 const updateAvatar = async (req, res) => {
+  console.log("🚀 ~ file: user.controller.js:88 ~ updateAvatar ~ req:", req.body)
   try {
     logger.info(`UserAction:updateAvatar::${JSON.stringify(req.file)}`);
     if (_.isEmpty(req.file)) {
