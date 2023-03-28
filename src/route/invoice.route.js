@@ -3,13 +3,19 @@ const controller = require('../controller/invoice.controller');
 const auth = require('../utils/middleware/auth');
 
 const router = express.Router();
+// route for get invoice by id
 router.get('/id/:invoiceId', auth.protectingRoutes, controller.getInvoice);
-// router.get('/', auth.protectingRoutes, controller.getInvoices);
-router.get('/', controller.getInvoices);
-router.post('/updateStatus/:invoiceId', auth.protectingRoutes, auth.checkRole('admin'), controller.changeStatus);
-router.post('/:invoiceId', auth.protectingRoutes, auth.checkRole('admin'), controller.updateInvoice);
+// route for get all invoices (admin and receptionist only)
+router.get('/', auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), controller.getInvoices);
+// route for update the invoice status (admin only)
+router.post('/updateStatus/:invoiceId', auth.protectingRoutes, auth.checkRole(['admin']), controller.changeStatus);
+// route for update the invoice information (for example, change the payment method)
+router.post('/:invoiceId', auth.protectingRoutes, controller.updateInvoice);
+// route for create invoice
 router.post('/', auth.checkUser, controller.createInvoice);
+// route for user to confirm check in (via link attached in email)
 router.get('/confirmCheckIn/:code', auth.checkUser, controller.confirmCheckIn);
+// route for user to view their invoice
 router.get('/view/:option', auth.protectingRoutes, controller.viewInvoice);
 
 module.exports = router;

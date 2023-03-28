@@ -160,7 +160,7 @@ const updateAvatar = async (req) => {
 const getUser = async (req) => {
   const { id } = req.params;
   const user = await db.User.findOne({
-    attributes: ['id', 'fullName', 'email', 'address', 'phone', 'avatar'],
+    attributes: ['id', 'fullName', 'email', 'address', 'phone', 'gender', 'avatar'],
     where: { id },
     raw: true,
   });
