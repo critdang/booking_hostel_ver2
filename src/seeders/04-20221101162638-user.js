@@ -18,7 +18,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      fullName: 'Huy',
+      fullName: 'Dang Quoc Huy',
       email: 'huy@gmail.com',
       password: await helperFn.hashPassword('123456'),
       address: '12 Hàm Nghi',
@@ -32,7 +32,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      fullName: 'Dai',
+      fullName: 'Nguyen Quang Dai',
       email: 'dai@gmail.com',
       password: await helperFn.hashPassword('123456'),
       address: '45 Lý Thái Tổ',
@@ -46,7 +46,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      fullName: 'Duc',
+      fullName: 'Nguyen Van Duc',
       email: 'duc@gmail.com',
       password: await helperFn.hashPassword('123456'),
       address: '35 Nguyễn Văn Linh',
@@ -60,7 +60,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      fullName: 'Chuong',
+      fullName: 'Nguyen Duc Chuong',
       email: 'chuong@gmail.com',
       password: await helperFn.hashPassword('123456'),
       address: '56 Trần Duy Hưng',
@@ -88,7 +88,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
-      fullName: 'Nhan',
+      fullName: 'Nguyen Duc Nhan',
       email: 'nhan@gmail.com',
       password: await helperFn.hashPassword('123456'),
       address: '67 Trần Hưng Đạo',

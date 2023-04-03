@@ -59,14 +59,12 @@ const login = async (req, res) => {
   const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
   const data = {
     userInfo: {
-      userId: foundUser.id,
       fullName: foundUser.fullName,
       email: foundUser.email,
       address: foundUser.address,
       phone: foundUser.phone,
       avatar: foundUser.avatar,
       gender: foundUser.gender,
-      role: foundUser.role,
     }
   };
   const isValid = bcrypt.compareSync(password, foundUser.password);
