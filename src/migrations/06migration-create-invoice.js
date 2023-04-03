@@ -28,6 +28,18 @@ module.exports = {
       paymentDate: {
         type: Sequelize.DATEONLY,
       },
+      paymentAccountName: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      paymentAccountNumber: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      checkInStatus: {
+        type: Sequelize.ENUM('Not Check In', 'Check In', 'Check Out'),
+        defaultValue: 'Not Check In',
+      },
       total: {
         type: Sequelize.FLOAT,
       },

@@ -34,10 +34,10 @@ const getBranches = async (req) => {
 
 const getBranch = async (req) => {
   const { id } = req.params;
-  const roomFetch = await db.Branch.findAll({
+  const roomFetch = await db.Branch.findOne({
     where: { id },
   });
-  if (roomFetch.length === 0) {
+  if (!roomFetch) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundBranch'), id),
     );

@@ -14,6 +14,7 @@ const getInvoice = async (req, res) => {
     const data = await invoiceService.getInvoice(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
+    console.log("🚀 ~ file: invoice.controller.js:17 ~ getInvoice ~ error:", error);
     logger.error(`InvoiceActions:getInvoice:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }

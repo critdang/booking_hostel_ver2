@@ -6,20 +6,93 @@ const AppError = require("../utils/errorHandle/appError");
 const MessageHelper = require('../utils/message');
 const { sequelize } = require("../config/connectDB");
 const helperFn = require('../utils/helperFn');
+const admin = require('../config/configFirebase');
 
 const getInvoice = async (req) => {
   const { invoiceId } = req.params;
+  // [START] - query services from Firebase
+  const dbFireBase = admin.database();
+  const serviceRef = dbFireBase.ref('service');
+  // Define an async function to retrieve service data from Firebase
+  const getServices = async () => {
+    const snapshot = await serviceRef.once('value');
+    return snapshot.val();
+  };
+
+  // Wait for the Firebase query and the database queries to complete
+  const [servicesData] = await Promise.all([
+    getServices(),
+  ]);
+
+  // Transform the services data from Firebase to an array of objects
+  const services = [{ ...servicesData }];
+  // get total services price
+  const totalServicesPrice = services.reduce((acc, curr) => acc + curr.price, 0);
+
+  // [END] - query services from Firebase
   const foundInvoice = await db.Invoice.findOne({
     where: {
       id: invoiceId,
-    }
+    },
+    include: [{
+      model: db.RoomBooking,
+      include: {
+        model: db.Room,
+        include: {
+          model: db.Branch,
+        }
+      }
+    }],
+    raw: true,
+    nest: true,
   });
+  const extractedInvoice = {
+    id: foundInvoice.id,
+    code: foundInvoice.code,
+    checkinDate: foundInvoice.checkinDate,
+    checkoutDate: foundInvoice.checkoutDate,
+    status: foundInvoice.status,
+    paymentMethod: foundInvoice.paymentMethod,
+    paymentDate: foundInvoice.paymentDate,
+    paymentAccountName: foundInvoice.paymentAccountName,
+    paymentAccountNumber: foundInvoice.paymentAccountNumber,
+    checkInStatus: foundInvoice.checkInStatus,
+    total: foundInvoice.total,
+  };
+  const extractedBranch = {
+    id: foundInvoice.RoomBookings.Room.Branch.id,
+    name: foundInvoice.RoomBookings.Room.Branch.name,
+    address: foundInvoice.RoomBookings.Room.Branch.address,
+    phone: foundInvoice.RoomBookings.Room.Branch.phone,
+    email: foundInvoice.RoomBookings.Room.Branch.email,
+  };
+  const foundCustomer = await db.User.findOne({
+    where: {
+      id: foundInvoice.userId,
+    },
+    attributes: { exclude: ['password', 'resetToken', 'role', 'status', 'isBlocked'] }
+  });
+
+  const total = foundInvoice.total + totalServicesPrice;
   if (!foundInvoice) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundInvoice'), invoiceId),
     );
   }
-  return foundInvoice;
+  if (!foundCustomer) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser'), foundInvoice.userId),
+    );
+  }
+
+  const result = {
+    invoice: extractedInvoice,
+    customer: foundCustomer,
+    branch: extractedBranch,
+    services,
+    total,
+  };
+  return result;
 };
 
 const getInvoices = async () => {
@@ -84,7 +157,7 @@ const createInvoice = async (req) => {
   let userInfo = req.user;
   if (!userInfo) {
     userInfo = customerInfo;
-    customerInfo.role = 'guest';
+    customerInfo.role = 'customer';
     customerInfo.avatar = 'default.jpg';
     const newGuest = await db.User.create(customerInfo);
     userId = newGuest.id;
