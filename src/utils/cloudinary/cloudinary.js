@@ -21,4 +21,22 @@ const imageProcess = {
   },
 };
 
-module.exports = { cloudinary, imageProcess };
+// Get all images' URLs from a folder
+const getFolderImages = async (folderName) => {
+  const options = { type: 'upload', prefix: folderName };
+  const { resources } = await cloudinary.search.expression(`${folderName}/*`).execute();
+
+  const imageUrls = resources.map((resource) => cloudinary.url(resource.public_id));
+  return imageUrls;
+};
+
+const test = async () => {
+  // Usage
+  await getFolderImages('hotel_service').then((urls) => {
+    console.log(urls);
+  }).catch((error) => {
+    console.log(error);
+  });
+};
+
+module.exports = { cloudinary, imageProcess, test };

@@ -21,13 +21,13 @@ router.put("/updateProfile", auth.protectingRoutes, validate.handleProfileValida
 // route for user reset password
 router.put("/updatePassword", auth.protectingRoutes, userController.updatePassword);
 // route for display user information (admin only)
-router.get("/:id", auth.protectingRoutes, auth.checkRole(['admin']), userController.getUser);
+// router.get("/:id", auth.protectingRoutes, auth.checkRole(['admin']), userController.getUser);
+router.get("/:id", userController.getUser);
 // route for display all user (admin only)
 router.get("/", auth.protectingRoutes, auth.checkRole(['admin']), userController.getUsers);
 // route for delete user (admin only)
 router.delete("/:id", auth.protectingRoutes, auth.checkRole(['admin']), userController.deleteUser);
 // route for user get access token
-router.get("/:userId", auth.protectingRoutes, auth.checkRole('admin'), userController.getUser);
 router.get("/rating", userController.ratingRoom);
 // router.get("/", auth.protectingRoutes, auth.checkRole('admin'), userController.getUsers);
 router.get("/", userController.getUsers);
