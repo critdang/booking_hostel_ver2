@@ -71,7 +71,7 @@ const getRoom = async (req) => {
 const searchRooms = async (req) => {
   let {
     // eslint-disable-next-line prefer-const
-    arrival, departure, adults, kids
+    branch, arrival, departure, adults, kids
   } = req.query;
   adults = adults.split(',');
   kids = kids.split(',');
@@ -82,6 +82,7 @@ const searchRooms = async (req) => {
         [Op.and]: [
           { adult: { [Op.gte]: adults[i] } },
           { kid: { [Op.gte]: kids[i] } },
+          { branchId: { [Op.eq]: branch }}
         ],
       },
       attributes: ['id', 'name', 'price'],
