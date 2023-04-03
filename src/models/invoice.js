@@ -55,6 +55,12 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'Pending',
     },
     paymentDate: DataTypes.DATEONLY,
+    paymentAccountName: { type: DataTypes.STRING, allowNull: true },
+    paymentAccountNumber: { type: DataTypes.STRING, allowNull: true },
+    checkInStatus: {
+      type: DataTypes.ENUM('Not Check In', 'Check In', 'Check Out'),
+      defaultValue: 'Not Check In',
+    },
     total: DataTypes.FLOAT,
   }, {
     sequelize,
