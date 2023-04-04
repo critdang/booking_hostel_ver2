@@ -45,7 +45,6 @@ const getRoom = async (req, res) => {
 const searchRooms = async (req, res) => {
   try {
     logger.info(`RoomAction:getRoom::req.params - ${JSON.stringify(req.params)}`);
-
     const data = await service.searchRooms(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {

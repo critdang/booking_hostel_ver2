@@ -70,11 +70,13 @@ app.use("*", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT_BE, (err) => {
+// config PORT
+const PORT_BE_CONFIG = process.env.NODE_ENV === 'development' ? process.env.PORT_BE : process.env.PORT_TEST;
+app.listen(PORT_BE_CONFIG, (err) => {
   if (err) {
     console.log(err);
   }
-  console.log(`🚀 Server is listening at port http://localhost:${process.env.PORT_BE}`);
+  console.log(`🚀 Server is listening at port http://localhost:${PORT_BE_CONFIG}`);
 });
 
 module.exports = app;

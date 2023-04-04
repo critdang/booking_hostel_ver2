@@ -7,7 +7,6 @@ const AppError = require("../utils/errorHandle/appError");
 const { VERIFY_MESSAGES } = require("../constants/commonMessage");
 const helperFn = require('../utils/helperFn');
 const MessageHelper = require('../utils/message');
-const ResponseHelper = require('../utils/response');
 require('dotenv').config();
 
 const createUser = async (req) => {
@@ -41,18 +40,22 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     throw new AppError(
-      format(MessageHelper.getMessage('Please provide email and password!')),
+      format(MessageHelper.getMessage('providedPassword')),
     );
   }
   const foundUser = await db.User.findOne({
-    attributes: { exclude: ['createdAt', 'updatedAt', 'resetToken', 'isBlocked'] },
+    attributes: { exclude: ['createdAt', 'updatedAt', 'resetToken'] },
     where: { email },
     raw: true,
   });
   if (!foundUser) {
-    ResponseHelper.responseError(res, format(MessageHelper.getMessage('noFoundUser')));
     throw new AppError(
       format(MessageHelper.getMessage('noFoundUser')),
+    );
+  }
+  if (foundUser.isBlocked) {
+    throw new AppError(
+      format(MessageHelper.getMessage('blockedUser')),
     );
   }
   const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '15m');

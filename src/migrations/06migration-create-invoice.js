@@ -22,7 +22,7 @@ module.exports = {
         defaultValue: 'Pending',
       },
       paymentMethod: {
-        type: Sequelize.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
+        type: Sequelize.ENUM('Pending', 'VISA', 'Cash', 'PayPal'),
         defaultValue: 'Pending',
       },
       paymentDate: {

@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'Pending',
     },
     paymentMethod: {
-      type: DataTypes.ENUM('Pending', 'Visa', 'Cash', 'PayPal'),
+      type: DataTypes.ENUM('Pending', 'VISA', 'Cash', 'PayPal'),
       defaultValue: 'Pending',
     },
     paymentDate: DataTypes.DATEONLY,

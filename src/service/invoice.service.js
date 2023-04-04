@@ -91,6 +91,7 @@ const getInvoice = async (req) => {
     branch: extractedBranch,
     services,
     total,
+    totalServicesPrice
   };
   return result;
 };
