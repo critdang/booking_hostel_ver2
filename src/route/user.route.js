@@ -14,6 +14,7 @@ router.post("/register", validate.handleRegisterValidate, userController.createU
 router.put("/updateAvatar", auth.protectingRoutes, upload.single('avatar'), userController.updateAvatar);
 // route for user login
 router.post("/login", validate.handleLoginValidate, userController.login);
+// router.post("/login", userController.login);
 // route for user forgot password
 router.post("/forgotPassword", validate.handleForgotPasswordValidate, userController.forgotPassword);
 // route for user update personal information

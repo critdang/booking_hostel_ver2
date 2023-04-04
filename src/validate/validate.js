@@ -1,26 +1,14 @@
 const Joi = require('joi');
 const AppError = require('../utils/errorHandle/appError');
+const helperFn = require('../utils/helperFn');
 
 const handleLoginValidateMethod = Joi.object({
   email: Joi.string()
     .email({
       minDomainSegments: 2,
       tlds: { allow: ['com', 'net'] },
-    })
-    .error(
-      (errors) => {
-        errors.forEach((err) => {
-          console.log("🚀 ~ file: validate.js:15 ~ errors.forEach ~ err:", err);
-        });
-      }
-    )
-    .required(),
-  password: Joi.string()
-    .regex(/^[a-zA-Z0-9]{1,30}$/)
-    .required()
-    .error(
-      new AppError('Wrong format password', 400),
-    ),
+    }).required(),
+  password: Joi.string().trim().required()
 });
 
 const handleRoomValidateMethod = Joi.object({
@@ -128,15 +116,14 @@ exports.handleReviewRoomValidate = async (req, res, next) => {
 
 exports.handleLoginValidate = async (req, res, next) => {
   try {
-    const joiRes = await handleLoginValidateMethod.validateAsync(req.body);
-    if (joiRes.error) {
-      console.log("🚀 ~ file: validate.js:102 ~ exports.handleLoginValidate= ~ joiRes.error:", joiRes.error);
+    const { error } = await handleLoginValidateMethod.validate(req.body, { abortEarly: false });
+    if (error) {
+      return res.status(400).send(error.details[0].message);
     }
-
     next();
-  } catch (err) {
-    console.log("🚀 ~ file: validate.js:103 ~ exports.handleLoginValidate= ~ err:", err);
-    next(err);
+  } catch (error) {
+    console.log("🚀 ~ file: validate.js:125 ~ exports.handleLoginValidate= ~ error:", error);
+    next(error);
   }
 };
 

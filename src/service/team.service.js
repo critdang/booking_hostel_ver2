@@ -16,7 +16,6 @@ const deleteUser = async (req) => {
         }
       }
     });
-    console.log("🚀 ~ file: team.service.js:11 ~ awaitsequelize.transaction ~ foundUser:", foundUser);
     if (!foundUser) {
       throw new AppError(
         format(MessageHelper.getMessage('noFoundTeamUser'), id),

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.35% </span>
+                <span class="strong">33.94% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/106</span>
+                <span class='fraction'>37/109</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.35% </span>
+                <span class="strong">33.94% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>29/106</span>
+                <span class='fraction'>37/109</span>
             </div>
         
             
@@ -169,7 +169,10 @@
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -182,12 +185,13 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -206,6 +210,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -287,13 +293,14 @@ const logger = require('../logger/app-logger');
 const ResponseHelper = require('../response');
 const MessageHelper = require('../message');
 &nbsp;
+// determine the user is login or not
 exports.protectingRoutes = catchAsync(async (req, res, next) =&gt; {
-<span class="cstat-no" title="statement not covered" >  // const token = req.headers.authorization?.startsWith('Bearer')</span>
-<span class="cstat-no" title="statement not covered" >  // &amp;&amp; req.headers.authorization.split(' ')[1];</span>
-<span class="cstat-no" title="statement not covered" >  const token = req.cookies?.accessToken;</span>
-<span class="cstat-no" title="statement not covered" >  if (!token || token === 'null') {</span>
-<span class="cstat-no" title="statement not covered" >    return next(new AppError('You are not logged in', 401));</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  // const token = req.headers.authorization?.startsWith('Bearer')
+  // &amp;&amp; req.headers.authorization.split(' ')[1];
+  const token = req.cookies?.accessToken;
+  if (!token<span class="branch-0 cbranch-no" title="branch not covered" > || token === 'null')</span> {
+    return next(new AppError('You are not logged in', 401));
+<span class="branch-0 cbranch-no" title="branch not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >  const decodedToken = await JWTAction.verifyToken(token);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  if (!decodedToken.userId) {</span>
@@ -311,13 +318,14 @@ exports.protectingRoutes = catchAsync(async (req, res, next) =&gt; {
 <span class="cstat-no" title="statement not covered" >  return next();</span>
 });
 &nbsp;
+// determine the user role is guest or not
 exports.checkUser = <span class="fstat-no" title="function not covered" >async (req, res, next) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  try {</span>
 <span class="cstat-no" title="statement not covered" >  //   const token = req.headers.authorization?.startsWith('Bearer')</span>
 <span class="cstat-no" title="statement not covered" >  // &amp;&amp; req.headers.authorization.split(' ')[1];</span>
 <span class="cstat-no" title="statement not covered" >    const token = req.cookies?.accessToken;</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    if (!token) {</span>
+<span class="cstat-no" title="statement not covered" >      // the user is guest (not login)</span>
 <span class="cstat-no" title="statement not covered" >      return next();</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >    const decodedToken = await JWTAction.verifyToken(token);</span>
@@ -331,11 +339,12 @@ exports.checkUser = <span class="fstat-no" title="function not covered" >async (
 <span class="cstat-no" title="statement not covered" >      attributes: { exclude: ['password', 'resetToken', 'status'] },</span>
 <span class="cstat-no" title="statement not covered" >      where: { id: decodedToken.userId },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if (!user) {</span>
+<span class="cstat-no" title="statement not covered" >      return next(new AppError('this user does not exist', 401));</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >    req.user = user;</span>
 <span class="cstat-no" title="statement not covered" >    return next();</span>
 <span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >    console.log("🚀 ~ file: auth.js ~ line 60 ~ exports.checkUser= ~ error", error);</span>
 <span class="cstat-no" title="statement not covered" >    logger.error(`AdminAuthentication:login:: - ${error.message}`);</span>
 <span class="cstat-no" title="statement not covered" >    return ResponseHelper.responseError(res, error.message);</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
@@ -373,8 +382,8 @@ exports.loginLimiter = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 &nbsp;
-exports.checkRole = (role) =&gt; (req, res, next) =&gt; {
-<span class="cstat-no" title="statement not covered" >  if (req.user.role !== role) {</span>
+exports.checkRole = (roles) =&gt; (req, res, next) =&gt; {
+<span class="cstat-no" title="statement not covered" >  if (!roles.includes(req.user.role)) {</span>
 <span class="cstat-no" title="statement not covered" >    return next(</span>
 <span class="cstat-no" title="statement not covered" >      new AppError('you dont have permission to do this action', 403)</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
@@ -388,7 +397,7 @@ exports.checkRole = (role) =&gt; (req, res, next) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-07T05:33:09.433Z
+                at 2023-04-04T13:39:39.877Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

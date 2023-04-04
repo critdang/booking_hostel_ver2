@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27% </span>
+                <span class="strong">26.54% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/100</span>
+                <span class='fraction'>30/113</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27% </span>
+                <span class="strong">26.54% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/100</span>
+                <span class='fraction'>30/113</span>
             </div>
         
             
@@ -163,7 +163,20 @@
 <a name='L98'></a><a href='#L98'>98</a>
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -254,7 +267,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -275,7 +301,7 @@ const client = require("../config/connectRedis");
 require('dotenv').config();
 &nbsp;
 const changeBlockUserStt = <span class="fstat-no" title="function not covered" >async (req, res) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const idUser = +req.params.id;</span>
+<span class="cstat-no" title="statement not covered" >  const idUser = req.params.id;</span>
 <span class="cstat-no" title="statement not covered" >  const existStatus = await db.User.findOne({</span>
 <span class="cstat-no" title="statement not covered" >    where: { id: idUser },</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
@@ -320,7 +346,7 @@ const handleRefeshToken = <span class="fstat-no" title="function not covered" >a
 <span class="cstat-no" title="statement not covered" >  const { refreshToken } = req.cookies;</span>
 <span class="cstat-no" title="statement not covered" >  if (!refreshToken) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new AppError(</span>
-<span class="cstat-no" title="statement not covered" >        format(MessageHelper.getMessage('refreshTokenNotFound')),</span>
+<span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('refreshTokenNotFound')),</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >  const { userId } = await JWTAction.verifyRefreshToken(refreshToken);</span>
@@ -343,6 +369,18 @@ const handleRefeshToken = <span class="fstat-no" title="function not covered" >a
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
+const rating = <span class="fstat-no" title="function not covered" >async (req) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const userId = req.user.id;</span>
+<span class="cstat-no" title="statement not covered" >  const inputData = { ...req.body, userId };</span>
+<span class="cstat-no" title="statement not covered" >  const newRating = await db.Rating.create(inputData);</span>
+<span class="cstat-no" title="statement not covered" >  if (!newRating) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new AppError(</span>
+<span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('noRatingCreated')),</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  return newRating;</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+&nbsp;
 const logOut = <span class="fstat-no" title="function not covered" >async (req, res) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { refreshToken } = req.cookies;</span>
 <span class="cstat-no" title="statement not covered" >  if (!refreshToken) {</span>
@@ -351,7 +389,7 @@ const logOut = <span class="fstat-no" title="function not covered" >async (req, 
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >  const { userId } = JWTAction.verifyRefreshToken(refreshToken);</span>
-<span class="cstat-no" title="statement not covered" >  client.del(userId.toString());</span>
+<span class="cstat-no" title="statement not covered" >  // client.del(userId.toString());</span>
 <span class="cstat-no" title="statement not covered" >  res.clearCookie('refreshToken');</span>
 <span class="cstat-no" title="statement not covered" >  res.clearCookie('accessToken');</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -361,6 +399,7 @@ module.exports = {
   verifyResetPassword,
   resetPassword,
   handleRefeshToken,
+  rating,
   logOut
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -370,7 +409,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-07T05:33:09.433Z
+                at 2023-04-04T13:39:39.877Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
