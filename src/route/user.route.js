@@ -20,10 +20,10 @@ router.post("/forgotPassword", validate.handleForgotPasswordValidate, userContro
 // route for user update personal information
 router.put("/updateProfile", auth.protectingRoutes, validate.handleProfileValidateMethodValidate, userController.updateProfile);
 // route for user reset password
-router.put("/updatePassword", auth.protectingRoutes, userController.updatePassword);
+router.put("/updatePassword", validate.handleUpdatePassword, auth.protectingRoutes, userController.updatePassword);
 // route for display user information (admin only)
 // router.get("/:id", auth.protectingRoutes, auth.checkRole(['admin']), userController.getUser);
-router.get("/:id", userController.getUser);
+router.get("/:id", auth.protectingRoutes, auth.checkRole(['admin']), userController.getUser);
 // route for display all user (admin only)
 router.get("/", auth.protectingRoutes, auth.checkRole(['admin']), userController.getUsers);
 // route for delete user (admin only)
@@ -34,7 +34,7 @@ router.get("/rating", userController.ratingRoom);
 router.get("/", userController.getUsers);
 router.get("/accessToken", (req) => { console.log(req.cookies); });
 
-router.get("/block/:id", adminController.changeBlockUserStt);
+router.put("/block/:id", auth.protectingRoutes, auth.checkRole(['admin']), adminController.changeBlockUserStt);
 
 router.post("/rating", auth.protectingRoutes, adminController.rating);
 

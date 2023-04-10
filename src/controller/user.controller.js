@@ -101,7 +101,6 @@ const updateAvatar = async (req, res) => {
 };
 
 const getUser = catchAsync(async (req, res) => {
-  console.log("🚀 ~ file: user.controller.js:106 ~ getUser ~ req:", req)
   try {
     logger.info(`UserAction:forgotPassword::${JSON.stringify(req.params)}`);
 

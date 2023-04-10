@@ -17,8 +17,8 @@ const changeBlockUserStt = async (req, res) => {
         CODE.INVALID
       );
     }
-    const data = await service.changeBlockUserStt(req, res);
-    ResponseHelper.responseSuccess(res, data);
+    await service.changeBlockUserStt(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('blockUserSuccessfull'));
   } catch (error) {
     logger.info(`AdminActions:changeBlockUserStt:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);

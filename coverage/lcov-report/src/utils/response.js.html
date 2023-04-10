@@ -23,30 +23,54 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">51% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>51/100</span>
+=======
                 <span class="strong">46% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>46/100</span>
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">66.66% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>2/3</span>
+=======
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>1/2</span>
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">18.18% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>2/11</span>
+=======
                 <span class="strong">9.09% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>1/11</span>
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
+                <span class="strong">51% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>51/100</span>
+=======
                 <span class="strong">46% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>46/100</span>
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         
             
@@ -61,7 +85,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -176,12 +200,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<<<<<<< HEAD
+=======
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -190,6 +224,7 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -275,12 +310,21 @@ const returnSuccess = <span class="fstat-no" title="function not covered" >(req,
 <span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 // eslint-disable-next-line arrow-body-style
+<<<<<<< HEAD
+const responseSuccess = (res, message = RESPONSE.SUCCESS) =&gt; {
+  return res.status(200).json({
+    success: true,
+    message,
+  });
+};
+=======
 const responseSuccess = <span class="fstat-no" title="function not covered" >(res, message = RESPONSE.SUCCESS) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return res.status(200).json({</span>
 <span class="cstat-no" title="statement not covered" >    success: true,</span>
 <span class="cstat-no" title="statement not covered" >    message,</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" >};</span>
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
 const responseError = (res, error, data = {}) =&gt; {
   console.log(`responseError === ${JSON.stringify(error)}`);
   error = error.message<span class="branch-0 cbranch-no" title="branch not covered" > ? error.message </span>: error;
@@ -370,7 +414,11 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
+                at 2023-04-10T09:27:34.319Z
+=======
                 at 2023-04-07T01:13:33.975Z
+>>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         <script src="../../prettify.js"></script>
         <script>
