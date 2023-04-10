@@ -19,6 +19,19 @@ const getInvoice = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
+
+const getInvoiceByUserId = async (req, res) => {
+  try {
+    logger.info(`UserAction:updateProfile::${JSON.stringify(req.params)}`);
+
+    const data = await invoiceService.getInvoiceByUserId(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    console.log("🚀 ~ file: invoice.controller.js:17 ~ getInvoice ~ error:", error);
+    logger.error(`InvoiceActions:getInvoice:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 const getInvoices = async (req, res) => {
   try {
     const data = await invoiceService.getInvoices(req, res);
@@ -126,5 +139,6 @@ module.exports = {
   updateInvoice,
   createInvoice,
   confirmCheckIn,
-  viewInvoice
+  viewInvoice,
+  getInvoiceByUserId
 };
