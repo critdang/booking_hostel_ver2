@@ -25,6 +25,7 @@ const getRooms = async (req, res) => {
     const data = await service.getRooms(req, res);
     ResponseHelper.responseSuccess(res, data);
   } catch (error) {
+    console.log("🚀 ~ file: room.controller.js:28 ~ getRooms ~ error:", error);
     logger.info(`RoomAction:getRooms:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }

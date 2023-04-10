@@ -14,7 +14,8 @@ const MessageHelper = require('../message');
 exports.protectingRoutes = catchAsync(async (req, res, next) => {
   // const token = req.headers.authorization?.startsWith('Bearer')
   // && req.headers.authorization.split(' ')[1];
-  const token = req.cookies?.accessToken;
+  const token = req.cookies?.accessToken || req.headers.authorization?.split(' ')[1];
+
   if (!token || token === 'null') {
     return next(new AppError('You are not logged in', 401));
   }

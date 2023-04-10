@@ -9,15 +9,19 @@ const client = require("../config/connectRedis");
 
 require('dotenv').config();
 
-const changeBlockUserStt = async (req, res) => {
+const changeBlockUserStt = async (req) => {
   const idUser = req.params.id;
-  const existStatus = await db.User.findOne({
+  const foundUser = await db.User.findOne({
     where: { id: idUser },
   });
-  if (!existStatus) return helperFn.returnFail(req, res, ERROR.NO_FOUND_USER);
-
+  console.log("🚀 ~ file: admin.service.js:17 ~ changeBlockUserStt ~ foundUser:", foundUser);
+  if (!foundUser) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser')),
+    );
+  }
   const updateBlockUser = await db.User.update({
-    isBlocked: !existStatus.isBlocked
+    isBlocked: !foundUser.isBlocked
   }, { where: { id: idUser } });
   return updateBlockUser;
 };

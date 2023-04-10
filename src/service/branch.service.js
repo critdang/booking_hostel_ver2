@@ -24,7 +24,7 @@ const getBranches = async (req) => {
       // invoice: sort
     }
   );
-  if (!foundBranches) {
+  if (foundBranches.length === 0) {
     throw new AppError(
       format(MessageHelper.getMessage('cannotFindBranches')),
     );
@@ -48,7 +48,7 @@ const getBranch = async (req) => {
 const updateBranch = async (req) => {
   const { id } = req.params;
   const updateContents = req.body;
-  const result = await db.Room.update(
+  const result = await db.Branch.update(
     updateContents,
     {
       where: { id },

@@ -5,22 +5,7 @@ const ejs = require('ejs');
 const fs = require('fs');
 const pdf = require('html-pdf');
 const { google } = require('googleapis');
-const request = require('supertest');
-const db = require('../models/index');
 const googleDrive = require('../config/googleApi');
-const { mockAdminUser } = require("./mockObject");
-const app = require("../server");
-
-exports.getLoginToken = async () => {
-  await db.User.create(mockAdminUser);
-  await db.User.update({ role: 'admin' }, { where: { email: mockAdminUser.email } });
-  const res = await request(app).post('/user/login').send(mockAdminUser);
-  console.log("🚀 ~ file: helperFn.js:18 ~ exports.getLoginToken= ~ res:", res);
-  return {
-    token: res.body.token,
-    userId: res.body.data.user.id,
-  };
-};
 
 exports.returnSuccess = (req, res, code, data = "") => {
   res.status(200).json({
