@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('User', [{
       fullName: 'admin',
       email: 'admin@gmail.com',
-      password: await helperFn.hashPassword('admin'),
+      password: await helperFn.hashPassword('123456'),
       address: '12 Hàm Nghi',
       phone: '0923423120',
       status: 'active',

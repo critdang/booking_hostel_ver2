@@ -95,6 +95,21 @@ const getInvoice = async (req) => {
   };
   return result;
 };
+const getInvoiceByUserId = async (req) => {
+  const { userId } = req.params;
+  const foundInvoices = await db.Invoice.findOne({
+    where: {
+      userId,
+      status: 'pending',
+    },
+  });
+  if (!foundInvoices) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundInvoices')),
+    );
+  }
+  return foundInvoices;
+};
 
 const getInvoices = async () => {
   const foundInvoices = await db.Invoice.findAll();
@@ -302,5 +317,6 @@ module.exports = {
   updateInvoice,
   createInvoice,
   viewInvoice,
-  confirmCheckIn
+  confirmCheckIn,
+  getInvoiceByUserId
 };
