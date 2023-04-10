@@ -5,6 +5,8 @@ const auth = require('../utils/middleware/auth');
 const router = express.Router();
 // route for get invoice by id
 router.get('/:invoiceId', auth.protectingRoutes, controller.getInvoice);
+// get invoice by user id and status pending
+router.get('/user/:userId', controller.getInvoiceByUserId);
 // route for get all invoices (admin and receptionist only)
 router.get('/', auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), controller.getInvoices);
 // route for update the invoice status (admin only)
