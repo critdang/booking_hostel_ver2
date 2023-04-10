@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38% </span>
+                <span class="strong">51% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>38/100</span>
+                <span class='fraction'>51/100</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">18.18% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>2/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38% </span>
+                <span class="strong">51% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>38/100</span>
+                <span class='fraction'>51/100</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -176,20 +176,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -275,21 +275,21 @@ const returnSuccess = <span class="fstat-no" title="function not covered" >(req,
 <span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 // eslint-disable-next-line arrow-body-style
-const responseSuccess = <span class="fstat-no" title="function not covered" >(res, message = RESPONSE.SUCCESS) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  return res.status(200).json({</span>
-<span class="cstat-no" title="statement not covered" >    success: true,</span>
-<span class="cstat-no" title="statement not covered" >    message,</span>
-<span class="cstat-no" title="statement not covered" >  });</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-const responseError = <span class="fstat-no" title="function not covered" >(res, error, data = {}) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  console.log(`responseError === ${JSON.stringify(error)}`);</span>
-<span class="cstat-no" title="statement not covered" >  error = error.message ? error.message : error;</span>
-<span class="cstat-no" title="statement not covered" >  return res.status(400).json({</span>
-<span class="cstat-no" title="statement not covered" >    success: false,</span>
-<span class="cstat-no" title="statement not covered" >    message: error,</span>
-<span class="cstat-no" title="statement not covered" >    data,</span>
-<span class="cstat-no" title="statement not covered" >  });</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+const responseSuccess = (res, message = RESPONSE.SUCCESS) =&gt; {
+  return res.status(200).json({
+    success: true,
+    message,
+  });
+};
+const responseError = (res, error, data = {}) =&gt; {
+  console.log(`responseError === ${JSON.stringify(error)}`);
+  error = error.message<span class="branch-0 cbranch-no" title="branch not covered" > ? error.message </span>: error;
+  return res.status(400).json({
+    success: false,
+    message: error,
+    data,
+  });
+};
 &nbsp;
 const responsePermissonDenied = <span class="fstat-no" title="function not covered" >(res, langCode) =&gt; res.status(403).json({ ok: false, message: MessageHelper.getMessage('permissionDenied', langCode) });</span>
 &nbsp;
@@ -370,7 +370,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-04T13:39:39.877Z
+                at 2023-04-10T09:27:34.319Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

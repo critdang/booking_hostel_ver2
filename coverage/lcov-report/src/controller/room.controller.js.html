@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.5% </span>
+                <span class="strong">30.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>37/151</span>
+                <span class='fraction'>47/152</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">11.11% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>1/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.5% </span>
+                <span class="strong">30.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>37/151</span>
+                <span class='fraction'>47/152</span>
             </div>
         
             
@@ -214,7 +214,8 @@
 <a name='L149'></a><a href='#L149'>149</a>
 <a name='L150'></a><a href='#L150'>150</a>
 <a name='L151'></a><a href='#L151'>151</a>
-<a name='L152'></a><a href='#L152'>152</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -235,16 +236,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -385,17 +387,18 @@ const createRoom = <span class="fstat-no" title="function not covered" >async (r
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-const getRooms = <span class="fstat-no" title="function not covered" >async (req, res) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    logger.info(`RoomAction:getRooms::`);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const data = await service.getRooms(req, res);</span>
+const getRooms = async (req, res) =&gt; {
+  try {
+    logger.info(`RoomAction:getRooms::`);
+&nbsp;
+    const data = await service.getRooms(req, res)<span class="branch-0 cbranch-no" title="branch not covered" >;</span>
 <span class="cstat-no" title="statement not covered" >    ResponseHelper.responseSuccess(res, data);</span>
-<span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >    logger.info(`RoomAction:getRooms:: -  ${error}`);</span>
-<span class="cstat-no" title="statement not covered" >    ResponseHelper.responseError(res, error.message);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+  } catch (error) {
+    console.log("🚀 ~ file: room.controller.js:28 ~ getRooms ~ error:", error);
+    logger.info(`RoomAction:getRooms:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 &nbsp;
 const getRoom = <span class="fstat-no" title="function not covered" >async (req, res) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  try {</span>
@@ -523,7 +526,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-04T13:39:39.877Z
+                at 2023-04-10T09:27:34.319Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

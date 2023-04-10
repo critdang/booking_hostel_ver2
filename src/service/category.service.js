@@ -6,8 +6,12 @@ const MessageHelper = require('../utils/message');
 
 const createCategory = async (req) => {
   const { name, description } = req.body;
-  const thumbnail = await req.file.path;
-
+  const thumbnail = await req.file?.path;
+  if (!thumbnail) {
+    throw new AppError(
+      format(MessageHelper.getMessage('missingCategoryThumbnail'))
+    );
+  }
   const foundCategory = await db.Category.findOne({
     where: {
       name,
@@ -49,7 +53,7 @@ const getCategory = async (req) => {
     nest: true,
   });
 
-  if (!foundCategory) {
+  if (foundCategory[0] === 0) {
     throw new AppError(
       format(MessageHelper.getMessage('noFoundCategory'), id),
     );
@@ -75,13 +79,11 @@ const getCategory = async (req) => {
 };
 
 const updateCategory = async (req) => {
-  console.log("🚀 ~ file: category.service.js:78 ~ updateCategory ~ req:", req.file);
   const { id } = req.params;
   // eslint-disable-next-line no-unused-expressions
   if (req.file != undefined) {
     req.body.thumbnail = await req.file.path;
   }
-  console.log("🚀 ~ file: category.service.js:83 ~ updateCategory ~ req.body:", req.body);
   const result = await db.Category.update(
     req.body,
     {

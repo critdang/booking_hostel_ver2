@@ -217,41 +217,41 @@ const createGuest = <span class="fstat-no" title="function not covered" >async (
 <span class="cstat-no" title="statement not covered" >  return newGuest;</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 const getGuests = <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const guestFetch = await db.User.findAll(</span>
+<span class="cstat-no" title="statement not covered" >  const foundGuest = await db.User.findAll(</span>
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      where: { role: 'guest' },</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  if (!guestFetch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!foundGuest) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new AppError(</span>
 <span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('cannotFindGuests')),</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  return guestFetch;</span>
+<span class="cstat-no" title="statement not covered" >  return foundGuest;</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
 const getGuest = <span class="fstat-no" title="function not covered" >async (req) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { id } = req.params;</span>
-<span class="cstat-no" title="statement not covered" >  const guestFetch = await db.User.findOne(</span>
+<span class="cstat-no" title="statement not covered" >  const foundGuest = await db.User.findOne(</span>
 <span class="cstat-no" title="statement not covered" >    {</span>
 <span class="cstat-no" title="statement not covered" >      where: { id, role: 'guest' },</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  if (!guestFetch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!foundGuest) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new AppError(</span>
-<span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('cannotFindGuests')),</span>
+<span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('cannotFindGuestsWithId'), id),</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  return guestFetch;</span>
+<span class="cstat-no" title="statement not covered" >  return foundGuest;</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
 const updateGuest = <span class="fstat-no" title="function not covered" >async (req) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { id } = req.params;</span>
 <span class="cstat-no" title="statement not covered" >  const inputData = req.body;</span>
-<span class="cstat-no" title="statement not covered" >  const guestFetch = await db.User.findOne({ where: { id, role: 'Guest' } });</span>
-<span class="cstat-no" title="statement not covered" >  if (!guestFetch) {</span>
+<span class="cstat-no" title="statement not covered" >  const foundGuest = await db.User.findOne({ where: { id, role: 'guest' } });</span>
+<span class="cstat-no" title="statement not covered" >  if (!foundGuest) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new AppError(</span>
-<span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('cannotFindGuestsWithId')),</span>
+<span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('cannotFindGuestsWithId'), id),</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >  const updatedGuest = await db.User.update(inputData, { where: { id } });</span>
@@ -260,7 +260,7 @@ const updateGuest = <span class="fstat-no" title="function not covered" >async (
 &nbsp;
 const deleteGuest = <span class="fstat-no" title="function not covered" >async (req) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { id } = req.params;</span>
-<span class="cstat-no" title="statement not covered" >  const foundGuest = await db.User.findOne({ where: { id, role: 'Guest' } });</span>
+<span class="cstat-no" title="statement not covered" >  const foundGuest = await db.User.findOne({ where: { id, role: 'guest' } });</span>
 <span class="cstat-no" title="statement not covered" >  if (!foundGuest) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new AppError(</span>
 <span class="cstat-no" title="statement not covered" >      format(MessageHelper.getMessage('cannotFindGuestsWithId'), id),</span>
@@ -283,7 +283,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-04T13:39:39.877Z
+                at 2023-04-10T09:27:34.319Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

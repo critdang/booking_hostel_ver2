@@ -10,7 +10,6 @@ const MessageHelper = require('../utils/message');
 
 const deleteUser = async (req, res) => {
   try {
-    console.log("🚀 ~ file: team.controller.js:15 ~ deleteUser ~ req.params:", req.params);
     logger.info(`AdminActions:deleteUser::req.params - ${JSON.stringify(req.params)}`);
     if (_.isEmpty(req.params)) {
       throw new AppError(

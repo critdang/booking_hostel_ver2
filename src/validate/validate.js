@@ -1,6 +1,5 @@
 const Joi = require('joi');
 const AppError = require('../utils/errorHandle/appError');
-const helperFn = require('../utils/helperFn');
 
 const handleLoginValidateMethod = Joi.object({
   email: Joi.string()
@@ -14,9 +13,9 @@ const handleLoginValidateMethod = Joi.object({
 const handleRoomValidateMethod = Joi.object({
   name: Joi.string().required(),
   price: Joi.number().required(),
+  categoryId: Joi.number().required(),
   description: Joi.string(),
   images: Joi.array(),
-  categoryId: Joi.number().required(),
   hot: Joi.number(),
   kid: Joi.number(),
   adult: Joi.number(),
@@ -61,6 +60,11 @@ const handleLogin = Joi.object({
 
 const handleForgotPassword = Joi.object({
   email: Joi.string().required(),
+});
+
+const handleForgotPasswordMethod = Joi.object({
+  email: Joi.string().required(),
+  password: Joi.string().required(),
 });
 
 const handleProfileValidateMethod = Joi.object({
@@ -157,6 +161,15 @@ exports.handleLoginValidate = async (req, res, next) => {
 exports.handleForgotPasswordValidate = async (req, res, next) => {
   try {
     await handleForgotPassword.validateAsync(req.body);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.handleUpdatePassword = async (req, res, next) => {
+  try {
+    await handleForgotPasswordMethod.validateAsync(req.body);
     next();
   } catch (err) {
     next(err);

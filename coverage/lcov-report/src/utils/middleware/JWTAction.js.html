@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25.92% </span>
+                <span class="strong">56.79% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/81</span>
+                <span class='fraction'>46/81</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25.92% </span>
+                <span class="strong">56.79% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/81</span>
+                <span class='fraction'>46/81</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -149,35 +149,35 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -229,36 +229,36 @@
 const jwt = require('jsonwebtoken');
 const client = require('../../config/connectRedis');
 &nbsp;
-const generateJWT = <span class="fstat-no" title="function not covered" >(payload, expired) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const key = process.env.ACCESS_TOKEN_SECRET;</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    const token = jwt.sign(payload, key, {</span>
-<span class="cstat-no" title="statement not covered" >      expiresIn: expired,</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >    return token;</span>
-<span class="cstat-no" title="statement not covered" >  } catch (e) {</span>
+const generateJWT = (payload, expired) =&gt; {
+  const key = process.env.ACCESS_TOKEN_SECRET;
+  try {
+    const token = jwt.sign(payload, key, {
+      expiresIn: expired,
+    });
+    return token;
+  } <span class="branch-0 cbranch-no" title="branch not covered" >catch (e) {</span>
 <span class="cstat-no" title="statement not covered" >    return e;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+};
 &nbsp;
-const generateRefreshToken = <span class="fstat-no" title="function not covered" >async (userId) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const key = process.env.REFRESH_TOKEN_SECRET;</span>
-<span class="cstat-no" title="statement not covered" >  const expiresIn = '1d';</span>
-<span class="cstat-no" title="statement not covered" >  const expiresTokenOnRedis = 1 * 24 * 60 * 60;</span>
-<span class="cstat-no" title="statement not covered" >  const payload = { userId };</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    const refreshToken = jwt.sign(payload, key, {</span>
-<span class="cstat-no" title="statement not covered" >      expiresIn,</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >    client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);</span>
-<span class="cstat-no" title="statement not covered" >    const value = client.get(userId.toString());</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    console.log("found value: ", value);</span>
-<span class="cstat-no" title="statement not covered" >    return refreshToken;</span>
-<span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >    return error;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+const generateRefreshToken = async (userId) =&gt; {
+  const key = process.env.REFRESH_TOKEN_SECRET;
+  const expiresIn = '1d';
+  const expiresTokenOnRedis = 1 * 24 * 60 * 60;
+  const payload = { userId };
+  try {
+    const refreshToken = jwt.sign(payload, key, {
+      expiresIn,
+    });
+    client.set(userId.toString(), refreshToken, 'EX', expiresTokenOnRedis);
+    const value = client.get(userId.toString());
+&nbsp;
+    console.log("found value: ", value);
+    return refreshToken;
+  } catch (error) {
+    return error;
+  }
+};
 &nbsp;
 const authenticateToken = <span class="fstat-no" title="function not covered" >(req, res, next) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  try {</span>
@@ -313,7 +313,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-04T13:39:39.877Z
+                at 2023-04-10T09:27:34.319Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

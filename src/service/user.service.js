@@ -128,18 +128,20 @@ const updateProfile = async (req) => {
 };
 
 const updatePassword = async (req) => {
-  const { id } = req.user;
-  const { password } = req.body;
-  if (!password) {
+  const { email, password } = req.body;
+  const foundUser = await db.User.findOne({
+    where: { email },
+  });
+  if (!foundUser) {
     throw new AppError(
-      format(MessageHelper.getMessage('providedPassword')),
+      format(MessageHelper.getMessage('userNotActiveOrFound'), foundUser.email),
     );
   }
   const hashPassword = await helperFn.hashPassword(password);
   const newUser = await db.User.update({
     password: hashPassword,
   }, {
-    where: { id },
+    where: { email },
   });
   return newUser;
 };
@@ -165,6 +167,11 @@ const getUser = async (req) => {
     where: { id },
     raw: true,
   });
+  if (!user) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser')),
+    );
+  }
   return user;
 };
 
@@ -180,6 +187,11 @@ const deleteUser = async (req) => {
   const user = await db.User.destroy({
     where: { id },
   });
+  if (!user) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundUser')),
+    );
+  }
   return user;
 };
 

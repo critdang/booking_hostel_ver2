@@ -46,7 +46,8 @@ module.exports = {
     updateProfileSuccess: 'Update profile successfully',
     updateAvatarSuccess: 'Update avatar successfully',
     updatePasswordSuccess: 'Update password successfully',
-
+    // blockUser
+    blockUserSuccessfull: 'Block user successfully',
     // room
     createRoomSuccess: 'Create room successfully',
     updateRoomSuccess: 'Update room successfully',
@@ -69,6 +70,7 @@ module.exports = {
     noFoundCategory: 'No category found with id {}',
     deleteCategorySuccess: 'Delete category successfully',
     deleteCategoryFailId: 'Delete category fail with id {}',
+    missingCategoryThumbnail: 'Missing category thumbnail',
 
     // invoice
     noFoundInvoice: 'No invoice found with id {}',

@@ -10,41 +10,41 @@ const createGuest = async (req) => {
   return newGuest;
 };
 const getGuests = async () => {
-  const guestFetch = await db.User.findAll(
+  const foundGuest = await db.User.findAll(
     {
       where: { role: 'guest' },
     }
   );
-  if (!guestFetch) {
+  if (!foundGuest) {
     throw new AppError(
       format(MessageHelper.getMessage('cannotFindGuests')),
     );
   }
-  return guestFetch;
+  return foundGuest;
 };
 
 const getGuest = async (req) => {
   const { id } = req.params;
-  const guestFetch = await db.User.findOne(
+  const foundGuest = await db.User.findOne(
     {
       where: { id, role: 'guest' },
     }
   );
-  if (!guestFetch) {
+  if (!foundGuest) {
     throw new AppError(
-      format(MessageHelper.getMessage('cannotFindGuests')),
+      format(MessageHelper.getMessage('cannotFindGuestsWithId'), id),
     );
   }
-  return guestFetch;
+  return foundGuest;
 };
 
 const updateGuest = async (req) => {
   const { id } = req.params;
   const inputData = req.body;
-  const guestFetch = await db.User.findOne({ where: { id, role: 'Guest' } });
-  if (!guestFetch) {
+  const foundGuest = await db.User.findOne({ where: { id, role: 'guest' } });
+  if (!foundGuest) {
     throw new AppError(
-      format(MessageHelper.getMessage('cannotFindGuestsWithId')),
+      format(MessageHelper.getMessage('cannotFindGuestsWithId'), id),
     );
   }
   const updatedGuest = await db.User.update(inputData, { where: { id } });
@@ -53,7 +53,7 @@ const updateGuest = async (req) => {
 
 const deleteGuest = async (req) => {
   const { id } = req.params;
-  const foundGuest = await db.User.findOne({ where: { id, role: 'Guest' } });
+  const foundGuest = await db.User.findOne({ where: { id, role: 'guest' } });
   if (!foundGuest) {
     throw new AppError(
       format(MessageHelper.getMessage('cannotFindGuestsWithId'), id),
