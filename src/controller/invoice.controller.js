@@ -132,6 +132,24 @@ const viewInvoice = async (req, res) => {
     console.log(error);
   }
 };
+
+const checkout = async (req, res) => {
+  try {
+    logger.info(`Invoice:confirmCheckIn::${JSON.stringify(req?.params)}`);
+
+    if (_.isEmpty(req?.params)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
+      );
+    }
+
+    await invoiceService.checkout(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('checkoutSuccess'));
+  } catch (error) {
+    logger.error(`Invoice:confirmCheckIn:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 module.exports = {
   getInvoice,
   getInvoices,
@@ -140,5 +158,6 @@ module.exports = {
   createInvoice,
   confirmCheckIn,
   viewInvoice,
-  getInvoiceByUserId
+  getInvoiceByUserId,
+  checkout
 };
