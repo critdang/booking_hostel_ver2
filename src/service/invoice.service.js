@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-loop-func */
 const format = require("string-format");
 const moment = require('moment');
@@ -167,6 +168,31 @@ const createInvoice = async (req) => {
   const {
     payment, customerInfo, rooms, searchInfo
   } = req.body;
+  // [START] - totalAdults
+  let totalAdults = 0;
+  if (typeof searchInfo.adults === 'string') {
+    const adultsArray = searchInfo.adults.split(",").map(Number);
+
+    for (let i = 0; i < adultsArray.length; i++) {
+      totalAdults += adultsArray[i];
+    }
+  } else {
+    totalAdults = searchInfo.adults;
+  }
+  // [END] - totalAdults
+
+  // [START] - totalKids
+  let totalKids = 0;
+  if (typeof searchInfo.kids === 'string') {
+    const kidsArray = searchInfo.kids.split(",").map(Number);
+
+    for (let i = 0; i < kidsArray.length; i++) {
+      totalKids += kidsArray[i];
+    }
+  } else {
+    totalKids = searchInfo.kids;
+  }
+  // [END] - totalKids
 
   // if user is not logged in, create a guest in user table
   let userId = null;
@@ -228,8 +254,8 @@ const createInvoice = async (req) => {
         roomId: room.roomId,
         from: searchInfo.From,
         to: searchInfo.To,
-        adults: searchInfo.adults,
-        kids: searchInfo.kids,
+        adults: totalAdults,
+        kids: totalKids,
         invoiceId: newInvoice.id,
       }, { transaction: t });
     }
@@ -310,6 +336,45 @@ const viewInvoice = async (req, res) => {
   foundInvoice.confirmCheckInLink = `http://localhost:8080/invoice/confirmCheckIn/${foundInvoice.code}`;
   res.render('createInvoiceNoti/invoice', { invoice: foundInvoice });
 };
+
+const checkout = async (req) => {
+  const { invoiceId } = req.params;
+  const foundInvoice = await db.Invoice.findAll({
+    where: { id: invoiceId },
+    include: [{
+      model: db.RoomBooking
+    }],
+    nest: true,
+    raw: true
+  });
+  if (!foundInvoice) {
+    throw new AppError(
+      format(MessageHelper.getMessage('noFoundInvoiceWithCode'), invoiceId),
+    );
+  }
+  // const updateStatusRoom = await db.Invoice.update(
+  //   { checkInStatus: 'Check Out' },
+  //   { where: { id: invoiceId } },
+  // );
+  // if (!updateStatusRoom) {
+  //   throw new AppError(
+  //     format(MessageHelper.getMessage('updateInvoiceFailed')),
+  //   );
+  // }
+  for (const roomBooking of foundInvoice.RoomBookings) {
+    const updateRoom = await db.Room.update(
+      { status: 'Available' },
+      { where: { id: roomBooking.roomId } },
+    );
+    if (!updateRoom) {
+      throw new AppError(
+        format(MessageHelper.getMessage('updateInvoiceFailed')),
+      );
+    }
+  }
+  return foundInvoice;
+};
+
 module.exports = {
   getInvoice,
   getInvoices,
@@ -318,5 +383,6 @@ module.exports = {
   createInvoice,
   viewInvoice,
   confirmCheckIn,
-  getInvoiceByUserId
+  getInvoiceByUserId,
+  checkout
 };
