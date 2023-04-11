@@ -58,14 +58,6 @@ const login = async (req, res) => {
       format(MessageHelper.getMessage('blockedUser')),
     );
   }
-  const foundInvoice = await db.Invoice.findOne({
-    where: {
-      userId: foundUser.id,
-      status: 'pending',
-    },
-    raw: true,
-  });
-
   const accessToken = JWTAction.generateJWT({ userId: foundUser.id }, '15m');
   const refreshToken = JWTAction.generateRefreshToken(foundUser.id);
   const data = {
@@ -78,6 +70,11 @@ const login = async (req, res) => {
       gender: foundUser.gender,
     }
   };
+  const foundInvoice = await db.Invoice.findOne({
+    where: {
+      userId: foundUser.id,
+    }
+  });
   if (foundInvoice) {
     data.userInfo.code = foundInvoice.code;
   }

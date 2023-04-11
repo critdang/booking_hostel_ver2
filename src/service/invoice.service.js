@@ -339,32 +339,29 @@ const viewInvoice = async (req, res) => {
 
 const checkout = async (req) => {
   const { invoiceId } = req.params;
-  const foundInvoice = await db.Invoice.findAll({
-    where: { id: invoiceId },
-    include: [{
-      model: db.RoomBooking
-    }],
-    nest: true,
-    raw: true
-  });
-  if (!foundInvoice) {
+  // update invoice checkout status
+  const updateStatusRoom = await db.Invoice.update(
+    {
+      checkInStatus: 'Check Out',
+      status: 'Completed'
+    },
+    { where: { id: invoiceId } },
+  );
+  if (!updateStatusRoom) {
     throw new AppError(
-      format(MessageHelper.getMessage('noFoundInvoiceWithCode'), invoiceId),
+      format(MessageHelper.getMessage('updateInvoiceFailed')),
     );
   }
-  // const updateStatusRoom = await db.Invoice.update(
-  //   { checkInStatus: 'Check Out' },
-  //   { where: { id: invoiceId } },
-  // );
-  // if (!updateStatusRoom) {
-  //   throw new AppError(
-  //     format(MessageHelper.getMessage('updateInvoiceFailed')),
-  //   );
-  // }
-  for (const roomBooking of foundInvoice.RoomBookings) {
+  // retrieve room from invoice to update status
+  const rooms = await db.RoomBooking.findAll(
+    {
+      where: { invoiceId },
+    }
+  );
+  for (const record of rooms) {
     const updateRoom = await db.Room.update(
       { status: 'Available' },
-      { where: { id: roomBooking.roomId } },
+      { where: { id: record.roomId } },
     );
     if (!updateRoom) {
       throw new AppError(
@@ -372,7 +369,7 @@ const checkout = async (req) => {
       );
     }
   }
-  return foundInvoice;
+  return rooms;
 };
 
 module.exports = {
