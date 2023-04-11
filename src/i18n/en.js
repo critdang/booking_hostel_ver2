@@ -79,6 +79,7 @@ module.exports = {
     updateStatusOderFailed: 'Update invoice failed',
     updateInvoiceFailed: 'Update invoice failed',
     creatInvoiceSuccess: 'Create invoice successfully',
+    checkoutSuccess: 'Checkout successfully',
 
     // guest
     cannotFindGuests: 'Cannot find guests',
