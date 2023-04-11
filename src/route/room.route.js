@@ -9,6 +9,7 @@ const router = express.Router();
 // router.post('/', auth.protectingRoutes, auth.checkRole('admin'), upload.array('images'), validate.handleRoomValidate, controller.createRoom);
 router.post('/', upload.array('images'), validate.handleRoomValidate, controller.createRoom);
 router.get('/search', controller.searchRooms);
+router.get('/branch', controller.getRoomByBranch);
 router.get('/', controller.getRooms);
 router.get('/:id', controller.getRoom);
 // router.put('/:id', auth.protectingRoutes, auth.checkRole('admin'), controller.updateRoom);

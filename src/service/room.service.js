@@ -68,6 +68,33 @@ const getRoom = async (req) => {
   return roomFetch;
 };
 
+const getRoomByBranch = async (req) => {
+  const roomFetch = await db.Branch.findAll({
+    include: [{
+      model: db.Room,
+      attributes: ['name'],
+    }],
+    attributes: ['name'],
+    raw: true,
+    nest: true,
+  });
+  const result = roomFetch.reduce((acc, curr) => {
+    // Check if the city already exists in the accumulator
+    const city = acc.find((item) => item.name === curr.name);
+    if (city) {
+      // If the city exists, add the room to its existing array of rooms
+      city.rooms.push(curr.Rooms.name);
+    } else {
+      // If the city doesn't exist, create a new city object with an array containing the current room
+      acc.push({ name: curr.name, rooms: [curr.Rooms.name] });
+    }
+    return acc;
+  }, []);
+  console.log("🚀 ~ file: room.service.js:81 ~ getRoomByBranch ~ roomFetch:", result);
+
+  return result;
+};
+
 const searchRooms = async (req) => {
   let {
     // eslint-disable-next-line prefer-const
@@ -199,5 +226,6 @@ module.exports = {
   deleteRoom,
   defaultImage,
   deleteImage,
-  reviewRoom
+  reviewRoom,
+  getRoomByBranch
 };

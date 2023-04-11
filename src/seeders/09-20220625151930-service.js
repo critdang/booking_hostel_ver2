@@ -1,7 +1,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Service', [{
-      name: 'massage',
+      name: 'Massage',
       thumbnail: 'massage.jpg',
       description: 'massage',
       price: 500,
@@ -10,7 +10,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'spa',
+      name: 'Spa',
       thumbnail: 'spa.jpg',
       description: 'spa',
       price: 400,
@@ -19,16 +19,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'restaurant',
-      thumbnail: 'restaurant.jpg',
-      description: 'restaurant',
-      price: 700,
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image00_cf6bnv',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'swimming pool',
+      name: 'Swimming pool',
       thumbnail: 'swimming-pool.jpg',
       description: 'swimming pool',
       price: 300,
@@ -37,7 +28,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'karaoke',
+      name: 'Karaoke',
       thumbnail: 'karaoke.jpg',
       description: 'karaoke',
       price: 350,
@@ -141,15 +132,6 @@ module.exports = {
       thumbnail: 'service.jpg',
       description: 'service description',
       image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image20_zysi9x',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Room service (24-hour)',
-      price: 700,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image19_r4wyac',
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -441,24 +423,6 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     },
-    {
-      name: '24-hour front desk',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image47_zjys6j',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: '24-hour room service',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image41_gypn1i',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
     ], {});
   },
 
