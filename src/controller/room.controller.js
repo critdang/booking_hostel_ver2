@@ -30,7 +30,16 @@ const getRooms = async (req, res) => {
     ResponseHelper.responseError(res, error.message);
   }
 };
-
+const getRoomByBranch = async (req, res) => {
+  try {
+    const data = await service.getRoomByBranch(req, res);
+    ResponseHelper.responseSuccess(res, data);
+  } catch (error) {
+    console.log("🚀 ~ file: room.controller.js:28 ~ getRooms ~ error:", error);
+    logger.info(`RoomAction:getRooms:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
 const getRoom = async (req, res) => {
   try {
     logger.info(`RoomAction:getRoom::req.params - ${JSON.stringify(req.params)}`);
@@ -148,5 +157,6 @@ module.exports = {
   deleteRoom,
   defaultImage,
   deleteImage,
-  reviewRoom
+  reviewRoom,
+  getRoomByBranch
 };
