@@ -7,17 +7,30 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: Sequelize.STRING,
-      thumbnail: Sequelize.STRING,
-      description: Sequelize.STRING,
-      price: Sequelize.INTEGER,
-      image: Sequelize.STRING,
-      createdAt: {
+      name: {
         allowNull: false,
+        type: Sequelize.STRING
+      },
+      thumbnail: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      description: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      price: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      image: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      createdAt: {
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

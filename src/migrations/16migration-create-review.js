@@ -28,17 +28,21 @@ module.exports = {
         },
       },
       content: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      image: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       reviewDate: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

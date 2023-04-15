@@ -71,11 +71,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     },
     adults: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.INTEGER,
     },
     kids: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.INTEGER,
     },
   }, {

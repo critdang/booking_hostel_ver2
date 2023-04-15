@@ -197,17 +197,18 @@ const createInvoice = async (req) => {
   // if user is not logged in, create a guest in user table
   let userId = null;
   let userInfo = req.user;
+  let newGuest = null;
   if (!userInfo) {
     userInfo = customerInfo;
     customerInfo.role = 'customer';
     customerInfo.avatar = 'default.jpg';
-    const newGuest = await db.User.create(customerInfo);
+    newGuest = await db.User.create(customerInfo);
     userId = newGuest.id;
   } else {
     userId = userInfo.id;
   }
   // find rooms
-  const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
+  const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 7);
   let total = 0;
   const { paymentMethod } = payment;
   const foundRooms = [];
@@ -240,7 +241,6 @@ const createInvoice = async (req) => {
       checkoutDate: searchInfo.To,
       paymentMethod,
       total,
-      status: paymentMethod === 'cash' ? 'Completed' : 'Pending',
     }, { transaction: t });
 
     for (const room of rooms) {
@@ -260,6 +260,8 @@ const createInvoice = async (req) => {
         invoiceId: newInvoice.id,
       }, { transaction: t });
     }
+    const hashPassword = await helperFn.hashPassword(code);
+    db.User.update({ password: hashPassword }, { where: { id: newGuest.id } });
     newInvoice.date = moment(newInvoice.date).format('DD/MM/YYYY');
     newInvoice.userInfo = userInfo;
     newInvoice.rooms = foundRooms;
@@ -338,41 +340,7 @@ const viewInvoice = async (req, res) => {
   res.render('createInvoiceNoti/invoice', { invoice: foundInvoice });
 };
 
-const checkIn = async (req) => {
-  const { invoiceId } = req.params;
-  // update invoice checkout status
-  const updateStatusRoom = await db.Invoice.update(
-    {
-      checkInStatus: 'Check In',
-    },
-    { where: { id: invoiceId } },
-  );
-  if (!updateStatusRoom) {
-    throw new AppError(
-      format(MessageHelper.getMessage('updateInvoiceFailed')),
-    );
-  }
-  // retrieve room from invoice to update status
-  const rooms = await db.RoomBooking.findAll(
-    {
-      where: { invoiceId },
-    }
-  );
-  for (const record of rooms) {
-    const updateRoom = await db.Room.update(
-      { status: 'Unavailable' },
-      { where: { id: record.roomId } },
-    );
-    if (!updateRoom) {
-      throw new AppError(
-        format(MessageHelper.getMessage('updateInvoiceFailed')),
-      );
-    }
-  }
-  return rooms;
-};
-
-const checkOut = async (req) => {
+const checkout = async (req) => {
   const { invoiceId } = req.params;
   // update invoice checkout status
   const updateStatusRoom = await db.Invoice.update(
@@ -416,6 +384,5 @@ module.exports = {
   viewInvoice,
   confirmCheckIn,
   getInvoiceByUserId,
-  checkOut,
-  checkIn
+  checkout
 };

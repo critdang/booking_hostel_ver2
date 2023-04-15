@@ -8,18 +8,23 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       fullName: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       email: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       password: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       address: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       phone: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       status: {
@@ -28,6 +33,7 @@ module.exports = {
         defaultValue: 'pending',
       },
       gender: {
+        allowNull: false,
         type: Sequelize.ENUM('male', 'female', 'other'),
         defaultValue: 'male',
       },
@@ -35,6 +41,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       isBlocked: {
+        allowNull: false,
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
@@ -42,15 +49,14 @@ module.exports = {
         type: Sequelize.STRING,
       },
       role: {
+        allowNull: false,
         type: Sequelize.ENUM('admin', 'customer', 'receptionist', 'manager', 'cleaner', 'guest'),
         defaultValue: 'customer',
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });
