@@ -23,52 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">31.84% </span>
+                <span class="strong">31.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>50/157</span>
-=======
-                <span class="strong">29.11% </span>
-                <span class="quiet">Statements</span>
-                <span class='fraction'>46/158</span>
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
+                <span class='fraction'>50/158</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-<<<<<<< HEAD
                 <span class='fraction'>2/4</span>
-=======
-                <span class='fraction'>1/2</span>
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
                 <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>2/3</span>
-=======
-                <span class="strong">33.33% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
             </div>
         
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">31.84% </span>
+                <span class="strong">31.64% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>50/157</span>
-=======
-                <span class="strong">29.11% </span>
-                <span class="quiet">Lines</span>
-                <span class='fraction'>46/158</span>
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
+                <span class='fraction'>50/158</span>
             </div>
         
             
@@ -242,7 +220,8 @@
 <a name='L155'></a><a href='#L155'>155</a>
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
-<a name='L158'></a><a href='#L158'>158</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -269,25 +248,14 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<<<<<<< HEAD
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-=======
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -435,7 +403,6 @@ const createUser = async (req, res) =&gt; {
 const login = async (req, res) =&gt; {
   try {
     logger.info(`UserAuthentication:login::${JSON.stringify(req.body)}`);
-<<<<<<< HEAD
     const data = await service.login(req, res);
     ResponseHelper.responseSuccess(res, data);
   } <span class="branch-0 cbranch-no" title="branch not covered" >catch (error) {</span>
@@ -443,15 +410,6 @@ const login = async (req, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >    logger.error(`UserAuthentication:login:: -  ${error}`);</span>
 <span class="cstat-no" title="statement not covered" >    ResponseHelper.responseError(res, error.message);</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-=======
-    const data = await service.login(req, res)<span class="branch-0 cbranch-no" title="branch not covered" >;</span>
-<span class="cstat-no" title="statement not covered" >    ResponseHelper.responseSuccess(res, data);</span>
-  } catch (error) {
-    console.log("🚀 ~ file: user.controller.js ~ line 29 ~ login ~ error", error);
-    logger.error(`UserAuthentication:login:: -  ${error}`);
-    ResponseHelper.responseError(res, error.message);
-  }
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
 };
 &nbsp;
 const forgotPassword = catchAsync(async (req, res) =&gt; {
@@ -466,6 +424,7 @@ const forgotPassword = catchAsync(async (req, res) =&gt; {
 <span class="cstat-no" title="statement not covered" >    await service.forgotPassword(req, res);</span>
 <span class="cstat-no" title="statement not covered" >    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('requestForgotPasswordSuccess'));</span>
 <span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log("🚀 ~ file: user.controller.js:46 ~ forgotPassword ~ error:", error);</span>
 <span class="cstat-no" title="statement not covered" >    logger.error(`UserAction:forgotPassword:: -  ${error}`);</span>
 <span class="cstat-no" title="statement not covered" >    ResponseHelper.responseError(res, error.message);</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
@@ -585,11 +544,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2023-04-10T09:27:34.319Z
-=======
-                at 2023-04-07T01:13:33.975Z
->>>>>>> b03c5c17e47d26ad2349354b677b1fb9652b07c5
+                at 2023-04-13T01:36:10.827Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

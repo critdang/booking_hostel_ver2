@@ -20,5 +20,7 @@ router.get('/confirmCheckIn/:code', auth.checkUser, controller.confirmCheckIn);
 // route for user to view their invoice
 router.get('/view/:option', auth.protectingRoutes, controller.viewInvoice);
 // route for checkout
-router.put('/checkout/:invoiceId', auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), controller.checkout);
+router.put('/checkout/:invoiceId', auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), controller.checkOut);
+// route for checkin
+router.put('/checkin/:invoiceId', auth.protectingRoutes, auth.checkRole(['admin', 'receptionist']), controller.checkIn);
 module.exports = router;

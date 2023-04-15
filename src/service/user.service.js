@@ -105,23 +105,24 @@ const login = async (req, res) => {
 
 const forgotPassword = async (req) => {
   const { email } = req.body;
-  const foundUser = await db.User.findOne({ where: { email, status: 'pending' } });
-  if (foundUser) {
+  const NotActiveOrFoundUser = await db.User.findOne({ where: { email, status: 'pending' } });
+  if (NotActiveOrFoundUser) {
     throw new AppError(
-      format(MessageHelper.getMessage('userNotActiveOrFound'), foundUser.email),
+      format(MessageHelper.getMessage('userNotActiveOrNotFound')),
     );
   }
   const token = JWTAction.generateJWT({ email }, '30m');
+  const ActiveUser = await db.User.findOne({ where: { email, status: 'active' } });
   const result = await db.User.update(
     { resetToken: token },
     {
       where: {
-        email,
+        email: ActiveUser.email,
         status: 'active',
       }
     },
   );
-  await helperFn.forgotPassword(email, token);
+  await helperFn.forgotPassword(ActiveUser.email, token);
   return result;
 };
 

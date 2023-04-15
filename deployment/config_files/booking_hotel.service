@@ -1,0 +1,15 @@
+[Unit]
+Description=BOOKING HOTEL REST API server
+
+[Service]
+ExecStart=/home/dev/nvm/versions/node/v8.0.0/bin/node /home/dev/backend/dist/index.js
+Restart=always
+User=dev
+Group=dev
+Environment=PATH=/usr/bin:/usr/local/bin:/home/dev/nvm/versions/node/v8.0.0/bin/node
+Environment=NODE_ENV=development
+Environment=NODE_TLS_REJECT_UNAUTHORIZED=0
+WorkingDirectory=/home/dev/backend
+
+[Install]
+WantedBy=multi-user.target

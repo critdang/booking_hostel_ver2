@@ -47,7 +47,7 @@ describe('CATEGORY /category', () => {
       .set('Authorization', `Bearer ${token}`);
     expect(res.statusCode).toEqual(200);
   });
-  it('get error if Guests successfully', async () => {
+  it('get error if Guests unsuccessfully', async () => {
     const res = await request(app)
       .get(`/guest/100`)
       .set('Authorization', `Bearer ${token}`);

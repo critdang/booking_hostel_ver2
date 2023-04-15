@@ -13,7 +13,7 @@
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "seeder": "npx sequelize-cli db:seed:all",
     "seeder-test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:all",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --force-exit"
+    "test": "cross-env NODE_ENV=test jest --no-htimeout --force-exit"
   },
   "repository": {
     "type": "git",

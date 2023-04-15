@@ -6,11 +6,6 @@
     "auditLog": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\.8199f1dbd8556567682fce001696f2cef4dea400-audit.json",
     "files": [
         {
-            "date": 1667927019648,
-            "name": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\event-admin..We-11-2022",
-            "hash": "f53bdd2c6325b858da6298c5df1a9e5a5450c8882f8e34ea766607b2ae89c078"
-        },
-        {
             "date": 1668043757836,
             "name": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\event-admin..Th-11-2022",
             "hash": "2e5efb1f1f99a1d5271e692e3e25d0e29dd5927a15b0c850018d3a2a8dfe0253"
@@ -129,6 +124,11 @@
             "date": 1680738485778,
             "name": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\event-admin..Th-04-2023",
             "hash": "d2a5659c96b1efc6c6135c45059c9d7120f61c8de67e9d5403dc8ce24c63d395"
+        },
+        {
+            "date": 1681290595894,
+            "name": "E:\\Huy\\Web_major\\project\\booking_hostel\\src\\log\\event-admin..We-04-2023",
+            "hash": "5a1dc82bb34e32c20a86a5511e9bb1f2568ce1f4e6fc4190d81d3a28fb2da6a3"
         }
     ],
     "hashType": "sha256"

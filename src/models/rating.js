@@ -45,8 +45,14 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    rate: DataTypes.INTEGER,
-    ratingDate: DataTypes.DATE,
+    rate: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    ratingDate: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
   }, {
     sequelize,
     modelName: 'Rating',

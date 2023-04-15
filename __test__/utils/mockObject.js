@@ -7,24 +7,34 @@ const mockUser2 = {
   email: 'huy@gmail.com',
   password: '123456',
 };
+const mockUserDelete = {
+  fullName: 'deleteUser',
+  email: 'deleteUser@gmail.com',
+  password: '123456',
+};
 const mockUserRegister = {
   fullName: 'testRegister',
   email: 'register@gmail.com',
   password: '123456',
 };
-const mockUserRegister2 = {
+const mockExistUserRegister = {
   fullName: 'testRegister',
   email: 'register@gmail.com',
   password: '123456',
 };
 const mockUserForgotPassword = {
-  email: 'dai@gmail.com',
+  email: 'forgotPassword@gmail.com',
 };
 const mockUserForgotPassword2 = {
   email: 'noExistedUser@gmail.com',
 };
-const mockBlockUser = {
-  email: 'huy@gmail.com',
+const mockBlockUserLogin = {
+  email: 'blockUserLogin@gmail.com',
+  password: '123456',
+};
+const mockBlockUserSeeder = {
+  fullName: 'BlockUserSeeder',
+  email: 'mockBlockUserSeederUser@gmail.com',
   password: '123456',
 };
 const mockAdminUser = {
@@ -55,7 +65,6 @@ const mockBranchSeeder = {
 // MOCK CATEGORY
 const mockCategorySeeder = {
   name: 'testCategory',
-  thumbnail: 'testThumbnail',
   description: 'testDescription'
 };
 
@@ -97,11 +106,13 @@ const mockRoomSeederAPI = {
 
 module.exports = {
   mockUser,
+  mockUserDelete,
   mockUserRegister,
-  mockUserRegister2,
+  mockExistUserRegister,
   mockUserForgotPassword,
   mockUserForgotPassword2,
-  mockBlockUser,
+  mockBlockUserLogin,
+  mockBlockUserSeeder,
   mockAdminUser,
   mockAdminUserAPI,
   mockUser2,
