@@ -36,19 +36,17 @@ module.exports = {
         type: Sequelize.DATE,
       },
       adults: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       kids: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

@@ -23,22 +23,39 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    fullName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    address: DataTypes.STRING,
-    phone: DataTypes.STRING,
+    fullName: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    password: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    address: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    phone: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
     status: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.ENUM('pending', 'reject', 'active'),
       defaultValue: 'pending',
     },
     gender: {
+      allowNull: false,
       type: DataTypes.ENUM('male', 'female', 'other'),
       defaultValue: 'male',
     },
     avatar: DataTypes.STRING,
     isBlocked: {
+      allowNull: false,
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
@@ -46,6 +63,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     role: {
+      allowNull: false,
       type: DataTypes.ENUM('admin', 'customer', 'receptionist', 'manager', 'cleaner', 'guest'),
       defaultValue: 'customer',
     },

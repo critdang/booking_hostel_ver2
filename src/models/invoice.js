@@ -42,15 +42,25 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    code: DataTypes.STRING,
-    checkinDate: DataTypes.DATE,
-    checkoutDate: DataTypes.DATE,
+    code: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    checkinDate: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
+    checkoutDate: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
     status: {
       allowNull: false,
       type: DataTypes.ENUM('Pending', 'Completed', 'Cancel'),
       defaultValue: 'Pending',
     },
     paymentMethod: {
+      allowNull: false,
       type: DataTypes.ENUM('Pending', 'VISA', 'Cash', 'PayPal'),
       defaultValue: 'Pending',
     },
@@ -58,10 +68,14 @@ module.exports = (sequelize, DataTypes) => {
     paymentAccountName: { type: DataTypes.STRING, allowNull: true },
     paymentAccountNumber: { type: DataTypes.STRING, allowNull: true },
     checkInStatus: {
+      allowNull: false,
       type: DataTypes.ENUM('Not Check In', 'Check In', 'Check Out'),
       defaultValue: 'Not Check In',
     },
-    total: DataTypes.FLOAT,
+    total: {
+      allowNull: false,
+      type: DataTypes.FLOAT
+    },
   }, {
     sequelize,
     modelName: 'Invoice',

@@ -46,9 +46,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     isUsable: {
+      allowNull: false,
       type: DataTypes.BOOLEAN,
     },
     amount: {
+      allowNull: false,
       type: DataTypes.INTEGER,
     },
   }, {

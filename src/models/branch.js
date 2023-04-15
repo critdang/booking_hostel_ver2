@@ -22,10 +22,22 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    name: DataTypes.STRING,
-    address: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    email: DataTypes.STRING,
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    address: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    phone: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'Branch',

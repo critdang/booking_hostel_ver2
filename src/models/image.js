@@ -26,10 +26,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     href: {
+      allowNull: false,
       type: DataTypes.STRING,
       defaultValue: 'true'
     },
     isDefault: {
+      allowNull: false,
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
