@@ -197,17 +197,18 @@ const createInvoice = async (req) => {
   // if user is not logged in, create a guest in user table
   let userId = null;
   let userInfo = req.user;
+  let newGuest = null;
   if (!userInfo) {
     userInfo = customerInfo;
     customerInfo.role = 'customer';
     customerInfo.avatar = 'default.jpg';
-    const newGuest = await db.User.create(customerInfo);
+    newGuest = await db.User.create(customerInfo);
     userId = newGuest.id;
   } else {
     userId = userInfo.id;
   }
   // find rooms
-  const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 6);
+  const code = Math.random().toString(36).replace(/[^a-z0-9]+/g, '').substring(1, 7);
   let total = 0;
   const { paymentMethod } = payment;
   const foundRooms = [];
@@ -259,6 +260,8 @@ const createInvoice = async (req) => {
         invoiceId: newInvoice.id,
       }, { transaction: t });
     }
+    const hashPassword = await helperFn.hashPassword(code);
+    db.User.update({ password: hashPassword }, { where: { id: newGuest.id } });
     newInvoice.date = moment(newInvoice.date).format('DD/MM/YYYY');
     newInvoice.userInfo = userInfo;
     newInvoice.rooms = foundRooms;

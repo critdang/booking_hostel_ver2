@@ -8,30 +8,39 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       detail: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       description: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       price: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       hot: {
+        allowNull: false,
         type: Sequelize.BOOLEAN,
       },
       active: {
+        allowNull: false,
         type: Sequelize.BOOLEAN,
       },
       adult: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       kid: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       status: {
+        allowNull: false,
         type: Sequelize.ENUM('available', 'unavailable', 'maintenance'),
         defaultValue: 'available',
       },
@@ -58,11 +67,9 @@ module.exports = {
         },
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

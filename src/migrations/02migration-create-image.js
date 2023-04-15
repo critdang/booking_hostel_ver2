@@ -8,17 +8,17 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       href: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       isDefault: {
+        allowNull: false,
         type: Sequelize.BOOLEAN,
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

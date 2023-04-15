@@ -28,17 +28,17 @@ module.exports = {
         },
       },
       rate: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       ratingDate: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

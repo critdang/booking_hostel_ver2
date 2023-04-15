@@ -8,12 +8,15 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       code: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       checkinDate: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
       checkoutDate: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
       status: {
@@ -22,6 +25,7 @@ module.exports = {
         defaultValue: 'Pending',
       },
       paymentMethod: {
+        allowNull: false,
         type: Sequelize.ENUM('Pending', 'VISA', 'Cash', 'PayPal'),
         defaultValue: 'Pending',
       },
@@ -37,10 +41,12 @@ module.exports = {
         allowNull: true,
       },
       checkInStatus: {
+        allowNull: false,
         type: Sequelize.ENUM('Not Check In', 'Check In', 'Check Out'),
         defaultValue: 'Not Check In',
       },
       total: {
+        allowNull: false,
         type: Sequelize.FLOAT,
       },
       userId: {
@@ -54,11 +60,9 @@ module.exports = {
         },
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

@@ -45,27 +45,19 @@ describe('BRANCH /branch', () => {
   it('get branches successfully', async () => {
     await db.Branch.create(mockBranch);
     const res = await request(app)
-      .get('/branch')
-      .set('Authorization', `Bearer ${token}`);
+      .get('/branch');
     expect(res.statusCode).toEqual(200);
     await db.Branch.destroy({ where: { name: mockBranch.name } });
-  });
-  it('get error if no login admin', async () => {
-    const res = await request(app)
-      .get('/branch');
-    expect(res.statusCode).toEqual(401);
   });
   // TEST-GET /branch/:id
   it('get specific branch', async () => {
     const res = await request(app)
-      .get(`/branch/${branch.id}`)
-      .set('Authorization', `Bearer ${token}`);
+      .get(`/branch/${branch.id}`);
     expect(res.statusCode).toEqual(200);
   });
   it('get error if no found specific branch', async () => {
     const res = await request(app)
-      .get('/branch/1')
-      .set('Authorization', `Bearer ${token}`);
+      .get('/branch/1');
     expect(res.statusCode).toEqual(400);
     expect(res.body.message).toMatch('No branch found with id 1');
   });

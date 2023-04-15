@@ -7,16 +7,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: Sequelize.STRING,
-      address: Sequelize.STRING,
-      phone: Sequelize.STRING,
-      email: Sequelize.STRING,
-      createdAt: {
+      name: {
         allowNull: false,
+        type: Sequelize.STRING
+      },
+      address: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      phone: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      createdAt: {
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

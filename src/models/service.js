@@ -25,11 +25,26 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    name: DataTypes.STRING,
-    thumbnail: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    image: DataTypes.STRING,
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    thumbnail: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    description: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    price: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    image: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'Service',

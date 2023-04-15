@@ -31,15 +31,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      amount: {
-        type: Sequelize.INTEGER,
+      status: {
+        allowNull: false,
+        type: Sequelize.ENUM('pending', 'accepted', 'rejected'),
       },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

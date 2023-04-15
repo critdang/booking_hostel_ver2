@@ -37,7 +37,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Car rental services',
+      name: 'Car rental',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -46,7 +46,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Catering services',
+      name: 'Catering',
       price: 200,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -55,7 +55,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Concierge services',
+      name: 'Guide tours',
       price: 300,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -64,7 +64,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Courier services',
+      name: 'Courier',
       price: 400,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -73,7 +73,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Doctor on call',
+      name: 'Doctor',
       price: 600,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -82,7 +82,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Dry cleaning',
+      name: 'Dry clean',
       price: 800,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -91,7 +91,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Excursions and guided tours',
+      name: 'Excursions',
       price: 1000,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -100,16 +100,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Flower arrangement',
-      price: 1200,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image09_wiz3r7',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Ironing service',
+      name: 'Ironing',
       price: 1300,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -118,7 +109,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Laundry and valet service',
+      name: 'Laundry',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -127,7 +118,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Mail services',
+      name: 'Mail',
       price: 500,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -136,7 +127,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Shoeshine service',
+      name: 'Shoeshine',
       price: 2000,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -154,25 +145,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Transfer and chauffeur driven limousine services',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image16_xaipa0',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Turndown service',
-      price: 300,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image15_pkrybn',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Valet parking',
+      name: 'Parking',
       price: 1000,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -181,7 +154,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Wake-up call',
+      name: 'Transport',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -190,7 +163,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Wedding services',
+      name: 'Wedding',
       price: 1000,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -199,7 +172,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Wheelchair accessible',
+      name: 'Wheelchair',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -208,7 +181,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Wi-Fi in public areas',
+      name: 'Wi-Fi',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
@@ -217,20 +190,11 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Airport transfer',
+      name: 'Airport',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
       image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image21_qggj5f',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Babysitting',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image22_jfzhgr',
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -253,173 +217,11 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'Business center',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image52_zvzc1t',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Car park',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image31_bsbzzz',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Coffee shop',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image30_rwlcup',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Concierge',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image29_nbvbf0',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
       name: 'Currency exchange',
       price: 100,
       thumbnail: 'service.jpg',
       description: 'service description',
       image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image28_w5tmvz',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Elevator',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image27_gdifyw',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Facilities for disabled guests',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image39_fyjxnw',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Family room',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image38_pdq7lx',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Laundry service',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image37_oo1yqx',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Luggage storage',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image36_puscbf',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Meeting facilities',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image45_tnwqon',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Restaurant',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image35_mekkvx',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Room service',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image34_kemjki',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Safety deposit boxes',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image44_ba0fp9',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Salon',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image43_iirw8p',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Shops',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image40_hzivi1',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Smoking area',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image42_ufhtmh',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Tours',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image41_gypn1i',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      name: 'Wi-Fi in public areas',
-      price: 100,
-      thumbnail: 'service.jpg',
-      description: 'service description',
-      image: 'http://res.cloudinary.com/dmr3ppomm/image/upload/v1/hotel_service/image51_ri5khk',
       createdAt: new Date(),
       updatedAt: new Date()
     },

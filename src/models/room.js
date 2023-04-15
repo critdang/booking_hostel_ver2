@@ -61,20 +61,45 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    name: DataTypes.STRING,
-    detail: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    hot: DataTypes.BOOLEAN,
-    active: DataTypes.BOOLEAN,
-    adult: DataTypes.INTEGER,
-    kid: DataTypes.INTEGER,
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    detail: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    description: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    price: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    hot: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN
+    },
+    active: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN
+    },
+    adult: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    kid: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
     status: {
+      allowNull: false,
       type: DataTypes.ENUM('available', 'unavailable', 'maintenance'),
       defaultValue: 'available',
     },
     categoryId: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
@@ -85,7 +110,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     branchId: {
-      allowNull: true,
+      allowNull: false,
       type: DataTypes.INTEGER,
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
