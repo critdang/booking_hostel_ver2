@@ -20,6 +20,7 @@ module.exports = {
     missingToken: 'Missing token',
 
     // authentication
+    userNotActive: 'User is not active',
     noFoundUser: 'No found user. Please sign up',
     wrongPassword: 'Wrong password. Please try again',
     emailNotExisted: 'Email is not existed',
@@ -33,6 +34,7 @@ module.exports = {
     verifyUserSuccess: 'Verify user success',
     expiredToken: 'Your token is expired. Please login again',
     refreshTokenNotFound: 'Refresh Token is not found',
+    userNotActiveOrNotFound: 'User is not active or not found',
     // user
     resetPasswordSucess: 'Reset password success',
     forgotPasswordFailed: 'This email is expired. Please use the latest email',
@@ -79,7 +81,8 @@ module.exports = {
     updateStatusOderFailed: 'Update invoice failed',
     updateInvoiceFailed: 'Update invoice failed',
     creatInvoiceSuccess: 'Create invoice successfully',
-    checkoutSuccess: 'Checkout successfully',
+    checkOutSuccess: 'Check Out successfully',
+    checkInSuccess: 'Check In successfully',
 
     // guest
     cannotFindGuests: 'Cannot find guests',

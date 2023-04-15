@@ -240,6 +240,7 @@ const createInvoice = async (req) => {
       checkoutDate: searchInfo.To,
       paymentMethod,
       total,
+      status: paymentMethod === 'cash' ? 'Completed' : 'Pending',
     }, { transaction: t });
 
     for (const room of rooms) {
@@ -337,7 +338,41 @@ const viewInvoice = async (req, res) => {
   res.render('createInvoiceNoti/invoice', { invoice: foundInvoice });
 };
 
-const checkout = async (req) => {
+const checkIn = async (req) => {
+  const { invoiceId } = req.params;
+  // update invoice checkout status
+  const updateStatusRoom = await db.Invoice.update(
+    {
+      checkInStatus: 'Check In',
+    },
+    { where: { id: invoiceId } },
+  );
+  if (!updateStatusRoom) {
+    throw new AppError(
+      format(MessageHelper.getMessage('updateInvoiceFailed')),
+    );
+  }
+  // retrieve room from invoice to update status
+  const rooms = await db.RoomBooking.findAll(
+    {
+      where: { invoiceId },
+    }
+  );
+  for (const record of rooms) {
+    const updateRoom = await db.Room.update(
+      { status: 'Unavailable' },
+      { where: { id: record.roomId } },
+    );
+    if (!updateRoom) {
+      throw new AppError(
+        format(MessageHelper.getMessage('updateInvoiceFailed')),
+      );
+    }
+  }
+  return rooms;
+};
+
+const checkOut = async (req) => {
   const { invoiceId } = req.params;
   // update invoice checkout status
   const updateStatusRoom = await db.Invoice.update(
@@ -381,5 +416,6 @@ module.exports = {
   viewInvoice,
   confirmCheckIn,
   getInvoiceByUserId,
-  checkout
+  checkOut,
+  checkIn
 };

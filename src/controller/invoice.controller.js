@@ -133,9 +133,9 @@ const viewInvoice = async (req, res) => {
   }
 };
 
-const checkout = async (req, res) => {
+const checkOut = async (req, res) => {
   try {
-    logger.info(`Invoice:confirmCheckIn::${JSON.stringify(req?.params)}`);
+    logger.info(`Invoice:checkOut::${JSON.stringify(req?.params)}`);
 
     if (_.isEmpty(req?.params)) {
       throw new AppError(
@@ -143,13 +143,32 @@ const checkout = async (req, res) => {
       );
     }
 
-    await invoiceService.checkout(req, res);
-    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('checkoutSuccess'));
+    await invoiceService.checkOut(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('checkOutSuccess'));
   } catch (error) {
-    logger.error(`Invoice:confirmCheckIn:: -  ${error}`);
+    logger.error(`Invoice:checkOut:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
 };
+
+const checkIn = async (req, res) => {
+  try {
+    logger.info(`Invoice:checkIn::${JSON.stringify(req?.params)}`);
+
+    if (_.isEmpty(req?.params)) {
+      throw new AppError(
+        format(MessageHelper.getMessage('missingParams'), 'req.params')
+      );
+    }
+
+    await invoiceService.checkIn(req, res);
+    ResponseHelper.responseSuccess(res, MessageHelper.getMessage('checkInSuccess'));
+  } catch (error) {
+    logger.error(`Invoice:checkIn:: -  ${error}`);
+    ResponseHelper.responseError(res, error.message);
+  }
+};
+
 module.exports = {
   getInvoice,
   getInvoices,
@@ -159,5 +178,6 @@ module.exports = {
   confirmCheckIn,
   viewInvoice,
   getInvoiceByUserId,
-  checkout
+  checkOut,
+  checkIn
 };

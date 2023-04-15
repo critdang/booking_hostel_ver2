@@ -3,7 +3,7 @@ const request = require('supertest');
 const app = require('../../src/server');
 // const { User } = require('../../src/models');
 const {
-  mockCategorySeeder2, mockCategorySeeder, mockBranch, mockAdminUser, mockUser
+  mockCategorySeeder2, mockCategorySeeder, mockAdminUser, mockUser
 } = require('../utils/mockObject');
 const db = require('../../src/models/index');
 const helperFnTest = require('../utils/helperFnTest');
@@ -47,11 +47,10 @@ describe('CATEGORY /category', () => {
   it('create category successfully', async () => {
     const res = await request(app)
       .post('/category')
-      .send(mockCategorySeeder)
+      .field("name", "testcategory12")
       .set('Content-Type', 'multipart/form-data')
       .set('Authorization', `Bearer ${token}`)
       .attach('thumbnail', '__test__/img/cat.jpg');
-    console.log("🚀 ~ file: category.test.js:57 ~ it ~ res:", res);
     expect(res.statusCode).toEqual(200);
   });
 

@@ -43,6 +43,7 @@ const forgotPassword = catchAsync(async (req, res) => {
     await service.forgotPassword(req, res);
     ResponseHelper.responseSuccess(res, MessageHelper.getMessage('requestForgotPasswordSuccess'));
   } catch (error) {
+    console.log("🚀 ~ file: user.controller.js:46 ~ forgotPassword ~ error:", error);
     logger.error(`UserAction:forgotPassword:: -  ${error}`);
     ResponseHelper.responseError(res, error.message);
   }
