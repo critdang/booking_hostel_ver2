@@ -71,7 +71,9 @@ app.use("*", (req, res) => {
 });
 
 // config PORT
-const PORT_BE_CONFIG = process.env.NODE_ENV === 'development' ? process.env.PORT_BE : process.env.PORT_TEST;
+// const PORT_BE_CONFIG = process.env.NODE_ENV === 'development' ? process.env.PORT_BE : process.env.PORT_TEST;
+const PORT_BE_CONFIG = process.env.PORT_BE;
+
 app.listen(PORT_BE_CONFIG, (err) => {
   if (err) {
     console.log(err);

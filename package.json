@@ -9,9 +9,11 @@
     "dev": "npx --NODE_ENV=development env-cmd -f .env.development nodemon src/server.js",
     "prod": "npx env-cmd -f .env.production nodemon src/server.js",
     "migrate": "npx sequelize-cli db:migrate",
+    "migrate-prod": "npx env-cmd -f .env.production sequelize-cli db:migrate",
     "migrate-test": "cross-env NODE_ENV=test npx sequelize-cli db:migrate",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "seeder": "npx sequelize-cli db:seed:all",
+    "seeder-prod": "npx env-cmd -f .env.production sequelize-cli db:seed:all",
     "seeder-test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:all",
     "test": "cross-env NODE_ENV=test jest --no-htimeout --force-exit"
   },
