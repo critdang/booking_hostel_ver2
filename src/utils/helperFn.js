@@ -52,15 +52,15 @@ if (process.env.NODE_ENV === 'production') {
   };
 }
 
-const transporter = nodemailer.createTransport(config);
-// const transporter = nodemailer.createTransport({
-//   host: "smtp.mailtrap.io",
-//   port: 2525,
-//   auth: {
-//     user: process.env.AUTH_USER,
-//     pass: process.env.AUTH_PASS
-//   }
-// });
+// const transporter = nodemailer.createTransport(config);
+const transporter = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: process.env.AUTH_USER,
+    pass: process.env.AUTH_PASS
+  }
+});
 // const transporter = nodemailer.createTransport({
 //   service: 'gmail',
 //   host: 'smtp.gmail.com',
